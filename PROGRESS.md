@@ -1,7 +1,10 @@
 # BioSense Project Implementation & Milestone Tracking
 *Platform: BioSense — Intelligent Microbial Growth & Antibiotic Susceptibility Analytics Platform*  
-*Author: Senior Full-Stack Engineer & Data Scientist (Pairing with 4th-Year BCA Student)*  
-*Status: All Milestones Completed & Fully Verified (44 Pytest Tests Passing)*
+*Author: Senior Full-Stack Engineer & Data Scientist (Pairing with 4th-Year BCA Student - Moumita Deb)*  
+*Status: All Milestones Completed, Production Ready, GitHub Synchronized & Fully Verified (50 Pytest Tests Passing)*
+*GitHub Repository: [https://github.com/moumitadeb-23/biosense](https://github.com/moumitadeb-23/biosense)*
+*Master Viva Defense Handbook: `docs/BioSense_Project_Documentation_and_Viva_Defense_Handbook.pdf` (9 Pages)*
+
 
 ---
 
