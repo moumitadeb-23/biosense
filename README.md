@@ -14,7 +14,7 @@
 
 > 🌐 **Live Web Application**: [**https://biosense-sxf6.onrender.com**](https://biosense-sxf6.onrender.com)  
 > 📖 **Master Project Documentation & Viva Handbook (PDF)**: [Download 9-Page PDF Dossier](https://biosense-sxf6.onrender.com/learn/download-handbook)  
-> 🎓 **Academic Provenance**: 4th-Year BCA (Data Science) Final-Year Major Project (2026) &bull; **Moumita Deb**
+> 🎓 **Academic Provenance**: 4th-Year BCA (Data Science) Project (2026) &bull; **Moumita Deb**
 
 
 ---
