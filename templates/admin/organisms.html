@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}Organisms Reference Catalog — BioSense Platform{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('admin.index') }}">Admin</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Organisms Catalog</li>
+        </ol>
+    </nav>
+
+    <!-- Header -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+        <div>
+            <h2 class="fw-bold tracking-tight mb-1">Microbial Reference Catalog</h2>
+            <p class="text-muted mb-0">Controlled microbiological nomenclature and taxonomical facts.</p>
+        </div>
+        <div>
+            <button class="btn btn-primary btn-sm px-3" data-bs-toggle="modal" data-bs-target="#addOrganismModal">
+                <i class="bi bi-plus-circle me-1"></i> Add Reference Organism
+            </button>
+        </div>
+    </div>
+
+    <!-- Organism Table Card -->
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0 small">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="ps-3">ID</th>
+                            <th>Scientific Name</th>
+                            <th>Genus / Species</th>
+                            <th>Gram Stain</th>
+                            <th>Domain / Family</th>
+                            <th class="pe-3">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for org in organisms %}
+                        <tr>
+                            <td class="ps-3 font-monospace text-muted">#{{ org.id }}</td>
+                            <td><strong class="fst-italic">{{ org.scientific_name }}</strong></td>
+                            <td>{{ org.genus or '-' }} {{ org.species or '' }}</td>
+                            <td>
+                                {% if org.gram_type == 'Gram-negative' %}
+                                    <span class="badge bg-danger-subtle text-danger border border-danger-subtle">Gram-negative</span>
+                                {% elif org.gram_type == 'Gram-positive' %}
+                                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle">Gram-positive</span>
+                                {% else %}
+                                    <span class="badge bg-secondary-subtle text-secondary">{{ org.gram_type or 'Other' }}</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ org.domain_family or '-' }}</td>
+                            <td class="pe-3 text-muted text-truncate" style="max-width: 280px;">{{ org.description or '-' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Organism Modal -->
+<div class="modal fade" id="addOrganismModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form action="{{ url_for('admin.organisms') }}" method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-plus-circle text-primary me-2"></i>Add Reference Organism</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold">Scientific Name <span class="text-danger">*</span></label>
+                        <input type="text" name="scientific_name" class="form-control form-control-sm" placeholder="e.g. Bacillus subtilis" required>
+                    </div>
+                    <div class="row g-2 mb-3">
+                        <div class="col">
+                            <label class="form-label small fw-semibold">Genus</label>
+                            <input type="text" name="genus" class="form-control form-control-sm" placeholder="e.g. Bacillus">
+                        </div>
+                        <div class="col">
+                            <label class="form-label small fw-semibold">Species</label>
+                            <input type="text" name="species" class="form-control form-control-sm" placeholder="e.g. subtilis">
+                        </div>
+                    </div>
+                    <div class="row g-2 mb-3">
+                        <div class="col">
+                            <label class="form-label small fw-semibold">Gram Type</label>
+                            <select name="gram_type" class="form-select form-select-sm">
+                                <option value="Gram-negative">Gram-negative</option>
+                                <option value="Gram-positive">Gram-positive</option>
+                                <option value="Fungus">Fungus</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label class="form-label small fw-semibold">Domain / Family</label>
+                            <input type="text" name="domain_family" class="form-control form-control-sm" placeholder="e.g. Bacillaceae">
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label small fw-semibold">Microbiological Notes</label>
+                        <textarea name="description" class="form-control form-control-sm" rows="3" placeholder="Model organism notes, physiological properties..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-sm px-3">Save to Catalog</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

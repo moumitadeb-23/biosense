@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Antibiotics Reference Catalog — BioSense Platform{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('admin.index') }}">Admin</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Antibiotics Catalog</li>
+        </ol>
+    </nav>
+
+    <!-- Header -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+        <div>
+            <h2 class="fw-bold tracking-tight mb-1">Antimicrobial Reference Catalog</h2>
+            <p class="text-muted mb-0">Controlled antimicrobial agents and standard pharmacological classes.</p>
+        </div>
+        <div>
+            <button class="btn btn-primary btn-sm px-3" data-bs-toggle="modal" data-bs-target="#addAntibioticModal">
+                <i class="bi bi-plus-circle me-1"></i> Add Antibiotic Agent
+            </button>
+        </div>
+    </div>
+
+    <!-- Antibiotics Table Card -->
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0 small">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="ps-3">ID</th>
+                            <th>Antibiotic Name</th>
+                            <th>Pharmacological Class</th>
+                            <th class="pe-3">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ab in antibiotics %}
+                        <tr>
+                            <td class="ps-3 font-monospace text-muted">#{{ ab.id }}</td>
+                            <td><strong class="text-primary">{{ ab.name }}</strong></td>
+                            <td>
+                                <span class="badge bg-secondary-subtle text-secondary border font-monospace">{{ ab.antibiotic_class }}</span>
+                            </td>
+                            <td class="pe-3 text-muted">Standard Catalog Entry</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Antibiotic Modal -->
+<div class="modal fade" id="addAntibioticModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form action="{{ url_for('admin.antibiotics') }}" method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-plus-circle text-primary me-2"></i>Add Antibiotic Agent</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold">Antibiotic Name <span class="text-danger">*</span></label>
+                        <input type="text" name="name" class="form-control form-control-sm" placeholder="e.g. Meropenem" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold">Antibiotic Class <span class="text-danger">*</span></label>
+                        <input type="text" name="antibiotic_class" class="form-control form-control-sm" placeholder="e.g. Carbapenem" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-sm px-3">Save to Catalog</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+organism,medium,temperature,ph,time_h,optical_density,data_source
+Escherichia coli,Mueller-Hinton,37.0,7.2,0.0,0.050,Public Dataset
+Escherichia coli,Mueller-Hinton,37.0,7.2,2.0,0.085,Public Dataset
+Escherichia coli,Mueller-Hinton,37.0,7.2,4.0,0.220,Public Dataset
+Escherichia coli,Mueller-Hinton,37.0,7.2,6.0,0.510,Public Dataset
+Escherichia coli,Mueller-Hinton,37.0,7.2,8.0,0.920,Public Dataset
+Escherichia coli,Mueller-Hinton,37.0,7.2,10.0,1.280,Public Dataset
+Escherichia coli,Mueller-Hinton,37.0,7.2,12.0,1.490,Public Dataset
+Escherichia coli,Mueller-Hinton,37.0,7.2,14.0,1.590,Public Dataset
+Escherichia coli,Mueller-Hinton,37.0,7.2,16.0,1.630,Public Dataset
+Escherichia coli,Mueller-Hinton,37.0,7.2,18.0,1.650,Public Dataset
+Escherichia coli,Mueller-Hinton,37.0,7.2,20.0,1.645,Public Dataset
+Escherichia coli,Mueller-Hinton,37.0,7.2,22.0,1.635,Public Dataset
+Escherichia coli,Mueller-Hinton,37.0,7.2,24.0,1.620,Public Dataset
+Staphylococcus aureus,Nutrient Broth,37.0,7.0,0.0,0.040,Public Dataset
+Staphylococcus aureus,Nutrient Broth,37.0,7.0,2.0,0.070,Public Dataset
+Staphylococcus aureus,Nutrient Broth,37.0,7.0,4.0,0.180,Public Dataset
+Staphylococcus aureus,Nutrient Broth,37.0,7.0,6.0,0.440,Public Dataset
+Staphylococcus aureus,Nutrient Broth,37.0,7.0,8.0,0.810,Public Dataset
+Staphylococcus aureus,Nutrient Broth,37.0,7.0,10.0,1.150,Public Dataset
+Staphylococcus aureus,Nutrient Broth,37.0,7.0,12.0,1.350,Public Dataset
+Staphylococcus aureus,Nutrient Broth,37.0,7.0,14.0,1.430,Public Dataset
+Staphylococcus aureus,Nutrient Broth,37.0,7.0,16.0,1.460,Public Dataset
+Staphylococcus aureus,Nutrient Broth,37.0,7.0,18.0,1.475,Public Dataset
+Staphylococcus aureus,Nutrient Broth,37.0,7.0,20.0,1.470,Public Dataset
+Staphylococcus aureus,Nutrient Broth,37.0,7.0,22.0,1.460,Public Dataset
+Staphylococcus aureus,Nutrient Broth,37.0,7.0,24.0,1.450,Public Dataset
+Pseudomonas aeruginosa,LB Broth,35.0,7.4,0.0,0.030,Public Dataset
+Pseudomonas aeruginosa,LB Broth,35.0,7.4,2.0,0.060,Public Dataset
+Pseudomonas aeruginosa,LB Broth,35.0,7.4,4.0,0.150,Public Dataset
+Pseudomonas aeruginosa,LB Broth,35.0,7.4,6.0,0.380,Public Dataset
+Pseudomonas aeruginosa,LB Broth,35.0,7.4,8.0,0.730,Public Dataset
+Pseudomonas aeruginosa,LB Broth,35.0,7.4,10.0,1.080,Public Dataset
+Pseudomonas aeruginosa,LB Broth,35.0,7.4,12.0,1.340,Public Dataset
+Pseudomonas aeruginosa,LB Broth,35.0,7.4,14.0,1.480,Public Dataset
+Pseudomonas aeruginosa,LB Broth,35.0,7.4,16.0,1.530,Public Dataset
+Pseudomonas aeruginosa,LB Broth,35.0,7.4,18.0,1.550,Public Dataset
+Pseudomonas aeruginosa,LB Broth,35.0,7.4,20.0,1.545,Public Dataset
+Pseudomonas aeruginosa,LB Broth,35.0,7.4,22.0,1.535,Public Dataset
+Pseudomonas aeruginosa,LB Broth,35.0,7.4,24.0,1.520,Public Dataset

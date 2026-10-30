@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+{% block title %}Validation Report — {{ dataset.filename }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-lg-4 py-4">
+    <!-- Header -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <a href="{{ url_for('datasets.index') }}" class="btn btn-sm btn-outline-secondary rounded-circle">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <h1 class="h3 fw-bold mb-0">Biological Validation Summary</h1>
+                <span class="badge {% if report.is_valid %}bg-success-subtle text-success border border-success{% else %}bg-warning-subtle text-warning border border-warning{% endif %} px-3 py-1 font-monospace">
+                    {% if report.is_valid %}PASSED VALIDATION{% else %}ACTION REQUIRED{% endif %}
+                </span>
+            </div>
+            <p class="text-muted small mb-0 font-monospace">
+                File: <strong>{{ dataset.filename }}</strong> · Type: <span class="text-uppercase text-teal fw-bold">{{ report.dataset_type }}</span> · Ingested: {{ dataset.created_at.strftime('%Y-%m-%d %H:%M') }} UTC
+            </p>
+        </div>
+
+        <div class="d-flex gap-2">
+            <a href="{{ url_for('datasets.download', dataset_id=dataset.id) }}" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                <i class="bi bi-download me-1"></i>Download Raw CSV
+            </a>
+            {% if report.is_valid %}
+                <form method="POST" action="{{ url_for('datasets.import_dataset', dataset_id=dataset.id) }}" class="d-inline">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="btn btn-teal btn-sm rounded-pill px-4 fw-semibold shadow-sm">
+                        <i class="bi bi-check2-circle me-1"></i>Confirm Direct Import
+                    </button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- 5 KPI Validation Summary Cards (Spec Section 13) -->
+    <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-xl">
+            <div class="bio-card kpi-card p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Total Rows Analyzed</div>
+                <div class="h3 fw-bold text-teal mb-0 font-monospace">{{ report.total_rows }}</div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl">
+            <div class="bio-card kpi-card kpi-emerald p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Valid Biological Rows</div>
+                <div class="h3 fw-bold text-success mb-0 font-monospace">{{ report.valid_rows }}</div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl">
+            <div class="bio-card kpi-card kpi-rose p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Invalid Rows Detected</div>
+                <div class="h3 fw-bold {% if report.invalid_rows > 0 %}text-danger{% else %}text-muted{% endif %} mb-0 font-monospace">{{ report.invalid_rows }}</div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl">
+            <div class="bio-card kpi-card kpi-amber p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Duplicate Rows</div>
+                <div class="h3 fw-bold {% if report.duplicate_rows > 0 %}text-warning{% else %}text-muted{% endif %} mb-0 font-monospace">{{ report.duplicate_rows }}</div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl">
+            <div class="bio-card kpi-card kpi-cyan p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Missing / Null Values</div>
+                <div class="h3 fw-bold {% if report.missing_values_count > 0 %}text-info{% else %}text-muted{% endif %} mb-0 font-monospace">{{ report.missing_values_count }}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fatal Error Banner if applicable -->
+    {% if report.fatal_error %}
+        <div class="alert alert-danger shadow-sm mb-4">
+            <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-x-octagon-fill fs-4"></i>
+                <div>
+                    <h6 class="fw-bold mb-0">Fatal Schema Validation Failure</h6>
+                    <small>{{ report.fatal_error }}</small>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="row g-4">
+        <!-- Cleaning Options Configuration Form -->
+        <div class="col-lg-5">
+            <div class="bio-card p-4 h-100">
+                <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-magic text-teal"></i>Data Cleaning Pipeline
+                </h5>
+                <p class="small text-muted mb-4">
+                    Select automated transformations to remediate flagged anomalies before importing into the research database. All modifications will produce an itemized change log.
+                </p>
+
+                <form method="POST" action="{{ url_for('datasets.clean', dataset_id=dataset.id) }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                    <div class="mb-3 form-check p-3 rounded bg-body border">
+                        <input type="checkbox" class="form-check-input ms-0 me-2" id="drop_duplicates" name="drop_duplicates" value="true" checked>
+                        <label class="form-check-label fw-semibold" for="drop_duplicates">Deduplicate Rows</label>
+                        <div class="small text-muted ps-4" style="font-size: 0.78rem;">
+                            Removes identical duplicate entries (detected {{ report.duplicate_rows }} duplicates).
+                        </div>
+                    </div>
+
+                    <div class="mb-3 form-check p-3 rounded bg-body border">
+                        <input type="checkbox" class="form-check-input ms-0 me-2" id="drop_invalid" name="drop_invalid" value="true" checked>
+                        <label class="form-check-label fw-semibold" for="drop_invalid">Purge Biologically Impossible Readings</label>
+                        <div class="small text-muted ps-4" style="font-size: 0.78rem;">
+                            Discards records with negative OD, OD > 5.0, pH outside 0–14, or invalid AST zone diameters.
+                        </div>
+                    </div>
+
+                    <div class="mb-4 form-check p-3 rounded bg-body border">
+                        <input type="checkbox" class="form-check-input ms-0 me-2" id="impute_missing" name="impute_missing" value="true">
+                        <label class="form-check-label fw-semibold" for="impute_missing">Impute Missing Values (Median / Mode)</label>
+                        <div class="small text-muted ps-4" style="font-size: 0.78rem;">
+                            Fills numeric blanks with column median; categorical with mode. If unchecked, rows with blanks are dropped.
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-teal w-100 py-2 rounded-pill fw-semibold shadow-sm">
+                        <i class="bi bi-play-circle me-1"></i>Execute Cleaning & View Change Log
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Detailed Error Breakdown Table -->
+        <div class="col-lg-7">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-exclamation-triangle text-warning"></i>Validation Issue Breakdown
+                    </h5>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">{{ report.errors|length }} Error(s), {{ report.warnings|length }} Warning(s)</span>
+                </div>
+
+                {% if report.errors or report.warnings %}
+                    <div class="table-responsive" style="max-height: 380px;">
+                        <table class="table table-sm table-hover align-middle mb-0">
+                            <thead class="sticky-top bg-body">
+                                <tr>
+                                    <th>Row #</th>
+                                    <th>Column</th>
+                                    <th>Detected Value</th>
+                                    <th>Biological Validation Reason</th>
+                                    <th>Severity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for err in report.errors %}
+                                    <tr>
+                                        <td class="font-monospace fw-bold text-danger">Line {{ err.row }}</td>
+                                        <td class="font-monospace text-teal">{{ err.column }}</td>
+                                        <td><code class="text-danger font-monospace">{{ err.value }}</code></td>
+                                        <td class="small">{{ err.reason }}</td>
+                                        <td><span class="badge bg-danger-subtle text-danger font-monospace">ERROR</span></td>
+                                    </tr>
+                                {% endfor %}
+                                {% for warn in report.warnings %}
+                                    <tr>
+                                        <td class="font-monospace text-warning">Line {{ warn.row }}</td>
+                                        <td class="font-monospace text-teal">{{ warn.column }}</td>
+                                        <td><code class="text-warning font-monospace">{{ warn.value }}</code></td>
+                                        <td class="small">{{ warn.reason }}</td>
+                                        <td><span class="badge bg-warning-subtle text-warning font-monospace">WARN</span></td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="p-5 text-center text-success">
+                        <i class="bi bi-check-circle-fill display-4 d-block mb-3"></i>
+                        <h6 class="fw-bold">Zero Biological Anomalies Detected</h6>
+                        <p class="small text-muted mb-0">All observations conform strictly to expected spectrophotometric and AST boundaries.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Raw Data Preview Table -->
+    <div class="bio-card p-4 mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">First 10 Data Rows Preview</h5>
+            <span class="small text-muted font-monospace">Head 10 of {{ report.total_rows }}</span>
+        </div>
+
+        {% if preview_rows %}
+            <div class="table-responsive">
+                <table class="table table-sm table-striped align-middle mb-0 font-monospace" style="font-size: 0.8rem;">
+                    <thead>
+                        <tr>
+                            {% for col in preview_columns %}
+                                <th>{{ col }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in preview_rows %}
+                            <tr>
+                                {% for col in preview_columns %}
+                                    <td>{{ row[col] }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

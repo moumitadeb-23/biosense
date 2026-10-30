@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: biosense-biotech-platform
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt && python scripts/seed_db.py"
+    startCommand: "gunicorn 'app:create_app()'"
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        value: sqlite:///biosense.db

@@ -1,0 +1,711 @@
+{% extends "base.html" %}
+{% block title %}BioSense — Intelligent Microbial Growth & Antibiotic Susceptibility Analytics{% endblock %}
+
+{% block content %}
+<!-- Hero Section with 3D Holographic Perspective, Ambient Glow Orbs & Interactive Particle Canvas -->
+<section class="hero-section py-5 bio-grid-pattern border-bottom position-relative overflow-hidden" id="heroSection" style="min-height: 88vh; display: flex; align-items: center;">
+    <!-- Interactive 3D Bioluminescent Microbial Particle Network Canvas -->
+    <canvas id="heroBio3DCanvas" class="position-absolute top-0 start-0 w-100 h-100" style="z-index: 1; pointer-events: none;"></canvas>
+
+    <!-- 3D Ambient Glowing Blur Orbs -->
+    <div class="glow-orb-cyan d-none d-md-block"></div>
+    <div class="glow-orb-teal d-none d-md-block"></div>
+    <div class="glow-orb-indigo d-none d-lg-block"></div>
+
+    <div class="container py-lg-5 position-relative" style="z-index: 2;">
+        <div class="row align-items-center g-5">
+            <!-- Left Hero Text & 3D CTAs -->
+            <div class="col-lg-7 text-center text-lg-start">
+                <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-teal-subtle text-teal border border-teal-subtle mb-3 shadow-sm">
+                    <span class="pulse-indicator"></span>
+                    <span class="small font-monospace fw-semibold">Next-Gen Microbial Informatics & AST Analytics</span>
+                </div>
+
+                <h1 class="display-3 fw-extrabold tracking-tight mb-3">
+                    Turning Biological Data into <span class="holographic-text">Intelligent Insights</span>
+                </h1>
+
+                <p class="lead text-muted mb-4 pe-lg-4 fs-5">
+                    A full-stack computational biotechnology platform engineered for laboratory researchers and data science scholars. Model bacterial growth kinetics, analyze clinical antibiotic susceptibility profiles, screen for culture anomalies, and generate automated 13-section PDF reports.
+                </p>
+
+                <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3 mb-4">
+                    <a href="{{ url_for('dashboard.index') }}" class="btn btn-3d-teal btn-lg px-4 rounded-pill shadow">
+                        <i class="bi bi-speedometer2 me-2"></i>Launch Dashboard
+                    </a>
+                    <a href="{{ url_for('growth.index') }}" class="btn btn-3d-secondary btn-lg px-4 rounded-pill">
+                        <i class="bi bi-graph-up me-2"></i>Growth Simulator
+                    </a>
+                    <a href="{{ url_for('auth.register') }}" class="btn btn-link text-decoration-none px-3 py-2 text-teal fw-semibold">
+                        Create Student Account <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+
+                <!-- Verified Standards Badges -->
+                <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-4 pt-3 border-top border-secondary-subtle">
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge rounded-circle bg-teal-subtle text-teal p-1"><i class="bi bi-check2"></i></span>
+                        <span class="small text-muted font-monospace">CLSI / EUCAST Breakpoints</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge rounded-circle bg-teal-subtle text-teal p-1"><i class="bi bi-check2"></i></span>
+                        <span class="small text-muted font-monospace">Scikit-Learn ML Pipelines</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge rounded-circle bg-teal-subtle text-teal p-1"><i class="bi bi-check2"></i></span>
+                        <span class="small text-muted font-monospace">Publication PDF Engine</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Hero 3D Holographic Laboratory Card -->
+            <div class="col-lg-5 hero-3d-perspective">
+                <div class="position-relative" id="heroCardWrapper">
+                    <!-- Floating 3D Micro-Chip Top Right -->
+                    <div class="floating-3d-chip-1 badge bg-emerald text-white border border-emerald rounded-pill px-3 py-2 d-inline-flex align-items-center gap-2 shadow">
+                        <span class="pulse-indicator bg-white"></span>
+                        <span class="font-monospace fw-semibold" style="font-size: 0.75rem;">EUCAST M100 Validated</span>
+                    </div>
+
+                    <!-- Floating 3D Micro-Chip Middle Left -->
+                    <div class="floating-3d-chip-3 badge bg-body text-warning border border-warning-subtle rounded-pill px-3 py-2 d-inline-flex align-items-center gap-2 shadow d-none d-sm-inline-flex">
+                        <i class="bi bi-stopwatch text-warning"></i>
+                        <span class="font-monospace fw-semibold" style="font-size: 0.75rem;">Doubling Time: 1.33h</span>
+                    </div>
+
+                    <!-- Floating 3D Micro-Chip Bottom Left -->
+                    <div class="floating-3d-chip-2 badge bg-body text-teal border border-teal-subtle rounded-pill px-3 py-2 d-inline-flex align-items-center gap-2 shadow">
+                        <i class="bi bi-cpu-fill text-info"></i>
+                        <span class="font-monospace fw-semibold" style="font-size: 0.75rem;">Verhulst Fit: R² = 0.994</span>
+                    </div>
+
+                    <!-- 3D Tilted Card Body -->
+                    <div class="card-3d-tilt p-4 position-relative" id="heroInteractiveCard">
+                        <!-- Dynamic Specular Glare Reflection Overlay -->
+                        <div class="card-3d-glare"></div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-3 depth-layer-front">
+                            <span class="badge bg-teal-subtle text-teal font-monospace px-2 py-1 border border-teal-subtle">GROWTH KINETICS MODEL</span>
+                            <span class="badge bg-secondary-subtle text-muted font-monospace">N(t) = K / (1 + A·e^-rt)</span>
+                        </div>
+
+                        <!-- 3D High-Tech Vector Biological Diagram -->
+                        <div class="svg-container text-center py-2 position-relative depth-layer-middle">
+                            <svg viewBox="0 0 460 260" class="w-100 h-auto" style="max-height: 250px;">
+                                <defs>
+                                    <linearGradient id="curveGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#0d9488" stop-opacity="0.3" />
+                                        <stop offset="45%" stop-color="#06b6d4" stop-opacity="0.9" />
+                                        <stop offset="100%" stop-color="#10b981" stop-opacity="1" />
+                                    </linearGradient>
+                                    <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.35" />
+                                        <stop offset="60%" stop-color="#0d9488" stop-opacity="0.1" />
+                                        <stop offset="100%" stop-color="#0d9488" stop-opacity="0.0" />
+                                    </linearGradient>
+                                    <filter id="glow3d" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="4" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                </defs>
+
+                                <!-- Coordinate Grid -->
+                                <line x1="40" y1="20" x2="40" y2="220" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.5" />
+                                <line x1="40" y1="220" x2="430" y2="220" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.5" />
+
+                                <!-- Horizontal Grid lines -->
+                                <line x1="40" y1="160" x2="430" y2="160" stroke="currentColor" stroke-opacity="0.08" stroke-dasharray="4" />
+                                <line x1="40" y1="100" x2="430" y2="100" stroke="currentColor" stroke-opacity="0.08" stroke-dasharray="4" />
+                                <line x1="40" y1="40" x2="430" y2="40" stroke="currentColor" stroke-opacity="0.08" stroke-dasharray="4" />
+
+                                <!-- Shaded Carrying Capacity Ceiling -->
+                                <line x1="40" y1="50" x2="430" y2="50" stroke="#f43f5e" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="3" />
+
+                                <!-- Area Under Curve -->
+                                <path d="M 40,210 Q 110,210 140,200 T 220,110 T 320,50 L 410,50 L 410,220 L 40,220 Z" fill="url(#areaGradient)" />
+
+                                <!-- Glow Underlayer -->
+                                <path d="M 40,210 Q 110,210 140,200 T 220,110 T 320,50 L 410,50" fill="none" stroke="#06b6d4" stroke-width="6" stroke-opacity="0.3" filter="url(#glow3d)" />
+
+                                <!-- Sigmoidal Logistic Growth Curve -->
+                                <path id="heroSigmoidPath" d="M 40,210 Q 110,210 140,200 T 220,110 T 320,50 L 410,50" fill="none" stroke="url(#curveGradient)" stroke-width="3.5" stroke-linecap="round" />
+
+                                <!-- Animated Laser Pulse Beam traversing the curve -->
+                                <path d="M 40,210 Q 110,210 140,200 T 220,110 T 320,50 L 410,50" fill="none" stroke="#38bdf8" stroke-width="4.5" stroke-linecap="round" class="laser-pulse-beam" filter="url(#glow3d)" />
+
+                                <!-- Phase Annotations & 3D Glowing Nodes -->
+                                <!-- Lag Phase -->
+                                <circle cx="85" cy="208" r="4.5" fill="#0d9488" stroke="#ffffff" stroke-width="1.5" />
+                                <text x="70" y="195" fill="currentColor" fill-opacity="0.75" font-size="10" font-family="monospace">Lag Phase</text>
+
+                                <!-- Exponential / Log Phase (Inflection) -->
+                                <circle cx="200" cy="130" r="6" fill="#06b6d4" stroke="#ffffff" stroke-width="2" class="pulse-node" />
+                                <text x="140" y="115" fill="#06b6d4" font-size="11" font-weight="bold" font-family="monospace">Log (μ_max)</text>
+
+                                <!-- Stationary Phase -->
+                                <circle cx="350" cy="50" r="4.5" fill="#10b981" stroke="#ffffff" stroke-width="1.5" />
+                                <text x="320" y="38" fill="#10b981" font-size="10" font-family="monospace">Stationary (K)</text>
+
+                                <!-- Axes Labels -->
+                                <text x="365" y="240" fill="currentColor" fill-opacity="0.65" font-size="10" font-family="monospace">Time (hours) →</text>
+                                <text x="10" y="30" fill="currentColor" fill-opacity="0.65" font-size="10" font-family="monospace" transform="rotate(-90, 15, 30)">OD600 →</text>
+                            </svg>
+                        </div>
+
+                        <!-- 3D KPI Micro-grid -->
+                        <div class="row g-2 pt-3 border-top border-secondary-subtle text-center depth-layer-middle">
+                            <div class="col-4">
+                                <div class="p-2 rounded bg-body-tertiary">
+                                    <span class="small text-muted d-block font-monospace" style="font-size: 0.68rem;">SPECIFIC GROWTH</span>
+                                    <span class="fw-bold text-teal font-monospace" style="font-size: 0.85rem;">μ = 0.52 h⁻¹</span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="p-2 rounded bg-body-tertiary">
+                                    <span class="small text-muted d-block font-monospace" style="font-size: 0.68rem;">DOUBLING TIME</span>
+                                    <span class="fw-bold text-info font-monospace" style="font-size: 0.85rem;">t_d = 1.33 h</span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="p-2 rounded bg-body-tertiary">
+                                    <span class="small text-muted d-block font-monospace" style="font-size: 0.68rem;">CARRYING CAP.</span>
+                                    <span class="fw-bold text-emerald font-monospace" style="font-size: 0.85rem;">K = 1.85 OD</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3D Platform Statistics Banner with Elevated Glass Cards -->
+<section class="py-5 border-bottom bg-body-tertiary position-relative">
+    <div class="container">
+        <div class="row g-3 text-center">
+            <div class="col-6 col-md-3">
+                <div class="stat-card-3d p-4 shadow-sm h-100">
+                    <div class="display-6 fw-extrabold text-teal font-monospace mb-1">12+</div>
+                    <div class="small text-muted text-uppercase fw-semibold tracking-wide" style="font-size: 0.75rem;">Pathogen Species</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card-3d p-4 shadow-sm h-100">
+                    <div class="display-6 fw-extrabold text-info font-monospace mb-1">16+</div>
+                    <div class="small text-muted text-uppercase fw-semibold tracking-wide" style="font-size: 0.75rem;">Antibiotic Agents</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card-3d p-4 shadow-sm h-100">
+                    <div class="display-6 fw-extrabold text-warning font-monospace mb-1">3</div>
+                    <div class="small text-muted text-uppercase fw-semibold tracking-wide" style="font-size: 0.75rem;">Machine Learning Models</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card-3d p-4 shadow-sm h-100">
+                    <div class="display-6 fw-extrabold text-emerald font-monospace mb-1">100%</div>
+                    <div class="small text-muted text-uppercase fw-semibold tracking-wide" style="font-size: 0.75rem;">Deterministic Physics</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works (4-Step 3D Workflow) -->
+<section class="py-5 border-bottom">
+    <div class="container py-lg-4">
+        <div class="text-center mb-5">
+            <span class="badge bg-teal-subtle text-teal border border-teal-subtle px-3 py-1 rounded-pill font-monospace mb-2">END-TO-END WORKFLOW</span>
+            <h2 class="h1 fw-bold tracking-tight">From Raw Culture Data to Automated Research Reports</h2>
+            <p class="text-muted col-lg-7 mx-auto">
+                BioSense bridges wet-lab microbiology experiments with data science and machine learning through a structured four-stage analytical pipeline.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Step 1 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="workflow-card-3d h-100 p-4 shadow-sm">
+                    <div class="step-number-3d mb-3">1</div>
+                    <h5 class="fw-bold mb-2">Ingestion & Validation</h5>
+                    <p class="small text-muted mb-0">
+                        Upload CSV growth time-series or AST records. The ingestion engine screens for schema integrity, biological constraints (pH 0–14, positive OD), and formula injection attacks.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="workflow-card-3d h-100 p-4 shadow-sm">
+                    <div class="step-number-3d mb-3">2</div>
+                    <h5 class="fw-bold mb-2">Growth Kinetics</h5>
+                    <p class="small text-muted mb-0">
+                        Fit empirical time vs OD curves, isolate the exponential growth interval, extract the maximum specific growth rate (&mu;<sub>max</sub>), compute doubling times (t<sub>d</sub>), and simulate logistic regimes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="workflow-card-3d h-100 p-4 shadow-sm">
+                    <div class="step-number-3d mb-3">3</div>
+                    <h5 class="fw-bold mb-2">Susceptibility Profiling</h5>
+                    <p class="small text-muted mb-0">
+                        Map disk diffusion zone diameters or MIC assays against established EUCAST and CLSI clinical breakpoints, producing strict dataset-derived resistance categorizations (S/I/R).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="workflow-card-3d h-100 p-4 shadow-sm">
+                    <div class="step-number-3d mb-3">4</div>
+                    <h5 class="fw-bold mb-2">ML Lab & PDF Reports</h5>
+                    <p class="small text-muted mb-0">
+                        Train Scikit-Learn classification & regression models with leak-free preprocessing, compute permutation feature importances, detect outliers, and export publication-ready 13-section PDF reports.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Core Platform Capabilities (Spec Section 6 & 25) with 3D Hover Lift -->
+<section class="py-5 border-bottom bio-grid-pattern">
+    <div class="container py-lg-4">
+        <div class="text-center mb-5">
+            <span class="badge bg-teal-subtle text-teal border border-teal-subtle px-3 py-1 rounded-pill font-monospace mb-2">PLATFORM MODULES</span>
+            <h2 class="h1 fw-bold tracking-tight">Comprehensive Biotechnology Toolkit</h2>
+            <p class="text-muted col-lg-7 mx-auto">
+                Designed to satisfy rigorous scientific standards and defendable viva examination requirements.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Feature 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card-3d h-100 p-4 shadow-sm">
+                    <div class="feature-icon-3d mb-3 text-teal fs-3">
+                        <i class="bi bi-graph-up"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Kinetics Modeling & Doubling Time</h5>
+                    <p class="small text-muted mb-3">
+                        Deterministic mathematical modeling using SciPy curve fitting and the Verhulst logistic differential equation: <code>N(t) = K / (1 + A·e^-rt)</code>. Automatically computes max OD, growth rates, and doubling times.
+                    </p>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">SciPy Optimize Curve-Fit</span>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card-3d h-100 p-4 shadow-sm">
+                    <div class="feature-icon-3d mb-3 text-info fs-3">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Standardized AST Interpretation</h5>
+                    <p class="small text-muted mb-3">
+                        Automated Kirby-Bauer disk diffusion diameter and MIC profiling categorized strictly into Sensitive (S), Intermediate (I), and Resistant (R) phenotypes adhering to EUCAST clinical guidelines.
+                    </p>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">EUCAST / CLSI Rules</span>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card-3d h-100 p-4 shadow-sm">
+                    <div class="feature-icon-3d mb-3 text-warning fs-3">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Dual-Variant Machine Learning Lab</h5>
+                    <p class="small text-muted mb-3">
+                        Exposes the educational reality of target leakage by evaluating models with and without zone diameter. Includes Logistic Regression, Decision Trees, and Random Forests.
+                    </p>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">Stratified Pipelines</span>
+                </div>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card-3d h-100 p-4 shadow-sm">
+                    <div class="feature-icon-3d mb-3 text-danger fs-3">
+                        <i class="bi bi-exclamation-diamond"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Statistical Anomaly Screening</h5>
+                    <p class="small text-muted mb-3">
+                        Multi-method screening using Interquartile Range (IQR), Z-scores, and unsupervised Isolation Forests to flag potential culture contamination or measurement artifacts.
+                    </p>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">IsolationForest(cont=0.05)</span>
+                </div>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card-3d h-100 p-4 shadow-sm">
+                    <div class="feature-icon-3d mb-3 text-primary fs-3">
+                        <i class="bi bi-journal-medical"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Bio Explorer Organism Catalog</h5>
+                    <p class="small text-muted mb-3">
+                        Dedicated biological profiles for model organisms and ESKAPE pathogens, aggregating Gram classification, taxonomy, experimental records, and susceptibility profiles.
+                    </p>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">Relational Bio-Registry</span>
+                </div>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card-3d h-100 p-4 shadow-sm">
+                    <div class="feature-icon-3d mb-3 text-success fs-3">
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">13-Section PDF Report Engine</h5>
+                    <p class="small text-muted mb-3">
+                        Automated ReportLab generator assembling executive summaries, embedded high-DPI matplotlib graphics, statistical summaries, ML inferences, and clinical disclaimer stamps.
+                    </p>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">ReportLab Vector Output</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Scientific & Viva Ethics Notice -->
+<section class="py-5 bg-body-tertiary">
+    <div class="container py-lg-3">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+                <div class="d-flex align-items-start gap-3">
+                    <div class="fs-1 text-warning mt-1">
+                        <i class="bi bi-shield-shaded"></i>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold mb-2">Scientific Integrity & Academic Compliance</h4>
+                        <p class="text-muted mb-0">
+                            BioSense was built strictly under biological and software engineering ethical standards. Synthetic demonstration data is clearly marked to prevent confusion with laboratory trials, models avoid diagnostic overclaiming, and every data manipulation preserves an unalterable audit trail.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{{ url_for('dashboard.index') }}" class="btn btn-3d-teal px-4 rounded-pill">
+                    <i class="bi bi-arrow-right-circle me-2"></i>Enter Platform
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Developer & Engineering Credits Section with 3D Holographic Card -->
+<section class="py-5 border-top" style="background: radial-gradient(circle at 50% 100%, rgba(13, 148, 136, 0.12) 0%, transparent 70%);">
+    <div class="container py-lg-4">
+        <div class="text-center mb-5">
+            <span class="badge bg-teal-subtle text-teal border border-teal-subtle px-3 py-1 rounded-pill font-monospace mb-2">ENGINEERING CREDITS</span>
+            <h2 class="h1 fw-bold tracking-tight">Developer & Academic Engineering Credits</h2>
+            <p class="text-muted col-lg-7 mx-auto">
+                Designed, architected, and engineered as a final-year major project capstone.
+            </p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="hologram-credential-card p-4 p-md-5 position-relative overflow-hidden">
+                    <!-- Subtle Background Vector Glyph -->
+                    <div class="position-absolute top-0 end-0 p-3 opacity-25">
+                        <i class="bi bi-code-slash text-teal" style="font-size: 6rem;"></i>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row align-items-center gap-4 position-relative" style="z-index: 2;">
+                        <div class="text-center">
+                            <span class="rounded-circle bg-teal text-white d-inline-flex align-items-center justify-content-center shadow-lg" style="width: 95px; height: 95px; font-size: 2.4rem; font-weight: 800; border: 3px solid rgba(45, 212, 191, 0.4);">
+                                <i class="bi bi-mortarboard-fill"></i>
+                            </span>
+                            <div class="mt-2">
+                                <span class="badge bg-success-subtle text-success border border-success-subtle font-monospace" style="font-size: 0.72rem;">Major Project Capstone</span>
+                            </div>
+                        </div>
+
+                        <div class="flex-grow-1 text-center text-md-start">
+                            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-2 mb-1">
+                                <h4 class="fw-bold mb-0">BioSense Engineering Team</h4>
+                                <span class="badge bg-primary-subtle text-primary border border-primary-subtle font-monospace">BCA (Data Science) 2026</span>
+                            </div>
+                            <p class="text-teal small fw-semibold mb-2">Lead Full-Stack Data Scientist & Final-Year Major Project Candidate</p>
+                            <p class="small text-muted mb-3">
+                                Built to demonstrate end-to-end full-stack software development, numerical differential equation modeling (Verhulst logistic curves), Scikit-Learn supervised ML pipelines with target leakage awareness, and automated 13-section vector PDF reporting for microbial laboratory analytics.
+                            </p>
+
+                            <!-- Tech Stack Pills -->
+                            <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-1 mb-3">
+                                <span class="badge bg-body-tertiary text-muted border font-monospace" style="font-size: 0.7rem;">Python 3.10+</span>
+                                <span class="badge bg-body-tertiary text-muted border font-monospace" style="font-size: 0.7rem;">Flask 2.3 App Factory</span>
+                                <span class="badge bg-body-tertiary text-muted border font-monospace" style="font-size: 0.7rem;">Flask-SQLAlchemy</span>
+                                <span class="badge bg-body-tertiary text-muted border font-monospace" style="font-size: 0.7rem;">Scikit-Learn 1.3+</span>
+                                <span class="badge bg-body-tertiary text-muted border font-monospace" style="font-size: 0.7rem;">SciPy Curve Fit</span>
+                                <span class="badge bg-body-tertiary text-muted border font-monospace" style="font-size: 0.7rem;">ReportLab 5.0</span>
+                                <span class="badge bg-body-tertiary text-muted border font-monospace" style="font-size: 0.7rem;">Plotly.js Visualizations</span>
+                                <span class="badge bg-body-tertiary text-muted border font-monospace" style="font-size: 0.7rem;">Pytest 8.x</span>
+                            </div>
+
+                            <!-- Defense Companion Links -->
+                            <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-2">
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-secondary rounded-pill px-3">
+                                    <i class="bi bi-github me-1"></i>GitHub Repository
+                                </a>
+                                <a href="{{ url_for('dashboard.index') }}" class="btn btn-sm btn-3d-teal rounded-pill px-3">
+                                    <i class="bi bi-play-circle me-1"></i>Launch Platform
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mentor & Academic Notice -->
+                    <div class="border-top pt-3 mt-4 text-center text-md-start small text-muted">
+                        <i class="bi bi-award text-teal me-1"></i>
+                        <strong>University Evaluation:</strong> Submitted in partial fulfillment of the requirements for the Degree of Bachelor of Computer Applications (Data Science). All code, mathematical models, and datasets are open source and verifiable.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+/**
+ * BioSense 3D Immersive Landing Page Engine
+ * 1. Interactive 3D Bioluminescent Particle Canvas (Perspective Nodes & Lattice Filaments)
+ * 2. Real-Time 3D Mouse Parallax & Dynamic Specular Glare Tilt
+ */
+(function() {
+    'use strict';
+
+    // =========================================================================
+    // 1. BIOLUMINESCENT 3D PARTICLE NETWORK CANVAS
+    // =========================================================================
+    const canvas = document.getElementById('heroBio3DCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = canvas.parentElement.offsetWidth;
+    let height = canvas.height = canvas.parentElement.offsetHeight;
+
+    window.addEventListener('resize', () => {
+        if (!canvas.parentElement) return;
+        width = canvas.width = canvas.parentElement.offsetWidth;
+        height = canvas.height = canvas.parentElement.offsetHeight;
+    });
+
+    const PARTICLE_COUNT = 38;
+    const particles = [];
+    const colors = [
+        'rgba(45, 212, 191, ',   // Teal
+        'rgba(56, 189, 248, ',   // Sky Cyan
+        'rgba(16, 185, 129, ',   // Emerald
+        'rgba(129, 140, 248, '   // Indigo
+    ];
+
+    let targetRotX = 0;
+    let targetRotY = 0;
+    let currentRotX = 0;
+    let currentRotY = 0;
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push({
+            x: (Math.random() - 0.5) * width * 1.1,
+            y: (Math.random() - 0.5) * height * 1.1,
+            z: Math.random() * 600 - 300,
+            radius: Math.random() * 2.2 + 1.2,
+            baseAlpha: Math.random() * 0.45 + 0.35,
+            colorPrefix: colors[Math.floor(Math.random() * colors.length)],
+            vx: (Math.random() - 0.5) * 0.45,
+            vy: (Math.random() - 0.5) * 0.45,
+            vz: (Math.random() - 0.5) * 0.3
+        });
+    }
+
+    // Mouse tracking for 3D Camera Perspective
+    const heroSection = document.getElementById('heroSection');
+    if (heroSection) {
+        heroSection.addEventListener('mousemove', (e) => {
+            const rect = heroSection.getBoundingClientRect();
+            const normX = (e.clientX - rect.left) / rect.width - 0.5;
+            const normY = (e.clientY - rect.top) / rect.height - 0.5;
+            targetRotY = normX * 0.35;
+            targetRotX = -normY * 0.35;
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+            targetRotX = 0;
+            targetRotY = 0;
+        });
+    }
+
+    function render3DCanvas() {
+        if (document.hidden) {
+            requestAnimationFrame(render3DCanvas);
+            return;
+        }
+
+        ctx.clearRect(0, 0, width, height);
+
+        // Smooth camera rotation interpolation (lerp)
+        currentRotX += (targetRotX - currentRotX) * 0.05;
+        currentRotY += (targetRotY - currentRotY) * 0.05;
+
+        const cosX = Math.cos(currentRotX);
+        const sinX = Math.sin(currentRotX);
+        const cosY = Math.cos(currentRotY);
+        const sinY = Math.sin(currentRotY);
+
+        const fov = 450;
+        const projected = [];
+
+        for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+
+            // Update particle drift
+            p.x += p.vx;
+            p.y += p.vy;
+            p.z += p.vz;
+
+            // Boundaries wrap
+            const halfW = width * 0.65;
+            const halfH = height * 0.65;
+            if (p.x < -halfW) p.x = halfW;
+            if (p.x > halfW) p.x = -halfW;
+            if (p.y < -halfH) p.y = halfH;
+            if (p.y > halfH) p.y = -halfH;
+            if (p.z < -300) p.z = 300;
+            if (p.z > 300) p.z = -300;
+
+            // 3D rotation transform
+            // Yaw (Y axis)
+            let x1 = p.x * cosY + p.z * sinY;
+            let z1 = -p.x * sinY + p.z * cosY;
+            // Pitch (X axis)
+            let y2 = p.y * cosX - z1 * sinX;
+            let z2 = p.y * sinX + z1 * cosX;
+
+            const scale = fov / (fov + z2 + 350);
+            const projX = x1 * scale + width / 2;
+            const projY = y2 * scale + height / 2;
+            const projRadius = Math.max(0.5, p.radius * scale);
+            const alpha = Math.min(1, Math.max(0.1, p.baseAlpha * scale));
+
+            projected.push({ x: projX, y: projY, z: z2, radius: projRadius, alpha: alpha, colorPrefix: p.colorPrefix });
+        }
+
+        // Draw connecting molecular filaments
+        for (let i = 0; i < projected.length; i++) {
+            for (let j = i + 1; j < projected.length; j++) {
+                const p1 = projected[i];
+                const p2 = projected[j];
+                const dx = p1.x - p2.x;
+                const dy = p1.y - p2.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 110) {
+                    const lineAlpha = (1 - dist / 110) * 0.22 * Math.min(p1.alpha, p2.alpha);
+                    ctx.strokeStyle = `rgba(45, 212, 191, ${lineAlpha})`;
+                    ctx.lineWidth = 0.8;
+                    ctx.beginPath();
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        // Draw bioluminescent glowing spheres
+        for (let i = 0; i < projected.length; i++) {
+            const p = projected[i];
+            const glowGradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius * 3.5);
+            glowGradient.addColorStop(0, p.colorPrefix + p.alpha + ')');
+            glowGradient.addColorStop(0.5, p.colorPrefix + (p.alpha * 0.4) + ')');
+            glowGradient.addColorStop(1, p.colorPrefix + '0)');
+
+            ctx.fillStyle = glowGradient;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius * 3.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Core highlight
+            ctx.fillStyle = '#ffffff';
+            ctx.globalAlpha = p.alpha * 0.85;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, Math.max(0.6, p.radius * 0.6), 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+        }
+
+        requestAnimationFrame(render3DCanvas);
+    }
+
+    render3DCanvas();
+
+
+    // =========================================================================
+    // 2. DYNAMIC 3D MOUSE PARALLAX & SPECULAR GLARE TILT ENGINE
+    // =========================================================================
+    const card = document.getElementById('heroInteractiveCard');
+    const cardWrapper = document.getElementById('heroCardWrapper');
+
+    if (card && cardWrapper) {
+        let isHovered = false;
+
+        cardWrapper.addEventListener('mouseenter', () => {
+            isHovered = true;
+            card.style.transition = 'transform 0.1s ease-out, box-shadow 0.3s ease';
+        });
+
+        cardWrapper.addEventListener('mousemove', (e) => {
+            if (!isHovered) return;
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Normalize between -1 and 1
+            const normX = (x / rect.width) * 2 - 1;
+            const normY = (y / rect.height) * 2 - 1;
+
+            // Calculate tilt angles (degrees)
+            const maxTilt = 13;
+            const tiltY = normX * maxTilt;
+            const tiltX = -normY * maxTilt;
+
+            card.style.transform = `perspective(1000px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) scale3d(1.025, 1.025, 1.025)`;
+
+            // Update specular glare reflection center
+            const glareX = ((x / rect.width) * 100).toFixed(1) + '%';
+            const glareY = ((y / rect.height) * 100).toFixed(1) + '%';
+            card.style.setProperty('--mouse-x', glareX);
+            card.style.setProperty('--mouse-y', glareY);
+        });
+
+        cardWrapper.addEventListener('mouseleave', () => {
+            isHovered = false;
+            card.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease';
+            card.style.transform = 'perspective(1000px) rotateY(-6deg) rotateX(4deg) scale3d(1, 1, 1)';
+            card.style.setProperty('--mouse-x', '50%');
+            card.style.setProperty('--mouse-y', '50%');
+        });
+    }
+
+    // Apply interactive hover tilt to feature & workflow cards
+    const interactiveCards = document.querySelectorAll('.feature-card-3d, .workflow-card-3d, .stat-card-3d');
+    interactiveCards.forEach(c => {
+        c.addEventListener('mousemove', (e) => {
+            const rect = c.getBoundingClientRect();
+            const normX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+            const normY = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+            c.style.transform = `perspective(800px) translateY(-8px) rotateX(${(-normY * 5).toFixed(1)}deg) rotateY(${(normX * 5).toFixed(1)}deg) scale(1.02)`;
+        });
+        c.addEventListener('mouseleave', () => {
+            c.style.transform = '';
+        });
+    });
+
+})();
+</script>
+{% endblock %}

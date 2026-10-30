@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% block title %}Dataset Registry — BioSense{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-lg-4 py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="h3 fw-bold mb-1">Dataset Management & Ingestion Registry</h1>
+            <p class="text-muted small mb-0">Upload, screen, clean, and import spectrophotometric and AST datasets into the database.</p>
+        </div>
+        <div>
+            <a href="{{ url_for('datasets.upload') }}" class="btn btn-teal rounded-pill px-3 shadow-sm">
+                <i class="bi bi-cloud-arrow-up me-1"></i>Upload New CSV
+            </a>
+        </div>
+    </div>
+
+    <!-- Pre-packaged Sample Datasets Download Banner for Students / Evaluators -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-6 col-lg-4">
+            <div class="bio-card p-3 d-flex align-items-center justify-content-between">
+                <div>
+                    <span class="badge bg-teal-subtle text-teal font-monospace mb-1">BENCHMARK DATASET</span>
+                    <h6 class="fw-bold mb-0">sample_growth.csv</h6>
+                    <small class="text-muted">1,950 noisy logistic kinetics rows</small>
+                </div>
+                <a href="{{ url_for('datasets.upload') }}" class="btn btn-sm btn-outline-teal rounded-pill px-3">
+                    <i class="bi bi-upload me-1"></i>Upload This
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="bio-card p-3 d-flex align-items-center justify-content-between">
+                <div>
+                    <span class="badge bg-info-subtle text-info font-monospace mb-1">BENCHMARK AST</span>
+                    <h6 class="fw-bold mb-0">sample_susceptibility.csv</h6>
+                    <small class="text-muted">1,200 Kirby-Bauer observations</small>
+                </div>
+                <a href="{{ url_for('datasets.upload') }}" class="btn btn-sm btn-outline-teal rounded-pill px-3">
+                    <i class="bi bi-upload me-1"></i>Upload This
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="bio-card p-3 d-flex align-items-center justify-content-between">
+                <div>
+                    <span class="badge bg-warning-subtle text-warning font-monospace mb-1">VALIDATION TEST FILE</span>
+                    <h6 class="fw-bold mb-0">sample_dirty_growth.csv</h6>
+                    <small class="text-muted">Injected negative OD & pH 99</small>
+                </div>
+                <a href="{{ url_for('datasets.upload') }}" class="btn btn-sm btn-outline-warning rounded-pill px-3">
+                    <i class="bi bi-shield-check me-1"></i>Test Pipeline
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Datasets Table -->
+    <div class="bio-card p-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">Ingested File Submissions</h5>
+            <span class="badge bg-secondary-subtle text-muted font-monospace">{{ datasets|length }} Submissions</span>
+        </div>
+
+        {% if datasets %}
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Filename</th>
+                            <th>Provenance</th>
+                            <th>Total Rows</th>
+                            <th>Imported</th>
+                            <th>Rejected</th>
+                            <th>Status</th>
+                            <th>Uploaded (UTC)</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ds in datasets %}
+                            <tr>
+                                <td class="font-monospace fw-semibold">#{{ ds.id }}</td>
+                                <td>
+                                    <div class="fw-semibold">{{ ds.filename }}</div>
+                                    <small class="text-muted font-monospace" style="font-size: 0.72rem;">User #{{ ds.user_id }}</small>
+                                </td>
+                                <td>
+                                    <span class="badge bg-body border text-muted font-monospace" style="font-size: 0.72rem;">
+                                        {{ ds.data_source }}
+                                    </span>
+                                </td>
+                                <td class="font-monospace">{{ ds.row_count }}</td>
+                                <td class="font-monospace text-success">{{ ds.rows_imported }}</td>
+                                <td class="font-monospace text-danger">{{ ds.rows_rejected }}</td>
+                                <td>
+                                    {% if ds.status == 'imported' %}
+                                        <span class="badge bg-success-subtle text-success border border-success-subtle font-monospace">IMPORTED</span>
+                                    {% elif ds.status == 'cleaned' %}
+                                        <span class="badge bg-info-subtle text-info border border-info-subtle font-monospace">CLEANED</span>
+                                    {% else %}
+                                        <span class="badge bg-warning-subtle text-warning border border-warning-subtle font-monospace">PENDING</span>
+                                    {% endif %}
+                                </td>
+                                <td class="small font-monospace text-muted">{{ ds.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                                <td class="text-end">
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="{{ url_for('datasets.validate', dataset_id=ds.id) }}" class="btn btn-outline-teal" title="View Validation Rules & Change Log">
+                                            <i class="bi bi-shield-check me-1"></i>Validate
+                                        </a>
+                                        <a href="{{ url_for('datasets.download', dataset_id=ds.id) }}" class="btn btn-outline-secondary" title="Download Sanitized CSV">
+                                            <i class="bi bi-download"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="p-5 text-center text-muted">
+                <i class="bi bi-cloud-arrow-up fs-1 d-block mb-3 text-teal"></i>
+                <h5>No Datasets Uploaded Yet</h5>
+                <p class="small mb-4">Upload your first spectrophotometric time-series or AST observation CSV to begin analytics.</p>
+                <a href="{{ url_for('datasets.upload') }}" class="btn btn-teal rounded-pill px-4">
+                    <i class="bi bi-plus-lg me-1"></i>Upload CSV
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

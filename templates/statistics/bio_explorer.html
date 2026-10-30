@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}Bio Explorer Microbial Encyclopedia — BioSense{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-lg-4 py-4">
+    <!-- Header -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <h1 class="h3 fw-bold mb-0">Bio Explorer — Microbial Reference Catalog</h1>
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle font-monospace px-3 py-1">RELATIONAL ENCYCLOPEDIA</span>
+            </div>
+            <p class="text-muted small mb-0">
+                Database-grounded biological profiles, Gram classifications, taxonomic lineages, experimental counts, and antibiotic observations.
+            </p>
+        </div>
+        <div>
+            <a href="{{ url_for('growth.index') }}" class="btn btn-outline-teal btn-sm rounded-pill px-3">
+                <i class="bi bi-graph-up me-1"></i>View Growth Kinetics
+            </a>
+        </div>
+    </div>
+
+    <!-- Search & Filter Bar -->
+    <div class="bio-card p-3 mb-4">
+        <form method="GET" action="{{ url_for('statistics.bio_explorer') }}" class="row g-2 align-items-center">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-text bg-body-tertiary"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control" name="q" value="{{ search_query }}" placeholder="Search by binomial name, genus, common name, or family...">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <select class="form-select" name="gram" onchange="this.form.submit()">
+                    <option value="" {% if not gram_filter %}selected{% endif %}>All Gram Stains & Types</option>
+                    <option value="Gram-positive" {% if gram_filter == 'Gram-positive' %}selected{% endif %}>Gram-positive Bacteria</option>
+                    <option value="Gram-negative" {% if gram_filter == 'Gram-negative' %}selected{% endif %}>Gram-negative Bacteria</option>
+                    <option value="Fungus" {% if gram_filter == 'Fungus' %}selected{% endif %}>Fungal / Yeast Organisms</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-teal w-100 rounded-pill fw-semibold">
+                    Search
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Organism Profile Cards Grid -->
+    <div class="row g-4">
+        {% for p in profiles %}
+            {% set org = p.organism %}
+            <div class="col-md-6 col-lg-4">
+                <div class="bio-card h-100 p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge {% if org.gram_type == 'Gram-positive' %}bg-primary-subtle text-primary border border-primary-subtle{% elif org.gram_type == 'Gram-negative' %}bg-danger-subtle text-danger border border-danger-subtle{% else %}bg-warning-subtle text-warning border border-warning-subtle{% endif %} font-monospace">
+                                {{ org.gram_type }}
+                            </span>
+                            <span class="badge bg-body border text-muted font-monospace" style="font-size: 0.7rem;">
+                                {{ org.domain_family or 'Microbe' }}
+                            </span>
+                        </div>
+                        <h5 class="fw-bold mb-1 fst-italic">{{ org.scientific_name }}</h5>
+                        <div class="small text-muted mb-3 font-monospace">Common: {{ org.common_name }}</div>
+
+                        <p class="small text-muted mb-3" style="font-size: 0.8rem; line-height: 1.4;">
+                            {{ org.description or 'Standard laboratory reference organism.' }}
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class="d-flex justify-content-between py-2 border-top border-secondary-subtle small font-monospace">
+                            <span class="text-muted">Experiments:</span>
+                            <span class="fw-bold text-teal">{{ p.experiment_count }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between py-2 border-top border-secondary-subtle small font-monospace mb-3">
+                            <span class="text-muted">AST Observations:</span>
+                            <span class="fw-bold text-info">{{ p.ast_count }}</span>
+                        </div>
+
+                        <a href="{{ url_for('statistics.organism_detail', organism_id=org.id) }}" class="btn btn-outline-teal w-100 rounded-pill btn-sm fw-semibold">
+                            <i class="bi bi-eye me-1"></i>Explore Full Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-12">
+                <div class="bio-card p-5 text-center text-muted">
+                    <i class="bi bi-search fs-1 d-block mb-3 text-teal"></i>
+                    <h5>No Organisms Found</h5>
+                    <p class="small mb-3">No reference microbes matched your query "<strong>{{ search_query }}</strong>".</p>
+                    <a href="{{ url_for('statistics.bio_explorer') }}" class="btn btn-outline-secondary rounded-pill btn-sm px-4">
+                        Clear Search Filter
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

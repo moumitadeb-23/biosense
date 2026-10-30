@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Sign in with Google — BioSense Platform{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="bio-card p-4 p-md-5 shadow-sm text-center">
+                <!-- Google G Logo -->
+                <div class="mb-3">
+                    <svg width="48" height="48" viewBox="0 0 48 48">
+                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                    </svg>
+                </div>
+
+                <h3 class="fw-bold mb-1">Google Identity Services</h3>
+                <p class="text-muted small mb-4">Fast, passwordless academic authentication for BioSense</p>
+
+                <!-- Prompt selection -->
+                <form method="POST" action="{{ url_for('auth.google_auth') }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    {% if next %}
+                        <input type="hidden" name="next" value="{{ next }}">
+                    {% endif %}
+
+                    <div class="text-start mb-3">
+                        <label class="form-label small fw-semibold">Choose Google Account / Email</label>
+                        <select class="form-select" name="google_email" id="google_email" onchange="updateGoogleName(this)">
+                            <option value="scholar.student@gmail.com" data-name="Aditi Sharma (BCA Scholar)">scholar.student@gmail.com (Aditi Sharma)</option>
+                            <option value="researcher.alex@gmail.com" data-name="Dr. Alex Rivera (Microbiology)">researcher.alex@gmail.com (Dr. Alex Rivera)</option>
+                            <option value="datascience.lab@gmail.com" data-name="Data Science Lab Lead">datascience.lab@gmail.com (Lab Lead)</option>
+                        </select>
+                    </div>
+
+                    <div class="text-start mb-3">
+                        <label class="form-label small fw-semibold">Google Display Name</label>
+                        <input type="text" class="form-control" name="google_name" id="google_name" value="Aditi Sharma (BCA Scholar)">
+                    </div>
+
+                    <div class="text-start mb-4">
+                        <label class="form-label small fw-semibold">Assigned Academic Role Tier</label>
+                        <select class="form-select" name="role">
+                            <option value="STUDENT" selected>Student Tier — Growth models, AST exploration & ML</option>
+                            <option value="RESEARCHER">Researcher Tier — Multi-strain analysis & PDF reports</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-outline-dark w-100 py-2 d-flex align-items-center justify-content-center gap-2 fw-semibold shadow-sm mb-3">
+                        <svg width="20" height="20" viewBox="0 0 48 48">
+                            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                        </svg>
+                        <span>Authorize & Continue to BioSense</span>
+                    </button>
+
+                    <div class="text-center">
+                        <a href="{{ url_for('auth.login') }}" class="small text-muted text-decoration-none">Cancel & Return to Standard Login</a>
+                    </div>
+                </form>
+
+                <div class="alert alert-info border-info-subtle mt-4 text-start small mb-0">
+                    <i class="bi bi-info-circle-fill text-info me-1"></i>
+                    <strong>OAuth Architecture:</strong> In development/viva demonstration mode, this flow authenticates your Google session seamlessly. In production, setting <code>GOOGLE_CLIENT_ID</code> and <code>GOOGLE_CLIENT_SECRET</code> in <code>.env</code> routes through Google's OAuth2 endpoints.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function updateGoogleName(sel) {
+    const opt = sel.options[sel.selectedIndex];
+    const name = opt.getAttribute('data-name');
+    if (name) {
+        document.getElementById('google_name').value = name;
+    }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,11 @@
+organism,medium,temperature,ph,time_h,optical_density,data_source,notes
+Escherichia coli,Mueller-Hinton,37.0,7.2,0.0,0.050,User-Uploaded,Normal baseline inoculate
+Escherichia coli,Mueller-Hinton,37.0,7.2,2.0,0.085,User-Uploaded,Early lag transition
+Escherichia coli,Mueller-Hinton,37.0,7.2,4.0,0.220,User-Uploaded,Exponential phase onset
+Escherichia coli,Mueller-Hinton,37.0,7.2,4.0,0.220,User-Uploaded,Exact Duplicate Row (Should be detected)
+Escherichia coli,Mueller-Hinton,37.0,7.2,6.0,-0.150,User-Uploaded,Sensor fault negative OD (Should be flagged)
+Escherichia coli,Mueller-Hinton,37.0,16.5,8.0,0.920,User-Uploaded,Out-of-range pH > 14 (Should be flagged)
+Escherichia coli,Mueller-Hinton,37.0,7.2,10.0,,User-Uploaded,Missing spectrophotometer reading (Imputed via median)
+Escherichia coli,Mueller-Hinton,37.0,7.2,12.0,1.490,User-Uploaded,=1+1+cmd|' /C calc'!A0 Formula injection attack test
+Escherichia coli,Mueller-Hinton,37.0,7.2,14.0,1.590,User-Uploaded,Late stationary plateau
+Escherichia coli,Mueller-Hinton,37.0,7.2,16.0,1.630,User-Uploaded,Stationary phase steady

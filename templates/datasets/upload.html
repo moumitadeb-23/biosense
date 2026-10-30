@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block title %}Upload CSV Dataset — BioSense{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <a href="{{ url_for('datasets.index') }}" class="btn btn-sm btn-outline-secondary rounded-circle">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <h1 class="h4 fw-bold mb-0">Upload Biological Dataset</h1>
+            </div>
+
+            <div class="bio-card p-4 p-md-5 shadow-sm mb-4">
+                <form method="POST" action="{{ url_for('datasets.upload') }}" enctype="multipart/form-data">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                    <div class="border border-2 border-dashed rounded-4 p-5 text-center mb-4 bg-body-tertiary" style="border-color: rgba(13, 148, 136, 0.4) !important;">
+                        <i class="bi bi-cloud-arrow-up display-3 text-teal mb-3 d-block"></i>
+                        <h5 class="fw-bold mb-1">Select or Drag & Drop Biological CSV File</h5>
+                        <p class="small text-muted mb-4">
+                            Supports Optical Density Growth Curves (OD600) and Kirby-Bauer Antibiotic Susceptibility Testing records.
+                        </p>
+                        <div class="col-md-8 mx-auto">
+                            <input class="form-control" type="file" id="file" name="file" accept=".csv" required>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="small text-muted font-monospace" style="font-size: 0.75rem;">
+                            <i class="bi bi-shield-check text-success me-1"></i>Secure filename hashing & formula neutralization enabled
+                        </span>
+                        <button type="submit" class="btn btn-teal px-4 rounded-pill fw-semibold">
+                            <i class="bi bi-arrow-right me-1"></i>Upload & Proceed to Validation
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Instant Workflow Testing Benchmark Datasets -->
+            <div class="bio-card p-4 mb-4 border-teal-subtle bg-body-tertiary">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="fw-bold mb-0 text-teal">
+                        <i class="bi bi-file-earmark-spreadsheet me-2"></i>Curated Benchmark Datasets for Instant Testing
+                    </h5>
+                    <span class="badge bg-teal-subtle text-teal font-monospace" style="font-size: 0.72rem;">Viva Ready</span>
+                </div>
+                <p class="small text-muted mb-3">
+                    Download these pre-formatted demonstration CSV files to test and verify the entire BioSense pipeline end-to-end:
+                </p>
+
+                <div class="row g-3">
+                    <!-- Dataset 1: Growth Kinetics -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm p-3 bg-body">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-graph-up text-teal fs-4"></i>
+                                <span class="fw-bold small">Kinetics Assay</span>
+                            </div>
+                            <p class="text-muted small mb-3" style="font-size: 0.75rem;">
+                                39 rows: <em>E. coli</em>, <em>S. aureus</em>, and <em>P. aeruginosa</em> time-series with sigmoidal Verhulst kinetics.
+                            </p>
+                            <a href="{{ url_for('datasets.download_sample', filename='growth') }}" class="btn btn-sm btn-outline-teal w-100 mt-auto rounded-pill">
+                                <i class="bi bi-download me-1"></i>Download Growth CSV
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Dataset 2: AST Panel -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm p-3 bg-body">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-shield-check text-info fs-4"></i>
+                                <span class="fw-bold small">Clinical AST Panel</span>
+                            </div>
+                            <p class="text-muted small mb-3" style="font-size: 0.75rem;">
+                                30 rows: Kirby-Bauer disk diffusion records across 10 antibiotics with CLSI zone diameters and S/I/R results.
+                            </p>
+                            <a href="{{ url_for('datasets.download_sample', filename='ast') }}" class="btn btn-sm btn-outline-info w-100 mt-auto rounded-pill">
+                                <i class="bi bi-download me-1"></i>Download AST CSV
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Dataset 3: Cleaning / QA Edge Cases -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm p-3 bg-body">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-shield-exclamation text-warning fs-4"></i>
+                                <span class="fw-bold small">Data Cleaning QA</span>
+                            </div>
+                            <p class="text-muted small mb-3" style="font-size: 0.75rem;">
+                                10 rows: Contains negative OD, duplicate row, missing value, and formula injection to test cleaning.
+                            </p>
+                            <a href="{{ url_for('datasets.download_sample', filename='dirty') }}" class="btn btn-sm btn-outline-warning w-100 mt-auto rounded-pill">
+                                <i class="bi bi-download me-1"></i>Download QA Test CSV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schema Specifications Guide Card -->
+            <div class="bio-card p-4">
+                <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-info-circle text-teal"></i>Expected CSV Schema Standards
+                </h5>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="p-3 rounded bg-body border h-100">
+                            <span class="badge bg-teal-subtle text-teal font-monospace mb-2">TYPE A: GROWTH TIME-SERIES</span>
+                            <div class="small fw-semibold mb-1">Required Columns:</div>
+                            <code class="small d-block mb-2 text-teal font-monospace">organism, time_h, optical_density</code>
+                            <div class="small fw-semibold mb-1">Optional Culture Conditions:</div>
+                            <code class="small d-block text-muted font-monospace">medium, temperature, ph</code>
+                            <div class="small text-muted mt-2" style="font-size: 0.75rem;">
+                                Biological checks: <code>optical_density &ge; 0</code>, <code>time_h &ge; 0</code>, <code>0 &le; ph &le; 14</code>.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 rounded bg-body border h-100">
+                            <span class="badge bg-info-subtle text-info font-monospace mb-2">TYPE B: SUSCEPTIBILITY (AST)</span>
+                            <div class="small fw-semibold mb-1">Required Columns:</div>
+                            <code class="small d-block mb-2 text-info font-monospace">organism, antibiotic</code>
+                            <div class="small fw-semibold mb-1">Measurements & Classifications:</div>
+                            <code class="small d-block text-muted font-monospace">zone_diameter_mm, category, concentration</code>
+                            <div class="small text-muted mt-2" style="font-size: 0.75rem;">
+                                Biological checks: <code>0 &le; zone &le; 60mm</code>, <code>category &in; {'S', 'I', 'R'}</code>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

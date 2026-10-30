@@ -1,0 +1,289 @@
+{% extends "base.html" %}
+{% block title %}Descriptive Statistics & Hypothesis Testing — BioSense{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-lg-4 py-4">
+    <!-- Header -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <h1 class="h3 fw-bold mb-0">Biostatistical Analytics & Hypothesis Testing</h1>
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle font-monospace px-3 py-1">PARAMETRIC & NON-PARAMETRIC</span>
+            </div>
+            <p class="text-muted small mb-0">
+                Measures of central tendency, dispersion metrics, Pearson correlation matrix, and inferential hypothesis tests (Welch's t-test and ANOVA).
+            </p>
+        </div>
+        <div>
+            <a href="{{ url_for('statistics.bio_explorer') }}" class="btn btn-teal btn-sm rounded-pill px-3 shadow-sm">
+                <i class="bi bi-journal-medical me-1"></i>Open Bio Explorer Catalog
+            </a>
+        </div>
+    </div>
+
+    <!-- Continuous Variables Summary Table -->
+    <div class="bio-card p-4 mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <h5 class="fw-bold mb-1">Parametric & Non-Parametric Summary Statistics</h5>
+                <p class="small text-muted mb-0">Computed dynamically across all ingested experimental time-series and AST records.</p>
+            </div>
+            <span class="badge bg-secondary-subtle text-muted font-monospace">N = Total Observations</span>
+        </div>
+
+        {% if stats_data.has_data and stats_data.variables %}
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0 font-monospace" style="font-size: 0.85rem;">
+                    <thead>
+                        <tr>
+                            <th>Variable Name</th>
+                            <th>Unit</th>
+                            <th>Count (N)</th>
+                            <th>Mean (&mu;)</th>
+                            <th>Median</th>
+                            <th>Std Dev (&sigma;)</th>
+                            <th>Variance (&sigma;&sup2;)</th>
+                            <th>Min</th>
+                            <th>Max</th>
+                            <th>IQR (Q₃ - Q₁)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, v in stats_data.variables.items() %}
+                            <tr>
+                                <td class="fw-bold font-sans">{{ v.name }}</td>
+                                <td class="text-muted">{{ v.unit or '—' }}</td>
+                                <td>{{ v.count }}</td>
+                                <td class="text-teal fw-semibold">{{ v.mean }}</td>
+                                <td class="text-info fw-semibold">{{ v.median }}</td>
+                                <td>{{ v.std }}</td>
+                                <td>{{ v.variance }}</td>
+                                <td>{{ v.min }}</td>
+                                <td>{{ v.max }}</td>
+                                <td class="text-warning">{{ v.iqr }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="p-5 text-center text-muted">
+                <i class="bi bi-bar-chart fs-1 text-teal d-block mb-3"></i>
+                <h6>No Observation Data Available Yet</h6>
+                <p class="small mb-3">Seed sample data or upload CSV datasets to compute statistical distributions.</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="row g-4 mb-4">
+        <!-- Correlation Matrix Heatmap -->
+        <div class="col-lg-6">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-grid-3x3 text-teal"></i>Pearson Correlation Matrix (r)
+                    </h5>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">-1.0 to +1.0</span>
+                </div>
+                <p class="small text-muted mb-3">
+                    Pairwise linear correlation coefficients between incubation time, optical density, culture temperature, and medium pH.
+                </p>
+
+                <div id="corrHeatmapDiv" style="min-height: 340px; width: 100%;"></div>
+            </div>
+        </div>
+
+        <!-- Hypothesis Testing Workbench -->
+        <div class="col-lg-6">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-calculator text-teal"></i>Inferential Hypothesis Testing Lab
+                    </h5>
+                    <span class="badge bg-teal-subtle text-teal font-monospace">&alpha; = 0.05</span>
+                </div>
+
+                <!-- Test Selection Nav Pills -->
+                <ul class="nav nav-pills mb-3 gap-2" id="testPills" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active rounded-pill px-3 py-1 btn-sm" id="ttestTab" data-bs-toggle="pill" data-bs-target="#ttestPane" type="button">
+                            Welch's Two-Sample t-Test
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link rounded-pill px-3 py-1 btn-sm" id="anovaTab" data-bs-toggle="pill" data-bs-target="#anovaPane" type="button">
+                            One-Way ANOVA (Media Comparison)
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <!-- t-Test Tab Pane -->
+                    <div class="tab-pane fade show active" id="ttestPane">
+                        <p class="small text-muted mb-3">
+                            Compares the difference in mean Optical Density (OD600) between Gram-positive and Gram-negative organisms without assuming equal variances.
+                        </p>
+                        <button type="button" id="runTtestBtn" class="btn btn-teal btn-sm rounded-pill px-4 fw-semibold mb-3">
+                            <i class="bi bi-play-fill me-1"></i>Run Welch's t-Test
+                        </button>
+
+                        <div id="ttestResultContainer" class="p-3 rounded bg-body border d-none">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="fw-bold small" id="ttestName">Welch t-Test</span>
+                                <span class="badge" id="ttestSigBadge">p-value</span>
+                            </div>
+                            <div class="row g-2 font-monospace small mb-2">
+                                <div class="col-6">t-statistic: <strong id="ttestStat" class="text-teal">—</strong></div>
+                                <div class="col-6">p-value: <strong id="ttestPVal" class="text-info">—</strong></div>
+                                <div class="col-6">Mean A: <span id="ttestMeanA">—</span></div>
+                                <div class="col-6">Mean B: <span id="ttestMeanB">—</span></div>
+                            </div>
+                            <div class="small text-muted border-top pt-2" id="ttestInterp"></div>
+                        </div>
+                    </div>
+
+                    <!-- ANOVA Tab Pane -->
+                    <div class="tab-pane fade" id="anovaPane">
+                        <p class="small text-muted mb-3">
+                            Tests whether mean Optical Density differs significantly across different culture media (LB Broth, Mueller-Hinton, Nutrient Agar).
+                        </p>
+                        <button type="button" id="runAnovaBtn" class="btn btn-teal btn-sm rounded-pill px-4 fw-semibold mb-3">
+                            <i class="bi bi-play-fill me-1"></i>Run One-Way ANOVA
+                        </button>
+
+                        <div id="anovaResultContainer" class="p-3 rounded bg-body border d-none">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="fw-bold small">One-Way ANOVA</span>
+                                <span class="badge" id="anovaSigBadge">p-value</span>
+                            </div>
+                            <div class="row g-2 font-monospace small mb-2">
+                                <div class="col-6">F-statistic: <strong id="anovaFStat" class="text-teal">—</strong></div>
+                                <div class="col-6">p-value: <strong id="anovaPVal" class="text-info">—</strong></div>
+                            </div>
+                            <div class="small text-muted border-top pt-2" id="anovaInterp"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistical Assumptions Card (Spec Section 14) -->
+                <div class="mt-4 p-3 rounded bg-body-tertiary border border-secondary-subtle small">
+                    <strong class="d-block mb-1 text-uppercase font-monospace" style="font-size: 0.72rem;">Assumptions & Theoretical Basis</strong>
+                    <ul class="mb-0 text-muted ps-3" style="font-size: 0.78rem;">
+                        <li><strong>Welch's t-test:</strong> Continuous outcome metric; independent observations; relaxes equal-variance requirement ($s_1^2 \neq s_2^2$).</li>
+                        <li><strong>ANOVA:</strong> Continuous dependent variable; normality of group distributions; independence of observations across categories.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Render Correlation Heatmap
+    const corrData = {{ stats_data.correlation_matrix|tojson }};
+    if (corrData && corrData.matrix && corrData.matrix.length > 0) {
+        const isDark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+        const fontColor = isDark ? '#94a3b8' : '#475569';
+
+        const heatmapTrace = {
+            z: corrData.matrix,
+            x: corrData.variables,
+            y: corrData.variables,
+            type: 'heatmap',
+            colorscale: [
+                [0.0, '#3b82f6'],
+                [0.5, '#f8fafc'],
+                [1.0, '#0d9488']
+            ],
+            zmin: -1.0,
+            zmax: 1.0,
+            hoverongaps: false
+        };
+
+        const layout = {
+            paper_bgcolor: 'transparent',
+            plot_bgcolor: 'transparent',
+            font: { family: 'Inter, sans-serif', color: fontColor },
+            margin: { l: 70, r: 20, t: 30, b: 50 },
+            xaxis: { gridcolor: 'transparent' },
+            yaxis: { gridcolor: 'transparent' }
+        };
+
+        Plotly.newPlot('corrHeatmapDiv', [heatmapTrace], layout, { responsive: true, displayModeBar: false });
+    }
+
+    // 2. Interactive Welch t-test
+    const runTtestBtn = document.getElementById('runTtestBtn');
+    if (runTtestBtn) {
+        runTtestBtn.addEventListener('click', () => {
+            fetch('{{ url_for("statistics.api_hypothesis_test") }}', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ test_type: 'ttest', group_col: 'gram_type' })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (!data.success) {
+                    alert(data.error);
+                    return;
+                }
+                const container = document.getElementById('ttestResultContainer');
+                container.classList.remove('d-none');
+                document.getElementById('ttestStat').textContent = data.t_statistic;
+                document.getElementById('ttestPVal').textContent = data.p_value;
+                document.getElementById('ttestMeanA').textContent = `${data.label_a}: ${data.mean_a} OD (N=${data.n_a})`;
+                document.getElementById('ttestMeanB').textContent = `${data.label_b}: ${data.mean_b} OD (N=${data.n_b})`;
+                document.getElementById('ttestInterp').textContent = data.interpretation;
+
+                const badge = document.getElementById('ttestSigBadge');
+                if (data.is_significant) {
+                    badge.className = 'badge bg-success-subtle text-success font-monospace';
+                    badge.textContent = 'Significant (p < 0.05)';
+                } else {
+                    badge.className = 'badge bg-secondary-subtle text-muted font-monospace';
+                    badge.textContent = 'Not Significant (p ≥ 0.05)';
+                }
+            })
+            .catch(console.error);
+        });
+    }
+
+    // 3. Interactive ANOVA
+    const runAnovaBtn = document.getElementById('runAnovaBtn');
+    if (runAnovaBtn) {
+        runAnovaBtn.addEventListener('click', () => {
+            fetch('{{ url_for("statistics.api_hypothesis_test") }}', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ test_type: 'anova' })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (!data.success) {
+                    alert(data.error);
+                    return;
+                }
+                const container = document.getElementById('anovaResultContainer');
+                container.classList.remove('d-none');
+                document.getElementById('anovaFStat').textContent = data.f_statistic;
+                document.getElementById('anovaPVal').textContent = data.p_value;
+                document.getElementById('anovaInterp').textContent = data.interpretation;
+
+                const badge = document.getElementById('anovaSigBadge');
+                if (data.is_significant) {
+                    badge.className = 'badge bg-success-subtle text-success font-monospace';
+                    badge.textContent = 'Significant (p < 0.05)';
+                } else {
+                    badge.className = 'badge bg-secondary-subtle text-muted font-monospace';
+                    badge.textContent = 'Not Significant (p ≥ 0.05)';
+                }
+            })
+            .catch(console.error);
+        });
+    }
+});
+</script>
+{% endblock %}

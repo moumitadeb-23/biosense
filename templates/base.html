@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BioSense{% endblock %} — Microbial Growth & AST Analytics</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom Biotechnology Theme CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/biosense.css') }}">
+    <!-- Plotly.js for interactive analytics -->
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <!-- Main Navigation Bar -->
+    <nav class="navbar navbar-expand-lg border-bottom sticky-top biosense-navbar">
+        <div class="container-fluid px-lg-4">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url_for('main.index') }}">
+                <span class="brand-logo-icon-3d">
+                    <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+                        <defs>
+                            <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#2dd4bf" />
+                                <stop offset="50%" stop-color="#06b6d4" />
+                                <stop offset="100%" stop-color="#3b82f6" />
+                            </linearGradient>
+                            <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feGaussianBlur stdDeviation="2" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                        </defs>
+                        <!-- Hexagonal Bio-Boundary -->
+                        <polygon points="18,3 31,10.5 31,25.5 18,33 5,25.5 5,10.5" stroke="url(#navLogoGrad)" stroke-width="2.2" fill="rgba(13, 148, 136, 0.14)" />
+                        <!-- DNA Strands -->
+                        <path d="M11 12 C 14 18, 22 18, 25 24" stroke="#2dd4bf" stroke-width="2.2" stroke-linecap="round" />
+                        <path d="M25 12 C 22 18, 14 18, 11 24" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" />
+                        <!-- Molecular Rungs -->
+                        <line x1="13" y1="14" x2="23" y2="14" stroke="#2dd4bf" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="2 3" opacity="0.85" />
+                        <line x1="13" y1="22" x2="23" y2="22" stroke="#38bdf8" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="2 3" opacity="0.85" />
+                        <!-- Core Nucleus -->
+                        <circle cx="18" cy="18" r="3" fill="#ffffff" filter="url(#logoGlow)" />
+                    </svg>
+                </span>
+                <span class="brand-name fw-bold tracking-tight">Bio<span class="text-teal">Sense</span></span>
+                <span class="nav-version-pill d-none d-sm-inline-flex font-monospace">
+                    <span class="pulse-indicator-dot"></span>
+                    <span>v1.0</span>
+                </span>
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list fs-3"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3 gap-1">
+                    <li class="nav-item">
+                        <a class="nav-link px-2 {% if request.endpoint == 'main.index' %}active{% endif %}" href="{{ url_for('main.index') }}">
+                            <i class="bi bi-house-door me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 {% if request.endpoint and 'dashboard' in request.endpoint %}active{% endif %}" href="{{ url_for('dashboard.index') }}">
+                            <i class="bi bi-speedometer2 me-1"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 {% if request.endpoint and 'datasets' in request.endpoint %}active{% endif %}" href="{{ url_for('datasets.index') }}">
+                            <i class="bi bi-cloud-arrow-up me-1"></i>Datasets
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 {% if request.endpoint and 'growth' in request.endpoint %}active{% endif %}" href="{{ url_for('growth.index') }}">
+                            <i class="bi bi-graph-up-arrow me-1"></i>Growth Analysis
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 {% if request.endpoint and 'susceptibility' in request.endpoint %}active{% endif %}" href="{{ url_for('susceptibility.index') }}">
+                            <i class="bi bi-shield-check me-1"></i>Susceptibility (AST)
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 {% if request.endpoint and 'statistics' in request.endpoint %}active{% endif %}" href="{{ url_for('statistics.index') }}">
+                            <i class="bi bi-clipboard2-data me-1"></i>Statistics &amp; Bio Explorer
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 {% if request.endpoint and 'ml' in request.endpoint %}active{% endif %}" href="{{ url_for('ml.index') }}">
+                            <i class="bi bi-cpu me-1"></i>ML Lab
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 {% if request.endpoint and 'reports' in request.endpoint %}active{% endif %}" href="{{ url_for('reports.index') }}">
+                            <i class="bi bi-file-earmark-pdf me-1"></i>Reports
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-info {% if request.endpoint and 'learn' in request.endpoint %}active fw-semibold{% endif %}" href="{{ url_for('learn.index') }}" title="Beginner Concepts & Viva Voce Guide">
+                            <i class="bi bi-mortarboard-fill me-1"></i>Knowledge Hub
+                        </a>
+                    </li>
+                    {% if current_user.is_authenticated and current_user.has_role('ADMIN') %}
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-warning {% if request.endpoint and 'admin' in request.endpoint %}active fw-bold{% endif %}" href="{{ url_for('admin.index') }}">
+                            <i class="bi bi-shield-lock me-1"></i>Admin
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+                <!-- Theme Toggle & Auth State -->
+                <div class="d-flex align-items-center gap-2">
+                    <!-- Light / Dark Mode Toggle Button -->
+                    <button id="themeToggleBtn" class="btn nav-theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+                        <i id="themeIcon" class="bi bi-moon-stars"></i>
+                    </button>
+
+                    {% if current_user.is_authenticated %}
+                        <div class="dropdown">
+                            <button class="btn nav-user-pill dropdown-toggle d-flex align-items-center gap-2 py-1 px-3 rounded-pill" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="nav-user-avatar"><i class="bi bi-person-fill"></i></span>
+                                <span class="fw-semibold small">{{ current_user.username }}</span>
+                                <span class="badge {% if current_user.has_role('ADMIN') %}bg-warning-subtle text-warning border border-warning-subtle{% elif current_user.has_role('RESEARCHER') %}bg-info-subtle text-info border border-info-subtle{% else %}bg-teal-subtle text-teal border border-teal-subtle{% endif %} font-monospace" style="font-size: 0.68rem;">{{ current_user.role }}</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                                <li class="dropdown-header text-uppercase font-monospace" style="font-size: 0.7rem;">Account Details</li>
+                                <li><a class="dropdown-item" href="{{ url_for('auth.profile') }}"><i class="bi bi-person me-2"></i>My Profile & Settings</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                {% if current_user.has_role('ADMIN') %}
+                                <li class="dropdown-header text-uppercase font-monospace text-warning" style="font-size: 0.7rem;">System Administration</li>
+                                <li><a class="dropdown-item text-warning fw-semibold" href="{{ url_for('admin.index') }}"><i class="bi bi-shield-lock me-2"></i>Admin Dashboard</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('admin.audit_logs') }}"><i class="bi bi-journal-text me-2"></i>Master Audit Logs</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('admin.organisms') }}"><i class="bi bi-virus me-2"></i>Catalog Organisms</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('admin.antibiotics') }}"><i class="bi bi-capsule me-2"></i>Catalog Antibiotics</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                {% endif %}
+                                <li><a class="dropdown-item text-danger" href="{{ url_for('auth.logout') }}"><i class="bi bi-box-arrow-right me-2"></i>Sign Out</a></li>
+                            </ul>
+                        </div>
+                    {% else %}
+                        <a href="{{ url_for('auth.login') }}" class="btn nav-btn-signin">Sign In</a>
+                        <a href="{{ url_for('auth.register') }}" class="btn nav-btn-register"><i class="bi bi-person-plus me-1"></i>Register</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Global Flash Notification Messages -->
+    <div class="container-fluid px-lg-4 mt-3">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category if category != 'error' else 'danger' }} alert-dismissible fade show shadow-sm d-flex align-items-center gap-2" role="alert">
+                        <i class="bi {% if category == 'success' %}bi-check-circle-fill{% elif category == 'danger' or category == 'error' %}bi-exclamation-triangle-fill{% else %}bi-info-circle-fill{% endif %} fs-5"></i>
+                        <div>{{ message }}</div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow-1">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Scientific & Clinical Disclaimer Banner -->
+    <div class="clinical-disclaimer-banner py-2 text-center border-top border-bottom">
+        <div class="container">
+            <span class="badge bg-warning-subtle text-warning-emphasis border border-warning me-2 text-uppercase fw-semibold" style="font-size: 0.72rem;">Academic Notice</span>
+            <small class="fw-medium text-muted font-monospace">{{ clinical_disclaimer }}</small>
+        </div>
+    </div>
+
+    <!-- Master Footer -->
+    <footer class="footer mt-auto py-4 border-top biosense-footer">
+        <div class="container-fluid px-lg-4">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-5">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="brand-name fw-bold fs-5">Bio<span class="text-teal">Sense</span></span>
+                        <span class="text-muted">|</span>
+                        <span class="small text-muted">{{ tagline }}</span>
+                    </div>
+                    <p class="small text-muted mb-0">
+                        Final-Year BCA (Data Science) Major Project. Developed with Python Flask, Scikit-Learn, SciPy, and Plotly.js for interactive microbial growth modeling and antibiotic susceptibility profiling.
+                    </p>
+                </div>
+                <div class="col-md-4 text-md-center">
+                    <ul class="list-inline mb-0 small">
+                        <li class="list-inline-item"><a href="{{ url_for('main.index') }}" class="text-decoration-none text-muted hover-teal">Home</a></li>
+                        <li class="list-inline-item text-muted">·</li>
+                        <li class="list-inline-item"><a href="{{ url_for('dashboard.index') }}" class="text-decoration-none text-muted hover-teal">Dashboard</a></li>
+                        <li class="list-inline-item text-muted">·</li>
+                        <li class="list-inline-item"><a href="{{ url_for('growth.index') }}" class="text-decoration-none text-muted hover-teal">Growth Curves</a></li>
+                        <li class="list-inline-item text-muted">·</li>
+                        <li class="list-inline-item"><a href="{{ url_for('susceptibility.index') }}" class="text-decoration-none text-muted hover-teal">AST Analytics</a></li>
+                        <li class="list-inline-item text-muted">·</li>
+                        <li class="list-inline-item"><a href="{{ url_for('ml.index') }}" class="text-decoration-none text-muted hover-teal">ML Lab</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 text-md-end">
+                    <span class="small text-muted font-monospace">&copy; {{ current_year }} BioSense Platform. Open Source.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Custom Theme Script -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

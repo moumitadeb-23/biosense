@@ -1,0 +1,274 @@
+{% extends "base.html" %}
+
+{% block title %}Logistic Growth Simulator — BioSense{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-lg-4 py-4">
+    <!-- Header -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <a href="{{ url_for('growth.index') }}" class="btn btn-sm btn-outline-secondary rounded-circle">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <h1 class="h3 fw-bold mb-0">Verhulst Logistic Population Simulator</h1>
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle font-monospace px-3 py-1">THEORETICAL MODEL</span>
+            </div>
+            <p class="text-muted small mb-0">
+                Interactive computational simulation of microbial kinetics under closed-system carrying capacity constraints.
+            </p>
+        </div>
+        <div>
+            <a href="{{ url_for('growth.index') }}" class="btn btn-teal btn-sm rounded-pill px-3">
+                <i class="bi bi-graph-up-arrow me-1"></i>View Laboratory Curves
+            </a>
+        </div>
+    </div>
+
+    <!-- Mandatory Educational / Mathematical Simulation Notice (Spec Section 10) -->
+    <div class="alert alert-warning border-warning shadow-sm mb-4">
+        <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-mortarboard-fill fs-3 text-warning"></i>
+            <div>
+                <strong class="d-block text-uppercase font-monospace" style="font-size: 0.78rem;">Notice of Mathematical Simulation</strong>
+                <span class="small">
+                    Mathematical simulation, not a laboratory prediction. This computational model demonstrates theoretical Verhulst population dynamics under ideal closed-system assumptions.
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Parameter Sliders & Input Controls -->
+        <div class="col-lg-4">
+            <div class="bio-card p-4 h-100">
+                <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-sliders text-teal"></i>Kinetic Parameters
+                </h5>
+
+                <form id="simulatorForm">
+                    <!-- Initial Population N0 -->
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <label for="inputN0" class="form-label small fw-semibold mb-0">Initial Inoculum (N₀)</label>
+                            <span class="font-monospace text-teal fw-bold" id="valN0">0.05 OD</span>
+                        </div>
+                        <input type="range" class="form-range" id="inputN0" min="0.01" max="0.30" step="0.01" value="0.05">
+                        <div class="form-text" style="font-size: 0.72rem;">Starting culture turbidity at t = 0h (N₀ &gt; 0).</div>
+                    </div>
+
+                    <!-- Carrying Capacity K -->
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <label for="inputK" class="form-label small fw-semibold mb-0">Carrying Capacity (K)</label>
+                            <span class="font-monospace text-emerald fw-bold" id="valK">1.80 OD</span>
+                        </div>
+                        <input type="range" class="form-range" id="inputK" min="0.5" max="3.0" step="0.05" value="1.80">
+                        <div class="form-text" style="font-size: 0.72rem;">Theoretical saturation plateau dictated by nutrients (K &gt; N₀).</div>
+                    </div>
+
+                    <!-- Intrinsic Growth Rate r -->
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <label for="inputR" class="form-label small fw-semibold mb-0">Intrinsic Growth Rate (r)</label>
+                            <span class="font-monospace text-info fw-bold" id="valR">0.45 h⁻¹</span>
+                        </div>
+                        <input type="range" class="form-range" id="inputR" min="0.05" max="1.20" step="0.05" value="0.45">
+                        <div class="form-text" style="font-size: 0.72rem;">Exponential division velocity parameter (r &gt; 0).</div>
+                    </div>
+
+                    <!-- Duration t_max -->
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <label for="inputTMax" class="form-label small fw-semibold mb-0">Simulated Duration (t_max)</label>
+                            <span class="font-monospace text-warning fw-bold" id="valTMax">24 hours</span>
+                        </div>
+                        <input type="range" class="form-range" id="inputTMax" min="12" max="48" step="2" value="24">
+                        <div class="form-text" style="font-size: 0.72rem;">Elapsed incubation timeframe.</div>
+                    </div>
+
+                    <button type="button" id="resetSimBtn" class="btn btn-outline-secondary w-100 rounded-pill btn-sm">
+                        <i class="bi bi-arrow-counterclockwise me-1"></i>Reset Default Constants
+                    </button>
+                </form>
+
+                <!-- Computed Simulation Properties -->
+                <div class="border-top pt-3 mt-4 small">
+                    <div class="fw-semibold mb-2 text-uppercase text-muted" style="font-size: 0.72rem;">Derived Kinetic Properties</div>
+                    <div class="d-flex justify-content-between py-1 border-bottom">
+                        <span class="text-muted">Doubling Time (t_d):</span>
+                        <span class="font-monospace fw-bold text-teal" id="simDoublingTime">1.54 h</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-1 border-bottom">
+                        <span class="text-muted">Inflection Point (t_inf):</span>
+                        <span class="font-monospace fw-bold text-info" id="simInflectionTime">7.96 h</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-1">
+                        <span class="text-muted">Max Growth Rate at t_inf:</span>
+                        <span class="font-monospace fw-bold text-emerald" id="simMaxRate">0.2025 OD/h</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Simulation Plotly Chart -->
+        <div class="col-lg-8">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0">Simulated Trajectory: N(t)</h5>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace" id="dtBadge">dt = 0.24h</span>
+                </div>
+
+                <div id="simPlotlyDiv" style="min-height: 440px; width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const inputN0 = document.getElementById('inputN0');
+    const inputK = document.getElementById('inputK');
+    const inputR = document.getElementById('inputR');
+    const inputTMax = document.getElementById('inputTMax');
+    const resetBtn = document.getElementById('resetSimBtn');
+    const simPlotlyDiv = document.getElementById('simPlotlyDiv');
+
+    // Client-side Verhulst solver for instantaneous 60fps dynamic slider responsiveness
+    function computeVerhulstClient(N0, K, r, t_max) {
+        const points = [];
+        const numSteps = 100;
+        const dt = t_max / numSteps;
+        for (let i = 0; i <= numSteps; i++) {
+            const t = i * dt;
+            const od = K / (1.0 + ((K - N0) / N0) * Math.exp(-r * t));
+            points.push({ t: parseFloat(t.toFixed(2)), od: parseFloat(od.toFixed(4)) });
+        }
+        const doubling_time = (Math.log(2.0) / r);
+        const inflection_t = (Math.log((K - N0) / N0) / r);
+        const max_rate = (r * K) / 4.0;
+
+        return {
+            points,
+            doubling_time: doubling_time.toFixed(2),
+            inflection_t: Math.max(0, inflection_t).toFixed(2),
+            max_rate: max_rate.toFixed(4),
+            dt: dt.toFixed(2)
+        };
+    }
+
+    function renderSimulation() {
+        const N0 = parseFloat(inputN0.value);
+        let K = parseFloat(inputK.value);
+        const r = parseFloat(inputR.value);
+        const t_max = parseFloat(inputTMax.value);
+
+        // Enforce K > N0
+        if (K <= N0) {
+            K = parseFloat((N0 + 0.1).toFixed(2));
+            inputK.value = K;
+        }
+
+        document.getElementById('valN0').textContent = N0.toFixed(2) + ' OD';
+        document.getElementById('valK').textContent = K.toFixed(2) + ' OD';
+        document.getElementById('valR').textContent = r.toFixed(2) + ' h⁻¹';
+        document.getElementById('valTMax').textContent = t_max.toFixed(0) + ' hours';
+
+        // 1. Instantaneous Local Math Evaluation
+        const local = computeVerhulstClient(N0, K, r, t_max);
+        document.getElementById('simDoublingTime').textContent = local.doubling_time + ' h';
+        document.getElementById('simInflectionTime').textContent = local.inflection_t + ' h';
+        document.getElementById('simMaxRate').textContent = local.max_rate + ' OD/h';
+        document.getElementById('dtBadge').textContent = 'dt = ' + local.dt + 'h';
+
+        const simTrace = {
+            x: local.points.map(p => p.t),
+            y: local.points.map(p => p.od),
+            mode: 'lines',
+            name: 'Simulated N(t)',
+            line: { color: '#0d9488', width: 3.5 }
+        };
+
+        const kLineTrace = {
+            x: [0, t_max],
+            y: [K, K],
+            mode: 'lines',
+            name: 'Carrying Capacity (K = ' + K.toFixed(2) + ')',
+            line: { color: '#f43f5e', width: 2, dash: 'dot' }
+        };
+
+        const inflectionTrace = {
+            x: [parseFloat(local.inflection_t), parseFloat(local.inflection_t)],
+            y: [0, K],
+            mode: 'lines',
+            name: 'Inflection Peak (t = ' + local.inflection_t + 'h)',
+            line: { color: '#0ea5e9', width: 1.5, dash: 'dash' }
+        };
+
+        const isDark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+        const layout = {
+            paper_bgcolor: 'transparent',
+            plot_bgcolor: 'transparent',
+            font: { family: 'Inter, sans-serif', color: isDark ? '#94a3b8' : '#475569' },
+            margin: { l: 55, r: 25, t: 30, b: 50 },
+            xaxis: {
+                title: { text: 'Simulated Incubation Time (hours)', font: { size: 12, family: 'JetBrains Mono' } },
+                gridcolor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
+                zeroline: false
+            },
+            yaxis: {
+                title: { text: 'Simulated Optical Density (OD₆₀₀)', font: { size: 12, family: 'JetBrains Mono' } },
+                gridcolor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
+                zeroline: false,
+                range: [0, K * 1.15]
+            },
+            legend: { orientation: 'h', x: 0.02, y: 1.05 }
+        };
+
+        Plotly.react('simPlotlyDiv', [simTrace, kLineTrace, inflectionTrace], layout, { responsive: true, displayModeBar: false });
+
+        // 2. Background Sync with Server API (with CSRF header and fallback)
+        fetch('{{ url_for("growth.api_simulate") }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({ N0, K, r, t_max })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data && data.success) {
+                document.getElementById('simDoublingTime').textContent = data.doubling_time_h + ' h';
+                document.getElementById('simInflectionTime').textContent = data.inflection_time_h + ' h';
+                document.getElementById('simMaxRate').textContent = data.max_growth_rate_at_inflection + ' OD/h';
+            }
+        })
+        .catch(err => console.debug('Server sim sync fallback to client math:', err));
+    }
+
+    [inputN0, inputK, inputR, inputTMax].forEach(el => el.addEventListener('input', renderSimulation));
+
+    resetBtn.addEventListener('click', () => {
+        inputN0.value = 0.05;
+        inputK.value = 1.80;
+        inputR.value = 0.45;
+        inputTMax.value = 24;
+        renderSimulation();
+    });
+
+    // Initial render
+    renderSimulation();
+
+    // Theme Switch Sync
+    const themeBtn = document.getElementById('themeToggleBtn');
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            setTimeout(renderSimulation, 100);
+        });
+    }
+});
+</script>
+{% endblock %}

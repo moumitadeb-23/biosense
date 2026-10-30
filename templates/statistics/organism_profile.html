@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block title %}{{ profile.scientific_name }} Profile — Bio Explorer{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <!-- Header -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <a href="{{ url_for('statistics.bio_explorer') }}" class="btn btn-sm btn-outline-secondary rounded-circle">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <h1 class="h3 fw-bold mb-0 fst-italic">{{ profile.scientific_name }}</h1>
+                <span class="badge {% if profile.gram_type == 'Gram-positive' %}bg-primary-subtle text-primary border border-primary-subtle{% elif profile.gram_type == 'Gram-negative' %}bg-danger-subtle text-danger border border-danger-subtle{% else %}bg-warning-subtle text-warning border border-warning-subtle{% endif %} font-monospace px-3 py-1">
+                    {{ profile.gram_type }}
+                </span>
+            </div>
+            <p class="text-muted small mb-0 font-monospace">
+                Taxonomy: {{ profile.genus }} (Genus) · {{ profile.domain_family }} (Family) · Common Name: {{ profile.common_name }}
+            </p>
+        </div>
+        <div>
+            <a href="{{ url_for('growth.index', organism_id=profile.id) }}" class="btn btn-teal btn-sm rounded-pill px-3 shadow-sm">
+                <i class="bi bi-graph-up me-1"></i>View Growth Curves
+            </a>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Reference Taxonomy & Experimental Metrics -->
+        <div class="col-lg-5">
+            <!-- Biological Description Card -->
+            <div class="bio-card p-4 mb-4">
+                <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-journal-medical text-teal"></i>Taxonomic & Biological Profile
+                </h5>
+                <p class="small text-muted mb-3" style="line-height: 1.5;">
+                    {{ profile.description }}
+                </p>
+
+                <div class="p-3 rounded bg-body border font-monospace small">
+                    <div class="d-flex justify-content-between py-1 border-bottom">
+                        <span class="text-muted">Genus:</span>
+                        <span class="fw-semibold">{{ profile.genus }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-1 border-bottom">
+                        <span class="text-muted">Species:</span>
+                        <span class="fw-semibold">{{ profile.species }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-1 border-bottom">
+                        <span class="text-muted">Family:</span>
+                        <span class="fw-semibold">{{ profile.domain_family }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-1">
+                        <span class="text-muted">Cell Wall Type:</span>
+                        <span class="fw-semibold">{{ profile.gram_type }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experimental Observations Card -->
+            <div class="bio-card p-4">
+                <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-clipboard2-data text-teal"></i>Database Ingestion Observations
+                </h5>
+                <div class="row g-2 font-monospace small">
+                    <div class="col-6 p-2 border rounded bg-body text-center">
+                        <div class="text-muted" style="font-size: 0.7rem;">Experiments</div>
+                        <div class="h5 fw-bold text-teal mb-0">{{ profile.experimental_summary.experiments_count }}</div>
+                    </div>
+                    <div class="col-6 p-2 border rounded bg-body text-center">
+                        <div class="text-muted" style="font-size: 0.7rem;">Growth Points</div>
+                        <div class="h5 fw-bold text-info mb-0">{{ profile.experimental_summary.growth_points_count }}</div>
+                    </div>
+                    <div class="col-6 p-2 border rounded bg-body text-center">
+                        <div class="text-muted" style="font-size: 0.7rem;">Peak Observed OD</div>
+                        <div class="h5 fw-bold text-success mb-0">{{ profile.experimental_summary.max_od_observed }}</div>
+                    </div>
+                    <div class="col-6 p-2 border rounded bg-body text-center">
+                        <div class="text-muted" style="font-size: 0.7rem;">Temp Tested</div>
+                        <div class="small fw-bold text-muted mb-0">{{ profile.experimental_summary.temp_range }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Antibiotic Susceptibility Profile -->
+        <div class="col-lg-7">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-shield-check text-teal"></i>Susceptibility Profile ({{ profile.ast_summary.total_ast_tests }} Tests)
+                    </h5>
+                    <div class="d-flex gap-1 font-monospace small">
+                        <span class="badge bg-success-subtle text-success">S: {{ profile.ast_summary.s_pct }}%</span>
+                        <span class="badge bg-warning-subtle text-warning">I: {{ profile.ast_summary.i_pct }}%</span>
+                        <span class="badge bg-danger-subtle text-danger">R: {{ profile.ast_summary.r_pct }}%</span>
+                    </div>
+                </div>
+
+                {% if profile.ast_summary.tested_antibiotics %}
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover align-middle mb-0 font-monospace" style="font-size: 0.8rem;">
+                            <thead>
+                                <tr>
+                                    <th>Antibiotic</th>
+                                    <th>Total Tests</th>
+                                    <th>Mean Zone (mm)</th>
+                                    <th>% Sensitive</th>
+                                    <th>% Resistant</th>
+                                    <th>AST Category Breakdown</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for ab in profile.ast_summary.tested_antibiotics %}
+                                    <tr>
+                                        <td class="fw-bold">{{ ab.antibiotic }}</td>
+                                        <td>{{ ab.total }}</td>
+                                        <td class="text-teal">{{ ab.mean_zone }} mm</td>
+                                        <td class="text-success">{{ ab.s_pct }}%</td>
+                                        <td class="text-danger">{{ ab.r_pct }}%</td>
+                                        <td style="min-width: 110px;">
+                                            <div class="progress" style="height: 6px;">
+                                                <div class="progress-bar bg-success" style="width: {{ ab.s_pct }}%"></div>
+                                                <div class="progress-bar bg-warning" style="width: {{ ab.i_pct }}%"></div>
+                                                <div class="progress-bar bg-danger" style="width: {{ ab.r_pct }}%"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="p-4 text-center text-muted">
+                        No AST records registered for this organism yet.
+                    </div>
+                {% endif %}
+
+                <!-- Scientific Integrity Notice -->
+                <div class="mt-4 p-3 rounded bg-body-tertiary border text-muted small" style="font-size: 0.75rem;">
+                    <i class="bi bi-info-circle me-1"></i>
+                    <strong>Observational Notice:</strong> These metrics reflect observations recorded in the BioSense database registry. They are provided solely for academic study and data science exploration.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,327 @@
+{% extends "base.html" %}
+{% block title %}Growth Kinetics & Phase Analysis — BioSense{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-lg-4 py-4">
+    <!-- Header -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <h1 class="h3 fw-bold mb-0">Microbial Growth Kinetics & Curve Modeling</h1>
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle font-monospace px-3 py-1">VERHULST LOGISTIC MODEL</span>
+            </div>
+            <p class="text-muted small mb-0">
+                Spectrophotometric OD600 time-series, maximum specific growth rates (&mu;<sub>max</sub>), doubling times (t<sub>d</sub>), and heuristic phase segmentation.
+            </p>
+        </div>
+        <div class="d-flex gap-2">
+            <a href="{{ url_for('learn.index') }}" class="btn btn-outline-info btn-sm rounded-pill px-3">
+                <i class="bi bi-mortarboard me-1"></i>Kinetics Theory
+            </a>
+            <a href="{{ url_for('growth.simulator') }}" class="btn btn-outline-teal btn-sm rounded-pill px-3">
+                <i class="bi bi-calculator me-1"></i>Interactive Simulator
+            </a>
+            <a href="{{ url_for('datasets.upload') }}" class="btn btn-teal btn-sm rounded-pill px-3">
+                <i class="bi bi-cloud-upload me-1"></i>Upload Growth CSV
+            </a>
+        </div>
+    </div>
+
+    <!-- Filter Toolbar -->
+    <div class="bio-card p-3 mb-4">
+        <form id="growthFilterForm" class="row g-3 align-items-end">
+            <div class="col-md-5">
+                <label for="organismSelect" class="form-label small fw-semibold text-muted text-uppercase" style="font-size: 0.72rem;">Microbial Organism</label>
+                <select class="form-select" id="organismSelect" name="organism_id">
+                    {% for org in organisms %}
+                        <option value="{{ org.id }}" {% if org.id == selected_org_id %}selected{% endif %}>
+                            {{ org.scientific_name }} ({{ org.gram_type }})
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="mediumSelect" class="form-label small fw-semibold text-muted text-uppercase" style="font-size: 0.72rem;">Growth Substrate / Medium</label>
+                <select class="form-select" id="mediumSelect" name="medium_id">
+                    <option value="">All Culture Media</option>
+                    {% for med in media %}
+                        <option value="{{ med.id }}">{{ med.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <button type="button" id="loadCurveBtn" class="btn btn-teal w-100 rounded-pill fw-semibold">
+                    <i class="bi bi-funnel me-1"></i>Filter Growth Curves
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Live Kinetics KPI Tiles -->
+    <div class="row g-3 mb-4" id="kineticsKpis">
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="bio-card kpi-card p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Initial Inoculum (N₀)</div>
+                <div class="h3 fw-bold text-teal mb-0 font-monospace" id="kpiN0">—</div>
+                <small class="text-muted" style="font-size: 0.7rem;">OD600 at t = 0h</small>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="bio-card kpi-card kpi-emerald p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Peak Turbidity (OD_max)</div>
+                <div class="h3 fw-bold text-success mb-0 font-monospace" id="kpiMaxOd">—</div>
+                <small class="text-muted" style="font-size: 0.7rem;">Maximum observed OD</small>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="bio-card kpi-card kpi-cyan p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Specific Growth Rate (&mu;<sub>max</sub>)</div>
+                <div class="h3 fw-bold text-info mb-0 font-monospace" id="kpiMuMax">—</div>
+                <small class="text-muted" style="font-size: 0.7rem;">Exponential slope (h⁻¹)</small>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="bio-card kpi-card kpi-amber p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Doubling Time (t<sub>d</sub>)</div>
+                <div class="h3 fw-bold text-warning mb-0 font-monospace" id="kpiDoublingTime">—</div>
+                <small class="text-muted" style="font-size: 0.7rem;">t_d = ln(2) / &mu;</small>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="bio-card kpi-card kpi-blue p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Time to Peak OD</div>
+                <div class="h3 fw-bold text-primary mb-0 font-monospace" id="kpiTimeToPeak">—</div>
+                <small class="text-muted" style="font-size: 0.7rem;">Incubation hours elapsed</small>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="bio-card kpi-card kpi-rose p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Carrying Capacity (K)</div>
+                <div class="h3 fw-bold text-rose mb-0 font-monospace" id="kpiCarryingK">—</div>
+                <small class="text-muted" style="font-size: 0.7rem;">Logistic ceiling asymptote</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Plotly Chart Card -->
+    <div class="bio-card p-4 mb-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+            <div>
+                <h5 class="fw-bold mb-1" id="chartTitle">Time vs Optical Density (OD600) Kinetics</h5>
+                <p class="small text-muted mb-0" id="chartSubtitle">Loading spectrophotometric series...</p>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="d-flex align-items-center gap-2 small font-monospace">
+                    <span class="badge bg-teal-subtle text-teal">● Raw Observations</span>
+                    <span class="badge bg-info-subtle text-info">― Fitted Logistic Curve</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Plotly Canvas Container -->
+        <div id="growthPlotlyDiv" style="min-height: 440px; width: 100%;">
+            <div class="text-center py-5 text-muted">
+                <div class="spinner-border text-teal mb-2" role="status"></div>
+                <div>Fetching experimental time-series...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Heuristic Phase Interpretation & Mathematical Reference (Spec Section 9 & 11) -->
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-diagram-3 text-teal"></i>Heuristic Phase Interpretation
+                    </h5>
+                    <span class="badge bg-warning-subtle text-warning border border-warning font-monospace" style="font-size: 0.7rem;">EDUCATIONAL INTERPRETATION</span>
+                </div>
+                <p class="small text-muted mb-3">
+                    Bacterial growth in closed batch culture undergoes four classical thermodynamic regimes:
+                </p>
+
+                <div class="list-group list-group-flush small">
+                    <div class="list-group-item bg-transparent px-0 py-2 border-secondary-subtle">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-teal">1. Lag Phase (Adaptation)</span>
+                            <span class="font-monospace text-muted" id="phaseLagRange">0h – 2.0h</span>
+                        </div>
+                        <div class="text-muted">Physiological adaptation, enzyme synthesis, and repair; no net population expansion.</div>
+                    </div>
+                    <div class="list-group-item bg-transparent px-0 py-2 border-secondary-subtle">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-info">2. Log / Exponential Phase (&mu;<sub>max</sub>)</span>
+                            <span class="font-monospace text-muted" id="phaseLogRange">2.0h – 10.0h</span>
+                        </div>
+                        <div class="text-muted">Maximal binary fission division where doubling rate is constant: dN/dt = &mu;N.</div>
+                    </div>
+                    <div class="list-group-item bg-transparent px-0 py-2 border-secondary-subtle">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-success">3. Stationary Phase (Equilibrium K)</span>
+                            <span class="font-monospace text-muted" id="phaseStatRange">10.0h – 24.0h</span>
+                        </div>
+                        <div class="text-muted">Nutrient exhaustion and metabolic waste accumulation; division rate equals death rate.</div>
+                    </div>
+                    <div class="list-group-item bg-transparent px-0 py-2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-amber">4. Decline / Death Phase</span>
+                            <span class="font-monospace text-muted">&gt; 24.0h</span>
+                        </div>
+                        <div class="text-muted">Exponential cell lysis and loss of culture viability under prolonged starvation.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="bio-card p-4 h-100">
+                <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-book text-teal"></i>Governing Mathematical Equations
+                </h5>
+                <div class="p-3 rounded bg-body border mb-3 font-monospace small">
+                    <div class="text-teal fw-bold mb-1">Verhulst Sigmoidal Logistic Model:</div>
+                    <div class="text-muted mb-2">N(t) = K / [ 1 + ((K - N₀)/N₀) · e<sup>-rt</sup> ]</div>
+                    <div class="text-info fw-bold mb-1">Exponential Growth Rate (&mu;):</div>
+                    <div class="text-muted mb-2">&mu; = [ ln(N₂) - ln(N₁) ] / (t₂ - t₁)</div>
+                    <div class="text-success fw-bold mb-1">Doubling Time (Generation Time):</div>
+                    <div class="text-muted">t<sub>d</sub> = ln(2) / &mu;<sub>max</sub> &approx; 0.69315 / &mu;<sub>max</sub></div>
+                </div>
+                <div class="small text-muted">
+                    <i class="bi bi-info-circle me-1"></i>
+                    <strong>Underlying Assumptions:</strong> Assumes a closed, well-mixed batch culture with homogenous nutrient distribution, constant incubation temperature, and consistent pH buffering.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const orgSelect = document.getElementById('organismSelect');
+    const medSelect = document.getElementById('mediumSelect');
+    const loadBtn = document.getElementById('loadCurveBtn');
+
+    function fetchAndPlotGrowth() {
+        const orgId = orgSelect.value;
+        const medId = medSelect.value;
+        const url = `{{ url_for('growth.api_growth_curves') }}?organism_id=${orgId}&medium_id=${medId}`;
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                if (!data.success || !data.experiments || data.experiments.length === 0) {
+                    document.getElementById('growthPlotlyDiv').innerHTML = `
+                        <div class="text-center py-5 text-muted">
+                            <i class="bi bi-exclamation-circle fs-2 text-warning mb-2 d-block"></i>
+                            <h6>No Growth Data Available for Selected Criteria</h6>
+                            <p class="small">Seed the sample database or upload an experimental CSV to visualize curves.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Render primary experiment
+                const exp = data.experiments[0];
+                const kinetics = exp.kinetics;
+
+                // Update KPI Tiles
+                document.getElementById('kpiN0').textContent = kinetics.initial_od;
+                document.getElementById('kpiMaxOd').textContent = kinetics.max_od;
+                document.getElementById('kpiMuMax').textContent = kinetics.mu_max + ' h⁻¹';
+                document.getElementById('kpiDoublingTime').textContent = kinetics.doubling_time_h + ' h';
+                document.getElementById('kpiTimeToPeak').textContent = kinetics.time_to_max_h + ' h';
+                document.getElementById('kpiCarryingK').textContent = kinetics.carrying_capacity_K;
+
+                // Update Phase Ranges
+                const phases = kinetics.phase_segmentation;
+                if (phases) {
+                    document.getElementById('phaseLagRange').textContent = `${phases.lag_phase.start_h}h – ${phases.lag_phase.end_h}h`;
+                    document.getElementById('phaseLogRange').textContent = `${phases.log_phase.start_h}h – ${phases.log_phase.end_h}h`;
+                    document.getElementById('phaseStatRange').textContent = `${phases.stationary_phase.start_h}h – ${phases.stationary_phase.end_h}h`;
+                }
+
+                document.getElementById('chartTitle').textContent = `${exp.organism} in ${exp.medium} (${exp.temperature}°C, pH ${exp.ph})`;
+                document.getElementById('chartSubtitle').textContent = `Fitted R² = ${kinetics.r_squared} · Provenance: ${exp.data_source}`;
+
+                // Prepare Plotly Traces
+                const rawPointsTrace = {
+                    x: kinetics.points.map(p => p.t),
+                    y: kinetics.points.map(p => p.od),
+                    mode: 'markers',
+                    name: 'Measured OD600',
+                    marker: { color: '#0d9488', size: 9, symbol: 'circle', line: { color: '#ffffff', width: 1.5 } }
+                };
+
+                const smoothCurveTrace = {
+                    x: kinetics.smooth_curve.map(p => p.t),
+                    y: kinetics.smooth_curve.map(p => p.od),
+                    mode: 'lines',
+                    name: 'Verhulst Model Fit',
+                    line: { color: '#06b6d4', width: 3 }
+                };
+
+                // Phase Background Shapes
+                const shapes = [];
+                if (phases) {
+                    shapes.push({
+                        type: 'rect',
+                        xref: 'x', yref: 'paper',
+                        x0: phases.lag_phase.start_h, x1: phases.lag_phase.end_h,
+                        y0: 0, y1: 1,
+                        fillcolor: 'rgba(13, 148, 136, 0.08)',
+                        line: { width: 0 }
+                    });
+                    shapes.push({
+                        type: 'rect',
+                        xref: 'x', yref: 'paper',
+                        x0: phases.log_phase.start_h, x1: phases.log_phase.end_h,
+                        y0: 0, y1: 1,
+                        fillcolor: 'rgba(6, 182, 212, 0.08)',
+                        line: { width: 0 }
+                    });
+                    shapes.push({
+                        type: 'rect',
+                        xref: 'x', yref: 'paper',
+                        x0: phases.stationary_phase.start_h, x1: phases.stationary_phase.end_h,
+                        y0: 0, y1: 1,
+                        fillcolor: 'rgba(16, 185, 129, 0.08)',
+                        line: { width: 0 }
+                    });
+                }
+
+                const isDark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                const layout = {
+                    paper_bgcolor: 'transparent',
+                    plot_bgcolor: 'transparent',
+                    font: { family: 'Inter, sans-serif', color: isDark ? '#94a3b8' : '#475569' },
+                    margin: { l: 55, r: 25, t: 30, b: 50 },
+                    xaxis: {
+                        title: { text: 'Incubation Time (hours)', font: { size: 12, family: 'JetBrains Mono' } },
+                        gridcolor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
+                        zeroline: false
+                    },
+                    yaxis: {
+                        title: { text: 'Optical Density (OD₆₀₀)', font: { size: 12, family: 'JetBrains Mono' } },
+                        gridcolor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
+                        zeroline: false
+                    },
+                    legend: { orientation: 'h', x: 0.02, y: 1.05 },
+                    shapes: shapes
+                };
+
+                Plotly.newPlot('growthPlotlyDiv', [rawPointsTrace, smoothCurveTrace], layout, { responsive: true, displayModeBar: false });
+            })
+            .catch(err => {
+                console.error(err);
+                document.getElementById('growthPlotlyDiv').innerHTML = `<div class="p-4 text-danger text-center">Failed to load growth curves: ${err.message}</div>`;
+            });
+    }
+
+    loadBtn.addEventListener('click', fetchAndPlotGrowth);
+    fetchAndPlotGrowth();
+});
+</script>
+{% endblock %}

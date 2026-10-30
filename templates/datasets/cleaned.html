@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}Cleaned Dataset & Audit Trail — {{ dataset.filename }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-lg-4 py-4">
+    <!-- Header -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <a href="{{ url_for('datasets.validate', dataset_id=dataset.id) }}" class="btn btn-sm btn-outline-secondary rounded-circle">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <h1 class="h3 fw-bold mb-0">Dataset Cleaning Audit & Change Log</h1>
+                <span class="badge bg-success-subtle text-success border border-success font-monospace px-3 py-1">CLEANED</span>
+            </div>
+            <p class="text-muted small mb-0 font-monospace">
+                Retained <strong>{{ cleaned_count }}</strong> verified biological observations · Formula injection neutralized
+            </p>
+        </div>
+
+        <div class="d-flex gap-2">
+            <a href="{{ url_for('datasets.download', dataset_id=dataset.id) }}" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                <i class="bi bi-download me-1"></i>Download Cleaned CSV
+            </a>
+            <form method="POST" action="{{ url_for('datasets.import_dataset', dataset_id=dataset.id) }}" class="d-inline">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit" class="btn btn-teal btn-sm rounded-pill px-4 fw-semibold shadow-sm">
+                    <i class="bi bi-database-check me-1"></i>Confirm Import to Database
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Change Log Audit Card -->
+        <div class="col-lg-6">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-journal-text text-teal"></i>Itemized Transformation Log
+                    </h5>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">{{ change_log|length }} Action(s)</span>
+                </div>
+                <p class="small text-muted mb-3">
+                    Full disclosure of every row dropped, clamped, or imputed to maintain strict laboratory documentation integrity.
+                </p>
+
+                <div class="p-3 rounded bg-body border font-monospace small" style="max-height: 400px; overflow-y: auto;">
+                    <ul class="list-unstyled mb-0">
+                        {% for log_item in change_log %}
+                            <li class="py-1 border-bottom border-secondary-subtle d-flex align-items-start gap-2">
+                                <i class="bi bi-arrow-right-short text-teal mt-1"></i>
+                                <span>{{ log_item }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cleaned Data Preview -->
+        <div class="col-lg-6">
+            <div class="bio-card p-4 h-100">
+                <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-table text-teal"></i>Cleaned Dataset Preview
+                </h5>
+                <p class="small text-muted mb-3">First 10 records ready for ingestion into research tables.</p>
+
+                {% if preview_rows %}
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped align-middle mb-0 font-monospace" style="font-size: 0.78rem;">
+                            <thead>
+                                <tr>
+                                    {% for col in preview_columns %}
+                                        <th>{{ col }}</th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in preview_rows %}
+                                    <tr>
+                                        {% for col in preview_columns %}
+                                            <td>{{ row[col] }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

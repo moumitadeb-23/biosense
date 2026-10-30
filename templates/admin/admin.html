@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}System Administration — BioSense Platform{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <!-- Page Header -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <span class="badge bg-danger-subtle text-danger border border-danger-subtle font-monospace">Security Ring 0</span>
+                <span class="badge bg-secondary-subtle text-secondary font-monospace">Admin Portal</span>
+            </div>
+            <h2 class="fw-bold tracking-tight mb-1">System Governance & Administration</h2>
+            <p class="text-muted mb-0">Platform telemetry, reference catalog control, user provisioning, and audit trails.</p>
+        </div>
+        <div class="d-flex gap-2">
+            <a href="{{ url_for('admin.audit_logs') }}" class="btn btn-outline-secondary btn-sm px-3 d-inline-flex align-items-center">
+                <i class="bi bi-shield-check me-1"></i> Full Audit Trail
+            </a>
+            <a href="{{ url_for('admin.organisms') }}" class="btn btn-primary btn-sm px-3 d-inline-flex align-items-center">
+                <i class="bi bi-database me-1"></i> Reference Catalogs
+            </a>
+        </div>
+    </div>
+
+    <!-- KPI Metric Cards -->
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-lg-3">
+            <div class="card border-0 shadow-sm p-3">
+                <span class="text-muted small text-uppercase fw-semibold">Users Registered</span>
+                <h3 class="fw-bold text-primary mt-2 mb-0">{{ user_count }}</h3>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="card border-0 shadow-sm p-3">
+                <span class="text-muted small text-uppercase fw-semibold">Experiments</span>
+                <h3 class="fw-bold text-success mt-2 mb-0">{{ experiment_count }}</h3>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="card border-0 shadow-sm p-3">
+                <span class="text-muted small text-uppercase fw-semibold">Reference Catalogs</span>
+                <h3 class="fw-bold text-info mt-2 mb-0">{{ organism_count }} orgs / {{ antibiotic_count }} abs</h3>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="card border-0 shadow-sm p-3">
+                <span class="text-muted small text-uppercase fw-semibold">Trained ML Models</span>
+                <h3 class="fw-bold text-warning mt-2 mb-0">{{ model_count }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Users & Audit Section -->
+    <div class="row g-4">
+        <!-- User Roster -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-transparent border-0 d-flex justify-content-between align-items-center py-3">
+                    <h5 class="fw-bold mb-0"><i class="bi bi-people me-2 text-primary"></i>User Roster (Recent 10)</h5>
+                    <span class="badge bg-light text-muted border">{{ user_count }} total</span>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0 small">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="ps-3">Username</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th class="pe-3">Joined</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for u in recent_users %}
+                                <tr>
+                                    <td class="ps-3 fw-semibold">{{ u.username }}</td>
+                                    <td class="text-muted">{{ u.email }}</td>
+                                    <td>
+                                        {% if u.role == 'ADMIN' %}
+                                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle font-monospace">ADMIN</span>
+                                        {% elif u.role == 'RESEARCHER' %}
+                                            <span class="badge bg-info-subtle text-info border border-info-subtle font-monospace">RESEARCHER</span>
+                                        {% else %}
+                                            <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle font-monospace">STUDENT</span>
+                                        {% endif %}
+                                    </td>
+                                    <td class="pe-3 text-muted">{{ u.created_at.strftime('%Y-%m-%d') }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Audit Log -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-transparent border-0 d-flex justify-content-between align-items-center py-3">
+                    <h5 class="fw-bold mb-0"><i class="bi bi-shield-check me-2 text-success"></i>Recent Security Audit Trail</h5>
+                    <a href="{{ url_for('admin.audit_logs') }}" class="small text-decoration-none">View All &rarr;</a>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0 small">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="ps-3">Action</th>
+                                    <th>Details</th>
+                                    <th class="pe-3">Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for a in recent_audits %}
+                                <tr>
+                                    <td class="ps-3">
+                                        <span class="badge bg-light text-dark border font-monospace">{{ a.action }}</span>
+                                    </td>
+                                    <td class="text-truncate" style="max-width: 240px;" title="{{ a.details }}">{{ a.details }}</td>
+                                    <td class="pe-3 text-muted text-nowrap">{{ a.timestamp.strftime('%H:%M:%S') }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

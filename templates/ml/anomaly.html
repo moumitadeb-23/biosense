@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block title %}Anomaly & Contamination Screening — BioSense ML{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-lg-4 py-4">
+    <!-- Header -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <h1 class="h3 fw-bold mb-0">Culture Anomaly & Outlier Screening</h1>
+                <span class="badge bg-warning-subtle text-warning border border-warning font-monospace px-3 py-1">UNSUPERVISED ISOLATION FOREST + IQR</span>
+            </div>
+            <p class="text-muted small mb-0">
+                Multi-algorithm statistical screening to identify spectrophotometric abnormalities, unexpected kinetics, or potential culture contamination.
+            </p>
+        </div>
+        <div>
+            <a href="{{ url_for('growth.index') }}" class="btn btn-outline-teal btn-sm rounded-pill px-3">
+                <i class="bi bi-graph-up me-1"></i>Inspect Growth Curves
+            </a>
+        </div>
+    </div>
+
+    <!-- Mandatory Anomaly Notice (Spec Section 19) -->
+    <div class="alert alert-warning border-warning shadow-sm mb-4">
+        <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-shield-exclamation fs-3 text-warning"></i>
+            <div>
+                <strong class="d-block text-uppercase font-monospace" style="font-size: 0.75rem;">Biological Outlier Notice</strong>
+                <span class="small">{{ report.notice }}</span>
+            </div>
+        </div>
+    </div>
+
+    {% if report.success %}
+        <!-- Anomaly KPI Summary Tiles -->
+        <div class="row g-3 mb-4">
+            <div class="col-6 col-md-3">
+                <div class="bio-card kpi-card p-3 shadow-sm">
+                    <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Observations Screened</div>
+                    <div class="h3 fw-bold text-teal mb-0 font-monospace">{{ report.total_screened }}</div>
+                    <small class="text-muted" style="font-size: 0.7rem;">Time-series data points</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="bio-card kpi-card kpi-rose p-3 shadow-sm">
+                    <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Anomalies Flagged</div>
+                    <div class="h3 fw-bold text-rose mb-0 font-monospace">{{ report.total_anomalies }}</div>
+                    <small class="text-muted" style="font-size: 0.7rem;">Outlier observations</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="bio-card kpi-card kpi-amber p-3 shadow-sm">
+                    <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Outlier Rate (%)</div>
+                    <div class="h3 fw-bold text-warning mb-0 font-monospace">{{ report.anomaly_rate_pct }}%</div>
+                    <small class="text-muted" style="font-size: 0.7rem;">Target contamination ~5%</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="bio-card kpi-card kpi-blue p-3 shadow-sm">
+                    <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">IQR Bounds on OD</div>
+                    <div class="h5 fw-bold text-primary mb-0 font-monospace">{{ report.iqr_bounds.lower }} – {{ report.iqr_bounds.upper }}</div>
+                    <small class="text-muted" style="font-size: 0.7rem;">Q₁ - 1.5·IQR to Q₃ + 1.5·IQR</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detected Anomalies Table -->
+        <div class="bio-card p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="fw-bold mb-0">Flagged Biological Anomaly Observations</h5>
+                <span class="badge bg-secondary-subtle text-muted font-monospace">{{ report.total_anomalies }} Flagged</span>
+            </div>
+
+            {% if report.anomalies %}
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0 font-monospace small">
+                        <thead>
+                            <tr>
+                                <th>Measurement ID</th>
+                                <th>Time Elapsed</th>
+                                <th>Observed OD600</th>
+                                <th>Culture Temp</th>
+                                <th>Culture pH</th>
+                                <th>Screening Methods Flagging Anomaly</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for a in report.anomalies %}
+                                <tr>
+                                    <td class="fw-bold text-muted">#{{ a.measurement_id }}</td>
+                                    <td>{{ a.time_h }} h</td>
+                                    <td class="text-danger fw-bold">{{ a.optical_density }} OD</td>
+                                    <td>{{ a.temperature }}°C</td>
+                                    <td>pH {{ a.ph }}</td>
+                                    <td>
+                                        {% for method in a.detected_by %}
+                                            <span class="badge {% if 'Isolation' in method %}bg-danger-subtle text-danger border border-danger-subtle{% elif 'IQR' in method %}bg-warning-subtle text-warning border border-warning-subtle{% else %}bg-info-subtle text-info border border-info-subtle{% endif %} me-1 font-monospace">
+                                                {{ method }}
+                                            </span>
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="p-5 text-center text-success">
+                    <i class="bi bi-shield-check display-4 mb-2 d-block"></i>
+                    <h6>Zero Statistical Outliers Detected</h6>
+                    <p class="small text-muted mb-0">All spectrophotometric observations align smoothly with standard growth distributions.</p>
+                </div>
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="bio-card p-5 text-center text-muted">
+            <i class="bi bi-info-circle display-4 text-teal mb-3 d-block"></i>
+            <h5>Insufficient Observations for Anomaly Screening</h5>
+            <p class="small mb-3">{{ report.error }}</p>
+            <a href="{{ url_for('dashboard.index') }}" class="btn btn-teal rounded-pill px-4">
+                Seed Demonstration Data from Dashboard
+            </a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,785 @@
+/* BioSense Biotechnology Custom Design System */
+
+:root {
+    --bs-font-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --bs-font-monospace: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --bio-teal: #0d9488;
+    --bio-teal-light: #14b8a6;
+    --bio-cyan: #06b6d4;
+    --bio-blue: #0284c7;
+    --bio-emerald: #10b981;
+    --bio-amber: #f59e0b;
+    --bio-rose: #f43f5e;
+}
+
+[data-bs-theme="dark"] {
+    --bs-body-bg: #0b1120;
+    --bs-body-color: #e2e8f0;
+    --bs-card-bg: #111827;
+    --bs-card-border-color: #1f2937;
+    --bs-border-color: #1f2937;
+    --navbar-bg: rgba(11, 17, 32, 0.85);
+    --footer-bg: #080d19;
+    --hero-bg-gradient: radial-gradient(circle at 50% 20%, rgba(13, 148, 136, 0.15) 0%, rgba(11, 17, 32, 1) 70%);
+    --card-hover-border: #0d9488;
+    --code-bg: #1e293b;
+}
+
+[data-bs-theme="light"] {
+    --bs-body-bg: #f8fafc;
+    --bs-body-color: #1e293b;
+    --bs-card-bg: #ffffff;
+    --bs-card-border-color: #e2e8f0;
+    --bs-border-color: #e2e8f0;
+    --navbar-bg: rgba(255, 255, 255, 0.9);
+    --footer-bg: #f1f5f9;
+    --hero-bg-gradient: radial-gradient(circle at 50% 10%, rgba(204, 251, 241, 0.7) 0%, rgba(248, 250, 252, 1) 70%);
+    --card-hover-border: #0d9488;
+    --code-bg: #f1f5f9;
+}
+
+body {
+    font-family: var(--bs-font-sans-serif);
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.text-teal {
+    color: var(--bio-teal-light) !important;
+}
+
+.bg-teal {
+    background-color: var(--bio-teal) !important;
+}
+
+.btn-teal {
+    background-color: var(--bio-teal);
+    border-color: var(--bio-teal);
+    color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+.btn-teal:hover {
+    background-color: #0f766e;
+    border-color: #0f766e;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.bg-teal-subtle {
+    background-color: rgba(13, 148, 136, 0.12) !important;
+}
+
+.border-teal-subtle {
+    border-color: rgba(13, 148, 136, 0.25) !important;
+}
+
+/* =========================================================================
+   PREMIUM BIOTECH GLASSMORPHIC NAVBAR
+   ========================================================================= */
+
+.biosense-navbar {
+    background: var(--navbar-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.18), 0 1px 0 rgba(45, 212, 191, 0.12);
+    transition: all 0.3s ease;
+    z-index: 1030;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+}
+
+[data-bs-theme="light"] .biosense-navbar {
+    background: rgba(255, 255, 255, 0.88);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07) !important;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06), 0 1px 0 rgba(13, 148, 136, 0.12);
+}
+
+/* Brand Logo & 3D Interactive Rotate */
+.brand-logo-icon-3d {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.navbar-brand:hover .brand-logo-icon-3d {
+    transform: rotate(18deg) scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(45, 212, 191, 0.6));
+}
+
+.brand-name {
+    font-size: 1.25rem;
+    letter-spacing: -0.025em;
+    font-weight: 800;
+}
+
+/* Live Operational Status Version Pill */
+.nav-version-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    padding: 0.18rem 0.6rem;
+    border-radius: 9999px;
+    background: rgba(13, 148, 136, 0.12);
+    border: 1px solid rgba(45, 212, 191, 0.35);
+    color: #2dd4bf;
+    margin-left: 0.4rem;
+    box-shadow: 0 0 10px rgba(45, 212, 191, 0.2);
+}
+
+[data-bs-theme="light"] .nav-version-pill {
+    background: rgba(13, 148, 136, 0.1);
+    border: 1px solid rgba(13, 148, 136, 0.3);
+    color: #0f766e;
+}
+
+.pulse-indicator-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #10b981;
+    box-shadow: 0 0 8px #10b981;
+    animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+    0%, 100% { transform: scale(0.9); opacity: 0.7; }
+    50% { transform: scale(1.3); opacity: 1; }
+}
+
+/* Nav Item Links - Modern Pill Tabs */
+.biosense-navbar .navbar-nav .nav-link {
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: var(--bs-body-color);
+    padding: 0.42rem 0.85rem !important;
+    border-radius: 9999px;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    opacity: 0.85;
+}
+
+.biosense-navbar .navbar-nav .nav-link:hover {
+    color: #2dd4bf !important;
+    background: rgba(45, 212, 191, 0.08);
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+[data-bs-theme="light"] .biosense-navbar .navbar-nav .nav-link:hover {
+    background: rgba(13, 148, 136, 0.09);
+    color: #0d9488 !important;
+}
+
+/* Active Nav Link Glowing Pill */
+.biosense-navbar .navbar-nav .nav-link.active {
+    color: #2dd4bf !important;
+    font-weight: 600;
+    opacity: 1;
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.25) 0%, rgba(6, 182, 212, 0.15) 100%);
+    border: 1px solid rgba(45, 212, 191, 0.4);
+    box-shadow: 0 0 16px rgba(13, 148, 136, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+[data-bs-theme="light"] .biosense-navbar .navbar-nav .nav-link.active {
+    color: #0f766e !important;
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.18) 0%, rgba(6, 182, 212, 0.10) 100%);
+    border: 1px solid rgba(13, 148, 136, 0.35);
+    box-shadow: 0 0 12px rgba(13, 148, 136, 0.2);
+}
+
+/* Glassmorphic Theme Toggle Button */
+.nav-theme-toggle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(148, 163, 184, 0.25) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    color: var(--bs-body-color) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-theme-toggle:hover {
+    border-color: rgba(245, 158, 11, 0.6) !important;
+    color: #f59e0b !important;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+    transform: rotate(18deg) scale(1.05);
+}
+
+/* Sign In Glassmorphic Button */
+.nav-btn-signin {
+    padding: 0.38rem 1.15rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--bs-body-color) !important;
+    border: 1px solid rgba(148, 163, 184, 0.28) !important;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-btn-signin:hover {
+    border-color: rgba(45, 212, 191, 0.7) !important;
+    color: #2dd4bf !important;
+    background: rgba(13, 148, 136, 0.12);
+    box-shadow: 0 4px 18px rgba(13, 148, 136, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Register 3D Glowing Button */
+.nav-btn-register {
+    padding: 0.38rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 4px 14px rgba(13, 148, 136, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-btn-register:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.65), 0 0 20px rgba(6, 182, 212, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* User Pill when logged in */
+.nav-user-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(45, 212, 191, 0.3);
+    color: var(--bs-body-color) !important;
+    backdrop-filter: blur(10px);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-user-pill:hover, .nav-user-pill[aria-expanded="true"] {
+    border-color: rgba(45, 212, 191, 0.7);
+    background: rgba(13, 148, 136, 0.12);
+    box-shadow: 0 0 18px rgba(13, 148, 136, 0.3);
+}
+
+.nav-user-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0d9488, #06b6d4);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 0.75rem;
+}
+
+/* Footer styling */
+.biosense-footer {
+    background-color: var(--footer-bg);
+}
+
+.clinical-disclaimer-banner {
+    background-color: rgba(245, 158, 11, 0.08);
+    border-color: rgba(245, 158, 11, 0.25) !important;
+}
+
+/* Scientific Grid Background for Hero & Special Sections */
+.bio-grid-pattern {
+    background-image: radial-gradient(rgba(13, 148, 136, 0.12) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+.hero-section {
+    background: var(--hero-bg-gradient);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Cards & Widgets */
+.bio-card {
+    background-color: var(--bs-card-bg);
+    border: 1px solid var(--bs-card-border-color);
+    border-radius: 0.75rem;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bio-card:hover {
+    border-color: var(--card-hover-border);
+    box-shadow: 0 10px 25px -5px rgba(13, 148, 136, 0.1);
+}
+
+/* KPI Card Accents */
+.kpi-card {
+    border-left: 4px solid var(--bio-teal);
+}
+
+.kpi-card.kpi-blue { border-left-color: var(--bio-blue); }
+.kpi-card.kpi-amber { border-left-color: var(--bio-amber); }
+.kpi-card.kpi-rose { border-left-color: var(--bio-rose); }
+.kpi-card.kpi-emerald { border-left-color: var(--bio-emerald); }
+.kpi-card.kpi-cyan { border-left-color: var(--bio-cyan); }
+
+/* Susceptibility Badges */
+.badge-susceptible {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-intermediate {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-resistant {
+    background-color: rgba(244, 63, 94, 0.15);
+    color: #f43f5e;
+    border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+/* Pulsing dot indicator for live biotech badge */
+.pulse-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: var(--bio-teal-light);
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 rgba(20, 184, 166, 0.4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(20, 184, 166, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(20, 184, 166, 0);
+    }
+}
+
+.hover-teal:hover {
+    color: var(--bio-teal-light) !important;
+}
+
+.tracking-tight {
+    letter-spacing: -0.025em;
+}
+
+.tracking-wide {
+    letter-spacing: 0.05em;
+}
+
+.fw-extrabold {
+    font-weight: 800;
+}
+
+/* Code & Monospace tags */
+code, pre, .font-monospace {
+    font-family: var(--bs-font-monospace);
+}
+
+/* Clean table headers */
+.table thead th {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+
+/* =========================================================================
+   3D IMMERSIVE BIOTECH SAAS DESIGN SYSTEM ENHANCEMENTS
+   ========================================================================= */
+
+.hero-3d-perspective {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+}
+
+/* 3D Glassmorphic Holographic Card */
+.card-3d-tilt {
+    transform: perspective(1000px) rotateY(-6deg) rotateX(4deg);
+    transform-style: preserve-3d;
+    transition: transform 0.18s ease-out, box-shadow 0.35s ease, border-color 0.35s ease;
+    box-shadow: 0 35px 80px -15px rgba(13, 148, 136, 0.40),
+                0 0 50px rgba(6, 182, 212, 0.22),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(11, 17, 32, 0.98) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(45, 212, 191, 0.40);
+    border-radius: 1.5rem;
+    position: relative;
+    overflow: visible;
+}
+
+[data-bs-theme="light"] .card-3d-tilt {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(241, 245, 249, 0.98) 100%);
+    box-shadow: 0 35px 70px -12px rgba(13, 148, 136, 0.25),
+                0 0 35px rgba(6, 182, 212, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(13, 148, 136, 0.35);
+}
+
+/* Dynamic Interactive Glare Reflection Overlay */
+.card-3d-glare {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle 350px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.14) 0%, transparent 80%);
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+[data-bs-theme="light"] .card-3d-glare {
+    background: radial-gradient(circle 350px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(13, 148, 136, 0.12) 0%, transparent 80%);
+}
+
+/* 3D Depth Layers inside Card */
+.depth-layer-front {
+    transform: translateZ(40px);
+    transform-style: preserve-3d;
+}
+
+.depth-layer-middle {
+    transform: translateZ(25px);
+    transform-style: preserve-3d;
+}
+
+.depth-layer-back {
+    transform: translateZ(10px);
+    transform-style: preserve-3d;
+}
+
+/* Floating 3D Micro-Chips */
+.floating-3d-chip-1 {
+    position: absolute;
+    top: -18px;
+    right: 20px;
+    animation: floatChip1 4.5s ease-in-out infinite alternate;
+    box-shadow: 0 16px 32px -5px rgba(0, 0, 0, 0.4), 0 0 25px rgba(16, 185, 129, 0.45);
+    backdrop-filter: blur(14px);
+    z-index: 25;
+    transform: translateZ(60px);
+}
+
+.floating-3d-chip-2 {
+    position: absolute;
+    bottom: -18px;
+    left: 20px;
+    animation: floatChip2 5s ease-in-out infinite alternate;
+    box-shadow: 0 16px 32px -5px rgba(0, 0, 0, 0.4), 0 0 25px rgba(6, 182, 212, 0.45);
+    backdrop-filter: blur(14px);
+    z-index: 25;
+    transform: translateZ(55px);
+}
+
+.floating-3d-chip-3 {
+    position: absolute;
+    top: 42%;
+    left: -24px;
+    animation: floatChip3 6s ease-in-out infinite alternate;
+    box-shadow: 0 16px 32px -5px rgba(0, 0, 0, 0.35), 0 0 22px rgba(245, 158, 11, 0.4);
+    backdrop-filter: blur(14px);
+    z-index: 25;
+    transform: translateZ(50px);
+}
+
+@keyframes floatChip1 {
+    0% { transform: translateY(0px) rotate(0deg) translateZ(60px); }
+    100% { transform: translateY(-14px) rotate(2deg) translateZ(65px); }
+}
+
+@keyframes floatChip2 {
+    0% { transform: translateY(0px) rotate(0deg) translateZ(55px); }
+    100% { transform: translateY(12px) rotate(-2deg) translateZ(60px); }
+}
+
+@keyframes floatChip3 {
+    0% { transform: translateY(0px) rotate(0deg) translateZ(50px); }
+    100% { transform: translateY(-10px) rotate(1.5deg) translateZ(55px); }
+}
+
+/* 3D Glowing Ambient Orbs */
+.glow-orb-cyan {
+    position: absolute;
+    top: 5%;
+    right: 15%;
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.28) 0%, rgba(6, 182, 212, 0) 70%);
+    filter: blur(75px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: orbPulse1 9s ease-in-out infinite alternate;
+}
+
+.glow-orb-teal {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(13, 148, 136, 0.30) 0%, rgba(13, 148, 136, 0) 70%);
+    filter: blur(85px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: orbPulse2 11s ease-in-out infinite alternate;
+}
+
+.glow-orb-indigo {
+    position: absolute;
+    top: 25%;
+    left: 45%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.20) 0%, rgba(99, 102, 241, 0) 70%);
+    filter: blur(70px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes orbPulse1 {
+    0% { transform: scale(0.90) translate(0, 0); opacity: 0.6; }
+    50% { transform: scale(1.18) translate(30px, -25px); opacity: 0.95; }
+    100% { transform: scale(1.0) translate(-25px, 30px); opacity: 0.7; }
+}
+
+@keyframes orbPulse2 {
+    0% { transform: scale(1.0) translate(0, 0); opacity: 0.7; }
+    50% { transform: scale(0.85) translate(-35px, 25px); opacity: 0.5; }
+    100% { transform: scale(1.20) translate(30px, -20px); opacity: 0.95; }
+}
+
+/* Holographic Iridescent Gradient Text */
+.holographic-text {
+    background: linear-gradient(135deg, #2dd4bf 0%, #38bdf8 40%, #818cf8 80%, #c084fc 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 22px rgba(45, 212, 191, 0.45));
+    animation: shineHoloText 6s linear infinite alternate;
+}
+
+@keyframes shineHoloText {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* 3D Tactile Buttons */
+.btn-3d-teal {
+    background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+    color: #ffffff !important;
+    border: 1px solid rgba(45, 212, 191, 0.45);
+    box-shadow: 0 10px 24px -4px rgba(13, 148, 136, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-3d-teal:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 18px 36px -4px rgba(13, 148, 136, 0.75), 0 0 30px rgba(45, 212, 191, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border-color: rgba(45, 212, 191, 0.95);
+}
+
+.btn-3d-teal:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.4);
+}
+
+.btn-3d-secondary {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    box-shadow: 0 10px 22px -4px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-3d-secondary:hover {
+    transform: translateY(-4px) scale(1.025);
+    border-color: rgba(45, 212, 191, 0.6);
+    box-shadow: 0 16px 32px -4px rgba(13, 148, 136, 0.35), 0 0 20px rgba(6, 182, 212, 0.2);
+}
+
+/* 3D Elevated Stat Cards */
+.stat-card-3d {
+    background: var(--bs-card-bg);
+    border: 1px solid var(--bs-card-border-color);
+    border-radius: 1.25rem;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    transform: perspective(800px) translateZ(0);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card-3d::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0d9488, #06b6d4, #10b981);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.stat-card-3d:hover {
+    transform: perspective(800px) translateY(-8px) scale(1.03);
+    box-shadow: 0 24px 50px -10px rgba(13, 148, 136, 0.35), 0 0 30px rgba(6, 182, 212, 0.2);
+    border-color: rgba(45, 212, 191, 0.65) !important;
+}
+
+.stat-card-3d:hover::before {
+    opacity: 1;
+}
+
+/* 3D Feature Card Hover Lift */
+.feature-card-3d {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    border: 1px solid var(--bs-card-border-color);
+    position: relative;
+    background: var(--bs-card-bg);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    transform: perspective(1000px) translateZ(0);
+}
+
+.feature-card-3d::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0d9488, #06b6d4, #6366f1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature-card-3d:hover {
+    transform: perspective(1000px) translateY(-10px) scale(1.025);
+    border-color: rgba(45, 212, 191, 0.55) !important;
+    box-shadow: 0 28px 60px -12px rgba(13, 148, 136, 0.30), 0 0 30px rgba(6, 182, 212, 0.2);
+}
+
+.feature-card-3d:hover::before {
+    opacity: 1;
+}
+
+.feature-icon-3d {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.25) 0%, rgba(6, 182, 212, 0.15) 100%);
+    border: 1px solid rgba(45, 212, 191, 0.35);
+    box-shadow: 0 10px 22px -4px rgba(13, 148, 136, 0.35);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feature-card-3d:hover .feature-icon-3d {
+    transform: scale(1.15) rotate(6deg);
+}
+
+/* 3D Workflow Step Cards */
+.workflow-card-3d {
+    background: var(--bs-card-bg);
+    border: 1px solid var(--bs-card-border-color);
+    border-radius: 1.25rem;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    transform: perspective(800px) translateZ(0);
+}
+
+.workflow-card-3d:hover {
+    transform: perspective(800px) translateY(-8px) scale(1.02);
+    border-color: rgba(45, 212, 191, 0.55) !important;
+    box-shadow: 0 24px 50px -10px rgba(13, 148, 136, 0.25), 0 0 25px rgba(6, 182, 212, 0.15);
+}
+
+/* 3D Workflow Step Badges */
+.step-number-3d {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-family: var(--bs-font-monospace);
+    background: linear-gradient(135deg, #0d9488, #06b6d4);
+    color: #ffffff;
+    box-shadow: 0 10px 20px -3px rgba(13, 148, 136, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.workflow-card-3d:hover .step-number-3d {
+    transform: scale(1.12) rotate(-5deg);
+}
+
+/* Hologram Credential Card */
+.hologram-credential-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(13, 148, 136, 0.12) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(45, 212, 191, 0.35);
+    border-radius: 1.5rem;
+    box-shadow: 0 30px 70px -15px rgba(13, 148, 136, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    transform: perspective(1000px) translateZ(0);
+}
+
+[data-bs-theme="light"] .hologram-credential-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(204, 251, 241, 0.4) 100%);
+    border: 1px solid rgba(13, 148, 136, 0.3);
+    box-shadow: 0 30px 60px -12px rgba(13, 148, 136, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.hologram-credential-card:hover {
+    transform: perspective(1000px) translateY(-6px);
+    box-shadow: 0 38px 85px -15px rgba(13, 148, 136, 0.45);
+}
+
+/* Animated Sigmoid Curve Pulse Laser */
+.laser-pulse-beam {
+    stroke-dasharray: 20 180;
+    animation: travelLaser 4s linear infinite;
+}
+
+@keyframes travelLaser {
+    0% { stroke-dashoffset: 400; }
+    100% { stroke-dashoffset: -400; }
+}
+
+/* SVG Pulse Traveling Node Animation */
+@keyframes pulseGlow {
+    0% { r: 5px; opacity: 0.9; }
+    50% { r: 9px; opacity: 0.4; }
+    100% { r: 5px; opacity: 0.9; }
+}
+
+.pulse-node {
+    animation: pulseGlow 2.2s infinite;
+}
+

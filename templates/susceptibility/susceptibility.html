@@ -1,0 +1,299 @@
+{% extends "base.html" %}
+{% block title %}Antibiotic Susceptibility Testing (AST) — BioSense{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-lg-4 py-4">
+    <!-- Header -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <h1 class="h3 fw-bold mb-0">Antibiotic Susceptibility Testing (AST) Analytics</h1>
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle font-monospace px-3 py-1">CLSI / EUCAST STANDARDS</span>
+            </div>
+            <p class="text-muted small mb-0">
+                Kirby-Bauer disk diffusion zone metrics, categorical S/I/R frequency profiling, and comparative resistance patterns.
+            </p>
+        </div>
+        <div>
+            <a href="{{ url_for('datasets.upload') }}" class="btn btn-teal btn-sm rounded-pill px-3 shadow-sm">
+                <i class="bi bi-cloud-upload me-1"></i>Upload AST Dataset
+            </a>
+        </div>
+    </div>
+
+    <!-- Mandatory Educational / Clinical Restriction Banner (Spec Section 12 & 29) -->
+    <div class="clinical-disclaimer-banner p-3 rounded-3 mb-4 border">
+        <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-shield-exclamation fs-3 text-warning"></i>
+            <div>
+                <strong class="d-block text-uppercase font-monospace text-warning-emphasis" style="font-size: 0.78rem;">Scientific Rigor & Clinical Non-Prescription Notice</strong>
+                <span class="small text-muted">
+                    Educational/Research Analytics — Not for Clinical Diagnosis or Treatment Decisions. All conclusions represent statistical frequencies derived strictly from the analyzed dataset records and must never be interpreted as therapeutic guidelines.
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter Controls Toolbar -->
+    <div class="bio-card p-3 mb-4">
+        <form id="astFilterForm" class="row g-3 align-items-end">
+            <div class="col-md-4">
+                <label for="astOrgSelect" class="form-label small fw-semibold text-muted text-uppercase" style="font-size: 0.72rem;">Microbial Organism</label>
+                <select class="form-select" id="astOrgSelect">
+                    <option value="">All Organism Strains</option>
+                    {% for org in organisms %}
+                        <option value="{{ org.id }}">{{ org.scientific_name }} ({{ org.gram_type }})</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="astClassSelect" class="form-label small fw-semibold text-muted text-uppercase" style="font-size: 0.72rem;">Antibiotic Pharmacological Class</label>
+                <select class="form-select" id="astClassSelect">
+                    <option value="">All Pharmacological Classes</option>
+                    {% for cls in antibiotic_classes %}
+                        <option value="{{ cls }}">{{ cls|title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-4">
+                <button type="button" id="applyAstFilterBtn" class="btn btn-teal w-100 rounded-pill fw-semibold">
+                    <i class="bi bi-funnel me-1"></i>Filter Susceptibility Analytics
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Live AST KPI Summary Tiles -->
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-md-3">
+            <div class="bio-card kpi-card p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Total Observations</div>
+                <div class="h3 fw-bold text-teal mb-0 font-monospace" id="kpiTotalTests">{{ summary.total_tests }}</div>
+                <small class="text-muted" style="font-size: 0.7rem;">Tested culture samples</small>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="bio-card kpi-card kpi-emerald p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Sensitive (S)</div>
+                <div class="h3 fw-bold text-emerald mb-0 font-monospace" id="kpiSPct">{{ summary.percentages.S }}%</div>
+                <small class="text-muted" id="kpiSCount" style="font-size: 0.7rem;">{{ summary.counts.S }} observations</small>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="bio-card kpi-card kpi-amber p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Intermediate (I)</div>
+                <div class="h3 fw-bold text-warning mb-0 font-monospace" id="kpiIPct">{{ summary.percentages.I }}%</div>
+                <small class="text-muted" id="kpiICount" style="font-size: 0.7rem;">{{ summary.counts.I }} observations</small>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="bio-card kpi-card kpi-rose p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Resistant (R) Rate</div>
+                <div class="h3 fw-bold text-rose mb-0 font-monospace" id="kpiRPct">{{ summary.percentages.R }}%</div>
+                <small class="text-muted" id="kpiRCount" style="font-size: 0.7rem;">{{ summary.counts.R }} observations</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dataset-Derived Observation Callout -->
+    <div class="bio-card p-4 mb-4 border-teal-subtle bg-teal-subtle">
+        <div class="d-flex align-items-start gap-3">
+            <i class="bi bi-lightbulb-fill text-teal fs-4 mt-1"></i>
+            <div>
+                <h6 class="fw-bold mb-1 text-teal text-uppercase font-monospace" style="font-size: 0.78rem;">Dataset-Derived Empirical Summary</h6>
+                <p class="mb-0 small" id="datasetSummaryText">
+                    {{ summary.observations_summary }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Plotly Visualizations -->
+    <div class="row g-4 mb-4">
+        <!-- Chart 1: Donut Distribution -->
+        <div class="col-lg-5">
+            <div class="bio-card p-4 h-100">
+                <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-pie-chart text-teal"></i>S / I / R Proportional Distribution
+                </h5>
+                <div id="astDonutDiv" style="min-height: 350px; width: 100%;"></div>
+            </div>
+        </div>
+
+        <!-- Chart 2: Antibiotic Sensitivity Comparison -->
+        <div class="col-lg-7">
+            <div class="bio-card p-4 h-100">
+                <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-bar-chart text-teal"></i>Sensitivity Proportions by Antimicrobial Agent
+                </h5>
+                <div id="astBarDiv" style="min-height: 350px; width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Susceptibility Table -->
+    <div class="bio-card p-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">Antimicrobial Susceptibility Profiles</h5>
+            <span class="badge bg-secondary-subtle text-muted font-monospace" id="tableBadge">
+                {{ summary.antibiotic_breakdown|length }} Agents Evaluated
+            </span>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0" id="astTable">
+                <thead>
+                    <tr>
+                        <th>Antibiotic Agent</th>
+                        <th>Pharmacological Class</th>
+                        <th>Total Tests</th>
+                        <th>Mean Zone (mm)</th>
+                        <th>% Sensitive (S)</th>
+                        <th>% Intermediate (I)</th>
+                        <th>% Resistant (R)</th>
+                        <th>Categorical Distribution</th>
+                    </tr>
+                </thead>
+                <tbody id="astTableBody">
+                    {% for row in summary.antibiotic_breakdown %}
+                        <tr>
+                            <td class="fw-bold">{{ row.antibiotic }}</td>
+                            <td><span class="badge bg-body border text-muted font-monospace">{{ row.class }}</span></td>
+                            <td class="font-monospace">{{ row.total }}</td>
+                            <td class="font-monospace text-teal">{{ row.avg_zone }} mm</td>
+                            <td class="font-monospace text-emerald fw-semibold">{{ row.s_pct }}%</td>
+                            <td class="font-monospace text-warning">{{ row.i_pct }}%</td>
+                            <td class="font-monospace text-danger fw-semibold">{{ row.r_pct }}%</td>
+                            <td style="min-width: 140px;">
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-success" style="width: {{ row.s_pct }}%" title="S: {{ row.s_pct }}%"></div>
+                                    <div class="progress-bar bg-warning" style="width: {{ row.i_pct }}%" title="I: {{ row.i_pct }}%"></div>
+                                    <div class="progress-bar bg-danger" style="width: {{ row.r_pct }}%" title="R: {{ row.r_pct }}%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const orgSelect = document.getElementById('astOrgSelect');
+    const classSelect = document.getElementById('astClassSelect');
+    const filterBtn = document.getElementById('applyAstFilterBtn');
+
+    function fetchAndRenderAst() {
+        const orgId = orgSelect.value;
+        const abClass = classSelect.value;
+        const url = `{{ url_for('susceptibility.api_summary') }}?organism_id=${orgId}&antibiotic_class=${encodeURIComponent(abClass)}`;
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                // Update KPI values
+                document.getElementById('kpiTotalTests').textContent = data.total_tests;
+                document.getElementById('kpiSPct').textContent = data.percentages.S + '%';
+                document.getElementById('kpiSCount').textContent = data.counts.S + ' observations';
+                document.getElementById('kpiIPct').textContent = data.percentages.I + '%';
+                document.getElementById('kpiICount').textContent = data.counts.I + ' observations';
+                document.getElementById('kpiRPct').textContent = data.percentages.R + '%';
+                document.getElementById('kpiRCount').textContent = data.counts.R + ' observations';
+
+                document.getElementById('datasetSummaryText').textContent = data.observations_summary;
+                document.getElementById('tableBadge').textContent = `${data.antibiotic_breakdown.length} Agents Evaluated`;
+
+                const isDark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+                const fontColor = isDark ? '#94a3b8' : '#475569';
+
+                // Chart 1: Donut S/I/R
+                const donutData = [{
+                    values: [data.counts.S, data.counts.I, data.counts.R],
+                    labels: ['Sensitive (S)', 'Intermediate (I)', 'Resistant (R)'],
+                    type: 'pie',
+                    hole: 0.6,
+                    marker: {
+                        colors: ['#10b981', '#f59e0b', '#f43f5e']
+                    },
+                    textinfo: 'label+percent',
+                    textposition: 'inside',
+                    insidetextorientation: 'radial'
+                }];
+
+                const donutLayout = {
+                    paper_bgcolor: 'transparent',
+                    plot_bgcolor: 'transparent',
+                    font: { family: 'Inter, sans-serif', color: fontColor },
+                    showlegend: false,
+                    margin: { l: 20, r: 20, t: 20, b: 20 }
+                };
+
+                Plotly.newPlot('astDonutDiv', donutData, donutLayout, { responsive: true, displayModeBar: false });
+
+                // Chart 2: Antibiotic Sensitivity Bar
+                const abData = data.antibiotic_breakdown.slice(0, 10);
+                const barTraceS = {
+                    x: abData.map(d => d.antibiotic),
+                    y: abData.map(d => d.s_pct),
+                    name: '% Sensitive (S)',
+                    type: 'bar',
+                    marker: { color: '#10b981' }
+                };
+
+                const barTraceR = {
+                    x: abData.map(d => d.antibiotic),
+                    y: abData.map(d => d.r_pct),
+                    name: '% Resistant (R)',
+                    type: 'bar',
+                    marker: { color: '#f43f5e' }
+                };
+
+                const barLayout = {
+                    paper_bgcolor: 'transparent',
+                    plot_bgcolor: 'transparent',
+                    font: { family: 'Inter, sans-serif', color: fontColor },
+                    margin: { l: 50, r: 20, t: 20, b: 70 },
+                    barmode: 'group',
+                    xaxis: { tickangle: -25, gridcolor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
+                    yaxis: { title: 'Percentage (%)', range: [0, 100], gridcolor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
+                    legend: { orientation: 'h', x: 0.02, y: 1.1 }
+                };
+
+                Plotly.newPlot('astBarDiv', [barTraceS, barTraceR], barLayout, { responsive: true, displayModeBar: false });
+
+                // Populate Table
+                const tbody = document.getElementById('astTableBody');
+                tbody.innerHTML = '';
+                data.antibiotic_breakdown.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td class="fw-bold">${row.antibiotic}</td>
+                        <td><span class="badge bg-body border text-muted font-monospace">${row.class}</span></td>
+                        <td class="font-monospace">${row.total}</td>
+                        <td class="font-monospace text-teal">${row.avg_zone} mm</td>
+                        <td class="font-monospace text-emerald fw-semibold">${row.s_pct}%</td>
+                        <td class="font-monospace text-warning">${row.i_pct}%</td>
+                        <td class="font-monospace text-danger fw-semibold">${row.r_pct}%</td>
+                        <td style="min-width: 140px;">
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-success" style="width: ${row.s_pct}%" title="S: ${row.s_pct}%"></div>
+                                <div class="progress-bar bg-warning" style="width: ${row.i_pct}%" title="I: ${row.i_pct}%"></div>
+                                <div class="progress-bar bg-danger" style="width: ${row.r_pct}%" title="R: ${row.r_pct}%"></div>
+                            </div>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            })
+            .catch(console.error);
+    }
+
+    filterBtn.addEventListener('click', fetchAndRenderAst);
+    fetchAndRenderAst();
+});
+</script>
+{% endblock %}

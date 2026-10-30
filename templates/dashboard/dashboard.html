@@ -1,0 +1,453 @@
+{% extends "base.html" %}
+{% block title %}Executive Analytics Dashboard — BioSense{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-lg-4 py-4">
+    <!-- Header -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <h1 class="h3 fw-bold mb-0">Microbial & AST Analytics Dashboard</h1>
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle font-monospace px-3 py-1">REAL-TIME TELEMETRY</span>
+            </div>
+            <p class="text-muted small mb-0">
+                Key performance indicators, microbial growth trajectories, susceptibility distributions, and environmental correlations.
+            </p>
+        </div>
+        <div class="d-flex gap-2">
+            <a href="{{ url_for('learn.index') }}" class="btn btn-outline-info btn-sm rounded-pill px-3">
+                <i class="bi bi-mortarboard me-1"></i>Viva Guide
+            </a>
+            <a href="{{ url_for('datasets.upload') }}" class="btn btn-teal btn-sm rounded-pill px-3 shadow-sm">
+                <i class="bi bi-cloud-upload me-1"></i>Upload Dataset
+            </a>
+            <a href="{{ url_for('growth.index') }}" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                <i class="bi bi-graph-up me-1"></i>Growth Curves
+            </a>
+            <a href="{{ url_for('reports.index') }}" class="btn btn-outline-teal btn-sm rounded-pill px-3">
+                <i class="bi bi-file-earmark-pdf me-1"></i>Generate PDF Report
+            </a>
+        </div>
+    </div>
+
+    <!-- Beginner's Quick Walkthrough Banner -->
+    <div class="bio-card p-3 mb-4 bg-body-tertiary border-info-subtle shadow-sm">
+        <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+            <div class="d-flex align-items-center gap-2">
+                <span class="rounded-circle bg-info-subtle text-info p-2 d-inline-flex align-items-center justify-content-center flex-shrink-0" style="width: 36px; height: 36px;">
+                    <i class="bi bi-lightbulb-fill"></i>
+                </span>
+                <div>
+                    <span class="fw-bold small text-body">New to BioSense? 4-Step Academic Research Workflow:</span>
+                    <span class="text-muted small ms-1">1. Ingest &amp; Validate CSV &rarr; 2. Model Kinetics &amp; Doubling Time &rarr; 3. Categorize EUCAST AST Profiles &rarr; 4. Train Leak-Free ML Models &amp; Export PDF Report.</span>
+                </div>
+            </div>
+            <a href="{{ url_for('learn.index') }}" class="btn btn-sm btn-info text-dark rounded-pill px-3 font-monospace fw-semibold flex-shrink-0" style="font-size: 0.75rem;">
+                <i class="bi bi-book me-1"></i>Explore Knowledge Hub &rarr;
+            </a>
+        </div>
+    </div>
+
+    <!-- Empty State Callout Banner if Database is Empty -->
+    {% if is_empty_state %}
+        <div class="bio-card p-5 text-center mb-4 border-warning shadow-sm">
+            <div class="mb-3">
+                <i class="bi bi-database-exclamation display-4 text-warning"></i>
+            </div>
+            <h4 class="fw-bold mb-2">No Active Research Records Detected</h4>
+            <p class="text-muted small col-lg-7 mx-auto mb-4">
+                The database is currently empty. You can instantly populate it with our deterministically seeded demonstration dataset (12 microbial species, 16 clinical antibiotics, 1,950 growth measurements) with a single click.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <button type="button" id="seedDemoDataBtn" class="btn btn-teal rounded-pill px-4 fw-semibold shadow-sm">
+                    <i class="bi bi-lightning-charge me-1"></i>Seed Demonstration Sample Data
+                </button>
+                <a href="{{ url_for('datasets.upload') }}" class="btn btn-outline-secondary rounded-pill px-4">
+                    <i class="bi bi-cloud-upload me-1"></i>Upload Custom CSV
+                </a>
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- The Six KPI Cards (Spec Section 8) -->
+    <div class="row g-3 mb-4">
+        <!-- KPI 1 -->
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="bio-card kpi-card p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Total Experiments</div>
+                <div class="h3 fw-bold text-teal mb-0 font-monospace">{{ exp_count }}</div>
+                <small class="text-muted" style="font-size: 0.7rem;">Active culture runs</small>
+            </div>
+        </div>
+        <!-- KPI 2 -->
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="bio-card kpi-card kpi-cyan p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Microbial Strains</div>
+                <div class="h3 fw-bold text-info mb-0 font-monospace">{{ org_count }}</div>
+                <small class="text-muted" style="font-size: 0.7rem;">Cataloged pathogens</small>
+            </div>
+        </div>
+        <!-- KPI 3 -->
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="bio-card kpi-card kpi-amber p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Antibiotics Tested</div>
+                <div class="h3 fw-bold text-warning mb-0 font-monospace">{{ ab_count }}</div>
+                <small class="text-muted" style="font-size: 0.7rem;">Clinical antimicrobial agents</small>
+            </div>
+        </div>
+        <!-- KPI 4 -->
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="bio-card kpi-card kpi-blue p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Growth Points (OD600)</div>
+                <div class="h3 fw-bold text-primary mb-0 font-monospace">{{ growth_count }}</div>
+                <small class="text-muted" style="font-size: 0.7rem;">Time-series observations</small>
+            </div>
+        </div>
+        <!-- KPI 5 -->
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="bio-card kpi-card kpi-emerald p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">AST Observations</div>
+                <div class="h3 fw-bold text-emerald mb-0 font-monospace">{{ ast_count }}</div>
+                <small class="text-muted" style="font-size: 0.7rem;">Disk diffusion assays</small>
+            </div>
+        </div>
+        <!-- KPI 6 -->
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="bio-card kpi-card kpi-rose p-3 shadow-sm">
+                <div class="small text-muted font-monospace text-uppercase" style="font-size: 0.72rem;">Overall Resistance Rate</div>
+                <div class="h3 fw-bold text-rose mb-0 font-monospace">{{ resistance_rate }}%</div>
+                <small class="text-muted" style="font-size: 0.7rem;">Categorized as Resistant (R)</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- The 8 Interactive Visualizations Grid (Spec Section 8) -->
+    <div class="row g-4 mb-4">
+        <!-- Chart 1: Microbial Growth Trajectories -->
+        <div class="col-lg-8">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-graph-up text-teal"></i>1. Microbial Growth Trajectories (OD600)
+                    </h5>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">Multi-Species Overlay</span>
+                </div>
+                <div id="chartGrowthTrajectories" style="min-height: 350px; width: 100%;"></div>
+            </div>
+        </div>
+
+        <!-- Chart 2: AST Donut Breakdown -->
+        <div class="col-lg-4">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-pie-chart text-teal"></i>2. AST S/I/R Proportions
+                    </h5>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">Donut Chart</span>
+                </div>
+                <div id="chartAstDonut" style="min-height: 350px; width: 100%;"></div>
+            </div>
+        </div>
+
+        <!-- Chart 3: Temperature vs OD600 Scatter -->
+        <div class="col-lg-6">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-thermometer-sun text-warning"></i>3. Incubation Temperature vs Optical Density
+                    </h5>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">Thermal Kinetics</span>
+                </div>
+                <div id="chartTempScatter" style="min-height: 340px; width: 100%;"></div>
+            </div>
+        </div>
+
+        <!-- Chart 4: Antibiotic Resistance Rate Ranking -->
+        <div class="col-lg-6">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-shield-x text-danger"></i>4. Resistance Rate Ranking by Antibiotic
+                    </h5>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">% Resistant</span>
+                </div>
+                <div id="chartAbResistance" style="min-height: 340px; width: 100%;"></div>
+            </div>
+        </div>
+
+        <!-- Chart 5: Culture pH Distribution -->
+        <div class="col-lg-4">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-moisture text-info"></i>5. Culture pH Distribution
+                    </h5>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">Acidity Histogram</span>
+                </div>
+                <div id="chartPhDist" style="min-height: 320px; width: 100%;"></div>
+            </div>
+        </div>
+
+        <!-- Chart 6: Media Yield Comparison -->
+        <div class="col-lg-4">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-cup-straw text-primary"></i>6. Mean Culture Yield by Medium
+                    </h5>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">Substrate Comparison</span>
+                </div>
+                <div id="chartMediaYield" style="min-height: 320px; width: 100%;"></div>
+            </div>
+        </div>
+
+        <!-- Chart 7: Gram Classification AST Comparison -->
+        <div class="col-lg-4">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-boxes text-emerald"></i>7. Gram Stain AST Profile
+                    </h5>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">Cell Wall Differential</span>
+                </div>
+                <div id="chartGramAst" style="min-height: 320px; width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart 8 & Recent Security Activity Audit Feed Row -->
+    <div class="row g-4">
+        <!-- Chart 8: Incubation Duration Timeline -->
+        <div class="col-lg-6">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-clock-history text-teal"></i>8. Experimental Timepoint Density
+                    </h5>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">Sampling Interval</span>
+                </div>
+                <div id="chartTimeline" style="min-height: 300px; width: 100%;"></div>
+            </div>
+        </div>
+
+        <!-- Live Platform Activity Audit Feed -->
+        <div class="col-lg-6">
+            <div class="bio-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <i class="bi bi-shield-lock text-warning"></i>Recent Platform Audit Activity
+                    </h5>
+                    <span class="badge bg-secondary-subtle text-muted font-monospace">Audit Trail</span>
+                </div>
+
+                {% if recent_logs %}
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover align-middle mb-0 font-monospace" style="font-size: 0.78rem;">
+                            <thead>
+                                <tr>
+                                    <th>Event Action</th>
+                                    <th>Context Details</th>
+                                    <th>Time (UTC)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for log in recent_logs %}
+                                    <tr>
+                                        <td>
+                                            <span class="badge {% if 'SUCCESS' in log.action or 'SEEDED' in log.action or 'CLEANED' in log.action %}bg-success-subtle text-success{% elif 'FAILED' in log.action or 'PREVENTED' in log.action %}bg-danger-subtle text-danger{% else %}bg-secondary-subtle text-muted{% endif %}">
+                                                {{ log.action }}
+                                            </span>
+                                        </td>
+                                        <td class="small font-sans">{{ log.details or '—' }}</td>
+                                        <td class="text-muted">{{ log.timestamp.strftime('%H:%M:%S') }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="p-4 text-center text-muted small">
+                        No recent audit events recorded.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Handle One-Click Sample Seeding
+    const seedBtn = document.getElementById('seedDemoDataBtn');
+    if (seedBtn) {
+        seedBtn.addEventListener('click', () => {
+            seedBtn.disabled = true;
+            seedBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span>Seeding Demonstration Data...`;
+            fetch('{{ url_for("dashboard.api_seed_demo") }}', { method: 'POST' })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.reload();
+                    } else {
+                        alert('Seeding error: ' + data.error);
+                        seedBtn.disabled = false;
+                        seedBtn.innerHTML = 'Seed Demonstration Sample Data';
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    seedBtn.disabled = false;
+                });
+        });
+    }
+
+    // 2. Fetch and Render the 8 Plotly Charts
+    fetch('{{ url_for("dashboard.api_charts") }}')
+        .then(res => res.json())
+        .then(data => {
+            const isDark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+            const fontColor = isDark ? '#94a3b8' : '#475569';
+            const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+
+            // Chart 1: Growth Trajectories
+            if (data.growth_trajectories && data.growth_trajectories.length > 0) {
+                const traces = data.growth_trajectories.map((traj, idx) => {
+                    const colors = ['#0d9488', '#06b6d4', '#3b82f6', '#10b981', '#f59e0b'];
+                    return {
+                        x: traj.x,
+                        y: traj.y,
+                        mode: 'lines',
+                        name: traj.organism,
+                        line: { color: colors[idx % colors.length], width: 2.5 }
+                    };
+                });
+                Plotly.newPlot('chartGrowthTrajectories', traces, {
+                    paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+                    font: { family: 'Inter', color: fontColor },
+                    margin: { l: 45, r: 20, t: 20, b: 40 },
+                    xaxis: { title: 'Incubation Time (h)', gridcolor: gridColor },
+                    yaxis: { title: 'OD₆₀₀', gridcolor: gridColor },
+                    legend: { orientation: 'h', x: 0.02, y: 1.1 }
+                }, { responsive: true, displayModeBar: false });
+            }
+
+            // Chart 2: AST Donut
+            if (data.ast_donut && data.ast_donut.values.some(v => v > 0)) {
+                Plotly.newPlot('chartAstDonut', [{
+                    values: data.ast_donut.values,
+                    labels: data.ast_donut.labels,
+                    type: 'pie', hole: 0.6,
+                    marker: { colors: data.ast_donut.colors },
+                    textinfo: 'label+percent', textposition: 'inside', insidetextorientation: 'radial'
+                }], {
+                    paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+                    font: { family: 'Inter', color: fontColor },
+                    showlegend: false,
+                    margin: { l: 20, r: 20, t: 20, b: 20 }
+                }, { responsive: true, displayModeBar: false });
+            }
+
+            // Chart 3: Temp vs OD Scatter
+            if (data.temp_od_scatter && data.temp_od_scatter.temp.length > 0) {
+                Plotly.newPlot('chartTempScatter', [{
+                    x: data.temp_od_scatter.temp,
+                    y: data.temp_od_scatter.od,
+                    text: data.temp_od_scatter.text,
+                    mode: 'markers',
+                    marker: { color: '#f59e0b', size: 7, opacity: 0.65 }
+                }], {
+                    paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+                    font: { family: 'Inter', color: fontColor },
+                    margin: { l: 45, r: 20, t: 20, b: 40 },
+                    xaxis: { title: 'Temperature (°C)', gridcolor: gridColor },
+                    yaxis: { title: 'Optical Density (OD₆₀₀)', gridcolor: gridColor }
+                }, { responsive: true, displayModeBar: false });
+            }
+
+            // Chart 4: Antibiotic Resistance Rate
+            if (data.ab_resistance && data.ab_resistance.antibiotics.length > 0) {
+                Plotly.newPlot('chartAbResistance', [{
+                    x: data.ab_resistance.antibiotics,
+                    y: data.ab_resistance.resistance_rates,
+                    type: 'bar',
+                    marker: { color: '#f43f5e' }
+                }], {
+                    paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+                    font: { family: 'Inter', color: fontColor },
+                    margin: { l: 45, r: 20, t: 20, b: 65 },
+                    xaxis: { tickangle: -25, gridcolor: gridColor },
+                    yaxis: { title: '% Resistant', range: [0, 100], gridcolor: gridColor }
+                }, { responsive: true, displayModeBar: false });
+            }
+
+            // Chart 5: pH Distribution
+            if (data.ph_dist && data.ph_dist.length > 0) {
+                Plotly.newPlot('chartPhDist', [{
+                    x: data.ph_dist,
+                    type: 'histogram',
+                    marker: { color: '#06b6d4' },
+                    nbinsx: 15
+                }], {
+                    paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+                    font: { family: 'Inter', color: fontColor },
+                    margin: { l: 45, r: 20, t: 20, b: 40 },
+                    xaxis: { title: 'Culture pH', gridcolor: gridColor },
+                    yaxis: { title: 'Frequency', gridcolor: gridColor }
+                }, { responsive: true, displayModeBar: false });
+            }
+
+            // Chart 6: Media Yield
+            if (data.media_yield && data.media_yield.media.length > 0) {
+                Plotly.newPlot('chartMediaYield', [{
+                    x: data.media_yield.media,
+                    y: data.media_yield.avg_od,
+                    type: 'bar',
+                    marker: { color: '#3b82f6' }
+                }], {
+                    paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+                    font: { family: 'Inter', color: fontColor },
+                    margin: { l: 45, r: 20, t: 20, b: 40 },
+                    xaxis: { gridcolor: gridColor },
+                    yaxis: { title: 'Mean OD₆₀₀', gridcolor: gridColor }
+                }, { responsive: true, displayModeBar: false });
+            }
+
+            // Chart 7: Gram Stain AST Comparison
+            if (data.gram_comparison) {
+                Plotly.newPlot('chartGramAst', [
+                    { x: data.gram_comparison.categories, y: data.gram_comparison.sensitive, name: 'Sensitive (S)', type: 'bar', marker: { color: '#10b981' } },
+                    { x: data.gram_comparison.categories, y: data.gram_comparison.resistant, name: 'Resistant (R)', type: 'bar', marker: { color: '#f43f5e' } }
+                ], {
+                    paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+                    font: { family: 'Inter', color: fontColor },
+                    margin: { l: 45, r: 20, t: 20, b: 40 },
+                    barmode: 'group',
+                    xaxis: { gridcolor: gridColor },
+                    yaxis: { title: 'Observations Count', gridcolor: gridColor },
+                    legend: { orientation: 'h', x: 0.02, y: 1.1 }
+                }, { responsive: true, displayModeBar: false });
+            }
+
+            // Chart 8: Timeline density
+            if (data.timeline && data.timeline.hours.length > 0) {
+                Plotly.newPlot('chartTimeline', [{
+                    x: data.timeline.hours,
+                    y: data.timeline.counts,
+                    type: 'scatter', mode: 'lines+markers',
+                    line: { color: '#0d9488', width: 2.5 },
+                    marker: { color: '#0d9488', size: 6 }
+                }], {
+                    paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+                    font: { family: 'Inter', color: fontColor },
+                    margin: { l: 45, r: 20, t: 20, b: 40 },
+                    xaxis: { title: 'Incubation Time (h)', gridcolor: gridColor },
+                    yaxis: { title: 'Sampling Density', gridcolor: gridColor }
+                }, { responsive: true, displayModeBar: false });
+            }
+        })
+        .catch(console.error);
+});
+</script>
+{% endblock %}

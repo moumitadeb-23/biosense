@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block title %}Administrator Registration — BioSense Platform{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-6">
+            <div class="bio-card p-4 p-md-5 shadow-lg border-warning-subtle position-relative overflow-hidden">
+                <!-- Subtle Top Accent Ribbon -->
+                <div class="position-absolute top-0 start-0 w-100" style="height: 4px; background: linear-gradient(90deg, #f59e0b, #d97706, #0d9488);"></div>
+
+                <div class="text-center mb-4">
+                    <span class="rounded-circle bg-warning-subtle text-warning d-inline-flex align-items-center justify-content-center mb-3 shadow-sm" style="width: 58px; height: 58px; font-size: 1.8rem; border: 2px solid rgba(245, 158, 11, 0.4);">
+                        <i class="bi bi-shield-lock-fill"></i>
+                    </span>
+                    <h2 class="h4 fw-bold mb-1">Administrator Registration Portal</h2>
+                    <p class="text-muted small">Provision privileged credentials for platform oversight and laboratory administration</p>
+                    <span class="badge bg-warning-subtle text-warning border border-warning-subtle font-monospace px-3 py-1 rounded-pill" style="font-size: 0.72rem;">
+                        <i class="bi bi-key-fill me-1"></i>Privileged Access Tier
+                    </span>
+                </div>
+
+                <!-- Passkey Security Notice & Demo Helper -->
+                <div class="alert alert-warning border border-warning-subtle p-3 mb-4 rounded-3 d-flex align-items-start gap-2">
+                    <i class="bi bi-shield-exclamation text-warning fs-5 mt-1"></i>
+                    <div class="small">
+                        <strong class="d-block mb-1 text-warning-emphasis">Authorization Passkey Required:</strong>
+                        <span class="text-muted">Administrator accounts control system catalog updates (organisms, antibiotics) and master audit trails. Registration requires an Administrator Security Passkey.</span>
+                        <div class="mt-2 pt-2 border-top border-warning-subtle d-flex flex-wrap align-items-center justify-content-between gap-2">
+                            <span class="font-monospace text-warning-emphasis" style="font-size: 0.75rem;">Default Key: <code>{{ default_key }}</code></span>
+                            <button type="button" class="btn btn-sm btn-outline-warning py-0 px-2 font-monospace" style="font-size: 0.72rem;" onclick="document.getElementById('admin_passkey').value='{{ default_key }}'">
+                                <i class="bi bi-lightning-charge me-1"></i>Auto-Fill Key
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <form method="POST" action="{{ url_for('auth.register_admin') }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                    <div class="row g-2 mb-3">
+                        <div class="col-md-6">
+                            <label for="full_name" class="form-label small fw-semibold">Admin Full Name</label>
+                            <input type="text" class="form-control" id="full_name" name="full_name" value="{{ full_name or '' }}" placeholder="e.g. Dr. System Overseer">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="institution" class="form-label small fw-semibold">Department / Laboratory</label>
+                            <input type="text" class="form-control" id="institution" name="institution" value="{{ institution or '' }}" placeholder="e.g. IT & Systems Oversight">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="username" class="form-label small fw-semibold">Admin Username</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-body-tertiary"><i class="bi bi-person-badge"></i></span>
+                            <input type="text" class="form-control" id="username" name="username" value="{{ username or '' }}" placeholder="e.g. sysadmin_01" required autofocus>
+                        </div>
+                        <div class="form-text" style="font-size: 0.75rem;">Minimum 3 characters, alphanumeric or underscores.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label small fw-semibold">Administrative Email</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-body-tertiary"><i class="bi bi-envelope-at"></i></span>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ email or '' }}" placeholder="admin@domain.edu or sysadmin@biosense.org" required>
+                        </div>
+                    </div>
+
+                    <!-- Administrator Passkey Field -->
+                    <div class="mb-3">
+                        <label for="admin_passkey" class="form-label small fw-semibold text-warning-emphasis">
+                            <i class="bi bi-key-fill text-warning me-1"></i>Administrator Authorization Passkey
+                        </label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-warning-subtle text-warning border-warning-subtle"><i class="bi bi-shield-lock"></i></span>
+                            <input type="password" class="form-control font-monospace border-warning-subtle" id="admin_passkey" name="admin_passkey" placeholder="Enter authorization key (default: {{ default_key }})" required>
+                            <button class="btn btn-outline-secondary" type="button" onclick="const p = document.getElementById('admin_passkey'); p.type = p.type === 'password' ? 'text' : 'password';">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row g-2 mb-4">
+                        <div class="col-md-6">
+                            <label for="password" class="form-label small fw-semibold">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="At least 8 chars" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="confirm_password" class="form-label small fw-semibold">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Re-enter password" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-warning w-100 py-2 rounded-pill fw-semibold shadow-sm mb-3 text-dark">
+                        <i class="bi bi-shield-check me-1"></i>Provision Administrator Account
+                    </button>
+
+                    <div class="text-center pt-3 border-top border-secondary-subtle">
+                        <div class="mb-2">
+                            <small class="text-muted">Already have administrator credentials? <a href="{{ url_for('auth.login') }}" class="text-teal text-decoration-none fw-semibold">Sign In</a></small>
+                        </div>
+                        <div>
+                            <small class="text-muted">Looking for student or researcher registration? <a href="{{ url_for('auth.register') }}" class="text-decoration-none fw-semibold">Academic Registration Portal &rarr;</a></small>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

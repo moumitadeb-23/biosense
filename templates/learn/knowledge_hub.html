@@ -1,0 +1,728 @@
+{% extends "base.html" %}
+{% block title %}Knowledge Hub & Viva Voce Guide — BioSense{% endblock %}
+
+{% block content %}
+<div class="container py-4 py-lg-5">
+    <!-- Header Hero Banner with 3D Holographic Feel -->
+    <div class="bio-card p-4 p-md-5 mb-4 shadow-sm border-teal-subtle position-relative overflow-hidden">
+        <div class="position-absolute top-0 end-0 p-3 opacity-25 d-none d-md-block">
+            <i class="bi bi-mortarboard-fill text-teal" style="font-size: 8rem;"></i>
+        </div>
+
+        <div class="position-relative" style="z-index: 2; max-width: 850px;">
+            <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-teal-subtle text-teal border border-teal-subtle mb-3">
+                <i class="bi bi-book-half"></i>
+                <span class="small font-monospace fw-semibold">Beginner Companion & Academic Defense Guide</span>
+            </div>
+            <h1 class="display-5 fw-bold tracking-tight mb-2">
+                BioSense <span class="holographic-text">Knowledge Hub</span>
+            </h1>
+            <p class="lead text-muted mb-4 fs-6">
+                Engineered for 4th-Year BCA (Data Science) students and academic viva evaluators. Master the microbiological theory, step-by-step mathematical derivations, data pipeline transformations, and machine learning principles behind every chart and prediction in BioSense.
+            </p>
+
+            <!-- Quick Metrics Grid -->
+            <div class="row g-2 text-center text-md-start">
+                <div class="col-6 col-md-3">
+                    <div class="p-2 rounded bg-body-tertiary border">
+                        <span class="small text-muted d-block font-monospace" style="font-size: 0.7rem;">GROWTH PHASES</span>
+                        <span class="fw-bold text-teal font-monospace">4 Regimes</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-2 rounded bg-body-tertiary border">
+                        <span class="small text-muted d-block font-monospace" style="font-size: 0.7rem;">VIVA QUESTIONS</span>
+                        <span class="fw-bold text-info font-monospace">{{ viva_questions|length }} Curated Q&A</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-2 rounded bg-body-tertiary border">
+                        <span class="small text-muted d-block font-monospace" style="font-size: 0.7rem;">SELF-TEST QUIZ</span>
+                        <span class="fw-bold text-warning font-monospace">{{ quiz_count }} Interactive MCQs</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-2 rounded bg-body-tertiary border">
+                        <span class="small text-muted d-block font-monospace" style="font-size: 0.7rem;">MATH SANDBOX</span>
+                        <span class="fw-bold text-emerald font-monospace">Step-by-Step</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Tabs for the 5 Learning Systems -->
+    <ul class="nav nav-pills nav-fill gap-2 mb-4 p-2 bg-body-tertiary rounded-4 border shadow-sm" id="knowledgeTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active rounded-pill fw-semibold py-2" id="concepts-tab" data-bs-toggle="pill" data-bs-target="#conceptsPane" type="button" role="tab">
+                <i class="bi bi-lightbulb me-1"></i>Core Science 101
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link rounded-pill fw-semibold py-2" id="calculator-tab" data-bs-toggle="pill" data-bs-target="#calculatorPane" type="button" role="tab">
+                <i class="bi bi-calculator me-1"></i>Math Step-by-Step
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link rounded-pill fw-semibold py-2" id="viva-tab" data-bs-toggle="pill" data-bs-target="#vivaPane" type="button" role="tab">
+                <i class="bi bi-patch-question me-1"></i>Viva Q&A Bank
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link rounded-pill fw-semibold py-2" id="quiz-tab" data-bs-toggle="pill" data-bs-target="#quizPane" type="button" role="tab">
+                <i class="bi bi-check2-square me-1"></i>Self-Test Quiz
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link rounded-pill fw-semibold py-2" id="glossary-tab" data-bs-toggle="pill" data-bs-target="#glossaryPane" type="button" role="tab">
+                <i class="bi bi-bookmark-star me-1"></i>Glossary
+            </button>
+        </li>
+    </ul>
+
+    <!-- Tab Panes Content -->
+    <div class="tab-content" id="knowledgeTabContent">
+
+        <!-- ================================================================= -->
+        <!-- TAB 1: CORE SCIENCE & DATA SCIENCE 101                            -->
+        <!-- ================================================================= -->
+        <div class="tab-pane fade show active" id="conceptsPane" role="tabpanel">
+            <div class="row g-4">
+                <!-- Concept 1: Optical Density & Growth Phases -->
+                <div class="col-lg-6">
+                    <div class="bio-card h-100 p-4 shadow-sm">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <span class="badge bg-teal text-white rounded-pill px-3 py-1 font-monospace">MODULE 1</span>
+                            <h4 class="h5 fw-bold mb-0">Microbial Growth Kinetics & OD600</h4>
+                        </div>
+                        <p class="small text-muted mb-3">
+                            In wet-lab microbiology, counting billions of individual bacterial cells under a microscope is impractical. Instead, we use <strong>spectrophotometry</strong> at 600 nanometers (<strong>OD600</strong>).
+                        </p>
+
+                        <div class="p-3 rounded bg-body-tertiary mb-3 border">
+                            <h6 class="fw-bold small text-teal mb-2"><i class="bi bi-info-circle me-1"></i>Why 600 nm? Light Scattering vs. Absorption</h6>
+                            <p class="small text-muted mb-0">
+                                Bacterial cells do not absorb yellow-orange light (600 nm). Instead, they <strong>scatter</strong> light. A photodetector measures how much light failed to pass straight through. Higher turbidity means higher bacterial cell biomass.
+                            </p>
+                        </div>
+
+                        <h6 class="fw-bold small mb-2 text-uppercase font-monospace">The 4 Growth Curve Phases:</h6>
+                        <ol class="small text-muted ps-3 mb-0">
+                            <li class="mb-2"><strong>Lag Phase:</strong> Microbes adapt to nutrients and synthesize enzymes; zero net division.</li>
+                            <li class="mb-2"><strong>Log (Exponential) Phase:</strong> Maximum specific division rate ($\mu_{max}$). Cells double at constant intervals ($t_d$).</li>
+                            <li class="mb-2"><strong>Stationary Phase:</strong> Nutrients deplete and metabolic wastes accumulate. Division equals death rate ($N \to K$).</li>
+                            <li><strong>Decline (Death) Phase:</strong> Toxic byproducts exceed tolerance limits; viable cell count declines.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Concept 2: The Verhulst Equation -->
+                <div class="col-lg-6">
+                    <div class="bio-card h-100 p-4 shadow-sm">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <span class="badge bg-info text-white rounded-pill px-3 py-1 font-monospace">MODULE 2</span>
+                            <h4 class="h5 fw-bold mb-0">The Verhulst Logistic Differential Model</h4>
+                        </div>
+                        <p class="small text-muted mb-3">
+                            Unchecked microbial growth would be exponential ($N(t) = N_0 e^{rt}$), which is physically impossible in a closed Petri dish or flask. In 1838, Pierre-François Verhulst introduced carrying capacity constraints.
+                        </p>
+
+                        <div class="p-3 rounded bg-body-tertiary mb-3 border font-monospace text-center">
+                            <div class="fs-5 fw-bold text-teal mb-1">N(t) = K / [ 1 + ((K - N₀) / N₀) · e^(-rt) ]</div>
+                            <small class="text-muted d-block">Closed-Form Solution to dN/dt = r·N·(1 - N/K)</small>
+                        </div>
+
+                        <div class="row g-2 small text-muted">
+                            <div class="col-6">
+                                <div class="p-2 rounded bg-body border">
+                                    <strong>N₀:</strong> Initial Inoculum at $t=0$ (e.g. 0.05 OD).
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-2 rounded bg-body border">
+                                    <strong>K:</strong> Carrying Capacity plateau (e.g. 1.80 OD).
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-2 rounded bg-body border">
+                                    <strong>r:</strong> Intrinsic growth velocity parameter ($\text{hr}^{-1}$).
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-2 rounded bg-body border">
+                                    <strong>t_d:</strong> Doubling time $= \ln(2) / r \approx 0.69315 / r$.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 p-2 rounded bg-warning-subtle text-warning-emphasis border border-warning-subtle small">
+                            <i class="bi bi-shield-check me-1"></i><strong>Viva Defense Key:</strong> SciPy fits these 3 parameters using non-linear least squares optimization (`scipy.optimize.curve_fit`).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Concept 3: Kirby-Bauer & EUCAST Clinical Breakpoints -->
+                <div class="col-lg-6">
+                    <div class="bio-card h-100 p-4 shadow-sm">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <span class="badge bg-warning text-dark rounded-pill px-3 py-1 font-monospace">MODULE 3</span>
+                            <h4 class="h5 fw-bold mb-0">Kirby-Bauer AST & EUCAST Breakpoints</h4>
+                        </div>
+                        <p class="small text-muted mb-3">
+                            Antibiotic Susceptibility Testing (AST) determines which antimicrobial agents inhibit pathogen growth. In the Kirby-Bauer assay:
+                        </p>
+                        <ul class="small text-muted ps-3 mb-3">
+                            <li class="mb-1">Bacteria are spread evenly on Mueller-Hinton agar.</li>
+                            <li class="mb-1">Filter paper disks with known drug concentrations are placed on the plate.</li>
+                            <li class="mb-1">As drug diffuses outward, a circular clear halo forms (<strong>Zone of Inhibition</strong>, in mm).</li>
+                        </ul>
+
+                        <div class="table-responsive">
+                            <table class="table table-sm table-bordered text-center small mb-0">
+                                <thead class="table-body-tertiary">
+                                    <tr>
+                                        <th>Phenotype</th>
+                                        <th>Clinical Meaning</th>
+                                        <th>Zone Size</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="badge bg-success-subtle text-success border border-success-subtle">Sensitive (S)</span></td>
+                                        <td class="text-start">High likelihood of clinical treatment success</td>
+                                        <td>Large Diameter ($\ge 20\text{mm}$)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge bg-warning-subtle text-warning border border-warning-subtle">Intermediate (I)</span></td>
+                                        <td class="text-start">Uncertain efficacy; buffer zone against errors</td>
+                                        <td>Moderate Diameter ($15-19\text{mm}$)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge bg-danger-subtle text-danger border border-danger-subtle">Resistant (R)</span></td>
+                                        <td class="text-start">Pathogen grows despite drug; treatment fails</td>
+                                        <td>Small or Zero ($\le 14\text{mm}$)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Concept 4: The Target Leakage Dilemma (Variant A vs Variant B) -->
+                <div class="col-lg-6">
+                    <div class="bio-card h-100 p-4 shadow-sm border-danger-subtle">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <span class="badge bg-danger text-white rounded-pill px-3 py-1 font-monospace">DATA SCIENCE HIGHLIGHT</span>
+                            <h4 class="h5 fw-bold mb-0">Target Leakage (Variant A vs. Variant B)</h4>
+                        </div>
+                        <p class="small text-muted mb-3">
+                            This is the most critical concept to explain during your BCA Data Science viva voce examination:
+                        </p>
+
+                        <div class="row g-2 mb-3">
+                            <div class="col-md-6">
+                                <div class="p-3 rounded bg-danger-subtle border border-danger-subtle h-100">
+                                    <h6 class="fw-bold small text-danger mb-1"><i class="bi bi-x-circle me-1"></i>Variant A (Leaked)</h6>
+                                    <p class="small text-muted mb-1" style="font-size: 0.78rem;">
+                                        <strong>Features:</strong> Organism, Drug, Temp, pH, <em>Zone Diameter</em>.
+                                    </p>
+                                    <div class="badge bg-danger text-white mb-2">Accuracy: ~99-100%</div>
+                                    <p class="small text-muted mb-0" style="font-size: 0.75rem;">
+                                        <strong>Why it's flawed:</strong> Zone diameter directly dictates S/I/R by definition! The model isn't learning biology; it's looking at the answer sheet.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="p-3 rounded bg-success-subtle border border-success-subtle h-100">
+                                    <h6 class="fw-bold small text-success mb-1"><i class="bi bi-check-circle me-1"></i>Variant B (Genuine)</h6>
+                                    <p class="small text-muted mb-1" style="font-size: 0.78rem;">
+                                        <strong>Features:</strong> Organism, Drug, Temp, pH, Concentration.
+                                    </p>
+                                    <div class="badge bg-success text-white mb-2">Accuracy: ~70-85% (Realistic)</div>
+                                    <p class="small text-muted mb-0" style="font-size: 0.75rem;">
+                                        <strong>Why it's genuine:</strong> Predicts susceptibility <em>before</em> running the assay, providing true predictive power.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-2 rounded bg-body-tertiary border small text-muted">
+                            <i class="bi bi-mortarboard text-teal me-1"></i><strong>Evaluator Defense:</strong> "Our ML lab intentionally compares Variant A and Variant B side-by-side to expose the reality of target leakage in clinical data science."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- TAB 2: STEP-BY-STEP MATHEMATICAL ARITHMETIC CALCULATOR           -->
+        <!-- ================================================================= -->
+        <div class="tab-pane fade" id="calculatorPane" role="tabpanel">
+            <div class="bio-card p-4 shadow-sm mb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div>
+                        <h4 class="h5 fw-bold mb-1">Verhulst Step-by-Step Arithmetic Sandbox</h4>
+                        <p class="small text-muted mb-0">Demystifying the logistic growth equation: see intermediate algebraic steps computed in real time.</p>
+                    </div>
+                    <span class="badge bg-teal-subtle text-teal border border-teal-subtle font-monospace px-3 py-1">LIVE ARITHMETIC</span>
+                </div>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label small fw-semibold">Initial Inoculum (N₀)</label>
+                        <div class="input-group">
+                            <input type="number" step="0.01" min="0.01" max="1.0" class="form-control font-monospace" id="calcN0" value="0.05">
+                            <span class="input-group-text small">OD</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label small fw-semibold">Carrying Capacity (K)</label>
+                        <div class="input-group">
+                            <input type="number" step="0.05" min="0.2" max="5.0" class="form-control font-monospace" id="calcK" value="1.80">
+                            <span class="input-group-text small">OD</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label small fw-semibold">Growth Rate (r)</label>
+                        <div class="input-group">
+                            <input type="number" step="0.05" min="0.05" max="3.0" class="form-control font-monospace" id="calcR" value="0.45">
+                            <span class="input-group-text small">hr⁻¹</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label small fw-semibold">Elapsed Time (t)</label>
+                        <div class="input-group">
+                            <input type="number" step="0.5" min="0.0" max="48.0" class="form-control font-monospace" id="calcT" value="6.0">
+                            <span class="input-group-text small">hours</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Step-by-Step Working Area -->
+                <div class="p-4 rounded-4 bg-body-tertiary border font-monospace" id="arithmeticStepsArea">
+                    <!-- Populated via JavaScript below -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- TAB 3: VIVA VOCE QUESTION & ANSWER BANK                          -->
+        <!-- ================================================================= -->
+        <div class="tab-pane fade" id="vivaPane" role="tabpanel">
+            <div class="bio-card p-4 shadow-sm mb-4">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+                    <div>
+                        <h4 class="h5 fw-bold mb-1">Curated Major Project Viva Voce Examination Bank</h4>
+                        <p class="small text-muted mb-0">35 high-yield questions categorized by academic domain with student defense tips.</p>
+                    </div>
+
+                    <!-- Live Keyword Search Filter -->
+                    <div class="input-group" style="max-width: 320px;">
+                        <span class="input-group-text bg-body-tertiary"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control" id="vivaSearchInput" placeholder="Filter questions or keywords...">
+                    </div>
+                </div>
+
+                <!-- Domain Category Filter Pills -->
+                <div class="d-flex flex-wrap gap-2 mb-4" id="vivaDomainFilters">
+                    <button class="btn btn-sm btn-teal active rounded-pill px-3" data-domain="ALL">All Domains</button>
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-domain="Software Architecture">Software Architecture</button>
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-domain="Microbiology & Biology">Microbiology</button>
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-domain="Growth Kinetics & Mathematics">Kinetics Math</button>
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-domain="Data Science & Machine Learning">Machine Learning</button>
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-domain="Statistics & Anomaly Screening">Statistics</button>
+                </div>
+
+                <!-- Accordion Q&A List -->
+                <div class="accordion" id="vivaAccordion">
+                    {% for q in viva_questions %}
+                    <div class="accordion-item mb-2 border rounded-3 overflow-hidden viva-card-item" data-domain="{{ q.domain }}">
+                        <h2 class="accordion-header" id="heading{{ q.id }}">
+                            <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ q.id }}" aria-expanded="false" aria-controls="collapse{{ q.id }}">
+                                <div class="d-flex flex-wrap align-items-center gap-2 me-2">
+                                    <span class="badge bg-teal-subtle text-teal font-monospace" style="font-size: 0.72rem;">Q{{ q.id }}</span>
+                                    <span class="badge bg-secondary-subtle text-muted font-monospace" style="font-size: 0.7rem;">{{ q.domain }}</span>
+                                    <span class="fw-semibold text-body">{{ q.question }}</span>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="collapse{{ q.id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ q.id }}" data-bs-parent="#vivaAccordion">
+                            <div class="accordion-body bg-body-tertiary">
+                                <p class="mb-3 text-body">{{ q.answer }}</p>
+                                <div class="p-2 rounded bg-warning-subtle text-warning-emphasis border border-warning-subtle small d-flex align-items-center gap-2">
+                                    <i class="bi bi-lightbulb-fill text-warning"></i>
+                                    <span><strong>Viva Tip:</strong> {{ q.viva_tip }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- TAB 4: INTERACTIVE SELF-TEST VIVA QUIZ                            -->
+        <!-- ================================================================= -->
+        <div class="tab-pane fade" id="quizPane" role="tabpanel">
+            <div class="bio-card p-4 shadow-sm mb-4">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4 pb-3 border-bottom">
+                    <div>
+                        <h4 class="h5 fw-bold mb-1">Interactive Viva Practice Quiz</h4>
+                        <p class="small text-muted mb-0">Test your mastery of kinetics, AST breakpoints, and ML leakage with instant feedback.</p>
+                    </div>
+
+                    <!-- Live Scoreboard -->
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="text-end">
+                            <div class="small text-muted text-uppercase font-monospace" style="font-size: 0.7rem;">Current Score</div>
+                            <div class="fs-5 fw-bold text-teal font-monospace" id="quizScoreText">0 / 10 (0%)</div>
+                        </div>
+                        <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" id="resetQuizBtn">
+                            <i class="bi bi-arrow-counterclockwise me-1"></i>Restart Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quiz Questions Container -->
+                <div id="quizContainer">
+                    <!-- Populated via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- TAB 5: COMPREHENSIVE BIOLOGICAL & DATA SCIENCE GLOSSARY           -->
+        <!-- ================================================================= -->
+        <div class="tab-pane fade" id="glossaryPane" role="tabpanel">
+            <div class="bio-card p-4 shadow-sm mb-4">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+                    <div>
+                        <h4 class="h5 fw-bold mb-1">Biological & Data Science Glossary</h4>
+                        <p class="small text-muted mb-0">Core academic definitions for laboratory testing, statistics, and machine learning.</p>
+                    </div>
+
+                    <!-- Search Box -->
+                    <div class="input-group" style="max-width: 300px;">
+                        <span class="input-group-text bg-body-tertiary"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control" id="glossarySearchInput" placeholder="Filter terms...">
+                    </div>
+                </div>
+
+                <div class="row g-3" id="glossaryGrid">
+                    {% for g in glossary %}
+                    <div class="col-md-6 col-lg-4 glossary-card-item">
+                        <div class="bio-card h-100 p-3 bg-body-tertiary border">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <h6 class="fw-bold text-teal mb-0 term-title">{{ g.term }}</h6>
+                                <span class="badge bg-secondary-subtle text-muted font-monospace" style="font-size: 0.68rem;">{{ g.category }}</span>
+                            </div>
+                            <p class="small text-muted mb-0 term-def">{{ g.definition }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    'use strict';
+
+    // =========================================================================
+    // 1. STEP-BY-STEP VERHULST ARITHMETIC CALCULATOR
+    // =========================================================================
+    const calcN0 = document.getElementById('calcN0');
+    const calcK = document.getElementById('calcK');
+    const calcR = document.getElementById('calcR');
+    const calcT = document.getElementById('calcT');
+    const stepsArea = document.getElementById('arithmeticStepsArea');
+
+    function updateArithmetic() {
+        if (!stepsArea) return;
+        const N0 = parseFloat(calcN0.value) || 0.05;
+        const K = parseFloat(calcK.value) || 1.80;
+        const r = parseFloat(calcR.value) || 0.45;
+        const t = parseFloat(calcT.value) || 6.0;
+
+        // Step 1: Ratio A
+        const A = (K - N0) / N0;
+        // Step 2: Exponential term
+        const exponent = -r * t;
+        const expVal = Math.exp(exponent);
+        // Step 3: Denominator
+        const denom = 1 + (A * expVal);
+        // Step 4: Final OD
+        const Nt = K / denom;
+        // Step 5: Doubling time
+        const td = Math.log(2) / r;
+        // Step 6: Inflection time
+        const tInf = A > 0 ? (Math.log(A) / r) : 0;
+        // Step 7: Max growth rate
+        const maxRate = (r * K) / 4;
+
+        stepsArea.innerHTML = `
+            <div class="text-teal fw-bold mb-3 border-bottom pb-2">
+                <i class="bi bi-cpu me-1"></i>Verhulst Logistic Equation: N(t) = K / [1 + ((K - N₀) / N₀) · e^(-rt)]
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="p-3 rounded bg-body border mb-2">
+                        <div class="text-muted small">STEP 1: Inoculum-to-Plateau Constant (A)</div>
+                        <div class="fw-bold text-body">A = (K - N₀) / N₀</div>
+                        <div class="text-teal">A = (${K.toFixed(2)} - ${N0.toFixed(2)}) / ${N0.toFixed(2)} = <span class="badge bg-teal text-white">${A.toFixed(4)}</span></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="p-3 rounded bg-body border mb-2">
+                        <div class="text-muted small">STEP 2: Exponential Resistance Factor</div>
+                        <div class="fw-bold text-body">e^(-rt) = e^(-(${r.toFixed(2)} × ${t.toFixed(1)}))</div>
+                        <div class="text-teal">e^(${exponent.toFixed(2)}) = <span class="badge bg-info text-white">${expVal.toFixed(6)}</span></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="p-3 rounded bg-body border mb-2">
+                        <div class="text-muted small">STEP 3: Denominator Synthesis</div>
+                        <div class="fw-bold text-body">Denominator = 1 + (A · e^(-rt))</div>
+                        <div class="text-teal">1 + (${A.toFixed(4)} × ${expVal.toFixed(6)}) = <span class="badge bg-warning text-dark">${denom.toFixed(4)}</span></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="p-3 rounded bg-body border mb-2">
+                        <div class="text-muted small">STEP 4: Optical Density at t = ${t.toFixed(1)}h</div>
+                        <div class="fw-bold text-body">N(${t.toFixed(1)}) = K / Denominator</div>
+                        <div class="text-emerald fw-bold fs-5">${K.toFixed(2)} / ${denom.toFixed(4)} = <span class="badge bg-emerald text-white">${Nt.toFixed(4)} OD600</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-3 p-3 rounded bg-body border">
+                <div class="fw-bold text-muted small mb-2 border-bottom pb-1">DERIVED KINETIC ATTRIBUTES (VIVA ESSENTIALS):</div>
+                <div class="d-flex flex-wrap gap-4 text-muted small">
+                    <div><strong>Doubling Time (t_d):</strong> ln(2) / r = 0.69315 / ${r.toFixed(2)} = <span class="text-teal fw-bold">${td.toFixed(2)} hours</span></div>
+                    <div><strong>Inflection Point (t_inf):</strong> ln(A) / r = ln(${A.toFixed(2)}) / ${r.toFixed(2)} = <span class="text-info fw-bold">${tInf.toFixed(2)} hours</span></div>
+                    <div><strong>Max Instantaneous Velocity:</strong> (r · K) / 4 = <span class="text-warning fw-bold">${maxRate.toFixed(4)} OD/h</span></div>
+                </div>
+            </div>
+        `;
+    }
+
+    [calcN0, calcK, calcR, calcT].forEach(input => {
+        if (input) input.addEventListener('input', updateArithmetic);
+    });
+    updateArithmetic();
+
+
+    // =========================================================================
+    // 2. VIVA VOCE ACCORDION SEARCH & DOMAIN FILTER
+    // =========================================================================
+    const vivaSearch = document.getElementById('vivaSearchInput');
+    const domainBtns = document.querySelectorAll('#vivaDomainFilters button');
+    const vivaItems = document.querySelectorAll('.viva-card-item');
+
+    let currentDomain = 'ALL';
+
+    function filterVivaQuestions() {
+        const query = (vivaSearch ? vivaSearch.value : '').toLowerCase().trim();
+
+        vivaItems.forEach(item => {
+            const domain = item.getAttribute('data-domain');
+            const text = item.textContent.toLowerCase();
+
+            const matchesDomain = (currentDomain === 'ALL' || domain === currentDomain);
+            const matchesQuery = (!query || text.includes(query));
+
+            if (matchesDomain && matchesQuery) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    if (vivaSearch) {
+        vivaSearch.addEventListener('input', filterVivaQuestions);
+    }
+
+    domainBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            domainBtns.forEach(b => {
+                b.classList.remove('btn-teal', 'active');
+                b.classList.add('btn-outline-secondary');
+            });
+            this.classList.add('btn-teal', 'active');
+            this.classList.remove('btn-outline-secondary');
+            currentDomain = this.getAttribute('data-domain');
+            filterVivaQuestions();
+        });
+    });
+
+
+    // =========================================================================
+    // 3. INTERACTIVE SELF-TEST VIVA QUIZ ENGINE
+    // =========================================================================
+    const quizContainer = document.getElementById('quizContainer');
+    const quizScoreText = document.getElementById('quizScoreText');
+    const resetQuizBtn = document.getElementById('resetQuizBtn');
+
+    let quizData = [];
+    let answeredState = {};
+
+    function fetchAndRenderQuiz() {
+        if (!quizContainer) return;
+        fetch('/learn/api/quiz')
+            .then(res => res.json())
+            .then(data => {
+                quizData = data.questions || [];
+                renderQuiz();
+            })
+            .catch(err => {
+                quizContainer.innerHTML = '<div class="alert alert-danger">Failed to load quiz questions.</div>';
+            });
+    }
+
+    function renderQuiz() {
+        if (!quizContainer) return;
+        quizContainer.innerHTML = '';
+        answeredState = {};
+        updateScore();
+
+        quizData.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'bio-card p-3 mb-3 bg-body-tertiary border';
+            card.id = `quizCard_${q.id}`;
+
+            let optionsHtml = '';
+            q.options.forEach((opt, optIdx) => {
+                optionsHtml += `
+                    <div class="form-check mb-2 p-2 rounded border bg-body quiz-opt" style="cursor: pointer;" data-qid="${q.id}" data-opt="${optIdx}">
+                        <input class="form-check-input ms-1 me-2" type="radio" name="q_${q.id}" id="q_${q.id}_opt_${optIdx}" value="${optIdx}">
+                        <label class="form-check-label small fw-medium" for="q_${q.id}_opt_${optIdx}" style="cursor: pointer;">
+                            ${opt}
+                        </label>
+                    </div>
+                `;
+            });
+
+            card.innerHTML = `
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <span class="badge bg-teal-subtle text-teal font-monospace" style="font-size: 0.72rem;">QUESTION ${idx + 1} OF ${quizData.length}</span>
+                    <span class="badge bg-secondary-subtle text-muted" id="statusBadge_${q.id}">Not Answered</span>
+                </div>
+                <h6 class="fw-bold mb-3">${q.question}</h6>
+                <div class="options-group">${optionsHtml}</div>
+                <div class="mt-2 p-2 rounded small d-none explanation-box" id="expBox_${q.id}"></div>
+            `;
+
+            quizContainer.appendChild(card);
+        });
+
+        // Attach option click handlers
+        document.querySelectorAll('.quiz-opt').forEach(optEl => {
+            optEl.addEventListener('click', function(e) {
+                const qid = parseInt(this.getAttribute('data-qid'));
+                const optIdx = parseInt(this.getAttribute('data-opt'));
+                handleAnswer(qid, optIdx);
+            });
+        });
+    }
+
+    function handleAnswer(qid, selectedOpt) {
+        if (answeredState[qid] !== undefined) return; // Already answered
+        const q = quizData.find(item => item.id === qid);
+        if (!q) return;
+
+        const isCorrect = (selectedOpt === q.answer);
+        answeredState[qid] = isCorrect;
+
+        const card = document.getElementById(`quizCard_${qid}`);
+        const statusBadge = document.getElementById(`statusBadge_${qid}`);
+        const expBox = document.getElementById(`expBox_${qid}`);
+
+        // Update radios and highlight
+        const radio = document.getElementById(`q_${qid}_opt_${selectedOpt}`);
+        if (radio) radio.checked = true;
+
+        const allOpts = card.querySelectorAll('.quiz-opt');
+        allOpts.forEach(el => {
+            const thisOpt = parseInt(el.getAttribute('data-opt'));
+            el.style.pointerEvents = 'none';
+            if (thisOpt === q.answer) {
+                el.classList.add('bg-success-subtle', 'border-success');
+            } else if (thisOpt === selectedOpt && !isCorrect) {
+                el.classList.add('bg-danger-subtle', 'border-danger');
+            }
+        });
+
+        if (isCorrect) {
+            statusBadge.className = 'badge bg-success-subtle text-success border border-success-subtle';
+            statusBadge.textContent = 'Correct ✓';
+            expBox.className = 'mt-2 p-2 rounded small bg-success-subtle text-success-emphasis border border-success-subtle d-block';
+            expBox.innerHTML = `<strong>Correct:</strong> ${q.explanation}`;
+        } else {
+            statusBadge.className = 'badge bg-danger-subtle text-danger border border-danger-subtle';
+            statusBadge.textContent = 'Incorrect ✗';
+            expBox.className = 'mt-2 p-2 rounded small bg-danger-subtle text-danger-emphasis border border-danger-subtle d-block';
+            expBox.innerHTML = `<strong>Explanation:</strong> ${q.explanation}`;
+        }
+
+        updateScore();
+    }
+
+    function updateScore() {
+        const total = quizData.length || 10;
+        let correct = 0;
+        let answered = 0;
+
+        for (const qid in answeredState) {
+            answered++;
+            if (answeredState[qid] === true) correct++;
+        }
+
+        const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
+        if (quizScoreText) {
+            quizScoreText.textContent = `${correct} / ${total} (${pct}%)`;
+        }
+    }
+
+    if (resetQuizBtn) {
+        resetQuizBtn.addEventListener('click', renderQuiz);
+    }
+
+    fetchAndRenderQuiz();
+
+
+    // =========================================================================
+    // 4. GLOSSARY KEYWORD SEARCH FILTER
+    // =========================================================================
+    const glossarySearch = document.getElementById('glossarySearchInput');
+    const glossaryItems = document.querySelectorAll('.glossary-card-item');
+
+    if (glossarySearch) {
+        glossarySearch.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+            glossaryItems.forEach(item => {
+                const title = item.querySelector('.term-title').textContent.toLowerCase();
+                const def = item.querySelector('.term-def').textContent.toLowerCase();
+                if (!query || title.includes(query) || def.includes(query)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    }
+
+});
+</script>
+{% endblock %}

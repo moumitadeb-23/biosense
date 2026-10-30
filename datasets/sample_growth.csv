@@ -1,0 +1,1951 @@
+experiment_id,organism,medium,temperature,ph,time_h,optical_density,data_source
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,0.0,0.01,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,2.0,0.0821,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,4.0,0.24,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,6.0,0.4811,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,8.0,0.8511,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,10.0,1.2113,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,12.0,1.512,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,14.0,1.6576,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,16.0,1.7138,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,18.0,1.7628,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,20.0,1.7635,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,22.0,1.7447,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,24.0,1.769,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,0.0,0.0268,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,2.0,0.1031,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,4.0,0.1611,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,6.0,0.3071,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,8.0,0.5484,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,10.0,0.8735,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,12.0,1.1768,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,14.0,1.4114,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,16.0,1.5571,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,18.0,1.6671,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,20.0,1.6613,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,22.0,1.6789,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,24.0,1.6827,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,0.0,0.021,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,2.0,0.1019,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,4.0,0.2304,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,6.0,0.4836,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,8.0,0.8582,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,10.0,1.2878,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,12.0,1.573,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,14.0,1.7231,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,16.0,1.7996,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,18.0,1.8142,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,20.0,1.8327,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,22.0,1.8257,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,24.0,1.8313,Synthetic – Demonstration Data
+4,Bacillus subtilis,Mueller-Hinton,35.9,6.64,0.0,0.0261,Synthetic – Demonstration Data
+4,Bacillus subtilis,Mueller-Hinton,35.9,6.64,2.0,0.0737,Synthetic – Demonstration Data
+4,Bacillus subtilis,Mueller-Hinton,35.9,6.64,4.0,0.1869,Synthetic – Demonstration Data
+4,Bacillus subtilis,Mueller-Hinton,35.9,6.64,6.0,0.2929,Synthetic – Demonstration Data
+4,Bacillus subtilis,Mueller-Hinton,35.9,6.64,8.0,0.561,Synthetic – Demonstration Data
+4,Bacillus subtilis,Mueller-Hinton,35.9,6.64,10.0,0.8127,Synthetic – Demonstration Data
+4,Bacillus subtilis,Mueller-Hinton,35.9,6.64,12.0,1.1281,Synthetic – Demonstration Data
+4,Bacillus subtilis,Mueller-Hinton,35.9,6.64,14.0,1.3547,Synthetic – Demonstration Data
+4,Bacillus subtilis,Mueller-Hinton,35.9,6.64,16.0,1.495,Synthetic – Demonstration Data
+4,Bacillus subtilis,Mueller-Hinton,35.9,6.64,18.0,1.5685,Synthetic – Demonstration Data
+4,Bacillus subtilis,Mueller-Hinton,35.9,6.64,20.0,1.6055,Synthetic – Demonstration Data
+4,Bacillus subtilis,Mueller-Hinton,35.9,6.64,22.0,1.6021,Synthetic – Demonstration Data
+4,Bacillus subtilis,Mueller-Hinton,35.9,6.64,24.0,1.6082,Synthetic – Demonstration Data
+5,Salmonella enterica,Nutrient Agar,38.3,7.15,0.0,0.0178,Synthetic – Demonstration Data
+5,Salmonella enterica,Nutrient Agar,38.3,7.15,2.0,0.0886,Synthetic – Demonstration Data
+5,Salmonella enterica,Nutrient Agar,38.3,7.15,4.0,0.1802,Synthetic – Demonstration Data
+5,Salmonella enterica,Nutrient Agar,38.3,7.15,6.0,0.3778,Synthetic – Demonstration Data
+5,Salmonella enterica,Nutrient Agar,38.3,7.15,8.0,0.647,Synthetic – Demonstration Data
+5,Salmonella enterica,Nutrient Agar,38.3,7.15,10.0,0.9812,Synthetic – Demonstration Data
+5,Salmonella enterica,Nutrient Agar,38.3,7.15,12.0,1.2444,Synthetic – Demonstration Data
+5,Salmonella enterica,Nutrient Agar,38.3,7.15,14.0,1.3781,Synthetic – Demonstration Data
+5,Salmonella enterica,Nutrient Agar,38.3,7.15,16.0,1.4663,Synthetic – Demonstration Data
+5,Salmonella enterica,Nutrient Agar,38.3,7.15,18.0,1.4797,Synthetic – Demonstration Data
+5,Salmonella enterica,Nutrient Agar,38.3,7.15,20.0,1.4996,Synthetic – Demonstration Data
+5,Salmonella enterica,Nutrient Agar,38.3,7.15,22.0,1.5054,Synthetic – Demonstration Data
+5,Salmonella enterica,Nutrient Agar,38.3,7.15,24.0,1.4933,Synthetic – Demonstration Data
+6,Enterococcus faecalis,LB Broth,37.7,7.28,0.0,0.0504,Synthetic – Demonstration Data
+6,Enterococcus faecalis,LB Broth,37.7,7.28,2.0,0.1126,Synthetic – Demonstration Data
+6,Enterococcus faecalis,LB Broth,37.7,7.28,4.0,0.2255,Synthetic – Demonstration Data
+6,Enterococcus faecalis,LB Broth,37.7,7.28,6.0,0.4572,Synthetic – Demonstration Data
+6,Enterococcus faecalis,LB Broth,37.7,7.28,8.0,0.8062,Synthetic – Demonstration Data
+6,Enterococcus faecalis,LB Broth,37.7,7.28,10.0,1.1224,Synthetic – Demonstration Data
+6,Enterococcus faecalis,LB Broth,37.7,7.28,12.0,1.3688,Synthetic – Demonstration Data
+6,Enterococcus faecalis,LB Broth,37.7,7.28,14.0,1.501,Synthetic – Demonstration Data
+6,Enterococcus faecalis,LB Broth,37.7,7.28,16.0,1.5668,Synthetic – Demonstration Data
+6,Enterococcus faecalis,LB Broth,37.7,7.28,18.0,1.6177,Synthetic – Demonstration Data
+6,Enterococcus faecalis,LB Broth,37.7,7.28,20.0,1.6048,Synthetic – Demonstration Data
+6,Enterococcus faecalis,LB Broth,37.7,7.28,22.0,1.6187,Synthetic – Demonstration Data
+6,Enterococcus faecalis,LB Broth,37.7,7.28,24.0,1.6507,Synthetic – Demonstration Data
+7,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.48,0.0,0.0219,Synthetic – Demonstration Data
+7,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.48,2.0,0.0757,Synthetic – Demonstration Data
+7,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.48,4.0,0.181,Synthetic – Demonstration Data
+7,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.48,6.0,0.2843,Synthetic – Demonstration Data
+7,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.48,8.0,0.5477,Synthetic – Demonstration Data
+7,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.48,10.0,0.8081,Synthetic – Demonstration Data
+7,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.48,12.0,1.0271,Synthetic – Demonstration Data
+7,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.48,14.0,1.1727,Synthetic – Demonstration Data
+7,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.48,16.0,1.2924,Synthetic – Demonstration Data
+7,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.48,18.0,1.3292,Synthetic – Demonstration Data
+7,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.48,20.0,1.366,Synthetic – Demonstration Data
+7,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.48,22.0,1.3732,Synthetic – Demonstration Data
+7,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.48,24.0,1.4067,Synthetic – Demonstration Data
+8,Acinetobacter baumannii,Nutrient Agar,36.6,6.74,0.0,0.0656,Synthetic – Demonstration Data
+8,Acinetobacter baumannii,Nutrient Agar,36.6,6.74,2.0,0.0964,Synthetic – Demonstration Data
+8,Acinetobacter baumannii,Nutrient Agar,36.6,6.74,4.0,0.1631,Synthetic – Demonstration Data
+8,Acinetobacter baumannii,Nutrient Agar,36.6,6.74,6.0,0.3135,Synthetic – Demonstration Data
+8,Acinetobacter baumannii,Nutrient Agar,36.6,6.74,8.0,0.4641,Synthetic – Demonstration Data
+8,Acinetobacter baumannii,Nutrient Agar,36.6,6.74,10.0,0.723,Synthetic – Demonstration Data
+8,Acinetobacter baumannii,Nutrient Agar,36.6,6.74,12.0,0.9651,Synthetic – Demonstration Data
+8,Acinetobacter baumannii,Nutrient Agar,36.6,6.74,14.0,1.1689,Synthetic – Demonstration Data
+8,Acinetobacter baumannii,Nutrient Agar,36.6,6.74,16.0,1.2776,Synthetic – Demonstration Data
+8,Acinetobacter baumannii,Nutrient Agar,36.6,6.74,18.0,1.3863,Synthetic – Demonstration Data
+8,Acinetobacter baumannii,Nutrient Agar,36.6,6.74,20.0,1.4096,Synthetic – Demonstration Data
+8,Acinetobacter baumannii,Nutrient Agar,36.6,6.74,22.0,1.4068,Synthetic – Demonstration Data
+8,Acinetobacter baumannii,Nutrient Agar,36.6,6.74,24.0,1.4249,Synthetic – Demonstration Data
+9,Proteus mirabilis,LB Broth,37.5,7.41,0.0,0.062,Synthetic – Demonstration Data
+9,Proteus mirabilis,LB Broth,37.5,7.41,2.0,0.1134,Synthetic – Demonstration Data
+9,Proteus mirabilis,LB Broth,37.5,7.41,4.0,0.2605,Synthetic – Demonstration Data
+9,Proteus mirabilis,LB Broth,37.5,7.41,6.0,0.6141,Synthetic – Demonstration Data
+9,Proteus mirabilis,LB Broth,37.5,7.41,8.0,1.0258,Synthetic – Demonstration Data
+9,Proteus mirabilis,LB Broth,37.5,7.41,10.0,1.4426,Synthetic – Demonstration Data
+9,Proteus mirabilis,LB Broth,37.5,7.41,12.0,1.7093,Synthetic – Demonstration Data
+9,Proteus mirabilis,LB Broth,37.5,7.41,14.0,1.8559,Synthetic – Demonstration Data
+9,Proteus mirabilis,LB Broth,37.5,7.41,16.0,1.9392,Synthetic – Demonstration Data
+9,Proteus mirabilis,LB Broth,37.5,7.41,18.0,1.9486,Synthetic – Demonstration Data
+9,Proteus mirabilis,LB Broth,37.5,7.41,20.0,1.9533,Synthetic – Demonstration Data
+9,Proteus mirabilis,LB Broth,37.5,7.41,22.0,1.9418,Synthetic – Demonstration Data
+9,Proteus mirabilis,LB Broth,37.5,7.41,24.0,1.9319,Synthetic – Demonstration Data
+10,Listeria monocytogenes,Mueller-Hinton,34.3,6.99,0.0,0.0583,Synthetic – Demonstration Data
+10,Listeria monocytogenes,Mueller-Hinton,34.3,6.99,2.0,0.0735,Synthetic – Demonstration Data
+10,Listeria monocytogenes,Mueller-Hinton,34.3,6.99,4.0,0.1413,Synthetic – Demonstration Data
+10,Listeria monocytogenes,Mueller-Hinton,34.3,6.99,6.0,0.2869,Synthetic – Demonstration Data
+10,Listeria monocytogenes,Mueller-Hinton,34.3,6.99,8.0,0.509,Synthetic – Demonstration Data
+10,Listeria monocytogenes,Mueller-Hinton,34.3,6.99,10.0,0.8323,Synthetic – Demonstration Data
+10,Listeria monocytogenes,Mueller-Hinton,34.3,6.99,12.0,1.0433,Synthetic – Demonstration Data
+10,Listeria monocytogenes,Mueller-Hinton,34.3,6.99,14.0,1.2736,Synthetic – Demonstration Data
+10,Listeria monocytogenes,Mueller-Hinton,34.3,6.99,16.0,1.3678,Synthetic – Demonstration Data
+10,Listeria monocytogenes,Mueller-Hinton,34.3,6.99,18.0,1.4703,Synthetic – Demonstration Data
+10,Listeria monocytogenes,Mueller-Hinton,34.3,6.99,20.0,1.4962,Synthetic – Demonstration Data
+10,Listeria monocytogenes,Mueller-Hinton,34.3,6.99,22.0,1.5042,Synthetic – Demonstration Data
+10,Listeria monocytogenes,Mueller-Hinton,34.3,6.99,24.0,1.515,Synthetic – Demonstration Data
+11,Candida albicans,Nutrient Agar,29.0,6.61,0.0,0.0109,Synthetic – Demonstration Data
+11,Candida albicans,Nutrient Agar,29.0,6.61,2.0,0.0629,Synthetic – Demonstration Data
+11,Candida albicans,Nutrient Agar,29.0,6.61,4.0,0.1328,Synthetic – Demonstration Data
+11,Candida albicans,Nutrient Agar,29.0,6.61,6.0,0.1818,Synthetic – Demonstration Data
+11,Candida albicans,Nutrient Agar,29.0,6.61,8.0,0.2955,Synthetic – Demonstration Data
+11,Candida albicans,Nutrient Agar,29.0,6.61,10.0,0.4779,Synthetic – Demonstration Data
+11,Candida albicans,Nutrient Agar,29.0,6.61,12.0,0.7276,Synthetic – Demonstration Data
+11,Candida albicans,Nutrient Agar,29.0,6.61,14.0,0.9727,Synthetic – Demonstration Data
+11,Candida albicans,Nutrient Agar,29.0,6.61,16.0,1.2188,Synthetic – Demonstration Data
+11,Candida albicans,Nutrient Agar,29.0,6.61,18.0,1.4599,Synthetic – Demonstration Data
+11,Candida albicans,Nutrient Agar,29.0,6.61,20.0,1.6029,Synthetic – Demonstration Data
+11,Candida albicans,Nutrient Agar,29.0,6.61,22.0,1.725,Synthetic – Demonstration Data
+11,Candida albicans,Nutrient Agar,29.0,6.61,24.0,1.7636,Synthetic – Demonstration Data
+12,Escherichia coli,LB Broth,35.2,6.66,0.0,0.0454,Synthetic – Demonstration Data
+12,Escherichia coli,LB Broth,35.2,6.66,2.0,0.1144,Synthetic – Demonstration Data
+12,Escherichia coli,LB Broth,35.2,6.66,4.0,0.3138,Synthetic – Demonstration Data
+12,Escherichia coli,LB Broth,35.2,6.66,6.0,0.5911,Synthetic – Demonstration Data
+12,Escherichia coli,LB Broth,35.2,6.66,8.0,1.0657,Synthetic – Demonstration Data
+12,Escherichia coli,LB Broth,35.2,6.66,10.0,1.5523,Synthetic – Demonstration Data
+12,Escherichia coli,LB Broth,35.2,6.66,12.0,1.8358,Synthetic – Demonstration Data
+12,Escherichia coli,LB Broth,35.2,6.66,14.0,1.994,Synthetic – Demonstration Data
+12,Escherichia coli,LB Broth,35.2,6.66,16.0,2.0565,Synthetic – Demonstration Data
+12,Escherichia coli,LB Broth,35.2,6.66,18.0,2.0919,Synthetic – Demonstration Data
+12,Escherichia coli,LB Broth,35.2,6.66,20.0,2.1216,Synthetic – Demonstration Data
+12,Escherichia coli,LB Broth,35.2,6.66,22.0,2.1019,Synthetic – Demonstration Data
+12,Escherichia coli,LB Broth,35.2,6.66,24.0,2.1134,Synthetic – Demonstration Data
+13,Staphylococcus aureus,Mueller-Hinton,33.9,7.19,0.0,0.0181,Synthetic – Demonstration Data
+13,Staphylococcus aureus,Mueller-Hinton,33.9,7.19,2.0,0.0729,Synthetic – Demonstration Data
+13,Staphylococcus aureus,Mueller-Hinton,33.9,7.19,4.0,0.1934,Synthetic – Demonstration Data
+13,Staphylococcus aureus,Mueller-Hinton,33.9,7.19,6.0,0.344,Synthetic – Demonstration Data
+13,Staphylococcus aureus,Mueller-Hinton,33.9,7.19,8.0,0.6704,Synthetic – Demonstration Data
+13,Staphylococcus aureus,Mueller-Hinton,33.9,7.19,10.0,1.0105,Synthetic – Demonstration Data
+13,Staphylococcus aureus,Mueller-Hinton,33.9,7.19,12.0,1.2972,Synthetic – Demonstration Data
+13,Staphylococcus aureus,Mueller-Hinton,33.9,7.19,14.0,1.4926,Synthetic – Demonstration Data
+13,Staphylococcus aureus,Mueller-Hinton,33.9,7.19,16.0,1.5701,Synthetic – Demonstration Data
+13,Staphylococcus aureus,Mueller-Hinton,33.9,7.19,18.0,1.6233,Synthetic – Demonstration Data
+13,Staphylococcus aureus,Mueller-Hinton,33.9,7.19,20.0,1.6133,Synthetic – Demonstration Data
+13,Staphylococcus aureus,Mueller-Hinton,33.9,7.19,22.0,1.6106,Synthetic – Demonstration Data
+13,Staphylococcus aureus,Mueller-Hinton,33.9,7.19,24.0,1.6221,Synthetic – Demonstration Data
+14,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.24,0.0,0.0446,Synthetic – Demonstration Data
+14,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.24,2.0,0.1359,Synthetic – Demonstration Data
+14,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.24,4.0,0.2291,Synthetic – Demonstration Data
+14,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.24,6.0,0.3746,Synthetic – Demonstration Data
+14,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.24,8.0,0.68,Synthetic – Demonstration Data
+14,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.24,10.0,0.9921,Synthetic – Demonstration Data
+14,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.24,12.0,1.279,Synthetic – Demonstration Data
+14,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.24,14.0,1.4629,Synthetic – Demonstration Data
+14,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.24,16.0,1.5657,Synthetic – Demonstration Data
+14,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.24,18.0,1.5716,Synthetic – Demonstration Data
+14,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.24,20.0,1.5913,Synthetic – Demonstration Data
+14,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.24,22.0,1.5725,Synthetic – Demonstration Data
+14,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.24,24.0,1.6117,Synthetic – Demonstration Data
+15,Klebsiella pneumoniae,LB Broth,35.4,6.87,0.0,0.01,Synthetic – Demonstration Data
+15,Klebsiella pneumoniae,LB Broth,35.4,6.87,2.0,0.0749,Synthetic – Demonstration Data
+15,Klebsiella pneumoniae,LB Broth,35.4,6.87,4.0,0.2842,Synthetic – Demonstration Data
+15,Klebsiella pneumoniae,LB Broth,35.4,6.87,6.0,0.5073,Synthetic – Demonstration Data
+15,Klebsiella pneumoniae,LB Broth,35.4,6.87,8.0,0.92,Synthetic – Demonstration Data
+15,Klebsiella pneumoniae,LB Broth,35.4,6.87,10.0,1.357,Synthetic – Demonstration Data
+15,Klebsiella pneumoniae,LB Broth,35.4,6.87,12.0,1.6168,Synthetic – Demonstration Data
+15,Klebsiella pneumoniae,LB Broth,35.4,6.87,14.0,1.6581,Synthetic – Demonstration Data
+15,Klebsiella pneumoniae,LB Broth,35.4,6.87,16.0,1.7203,Synthetic – Demonstration Data
+15,Klebsiella pneumoniae,LB Broth,35.4,6.87,18.0,1.7517,Synthetic – Demonstration Data
+15,Klebsiella pneumoniae,LB Broth,35.4,6.87,20.0,1.7837,Synthetic – Demonstration Data
+15,Klebsiella pneumoniae,LB Broth,35.4,6.87,22.0,1.7375,Synthetic – Demonstration Data
+15,Klebsiella pneumoniae,LB Broth,35.4,6.87,24.0,1.7519,Synthetic – Demonstration Data
+16,Bacillus subtilis,Mueller-Hinton,36.2,7.11,0.0,0.0146,Synthetic – Demonstration Data
+16,Bacillus subtilis,Mueller-Hinton,36.2,7.11,2.0,0.0828,Synthetic – Demonstration Data
+16,Bacillus subtilis,Mueller-Hinton,36.2,7.11,4.0,0.1811,Synthetic – Demonstration Data
+16,Bacillus subtilis,Mueller-Hinton,36.2,7.11,6.0,0.3741,Synthetic – Demonstration Data
+16,Bacillus subtilis,Mueller-Hinton,36.2,7.11,8.0,0.6431,Synthetic – Demonstration Data
+16,Bacillus subtilis,Mueller-Hinton,36.2,7.11,10.0,0.9909,Synthetic – Demonstration Data
+16,Bacillus subtilis,Mueller-Hinton,36.2,7.11,12.0,1.2793,Synthetic – Demonstration Data
+16,Bacillus subtilis,Mueller-Hinton,36.2,7.11,14.0,1.4427,Synthetic – Demonstration Data
+16,Bacillus subtilis,Mueller-Hinton,36.2,7.11,16.0,1.5417,Synthetic – Demonstration Data
+16,Bacillus subtilis,Mueller-Hinton,36.2,7.11,18.0,1.5822,Synthetic – Demonstration Data
+16,Bacillus subtilis,Mueller-Hinton,36.2,7.11,20.0,1.6022,Synthetic – Demonstration Data
+16,Bacillus subtilis,Mueller-Hinton,36.2,7.11,22.0,1.5986,Synthetic – Demonstration Data
+16,Bacillus subtilis,Mueller-Hinton,36.2,7.11,24.0,1.6214,Synthetic – Demonstration Data
+17,Salmonella enterica,Nutrient Agar,36.9,7.72,0.0,0.0282,Synthetic – Demonstration Data
+17,Salmonella enterica,Nutrient Agar,36.9,7.72,2.0,0.0681,Synthetic – Demonstration Data
+17,Salmonella enterica,Nutrient Agar,36.9,7.72,4.0,0.2014,Synthetic – Demonstration Data
+17,Salmonella enterica,Nutrient Agar,36.9,7.72,6.0,0.3522,Synthetic – Demonstration Data
+17,Salmonella enterica,Nutrient Agar,36.9,7.72,8.0,0.6187,Synthetic – Demonstration Data
+17,Salmonella enterica,Nutrient Agar,36.9,7.72,10.0,0.9067,Synthetic – Demonstration Data
+17,Salmonella enterica,Nutrient Agar,36.9,7.72,12.0,1.2656,Synthetic – Demonstration Data
+17,Salmonella enterica,Nutrient Agar,36.9,7.72,14.0,1.4832,Synthetic – Demonstration Data
+17,Salmonella enterica,Nutrient Agar,36.9,7.72,16.0,1.5899,Synthetic – Demonstration Data
+17,Salmonella enterica,Nutrient Agar,36.9,7.72,18.0,1.6725,Synthetic – Demonstration Data
+17,Salmonella enterica,Nutrient Agar,36.9,7.72,20.0,1.7208,Synthetic – Demonstration Data
+17,Salmonella enterica,Nutrient Agar,36.9,7.72,22.0,1.7337,Synthetic – Demonstration Data
+17,Salmonella enterica,Nutrient Agar,36.9,7.72,24.0,1.7354,Synthetic – Demonstration Data
+18,Enterococcus faecalis,LB Broth,36.8,7.34,0.0,0.01,Synthetic – Demonstration Data
+18,Enterococcus faecalis,LB Broth,36.8,7.34,2.0,0.1116,Synthetic – Demonstration Data
+18,Enterococcus faecalis,LB Broth,36.8,7.34,4.0,0.2702,Synthetic – Demonstration Data
+18,Enterococcus faecalis,LB Broth,36.8,7.34,6.0,0.5502,Synthetic – Demonstration Data
+18,Enterococcus faecalis,LB Broth,36.8,7.34,8.0,0.9116,Synthetic – Demonstration Data
+18,Enterococcus faecalis,LB Broth,36.8,7.34,10.0,1.2229,Synthetic – Demonstration Data
+18,Enterococcus faecalis,LB Broth,36.8,7.34,12.0,1.47,Synthetic – Demonstration Data
+18,Enterococcus faecalis,LB Broth,36.8,7.34,14.0,1.5974,Synthetic – Demonstration Data
+18,Enterococcus faecalis,LB Broth,36.8,7.34,16.0,1.5827,Synthetic – Demonstration Data
+18,Enterococcus faecalis,LB Broth,36.8,7.34,18.0,1.6438,Synthetic – Demonstration Data
+18,Enterococcus faecalis,LB Broth,36.8,7.34,20.0,1.6294,Synthetic – Demonstration Data
+18,Enterococcus faecalis,LB Broth,36.8,7.34,22.0,1.637,Synthetic – Demonstration Data
+18,Enterococcus faecalis,LB Broth,36.8,7.34,24.0,1.6203,Synthetic – Demonstration Data
+19,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.63,0.0,0.0699,Synthetic – Demonstration Data
+19,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.63,2.0,0.1057,Synthetic – Demonstration Data
+19,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.63,4.0,0.2214,Synthetic – Demonstration Data
+19,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.63,6.0,0.3554,Synthetic – Demonstration Data
+19,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.63,8.0,0.5926,Synthetic – Demonstration Data
+19,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.63,10.0,0.8421,Synthetic – Demonstration Data
+19,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.63,12.0,1.0938,Synthetic – Demonstration Data
+19,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.63,14.0,1.2566,Synthetic – Demonstration Data
+19,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.63,16.0,1.3938,Synthetic – Demonstration Data
+19,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.63,18.0,1.4128,Synthetic – Demonstration Data
+19,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.63,20.0,1.4778,Synthetic – Demonstration Data
+19,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.63,22.0,1.4749,Synthetic – Demonstration Data
+19,Streptococcus pneumoniae,Mueller-Hinton,36.5,7.63,24.0,1.5066,Synthetic – Demonstration Data
+20,Acinetobacter baumannii,Nutrient Agar,38.1,7.46,0.0,0.0309,Synthetic – Demonstration Data
+20,Acinetobacter baumannii,Nutrient Agar,38.1,7.46,2.0,0.0388,Synthetic – Demonstration Data
+20,Acinetobacter baumannii,Nutrient Agar,38.1,7.46,4.0,0.1004,Synthetic – Demonstration Data
+20,Acinetobacter baumannii,Nutrient Agar,38.1,7.46,6.0,0.2225,Synthetic – Demonstration Data
+20,Acinetobacter baumannii,Nutrient Agar,38.1,7.46,8.0,0.3433,Synthetic – Demonstration Data
+20,Acinetobacter baumannii,Nutrient Agar,38.1,7.46,10.0,0.5125,Synthetic – Demonstration Data
+20,Acinetobacter baumannii,Nutrient Agar,38.1,7.46,12.0,0.7392,Synthetic – Demonstration Data
+20,Acinetobacter baumannii,Nutrient Agar,38.1,7.46,14.0,0.9883,Synthetic – Demonstration Data
+20,Acinetobacter baumannii,Nutrient Agar,38.1,7.46,16.0,1.1541,Synthetic – Demonstration Data
+20,Acinetobacter baumannii,Nutrient Agar,38.1,7.46,18.0,1.2951,Synthetic – Demonstration Data
+20,Acinetobacter baumannii,Nutrient Agar,38.1,7.46,20.0,1.3945,Synthetic – Demonstration Data
+20,Acinetobacter baumannii,Nutrient Agar,38.1,7.46,22.0,1.4569,Synthetic – Demonstration Data
+20,Acinetobacter baumannii,Nutrient Agar,38.1,7.46,24.0,1.4733,Synthetic – Demonstration Data
+21,Proteus mirabilis,LB Broth,33.6,7.28,0.0,0.0712,Synthetic – Demonstration Data
+21,Proteus mirabilis,LB Broth,33.6,7.28,2.0,0.0581,Synthetic – Demonstration Data
+21,Proteus mirabilis,LB Broth,33.6,7.28,4.0,0.1969,Synthetic – Demonstration Data
+21,Proteus mirabilis,LB Broth,33.6,7.28,6.0,0.4302,Synthetic – Demonstration Data
+21,Proteus mirabilis,LB Broth,33.6,7.28,8.0,0.7178,Synthetic – Demonstration Data
+21,Proteus mirabilis,LB Broth,33.6,7.28,10.0,1.1462,Synthetic – Demonstration Data
+21,Proteus mirabilis,LB Broth,33.6,7.28,12.0,1.4317,Synthetic – Demonstration Data
+21,Proteus mirabilis,LB Broth,33.6,7.28,14.0,1.629,Synthetic – Demonstration Data
+21,Proteus mirabilis,LB Broth,33.6,7.28,16.0,1.7004,Synthetic – Demonstration Data
+21,Proteus mirabilis,LB Broth,33.6,7.28,18.0,1.7706,Synthetic – Demonstration Data
+21,Proteus mirabilis,LB Broth,33.6,7.28,20.0,1.7953,Synthetic – Demonstration Data
+21,Proteus mirabilis,LB Broth,33.6,7.28,22.0,1.789,Synthetic – Demonstration Data
+21,Proteus mirabilis,LB Broth,33.6,7.28,24.0,1.7928,Synthetic – Demonstration Data
+22,Listeria monocytogenes,Mueller-Hinton,35.4,6.78,0.0,0.0461,Synthetic – Demonstration Data
+22,Listeria monocytogenes,Mueller-Hinton,35.4,6.78,2.0,0.0943,Synthetic – Demonstration Data
+22,Listeria monocytogenes,Mueller-Hinton,35.4,6.78,4.0,0.1256,Synthetic – Demonstration Data
+22,Listeria monocytogenes,Mueller-Hinton,35.4,6.78,6.0,0.2598,Synthetic – Demonstration Data
+22,Listeria monocytogenes,Mueller-Hinton,35.4,6.78,8.0,0.4675,Synthetic – Demonstration Data
+22,Listeria monocytogenes,Mueller-Hinton,35.4,6.78,10.0,0.6559,Synthetic – Demonstration Data
+22,Listeria monocytogenes,Mueller-Hinton,35.4,6.78,12.0,0.8886,Synthetic – Demonstration Data
+22,Listeria monocytogenes,Mueller-Hinton,35.4,6.78,14.0,1.0986,Synthetic – Demonstration Data
+22,Listeria monocytogenes,Mueller-Hinton,35.4,6.78,16.0,1.24,Synthetic – Demonstration Data
+22,Listeria monocytogenes,Mueller-Hinton,35.4,6.78,18.0,1.3022,Synthetic – Demonstration Data
+22,Listeria monocytogenes,Mueller-Hinton,35.4,6.78,20.0,1.3683,Synthetic – Demonstration Data
+22,Listeria monocytogenes,Mueller-Hinton,35.4,6.78,22.0,1.3821,Synthetic – Demonstration Data
+22,Listeria monocytogenes,Mueller-Hinton,35.4,6.78,24.0,1.3932,Synthetic – Demonstration Data
+23,Candida albicans,Nutrient Agar,30.8,7.08,0.0,0.0589,Synthetic – Demonstration Data
+23,Candida albicans,Nutrient Agar,30.8,7.08,2.0,0.0403,Synthetic – Demonstration Data
+23,Candida albicans,Nutrient Agar,30.8,7.08,4.0,0.08,Synthetic – Demonstration Data
+23,Candida albicans,Nutrient Agar,30.8,7.08,6.0,0.148,Synthetic – Demonstration Data
+23,Candida albicans,Nutrient Agar,30.8,7.08,8.0,0.1664,Synthetic – Demonstration Data
+23,Candida albicans,Nutrient Agar,30.8,7.08,10.0,0.2769,Synthetic – Demonstration Data
+23,Candida albicans,Nutrient Agar,30.8,7.08,12.0,0.4157,Synthetic – Demonstration Data
+23,Candida albicans,Nutrient Agar,30.8,7.08,14.0,0.6174,Synthetic – Demonstration Data
+23,Candida albicans,Nutrient Agar,30.8,7.08,16.0,0.8585,Synthetic – Demonstration Data
+23,Candida albicans,Nutrient Agar,30.8,7.08,18.0,1.0886,Synthetic – Demonstration Data
+23,Candida albicans,Nutrient Agar,30.8,7.08,20.0,1.2965,Synthetic – Demonstration Data
+23,Candida albicans,Nutrient Agar,30.8,7.08,22.0,1.4427,Synthetic – Demonstration Data
+23,Candida albicans,Nutrient Agar,30.8,7.08,24.0,1.5605,Synthetic – Demonstration Data
+24,Escherichia coli,LB Broth,37.1,6.88,0.0,0.046,Synthetic – Demonstration Data
+24,Escherichia coli,LB Broth,37.1,6.88,2.0,0.1394,Synthetic – Demonstration Data
+24,Escherichia coli,LB Broth,37.1,6.88,4.0,0.3405,Synthetic – Demonstration Data
+24,Escherichia coli,LB Broth,37.1,6.88,6.0,0.7662,Synthetic – Demonstration Data
+24,Escherichia coli,LB Broth,37.1,6.88,8.0,1.2785,Synthetic – Demonstration Data
+24,Escherichia coli,LB Broth,37.1,6.88,10.0,1.6827,Synthetic – Demonstration Data
+24,Escherichia coli,LB Broth,37.1,6.88,12.0,1.8796,Synthetic – Demonstration Data
+24,Escherichia coli,LB Broth,37.1,6.88,14.0,1.9637,Synthetic – Demonstration Data
+24,Escherichia coli,LB Broth,37.1,6.88,16.0,1.9672,Synthetic – Demonstration Data
+24,Escherichia coli,LB Broth,37.1,6.88,18.0,1.9922,Synthetic – Demonstration Data
+24,Escherichia coli,LB Broth,37.1,6.88,20.0,1.9809,Synthetic – Demonstration Data
+24,Escherichia coli,LB Broth,37.1,6.88,22.0,1.9845,Synthetic – Demonstration Data
+24,Escherichia coli,LB Broth,37.1,6.88,24.0,2.0019,Synthetic – Demonstration Data
+25,Staphylococcus aureus,Mueller-Hinton,34.0,6.88,0.0,0.0161,Synthetic – Demonstration Data
+25,Staphylococcus aureus,Mueller-Hinton,34.0,6.88,2.0,0.0744,Synthetic – Demonstration Data
+25,Staphylococcus aureus,Mueller-Hinton,34.0,6.88,4.0,0.1226,Synthetic – Demonstration Data
+25,Staphylococcus aureus,Mueller-Hinton,34.0,6.88,6.0,0.2591,Synthetic – Demonstration Data
+25,Staphylococcus aureus,Mueller-Hinton,34.0,6.88,8.0,0.4894,Synthetic – Demonstration Data
+25,Staphylococcus aureus,Mueller-Hinton,34.0,6.88,10.0,0.7839,Synthetic – Demonstration Data
+25,Staphylococcus aureus,Mueller-Hinton,34.0,6.88,12.0,1.0566,Synthetic – Demonstration Data
+25,Staphylococcus aureus,Mueller-Hinton,34.0,6.88,14.0,1.3121,Synthetic – Demonstration Data
+25,Staphylococcus aureus,Mueller-Hinton,34.0,6.88,16.0,1.4309,Synthetic – Demonstration Data
+25,Staphylococcus aureus,Mueller-Hinton,34.0,6.88,18.0,1.4895,Synthetic – Demonstration Data
+25,Staphylococcus aureus,Mueller-Hinton,34.0,6.88,20.0,1.5309,Synthetic – Demonstration Data
+25,Staphylococcus aureus,Mueller-Hinton,34.0,6.88,22.0,1.5324,Synthetic – Demonstration Data
+25,Staphylococcus aureus,Mueller-Hinton,34.0,6.88,24.0,1.5512,Synthetic – Demonstration Data
+26,Pseudomonas aeruginosa,Nutrient Agar,36.5,7.4,0.0,0.0402,Synthetic – Demonstration Data
+26,Pseudomonas aeruginosa,Nutrient Agar,36.5,7.4,2.0,0.0527,Synthetic – Demonstration Data
+26,Pseudomonas aeruginosa,Nutrient Agar,36.5,7.4,4.0,0.1589,Synthetic – Demonstration Data
+26,Pseudomonas aeruginosa,Nutrient Agar,36.5,7.4,6.0,0.2997,Synthetic – Demonstration Data
+26,Pseudomonas aeruginosa,Nutrient Agar,36.5,7.4,8.0,0.5237,Synthetic – Demonstration Data
+26,Pseudomonas aeruginosa,Nutrient Agar,36.5,7.4,10.0,0.9182,Synthetic – Demonstration Data
+26,Pseudomonas aeruginosa,Nutrient Agar,36.5,7.4,12.0,1.2431,Synthetic – Demonstration Data
+26,Pseudomonas aeruginosa,Nutrient Agar,36.5,7.4,14.0,1.5149,Synthetic – Demonstration Data
+26,Pseudomonas aeruginosa,Nutrient Agar,36.5,7.4,16.0,1.6706,Synthetic – Demonstration Data
+26,Pseudomonas aeruginosa,Nutrient Agar,36.5,7.4,18.0,1.7655,Synthetic – Demonstration Data
+26,Pseudomonas aeruginosa,Nutrient Agar,36.5,7.4,20.0,1.8277,Synthetic – Demonstration Data
+26,Pseudomonas aeruginosa,Nutrient Agar,36.5,7.4,22.0,1.8367,Synthetic – Demonstration Data
+26,Pseudomonas aeruginosa,Nutrient Agar,36.5,7.4,24.0,1.8553,Synthetic – Demonstration Data
+27,Klebsiella pneumoniae,LB Broth,37.5,7.33,0.0,0.0518,Synthetic – Demonstration Data
+27,Klebsiella pneumoniae,LB Broth,37.5,7.33,2.0,0.0762,Synthetic – Demonstration Data
+27,Klebsiella pneumoniae,LB Broth,37.5,7.33,4.0,0.2187,Synthetic – Demonstration Data
+27,Klebsiella pneumoniae,LB Broth,37.5,7.33,6.0,0.445,Synthetic – Demonstration Data
+27,Klebsiella pneumoniae,LB Broth,37.5,7.33,8.0,0.8169,Synthetic – Demonstration Data
+27,Klebsiella pneumoniae,LB Broth,37.5,7.33,10.0,1.2393,Synthetic – Demonstration Data
+27,Klebsiella pneumoniae,LB Broth,37.5,7.33,12.0,1.5666,Synthetic – Demonstration Data
+27,Klebsiella pneumoniae,LB Broth,37.5,7.33,14.0,1.7266,Synthetic – Demonstration Data
+27,Klebsiella pneumoniae,LB Broth,37.5,7.33,16.0,1.7603,Synthetic – Demonstration Data
+27,Klebsiella pneumoniae,LB Broth,37.5,7.33,18.0,1.7905,Synthetic – Demonstration Data
+27,Klebsiella pneumoniae,LB Broth,37.5,7.33,20.0,1.8182,Synthetic – Demonstration Data
+27,Klebsiella pneumoniae,LB Broth,37.5,7.33,22.0,1.788,Synthetic – Demonstration Data
+27,Klebsiella pneumoniae,LB Broth,37.5,7.33,24.0,1.8109,Synthetic – Demonstration Data
+28,Bacillus subtilis,Mueller-Hinton,35.0,7.08,0.0,0.01,Synthetic – Demonstration Data
+28,Bacillus subtilis,Mueller-Hinton,35.0,7.08,2.0,0.0547,Synthetic – Demonstration Data
+28,Bacillus subtilis,Mueller-Hinton,35.0,7.08,4.0,0.1603,Synthetic – Demonstration Data
+28,Bacillus subtilis,Mueller-Hinton,35.0,7.08,6.0,0.3468,Synthetic – Demonstration Data
+28,Bacillus subtilis,Mueller-Hinton,35.0,7.08,8.0,0.6793,Synthetic – Demonstration Data
+28,Bacillus subtilis,Mueller-Hinton,35.0,7.08,10.0,1.0049,Synthetic – Demonstration Data
+28,Bacillus subtilis,Mueller-Hinton,35.0,7.08,12.0,1.2455,Synthetic – Demonstration Data
+28,Bacillus subtilis,Mueller-Hinton,35.0,7.08,14.0,1.4373,Synthetic – Demonstration Data
+28,Bacillus subtilis,Mueller-Hinton,35.0,7.08,16.0,1.5077,Synthetic – Demonstration Data
+28,Bacillus subtilis,Mueller-Hinton,35.0,7.08,18.0,1.5479,Synthetic – Demonstration Data
+28,Bacillus subtilis,Mueller-Hinton,35.0,7.08,20.0,1.5727,Synthetic – Demonstration Data
+28,Bacillus subtilis,Mueller-Hinton,35.0,7.08,22.0,1.5874,Synthetic – Demonstration Data
+28,Bacillus subtilis,Mueller-Hinton,35.0,7.08,24.0,1.5731,Synthetic – Demonstration Data
+29,Salmonella enterica,Nutrient Agar,38.6,6.91,0.0,0.057,Synthetic – Demonstration Data
+29,Salmonella enterica,Nutrient Agar,38.6,6.91,2.0,0.1383,Synthetic – Demonstration Data
+29,Salmonella enterica,Nutrient Agar,38.6,6.91,4.0,0.2307,Synthetic – Demonstration Data
+29,Salmonella enterica,Nutrient Agar,38.6,6.91,6.0,0.4422,Synthetic – Demonstration Data
+29,Salmonella enterica,Nutrient Agar,38.6,6.91,8.0,0.7198,Synthetic – Demonstration Data
+29,Salmonella enterica,Nutrient Agar,38.6,6.91,10.0,1.032,Synthetic – Demonstration Data
+29,Salmonella enterica,Nutrient Agar,38.6,6.91,12.0,1.2758,Synthetic – Demonstration Data
+29,Salmonella enterica,Nutrient Agar,38.6,6.91,14.0,1.4596,Synthetic – Demonstration Data
+29,Salmonella enterica,Nutrient Agar,38.6,6.91,16.0,1.5241,Synthetic – Demonstration Data
+29,Salmonella enterica,Nutrient Agar,38.6,6.91,18.0,1.5947,Synthetic – Demonstration Data
+29,Salmonella enterica,Nutrient Agar,38.6,6.91,20.0,1.6227,Synthetic – Demonstration Data
+29,Salmonella enterica,Nutrient Agar,38.6,6.91,22.0,1.6192,Synthetic – Demonstration Data
+29,Salmonella enterica,Nutrient Agar,38.6,6.91,24.0,1.6118,Synthetic – Demonstration Data
+30,Enterococcus faecalis,LB Broth,37.7,7.32,0.0,0.0248,Synthetic – Demonstration Data
+30,Enterococcus faecalis,LB Broth,37.7,7.32,2.0,0.0391,Synthetic – Demonstration Data
+30,Enterococcus faecalis,LB Broth,37.7,7.32,4.0,0.1484,Synthetic – Demonstration Data
+30,Enterococcus faecalis,LB Broth,37.7,7.32,6.0,0.4035,Synthetic – Demonstration Data
+30,Enterococcus faecalis,LB Broth,37.7,7.32,8.0,0.7255,Synthetic – Demonstration Data
+30,Enterococcus faecalis,LB Broth,37.7,7.32,10.0,1.0777,Synthetic – Demonstration Data
+30,Enterococcus faecalis,LB Broth,37.7,7.32,12.0,1.3633,Synthetic – Demonstration Data
+30,Enterococcus faecalis,LB Broth,37.7,7.32,14.0,1.5091,Synthetic – Demonstration Data
+30,Enterococcus faecalis,LB Broth,37.7,7.32,16.0,1.6343,Synthetic – Demonstration Data
+30,Enterococcus faecalis,LB Broth,37.7,7.32,18.0,1.7228,Synthetic – Demonstration Data
+30,Enterococcus faecalis,LB Broth,37.7,7.32,20.0,1.7016,Synthetic – Demonstration Data
+30,Enterococcus faecalis,LB Broth,37.7,7.32,22.0,1.6896,Synthetic – Demonstration Data
+30,Enterococcus faecalis,LB Broth,37.7,7.32,24.0,1.7104,Synthetic – Demonstration Data
+31,Streptococcus pneumoniae,Mueller-Hinton,34.7,7.23,0.0,0.0538,Synthetic – Demonstration Data
+31,Streptococcus pneumoniae,Mueller-Hinton,34.7,7.23,2.0,0.0871,Synthetic – Demonstration Data
+31,Streptococcus pneumoniae,Mueller-Hinton,34.7,7.23,4.0,0.1726,Synthetic – Demonstration Data
+31,Streptococcus pneumoniae,Mueller-Hinton,34.7,7.23,6.0,0.2891,Synthetic – Demonstration Data
+31,Streptococcus pneumoniae,Mueller-Hinton,34.7,7.23,8.0,0.5328,Synthetic – Demonstration Data
+31,Streptococcus pneumoniae,Mueller-Hinton,34.7,7.23,10.0,0.811,Synthetic – Demonstration Data
+31,Streptococcus pneumoniae,Mueller-Hinton,34.7,7.23,12.0,1.0158,Synthetic – Demonstration Data
+31,Streptococcus pneumoniae,Mueller-Hinton,34.7,7.23,14.0,1.2036,Synthetic – Demonstration Data
+31,Streptococcus pneumoniae,Mueller-Hinton,34.7,7.23,16.0,1.3579,Synthetic – Demonstration Data
+31,Streptococcus pneumoniae,Mueller-Hinton,34.7,7.23,18.0,1.3925,Synthetic – Demonstration Data
+31,Streptococcus pneumoniae,Mueller-Hinton,34.7,7.23,20.0,1.4527,Synthetic – Demonstration Data
+31,Streptococcus pneumoniae,Mueller-Hinton,34.7,7.23,22.0,1.435,Synthetic – Demonstration Data
+31,Streptococcus pneumoniae,Mueller-Hinton,34.7,7.23,24.0,1.4766,Synthetic – Demonstration Data
+32,Acinetobacter baumannii,Nutrient Agar,37.2,7.06,0.0,0.0213,Synthetic – Demonstration Data
+32,Acinetobacter baumannii,Nutrient Agar,37.2,7.06,2.0,0.0721,Synthetic – Demonstration Data
+32,Acinetobacter baumannii,Nutrient Agar,37.2,7.06,4.0,0.1715,Synthetic – Demonstration Data
+32,Acinetobacter baumannii,Nutrient Agar,37.2,7.06,6.0,0.2863,Synthetic – Demonstration Data
+32,Acinetobacter baumannii,Nutrient Agar,37.2,7.06,8.0,0.5615,Synthetic – Demonstration Data
+32,Acinetobacter baumannii,Nutrient Agar,37.2,7.06,10.0,0.8323,Synthetic – Demonstration Data
+32,Acinetobacter baumannii,Nutrient Agar,37.2,7.06,12.0,1.137,Synthetic – Demonstration Data
+32,Acinetobacter baumannii,Nutrient Agar,37.2,7.06,14.0,1.2716,Synthetic – Demonstration Data
+32,Acinetobacter baumannii,Nutrient Agar,37.2,7.06,16.0,1.4185,Synthetic – Demonstration Data
+32,Acinetobacter baumannii,Nutrient Agar,37.2,7.06,18.0,1.4643,Synthetic – Demonstration Data
+32,Acinetobacter baumannii,Nutrient Agar,37.2,7.06,20.0,1.5104,Synthetic – Demonstration Data
+32,Acinetobacter baumannii,Nutrient Agar,37.2,7.06,22.0,1.5443,Synthetic – Demonstration Data
+32,Acinetobacter baumannii,Nutrient Agar,37.2,7.06,24.0,1.5435,Synthetic – Demonstration Data
+33,Proteus mirabilis,LB Broth,36.6,7.16,0.0,0.0477,Synthetic – Demonstration Data
+33,Proteus mirabilis,LB Broth,36.6,7.16,2.0,0.102,Synthetic – Demonstration Data
+33,Proteus mirabilis,LB Broth,36.6,7.16,4.0,0.2283,Synthetic – Demonstration Data
+33,Proteus mirabilis,LB Broth,36.6,7.16,6.0,0.4994,Synthetic – Demonstration Data
+33,Proteus mirabilis,LB Broth,36.6,7.16,8.0,0.9029,Synthetic – Demonstration Data
+33,Proteus mirabilis,LB Broth,36.6,7.16,10.0,1.344,Synthetic – Demonstration Data
+33,Proteus mirabilis,LB Broth,36.6,7.16,12.0,1.5767,Synthetic – Demonstration Data
+33,Proteus mirabilis,LB Broth,36.6,7.16,14.0,1.706,Synthetic – Demonstration Data
+33,Proteus mirabilis,LB Broth,36.6,7.16,16.0,1.754,Synthetic – Demonstration Data
+33,Proteus mirabilis,LB Broth,36.6,7.16,18.0,1.771,Synthetic – Demonstration Data
+33,Proteus mirabilis,LB Broth,36.6,7.16,20.0,1.7756,Synthetic – Demonstration Data
+33,Proteus mirabilis,LB Broth,36.6,7.16,22.0,1.7852,Synthetic – Demonstration Data
+33,Proteus mirabilis,LB Broth,36.6,7.16,24.0,1.8012,Synthetic – Demonstration Data
+34,Listeria monocytogenes,Mueller-Hinton,35.5,7.01,0.0,0.0578,Synthetic – Demonstration Data
+34,Listeria monocytogenes,Mueller-Hinton,35.5,7.01,2.0,0.0873,Synthetic – Demonstration Data
+34,Listeria monocytogenes,Mueller-Hinton,35.5,7.01,4.0,0.1647,Synthetic – Demonstration Data
+34,Listeria monocytogenes,Mueller-Hinton,35.5,7.01,6.0,0.3339,Synthetic – Demonstration Data
+34,Listeria monocytogenes,Mueller-Hinton,35.5,7.01,8.0,0.5415,Synthetic – Demonstration Data
+34,Listeria monocytogenes,Mueller-Hinton,35.5,7.01,10.0,0.759,Synthetic – Demonstration Data
+34,Listeria monocytogenes,Mueller-Hinton,35.5,7.01,12.0,1.0033,Synthetic – Demonstration Data
+34,Listeria monocytogenes,Mueller-Hinton,35.5,7.01,14.0,1.1634,Synthetic – Demonstration Data
+34,Listeria monocytogenes,Mueller-Hinton,35.5,7.01,16.0,1.2338,Synthetic – Demonstration Data
+34,Listeria monocytogenes,Mueller-Hinton,35.5,7.01,18.0,1.3022,Synthetic – Demonstration Data
+34,Listeria monocytogenes,Mueller-Hinton,35.5,7.01,20.0,1.2971,Synthetic – Demonstration Data
+34,Listeria monocytogenes,Mueller-Hinton,35.5,7.01,22.0,1.3594,Synthetic – Demonstration Data
+34,Listeria monocytogenes,Mueller-Hinton,35.5,7.01,24.0,1.3636,Synthetic – Demonstration Data
+35,Candida albicans,Nutrient Agar,29.6,6.59,0.0,0.0289,Synthetic – Demonstration Data
+35,Candida albicans,Nutrient Agar,29.6,6.59,2.0,0.0421,Synthetic – Demonstration Data
+35,Candida albicans,Nutrient Agar,29.6,6.59,4.0,0.1216,Synthetic – Demonstration Data
+35,Candida albicans,Nutrient Agar,29.6,6.59,6.0,0.2241,Synthetic – Demonstration Data
+35,Candida albicans,Nutrient Agar,29.6,6.59,8.0,0.2928,Synthetic – Demonstration Data
+35,Candida albicans,Nutrient Agar,29.6,6.59,10.0,0.4807,Synthetic – Demonstration Data
+35,Candida albicans,Nutrient Agar,29.6,6.59,12.0,0.7302,Synthetic – Demonstration Data
+35,Candida albicans,Nutrient Agar,29.6,6.59,14.0,1.0029,Synthetic – Demonstration Data
+35,Candida albicans,Nutrient Agar,29.6,6.59,16.0,1.1761,Synthetic – Demonstration Data
+35,Candida albicans,Nutrient Agar,29.6,6.59,18.0,1.3756,Synthetic – Demonstration Data
+35,Candida albicans,Nutrient Agar,29.6,6.59,20.0,1.5218,Synthetic – Demonstration Data
+35,Candida albicans,Nutrient Agar,29.6,6.59,22.0,1.5329,Synthetic – Demonstration Data
+35,Candida albicans,Nutrient Agar,29.6,6.59,24.0,1.5831,Synthetic – Demonstration Data
+36,Escherichia coli,LB Broth,36.4,6.87,0.0,0.01,Synthetic – Demonstration Data
+36,Escherichia coli,LB Broth,36.4,6.87,2.0,0.1258,Synthetic – Demonstration Data
+36,Escherichia coli,LB Broth,36.4,6.87,4.0,0.2978,Synthetic – Demonstration Data
+36,Escherichia coli,LB Broth,36.4,6.87,6.0,0.7222,Synthetic – Demonstration Data
+36,Escherichia coli,LB Broth,36.4,6.87,8.0,1.2189,Synthetic – Demonstration Data
+36,Escherichia coli,LB Broth,36.4,6.87,10.0,1.6471,Synthetic – Demonstration Data
+36,Escherichia coli,LB Broth,36.4,6.87,12.0,1.8912,Synthetic – Demonstration Data
+36,Escherichia coli,LB Broth,36.4,6.87,14.0,1.9853,Synthetic – Demonstration Data
+36,Escherichia coli,LB Broth,36.4,6.87,16.0,2.0122,Synthetic – Demonstration Data
+36,Escherichia coli,LB Broth,36.4,6.87,18.0,1.9852,Synthetic – Demonstration Data
+36,Escherichia coli,LB Broth,36.4,6.87,20.0,2.0291,Synthetic – Demonstration Data
+36,Escherichia coli,LB Broth,36.4,6.87,22.0,2.0021,Synthetic – Demonstration Data
+36,Escherichia coli,LB Broth,36.4,6.87,24.0,2.0254,Synthetic – Demonstration Data
+37,Staphylococcus aureus,Mueller-Hinton,34.9,7.31,0.0,0.0464,Synthetic – Demonstration Data
+37,Staphylococcus aureus,Mueller-Hinton,34.9,7.31,2.0,0.0832,Synthetic – Demonstration Data
+37,Staphylococcus aureus,Mueller-Hinton,34.9,7.31,4.0,0.1673,Synthetic – Demonstration Data
+37,Staphylococcus aureus,Mueller-Hinton,34.9,7.31,6.0,0.3994,Synthetic – Demonstration Data
+37,Staphylococcus aureus,Mueller-Hinton,34.9,7.31,8.0,0.6734,Synthetic – Demonstration Data
+37,Staphylococcus aureus,Mueller-Hinton,34.9,7.31,10.0,1.0351,Synthetic – Demonstration Data
+37,Staphylococcus aureus,Mueller-Hinton,34.9,7.31,12.0,1.3218,Synthetic – Demonstration Data
+37,Staphylococcus aureus,Mueller-Hinton,34.9,7.31,14.0,1.4736,Synthetic – Demonstration Data
+37,Staphylococcus aureus,Mueller-Hinton,34.9,7.31,16.0,1.5758,Synthetic – Demonstration Data
+37,Staphylococcus aureus,Mueller-Hinton,34.9,7.31,18.0,1.5947,Synthetic – Demonstration Data
+37,Staphylococcus aureus,Mueller-Hinton,34.9,7.31,20.0,1.6127,Synthetic – Demonstration Data
+37,Staphylococcus aureus,Mueller-Hinton,34.9,7.31,22.0,1.6513,Synthetic – Demonstration Data
+37,Staphylococcus aureus,Mueller-Hinton,34.9,7.31,24.0,1.6108,Synthetic – Demonstration Data
+38,Pseudomonas aeruginosa,Nutrient Agar,33.4,7.6,0.0,0.01,Synthetic – Demonstration Data
+38,Pseudomonas aeruginosa,Nutrient Agar,33.4,7.6,2.0,0.0652,Synthetic – Demonstration Data
+38,Pseudomonas aeruginosa,Nutrient Agar,33.4,7.6,4.0,0.125,Synthetic – Demonstration Data
+38,Pseudomonas aeruginosa,Nutrient Agar,33.4,7.6,6.0,0.2296,Synthetic – Demonstration Data
+38,Pseudomonas aeruginosa,Nutrient Agar,33.4,7.6,8.0,0.3789,Synthetic – Demonstration Data
+38,Pseudomonas aeruginosa,Nutrient Agar,33.4,7.6,10.0,0.6491,Synthetic – Demonstration Data
+38,Pseudomonas aeruginosa,Nutrient Agar,33.4,7.6,12.0,0.9437,Synthetic – Demonstration Data
+38,Pseudomonas aeruginosa,Nutrient Agar,33.4,7.6,14.0,1.2088,Synthetic – Demonstration Data
+38,Pseudomonas aeruginosa,Nutrient Agar,33.4,7.6,16.0,1.5012,Synthetic – Demonstration Data
+38,Pseudomonas aeruginosa,Nutrient Agar,33.4,7.6,18.0,1.7055,Synthetic – Demonstration Data
+38,Pseudomonas aeruginosa,Nutrient Agar,33.4,7.6,20.0,1.7851,Synthetic – Demonstration Data
+38,Pseudomonas aeruginosa,Nutrient Agar,33.4,7.6,22.0,1.8422,Synthetic – Demonstration Data
+38,Pseudomonas aeruginosa,Nutrient Agar,33.4,7.6,24.0,1.8826,Synthetic – Demonstration Data
+39,Klebsiella pneumoniae,LB Broth,37.9,6.57,0.0,0.0713,Synthetic – Demonstration Data
+39,Klebsiella pneumoniae,LB Broth,37.9,6.57,2.0,0.0879,Synthetic – Demonstration Data
+39,Klebsiella pneumoniae,LB Broth,37.9,6.57,4.0,0.2392,Synthetic – Demonstration Data
+39,Klebsiella pneumoniae,LB Broth,37.9,6.57,6.0,0.4225,Synthetic – Demonstration Data
+39,Klebsiella pneumoniae,LB Broth,37.9,6.57,8.0,0.8182,Synthetic – Demonstration Data
+39,Klebsiella pneumoniae,LB Broth,37.9,6.57,10.0,1.2205,Synthetic – Demonstration Data
+39,Klebsiella pneumoniae,LB Broth,37.9,6.57,12.0,1.5115,Synthetic – Demonstration Data
+39,Klebsiella pneumoniae,LB Broth,37.9,6.57,14.0,1.7083,Synthetic – Demonstration Data
+39,Klebsiella pneumoniae,LB Broth,37.9,6.57,16.0,1.8116,Synthetic – Demonstration Data
+39,Klebsiella pneumoniae,LB Broth,37.9,6.57,18.0,1.8208,Synthetic – Demonstration Data
+39,Klebsiella pneumoniae,LB Broth,37.9,6.57,20.0,1.8115,Synthetic – Demonstration Data
+39,Klebsiella pneumoniae,LB Broth,37.9,6.57,22.0,1.848,Synthetic – Demonstration Data
+39,Klebsiella pneumoniae,LB Broth,37.9,6.57,24.0,1.8346,Synthetic – Demonstration Data
+40,Bacillus subtilis,Mueller-Hinton,34.5,6.98,0.0,0.0406,Synthetic – Demonstration Data
+40,Bacillus subtilis,Mueller-Hinton,34.5,6.98,2.0,0.065,Synthetic – Demonstration Data
+40,Bacillus subtilis,Mueller-Hinton,34.5,6.98,4.0,0.1211,Synthetic – Demonstration Data
+40,Bacillus subtilis,Mueller-Hinton,34.5,6.98,6.0,0.3618,Synthetic – Demonstration Data
+40,Bacillus subtilis,Mueller-Hinton,34.5,6.98,8.0,0.6361,Synthetic – Demonstration Data
+40,Bacillus subtilis,Mueller-Hinton,34.5,6.98,10.0,0.9428,Synthetic – Demonstration Data
+40,Bacillus subtilis,Mueller-Hinton,34.5,6.98,12.0,1.1923,Synthetic – Demonstration Data
+40,Bacillus subtilis,Mueller-Hinton,34.5,6.98,14.0,1.3866,Synthetic – Demonstration Data
+40,Bacillus subtilis,Mueller-Hinton,34.5,6.98,16.0,1.455,Synthetic – Demonstration Data
+40,Bacillus subtilis,Mueller-Hinton,34.5,6.98,18.0,1.5263,Synthetic – Demonstration Data
+40,Bacillus subtilis,Mueller-Hinton,34.5,6.98,20.0,1.506,Synthetic – Demonstration Data
+40,Bacillus subtilis,Mueller-Hinton,34.5,6.98,22.0,1.5117,Synthetic – Demonstration Data
+40,Bacillus subtilis,Mueller-Hinton,34.5,6.98,24.0,1.5044,Synthetic – Demonstration Data
+41,Salmonella enterica,Nutrient Agar,38.2,7.36,0.0,0.0296,Synthetic – Demonstration Data
+41,Salmonella enterica,Nutrient Agar,38.2,7.36,2.0,0.0759,Synthetic – Demonstration Data
+41,Salmonella enterica,Nutrient Agar,38.2,7.36,4.0,0.1987,Synthetic – Demonstration Data
+41,Salmonella enterica,Nutrient Agar,38.2,7.36,6.0,0.4024,Synthetic – Demonstration Data
+41,Salmonella enterica,Nutrient Agar,38.2,7.36,8.0,0.6689,Synthetic – Demonstration Data
+41,Salmonella enterica,Nutrient Agar,38.2,7.36,10.0,1.0272,Synthetic – Demonstration Data
+41,Salmonella enterica,Nutrient Agar,38.2,7.36,12.0,1.3448,Synthetic – Demonstration Data
+41,Salmonella enterica,Nutrient Agar,38.2,7.36,14.0,1.5287,Synthetic – Demonstration Data
+41,Salmonella enterica,Nutrient Agar,38.2,7.36,16.0,1.6522,Synthetic – Demonstration Data
+41,Salmonella enterica,Nutrient Agar,38.2,7.36,18.0,1.6426,Synthetic – Demonstration Data
+41,Salmonella enterica,Nutrient Agar,38.2,7.36,20.0,1.6898,Synthetic – Demonstration Data
+41,Salmonella enterica,Nutrient Agar,38.2,7.36,22.0,1.7001,Synthetic – Demonstration Data
+41,Salmonella enterica,Nutrient Agar,38.2,7.36,24.0,1.6765,Synthetic – Demonstration Data
+42,Enterococcus faecalis,LB Broth,35.6,7.17,0.0,0.0412,Synthetic – Demonstration Data
+42,Enterococcus faecalis,LB Broth,35.6,7.17,2.0,0.0834,Synthetic – Demonstration Data
+42,Enterococcus faecalis,LB Broth,35.6,7.17,4.0,0.2173,Synthetic – Demonstration Data
+42,Enterococcus faecalis,LB Broth,35.6,7.17,6.0,0.4487,Synthetic – Demonstration Data
+42,Enterococcus faecalis,LB Broth,35.6,7.17,8.0,0.7201,Synthetic – Demonstration Data
+42,Enterococcus faecalis,LB Broth,35.6,7.17,10.0,1.0505,Synthetic – Demonstration Data
+42,Enterococcus faecalis,LB Broth,35.6,7.17,12.0,1.3309,Synthetic – Demonstration Data
+42,Enterococcus faecalis,LB Broth,35.6,7.17,14.0,1.4678,Synthetic – Demonstration Data
+42,Enterococcus faecalis,LB Broth,35.6,7.17,16.0,1.5596,Synthetic – Demonstration Data
+42,Enterococcus faecalis,LB Broth,35.6,7.17,18.0,1.5831,Synthetic – Demonstration Data
+42,Enterococcus faecalis,LB Broth,35.6,7.17,20.0,1.6117,Synthetic – Demonstration Data
+42,Enterococcus faecalis,LB Broth,35.6,7.17,22.0,1.5873,Synthetic – Demonstration Data
+42,Enterococcus faecalis,LB Broth,35.6,7.17,24.0,1.6087,Synthetic – Demonstration Data
+43,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.0,0.0,0.0371,Synthetic – Demonstration Data
+43,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.0,2.0,0.0701,Synthetic – Demonstration Data
+43,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.0,4.0,0.1722,Synthetic – Demonstration Data
+43,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.0,6.0,0.341,Synthetic – Demonstration Data
+43,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.0,8.0,0.4934,Synthetic – Demonstration Data
+43,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.0,10.0,0.7542,Synthetic – Demonstration Data
+43,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.0,12.0,0.9832,Synthetic – Demonstration Data
+43,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.0,14.0,1.1789,Synthetic – Demonstration Data
+43,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.0,16.0,1.2477,Synthetic – Demonstration Data
+43,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.0,18.0,1.3042,Synthetic – Demonstration Data
+43,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.0,20.0,1.2938,Synthetic – Demonstration Data
+43,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.0,22.0,1.3058,Synthetic – Demonstration Data
+43,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.0,24.0,1.3396,Synthetic – Demonstration Data
+44,Acinetobacter baumannii,Nutrient Agar,37.1,7.14,0.0,0.0442,Synthetic – Demonstration Data
+44,Acinetobacter baumannii,Nutrient Agar,37.1,7.14,2.0,0.099,Synthetic – Demonstration Data
+44,Acinetobacter baumannii,Nutrient Agar,37.1,7.14,4.0,0.1836,Synthetic – Demonstration Data
+44,Acinetobacter baumannii,Nutrient Agar,37.1,7.14,6.0,0.2874,Synthetic – Demonstration Data
+44,Acinetobacter baumannii,Nutrient Agar,37.1,7.14,8.0,0.4973,Synthetic – Demonstration Data
+44,Acinetobacter baumannii,Nutrient Agar,37.1,7.14,10.0,0.8198,Synthetic – Demonstration Data
+44,Acinetobacter baumannii,Nutrient Agar,37.1,7.14,12.0,1.0647,Synthetic – Demonstration Data
+44,Acinetobacter baumannii,Nutrient Agar,37.1,7.14,14.0,1.1976,Synthetic – Demonstration Data
+44,Acinetobacter baumannii,Nutrient Agar,37.1,7.14,16.0,1.2854,Synthetic – Demonstration Data
+44,Acinetobacter baumannii,Nutrient Agar,37.1,7.14,18.0,1.3754,Synthetic – Demonstration Data
+44,Acinetobacter baumannii,Nutrient Agar,37.1,7.14,20.0,1.4178,Synthetic – Demonstration Data
+44,Acinetobacter baumannii,Nutrient Agar,37.1,7.14,22.0,1.4468,Synthetic – Demonstration Data
+44,Acinetobacter baumannii,Nutrient Agar,37.1,7.14,24.0,1.4301,Synthetic – Demonstration Data
+45,Proteus mirabilis,LB Broth,36.4,6.98,0.0,0.0202,Synthetic – Demonstration Data
+45,Proteus mirabilis,LB Broth,36.4,6.98,2.0,0.1297,Synthetic – Demonstration Data
+45,Proteus mirabilis,LB Broth,36.4,6.98,4.0,0.2466,Synthetic – Demonstration Data
+45,Proteus mirabilis,LB Broth,36.4,6.98,6.0,0.4731,Synthetic – Demonstration Data
+45,Proteus mirabilis,LB Broth,36.4,6.98,8.0,0.8014,Synthetic – Demonstration Data
+45,Proteus mirabilis,LB Broth,36.4,6.98,10.0,1.2257,Synthetic – Demonstration Data
+45,Proteus mirabilis,LB Broth,36.4,6.98,12.0,1.5109,Synthetic – Demonstration Data
+45,Proteus mirabilis,LB Broth,36.4,6.98,14.0,1.6666,Synthetic – Demonstration Data
+45,Proteus mirabilis,LB Broth,36.4,6.98,16.0,1.755,Synthetic – Demonstration Data
+45,Proteus mirabilis,LB Broth,36.4,6.98,18.0,1.7756,Synthetic – Demonstration Data
+45,Proteus mirabilis,LB Broth,36.4,6.98,20.0,1.7905,Synthetic – Demonstration Data
+45,Proteus mirabilis,LB Broth,36.4,6.98,22.0,1.7939,Synthetic – Demonstration Data
+45,Proteus mirabilis,LB Broth,36.4,6.98,24.0,1.7907,Synthetic – Demonstration Data
+46,Listeria monocytogenes,Mueller-Hinton,32.3,7.02,0.0,0.0639,Synthetic – Demonstration Data
+46,Listeria monocytogenes,Mueller-Hinton,32.3,7.02,2.0,0.0955,Synthetic – Demonstration Data
+46,Listeria monocytogenes,Mueller-Hinton,32.3,7.02,4.0,0.1452,Synthetic – Demonstration Data
+46,Listeria monocytogenes,Mueller-Hinton,32.3,7.02,6.0,0.2227,Synthetic – Demonstration Data
+46,Listeria monocytogenes,Mueller-Hinton,32.3,7.02,8.0,0.395,Synthetic – Demonstration Data
+46,Listeria monocytogenes,Mueller-Hinton,32.3,7.02,10.0,0.5763,Synthetic – Demonstration Data
+46,Listeria monocytogenes,Mueller-Hinton,32.3,7.02,12.0,0.8067,Synthetic – Demonstration Data
+46,Listeria monocytogenes,Mueller-Hinton,32.3,7.02,14.0,0.9852,Synthetic – Demonstration Data
+46,Listeria monocytogenes,Mueller-Hinton,32.3,7.02,16.0,1.1599,Synthetic – Demonstration Data
+46,Listeria monocytogenes,Mueller-Hinton,32.3,7.02,18.0,1.2473,Synthetic – Demonstration Data
+46,Listeria monocytogenes,Mueller-Hinton,32.3,7.02,20.0,1.2765,Synthetic – Demonstration Data
+46,Listeria monocytogenes,Mueller-Hinton,32.3,7.02,22.0,1.3283,Synthetic – Demonstration Data
+46,Listeria monocytogenes,Mueller-Hinton,32.3,7.02,24.0,1.3432,Synthetic – Demonstration Data
+47,Candida albicans,Nutrient Agar,32.7,6.72,0.0,0.042,Synthetic – Demonstration Data
+47,Candida albicans,Nutrient Agar,32.7,6.72,2.0,0.0648,Synthetic – Demonstration Data
+47,Candida albicans,Nutrient Agar,32.7,6.72,4.0,0.0929,Synthetic – Demonstration Data
+47,Candida albicans,Nutrient Agar,32.7,6.72,6.0,0.1791,Synthetic – Demonstration Data
+47,Candida albicans,Nutrient Agar,32.7,6.72,8.0,0.2737,Synthetic – Demonstration Data
+47,Candida albicans,Nutrient Agar,32.7,6.72,10.0,0.4154,Synthetic – Demonstration Data
+47,Candida albicans,Nutrient Agar,32.7,6.72,12.0,0.6456,Synthetic – Demonstration Data
+47,Candida albicans,Nutrient Agar,32.7,6.72,14.0,0.878,Synthetic – Demonstration Data
+47,Candida albicans,Nutrient Agar,32.7,6.72,16.0,1.083,Synthetic – Demonstration Data
+47,Candida albicans,Nutrient Agar,32.7,6.72,18.0,1.3358,Synthetic – Demonstration Data
+47,Candida albicans,Nutrient Agar,32.7,6.72,20.0,1.5362,Synthetic – Demonstration Data
+47,Candida albicans,Nutrient Agar,32.7,6.72,22.0,1.6694,Synthetic – Demonstration Data
+47,Candida albicans,Nutrient Agar,32.7,6.72,24.0,1.7587,Synthetic – Demonstration Data
+48,Escherichia coli,LB Broth,37.1,6.79,0.0,0.0486,Synthetic – Demonstration Data
+48,Escherichia coli,LB Broth,37.1,6.79,2.0,0.1397,Synthetic – Demonstration Data
+48,Escherichia coli,LB Broth,37.1,6.79,4.0,0.3227,Synthetic – Demonstration Data
+48,Escherichia coli,LB Broth,37.1,6.79,6.0,0.6688,Synthetic – Demonstration Data
+48,Escherichia coli,LB Broth,37.1,6.79,8.0,1.1287,Synthetic – Demonstration Data
+48,Escherichia coli,LB Broth,37.1,6.79,10.0,1.5196,Synthetic – Demonstration Data
+48,Escherichia coli,LB Broth,37.1,6.79,12.0,1.7207,Synthetic – Demonstration Data
+48,Escherichia coli,LB Broth,37.1,6.79,14.0,1.7904,Synthetic – Demonstration Data
+48,Escherichia coli,LB Broth,37.1,6.79,16.0,1.8118,Synthetic – Demonstration Data
+48,Escherichia coli,LB Broth,37.1,6.79,18.0,1.8366,Synthetic – Demonstration Data
+48,Escherichia coli,LB Broth,37.1,6.79,20.0,1.8264,Synthetic – Demonstration Data
+48,Escherichia coli,LB Broth,37.1,6.79,22.0,1.8253,Synthetic – Demonstration Data
+48,Escherichia coli,LB Broth,37.1,6.79,24.0,1.8426,Synthetic – Demonstration Data
+49,Staphylococcus aureus,Mueller-Hinton,36.4,7.26,0.0,0.0256,Synthetic – Demonstration Data
+49,Staphylococcus aureus,Mueller-Hinton,36.4,7.26,2.0,0.1124,Synthetic – Demonstration Data
+49,Staphylococcus aureus,Mueller-Hinton,36.4,7.26,4.0,0.1875,Synthetic – Demonstration Data
+49,Staphylococcus aureus,Mueller-Hinton,36.4,7.26,6.0,0.4162,Synthetic – Demonstration Data
+49,Staphylococcus aureus,Mueller-Hinton,36.4,7.26,8.0,0.7977,Synthetic – Demonstration Data
+49,Staphylococcus aureus,Mueller-Hinton,36.4,7.26,10.0,1.2206,Synthetic – Demonstration Data
+49,Staphylococcus aureus,Mueller-Hinton,36.4,7.26,12.0,1.4881,Synthetic – Demonstration Data
+49,Staphylococcus aureus,Mueller-Hinton,36.4,7.26,14.0,1.6222,Synthetic – Demonstration Data
+49,Staphylococcus aureus,Mueller-Hinton,36.4,7.26,16.0,1.7057,Synthetic – Demonstration Data
+49,Staphylococcus aureus,Mueller-Hinton,36.4,7.26,18.0,1.6598,Synthetic – Demonstration Data
+49,Staphylococcus aureus,Mueller-Hinton,36.4,7.26,20.0,1.7244,Synthetic – Demonstration Data
+49,Staphylococcus aureus,Mueller-Hinton,36.4,7.26,22.0,1.749,Synthetic – Demonstration Data
+49,Staphylococcus aureus,Mueller-Hinton,36.4,7.26,24.0,1.702,Synthetic – Demonstration Data
+50,Pseudomonas aeruginosa,Nutrient Agar,36.4,7.01,0.0,0.0641,Synthetic – Demonstration Data
+50,Pseudomonas aeruginosa,Nutrient Agar,36.4,7.01,2.0,0.1153,Synthetic – Demonstration Data
+50,Pseudomonas aeruginosa,Nutrient Agar,36.4,7.01,4.0,0.1647,Synthetic – Demonstration Data
+50,Pseudomonas aeruginosa,Nutrient Agar,36.4,7.01,6.0,0.3685,Synthetic – Demonstration Data
+50,Pseudomonas aeruginosa,Nutrient Agar,36.4,7.01,8.0,0.5915,Synthetic – Demonstration Data
+50,Pseudomonas aeruginosa,Nutrient Agar,36.4,7.01,10.0,0.9385,Synthetic – Demonstration Data
+50,Pseudomonas aeruginosa,Nutrient Agar,36.4,7.01,12.0,1.1963,Synthetic – Demonstration Data
+50,Pseudomonas aeruginosa,Nutrient Agar,36.4,7.01,14.0,1.4045,Synthetic – Demonstration Data
+50,Pseudomonas aeruginosa,Nutrient Agar,36.4,7.01,16.0,1.5263,Synthetic – Demonstration Data
+50,Pseudomonas aeruginosa,Nutrient Agar,36.4,7.01,18.0,1.637,Synthetic – Demonstration Data
+50,Pseudomonas aeruginosa,Nutrient Agar,36.4,7.01,20.0,1.624,Synthetic – Demonstration Data
+50,Pseudomonas aeruginosa,Nutrient Agar,36.4,7.01,22.0,1.6094,Synthetic – Demonstration Data
+50,Pseudomonas aeruginosa,Nutrient Agar,36.4,7.01,24.0,1.6458,Synthetic – Demonstration Data
+51,Klebsiella pneumoniae,LB Broth,36.5,6.88,0.0,0.0452,Synthetic – Demonstration Data
+51,Klebsiella pneumoniae,LB Broth,36.5,6.88,2.0,0.1084,Synthetic – Demonstration Data
+51,Klebsiella pneumoniae,LB Broth,36.5,6.88,4.0,0.2804,Synthetic – Demonstration Data
+51,Klebsiella pneumoniae,LB Broth,36.5,6.88,6.0,0.6178,Synthetic – Demonstration Data
+51,Klebsiella pneumoniae,LB Broth,36.5,6.88,8.0,1.0511,Synthetic – Demonstration Data
+51,Klebsiella pneumoniae,LB Broth,36.5,6.88,10.0,1.5183,Synthetic – Demonstration Data
+51,Klebsiella pneumoniae,LB Broth,36.5,6.88,12.0,1.731,Synthetic – Demonstration Data
+51,Klebsiella pneumoniae,LB Broth,36.5,6.88,14.0,1.8296,Synthetic – Demonstration Data
+51,Klebsiella pneumoniae,LB Broth,36.5,6.88,16.0,1.896,Synthetic – Demonstration Data
+51,Klebsiella pneumoniae,LB Broth,36.5,6.88,18.0,1.9138,Synthetic – Demonstration Data
+51,Klebsiella pneumoniae,LB Broth,36.5,6.88,20.0,1.9054,Synthetic – Demonstration Data
+51,Klebsiella pneumoniae,LB Broth,36.5,6.88,22.0,1.9348,Synthetic – Demonstration Data
+51,Klebsiella pneumoniae,LB Broth,36.5,6.88,24.0,1.8964,Synthetic – Demonstration Data
+52,Bacillus subtilis,Mueller-Hinton,34.4,6.85,0.0,0.0233,Synthetic – Demonstration Data
+52,Bacillus subtilis,Mueller-Hinton,34.4,6.85,2.0,0.1054,Synthetic – Demonstration Data
+52,Bacillus subtilis,Mueller-Hinton,34.4,6.85,4.0,0.1993,Synthetic – Demonstration Data
+52,Bacillus subtilis,Mueller-Hinton,34.4,6.85,6.0,0.3606,Synthetic – Demonstration Data
+52,Bacillus subtilis,Mueller-Hinton,34.4,6.85,8.0,0.6574,Synthetic – Demonstration Data
+52,Bacillus subtilis,Mueller-Hinton,34.4,6.85,10.0,1.0302,Synthetic – Demonstration Data
+52,Bacillus subtilis,Mueller-Hinton,34.4,6.85,12.0,1.3031,Synthetic – Demonstration Data
+52,Bacillus subtilis,Mueller-Hinton,34.4,6.85,14.0,1.4777,Synthetic – Demonstration Data
+52,Bacillus subtilis,Mueller-Hinton,34.4,6.85,16.0,1.5689,Synthetic – Demonstration Data
+52,Bacillus subtilis,Mueller-Hinton,34.4,6.85,18.0,1.616,Synthetic – Demonstration Data
+52,Bacillus subtilis,Mueller-Hinton,34.4,6.85,20.0,1.6482,Synthetic – Demonstration Data
+52,Bacillus subtilis,Mueller-Hinton,34.4,6.85,22.0,1.6196,Synthetic – Demonstration Data
+52,Bacillus subtilis,Mueller-Hinton,34.4,6.85,24.0,1.6222,Synthetic – Demonstration Data
+53,Salmonella enterica,Nutrient Agar,35.4,7.27,0.0,0.01,Synthetic – Demonstration Data
+53,Salmonella enterica,Nutrient Agar,35.4,7.27,2.0,0.0558,Synthetic – Demonstration Data
+53,Salmonella enterica,Nutrient Agar,35.4,7.27,4.0,0.1755,Synthetic – Demonstration Data
+53,Salmonella enterica,Nutrient Agar,35.4,7.27,6.0,0.3798,Synthetic – Demonstration Data
+53,Salmonella enterica,Nutrient Agar,35.4,7.27,8.0,0.6947,Synthetic – Demonstration Data
+53,Salmonella enterica,Nutrient Agar,35.4,7.27,10.0,1.0651,Synthetic – Demonstration Data
+53,Salmonella enterica,Nutrient Agar,35.4,7.27,12.0,1.3579,Synthetic – Demonstration Data
+53,Salmonella enterica,Nutrient Agar,35.4,7.27,14.0,1.5673,Synthetic – Demonstration Data
+53,Salmonella enterica,Nutrient Agar,35.4,7.27,16.0,1.6309,Synthetic – Demonstration Data
+53,Salmonella enterica,Nutrient Agar,35.4,7.27,18.0,1.6714,Synthetic – Demonstration Data
+53,Salmonella enterica,Nutrient Agar,35.4,7.27,20.0,1.7149,Synthetic – Demonstration Data
+53,Salmonella enterica,Nutrient Agar,35.4,7.27,22.0,1.687,Synthetic – Demonstration Data
+53,Salmonella enterica,Nutrient Agar,35.4,7.27,24.0,1.7252,Synthetic – Demonstration Data
+54,Enterococcus faecalis,LB Broth,37.2,7.36,0.0,0.074,Synthetic – Demonstration Data
+54,Enterococcus faecalis,LB Broth,37.2,7.36,2.0,0.0879,Synthetic – Demonstration Data
+54,Enterococcus faecalis,LB Broth,37.2,7.36,4.0,0.1956,Synthetic – Demonstration Data
+54,Enterococcus faecalis,LB Broth,37.2,7.36,6.0,0.4718,Synthetic – Demonstration Data
+54,Enterococcus faecalis,LB Broth,37.2,7.36,8.0,0.8326,Synthetic – Demonstration Data
+54,Enterococcus faecalis,LB Broth,37.2,7.36,10.0,1.2301,Synthetic – Demonstration Data
+54,Enterococcus faecalis,LB Broth,37.2,7.36,12.0,1.5212,Synthetic – Demonstration Data
+54,Enterococcus faecalis,LB Broth,37.2,7.36,14.0,1.6638,Synthetic – Demonstration Data
+54,Enterococcus faecalis,LB Broth,37.2,7.36,16.0,1.7041,Synthetic – Demonstration Data
+54,Enterococcus faecalis,LB Broth,37.2,7.36,18.0,1.7582,Synthetic – Demonstration Data
+54,Enterococcus faecalis,LB Broth,37.2,7.36,20.0,1.7712,Synthetic – Demonstration Data
+54,Enterococcus faecalis,LB Broth,37.2,7.36,22.0,1.7801,Synthetic – Demonstration Data
+54,Enterococcus faecalis,LB Broth,37.2,7.36,24.0,1.7653,Synthetic – Demonstration Data
+55,Streptococcus pneumoniae,Mueller-Hinton,39.0,6.83,0.0,0.0378,Synthetic – Demonstration Data
+55,Streptococcus pneumoniae,Mueller-Hinton,39.0,6.83,2.0,0.0566,Synthetic – Demonstration Data
+55,Streptococcus pneumoniae,Mueller-Hinton,39.0,6.83,4.0,0.1201,Synthetic – Demonstration Data
+55,Streptococcus pneumoniae,Mueller-Hinton,39.0,6.83,6.0,0.2527,Synthetic – Demonstration Data
+55,Streptococcus pneumoniae,Mueller-Hinton,39.0,6.83,8.0,0.365,Synthetic – Demonstration Data
+55,Streptococcus pneumoniae,Mueller-Hinton,39.0,6.83,10.0,0.5783,Synthetic – Demonstration Data
+55,Streptococcus pneumoniae,Mueller-Hinton,39.0,6.83,12.0,0.7968,Synthetic – Demonstration Data
+55,Streptococcus pneumoniae,Mueller-Hinton,39.0,6.83,14.0,1.0153,Synthetic – Demonstration Data
+55,Streptococcus pneumoniae,Mueller-Hinton,39.0,6.83,16.0,1.1772,Synthetic – Demonstration Data
+55,Streptococcus pneumoniae,Mueller-Hinton,39.0,6.83,18.0,1.2929,Synthetic – Demonstration Data
+55,Streptococcus pneumoniae,Mueller-Hinton,39.0,6.83,20.0,1.3702,Synthetic – Demonstration Data
+55,Streptococcus pneumoniae,Mueller-Hinton,39.0,6.83,22.0,1.415,Synthetic – Demonstration Data
+55,Streptococcus pneumoniae,Mueller-Hinton,39.0,6.83,24.0,1.4105,Synthetic – Demonstration Data
+56,Acinetobacter baumannii,Nutrient Agar,37.9,6.71,0.0,0.0603,Synthetic – Demonstration Data
+56,Acinetobacter baumannii,Nutrient Agar,37.9,6.71,2.0,0.0902,Synthetic – Demonstration Data
+56,Acinetobacter baumannii,Nutrient Agar,37.9,6.71,4.0,0.1785,Synthetic – Demonstration Data
+56,Acinetobacter baumannii,Nutrient Agar,37.9,6.71,6.0,0.3,Synthetic – Demonstration Data
+56,Acinetobacter baumannii,Nutrient Agar,37.9,6.71,8.0,0.5045,Synthetic – Demonstration Data
+56,Acinetobacter baumannii,Nutrient Agar,37.9,6.71,10.0,0.7264,Synthetic – Demonstration Data
+56,Acinetobacter baumannii,Nutrient Agar,37.9,6.71,12.0,0.9521,Synthetic – Demonstration Data
+56,Acinetobacter baumannii,Nutrient Agar,37.9,6.71,14.0,1.1542,Synthetic – Demonstration Data
+56,Acinetobacter baumannii,Nutrient Agar,37.9,6.71,16.0,1.2219,Synthetic – Demonstration Data
+56,Acinetobacter baumannii,Nutrient Agar,37.9,6.71,18.0,1.3561,Synthetic – Demonstration Data
+56,Acinetobacter baumannii,Nutrient Agar,37.9,6.71,20.0,1.3243,Synthetic – Demonstration Data
+56,Acinetobacter baumannii,Nutrient Agar,37.9,6.71,22.0,1.3804,Synthetic – Demonstration Data
+56,Acinetobacter baumannii,Nutrient Agar,37.9,6.71,24.0,1.4306,Synthetic – Demonstration Data
+57,Proteus mirabilis,LB Broth,37.7,6.91,0.0,0.0381,Synthetic – Demonstration Data
+57,Proteus mirabilis,LB Broth,37.7,6.91,2.0,0.1497,Synthetic – Demonstration Data
+57,Proteus mirabilis,LB Broth,37.7,6.91,4.0,0.2429,Synthetic – Demonstration Data
+57,Proteus mirabilis,LB Broth,37.7,6.91,6.0,0.4975,Synthetic – Demonstration Data
+57,Proteus mirabilis,LB Broth,37.7,6.91,8.0,0.8743,Synthetic – Demonstration Data
+57,Proteus mirabilis,LB Broth,37.7,6.91,10.0,1.208,Synthetic – Demonstration Data
+57,Proteus mirabilis,LB Broth,37.7,6.91,12.0,1.4451,Synthetic – Demonstration Data
+57,Proteus mirabilis,LB Broth,37.7,6.91,14.0,1.6026,Synthetic – Demonstration Data
+57,Proteus mirabilis,LB Broth,37.7,6.91,16.0,1.6705,Synthetic – Demonstration Data
+57,Proteus mirabilis,LB Broth,37.7,6.91,18.0,1.6758,Synthetic – Demonstration Data
+57,Proteus mirabilis,LB Broth,37.7,6.91,20.0,1.7081,Synthetic – Demonstration Data
+57,Proteus mirabilis,LB Broth,37.7,6.91,22.0,1.7045,Synthetic – Demonstration Data
+57,Proteus mirabilis,LB Broth,37.7,6.91,24.0,1.7366,Synthetic – Demonstration Data
+58,Listeria monocytogenes,Mueller-Hinton,35.1,6.93,0.0,0.0522,Synthetic – Demonstration Data
+58,Listeria monocytogenes,Mueller-Hinton,35.1,6.93,2.0,0.0654,Synthetic – Demonstration Data
+58,Listeria monocytogenes,Mueller-Hinton,35.1,6.93,4.0,0.1452,Synthetic – Demonstration Data
+58,Listeria monocytogenes,Mueller-Hinton,35.1,6.93,6.0,0.3241,Synthetic – Demonstration Data
+58,Listeria monocytogenes,Mueller-Hinton,35.1,6.93,8.0,0.5068,Synthetic – Demonstration Data
+58,Listeria monocytogenes,Mueller-Hinton,35.1,6.93,10.0,0.7415,Synthetic – Demonstration Data
+58,Listeria monocytogenes,Mueller-Hinton,35.1,6.93,12.0,1.0103,Synthetic – Demonstration Data
+58,Listeria monocytogenes,Mueller-Hinton,35.1,6.93,14.0,1.1826,Synthetic – Demonstration Data
+58,Listeria monocytogenes,Mueller-Hinton,35.1,6.93,16.0,1.2515,Synthetic – Demonstration Data
+58,Listeria monocytogenes,Mueller-Hinton,35.1,6.93,18.0,1.3401,Synthetic – Demonstration Data
+58,Listeria monocytogenes,Mueller-Hinton,35.1,6.93,20.0,1.3782,Synthetic – Demonstration Data
+58,Listeria monocytogenes,Mueller-Hinton,35.1,6.93,22.0,1.386,Synthetic – Demonstration Data
+58,Listeria monocytogenes,Mueller-Hinton,35.1,6.93,24.0,1.3975,Synthetic – Demonstration Data
+59,Candida albicans,Nutrient Agar,27.9,6.58,0.0,0.0533,Synthetic – Demonstration Data
+59,Candida albicans,Nutrient Agar,27.9,6.58,2.0,0.0916,Synthetic – Demonstration Data
+59,Candida albicans,Nutrient Agar,27.9,6.58,4.0,0.1432,Synthetic – Demonstration Data
+59,Candida albicans,Nutrient Agar,27.9,6.58,6.0,0.2098,Synthetic – Demonstration Data
+59,Candida albicans,Nutrient Agar,27.9,6.58,8.0,0.3016,Synthetic – Demonstration Data
+59,Candida albicans,Nutrient Agar,27.9,6.58,10.0,0.4805,Synthetic – Demonstration Data
+59,Candida albicans,Nutrient Agar,27.9,6.58,12.0,0.7114,Synthetic – Demonstration Data
+59,Candida albicans,Nutrient Agar,27.9,6.58,14.0,0.956,Synthetic – Demonstration Data
+59,Candida albicans,Nutrient Agar,27.9,6.58,16.0,1.2091,Synthetic – Demonstration Data
+59,Candida albicans,Nutrient Agar,27.9,6.58,18.0,1.4364,Synthetic – Demonstration Data
+59,Candida albicans,Nutrient Agar,27.9,6.58,20.0,1.5812,Synthetic – Demonstration Data
+59,Candida albicans,Nutrient Agar,27.9,6.58,22.0,1.6781,Synthetic – Demonstration Data
+59,Candida albicans,Nutrient Agar,27.9,6.58,24.0,1.7529,Synthetic – Demonstration Data
+60,Escherichia coli,LB Broth,38.0,7.0,0.0,0.0366,Synthetic – Demonstration Data
+60,Escherichia coli,LB Broth,38.0,7.0,2.0,0.1394,Synthetic – Demonstration Data
+60,Escherichia coli,LB Broth,38.0,7.0,4.0,0.3444,Synthetic – Demonstration Data
+60,Escherichia coli,LB Broth,38.0,7.0,6.0,0.7373,Synthetic – Demonstration Data
+60,Escherichia coli,LB Broth,38.0,7.0,8.0,1.3186,Synthetic – Demonstration Data
+60,Escherichia coli,LB Broth,38.0,7.0,10.0,1.6733,Synthetic – Demonstration Data
+60,Escherichia coli,LB Broth,38.0,7.0,12.0,1.8383,Synthetic – Demonstration Data
+60,Escherichia coli,LB Broth,38.0,7.0,14.0,1.9199,Synthetic – Demonstration Data
+60,Escherichia coli,LB Broth,38.0,7.0,16.0,1.9449,Synthetic – Demonstration Data
+60,Escherichia coli,LB Broth,38.0,7.0,18.0,1.9724,Synthetic – Demonstration Data
+60,Escherichia coli,LB Broth,38.0,7.0,20.0,1.9693,Synthetic – Demonstration Data
+60,Escherichia coli,LB Broth,38.0,7.0,22.0,1.969,Synthetic – Demonstration Data
+60,Escherichia coli,LB Broth,38.0,7.0,24.0,1.9866,Synthetic – Demonstration Data
+61,Staphylococcus aureus,Mueller-Hinton,37.5,7.28,0.0,0.01,Synthetic – Demonstration Data
+61,Staphylococcus aureus,Mueller-Hinton,37.5,7.28,2.0,0.101,Synthetic – Demonstration Data
+61,Staphylococcus aureus,Mueller-Hinton,37.5,7.28,4.0,0.2148,Synthetic – Demonstration Data
+61,Staphylococcus aureus,Mueller-Hinton,37.5,7.28,6.0,0.5352,Synthetic – Demonstration Data
+61,Staphylococcus aureus,Mueller-Hinton,37.5,7.28,8.0,0.9301,Synthetic – Demonstration Data
+61,Staphylococcus aureus,Mueller-Hinton,37.5,7.28,10.0,1.32,Synthetic – Demonstration Data
+61,Staphylococcus aureus,Mueller-Hinton,37.5,7.28,12.0,1.5588,Synthetic – Demonstration Data
+61,Staphylococcus aureus,Mueller-Hinton,37.5,7.28,14.0,1.6567,Synthetic – Demonstration Data
+61,Staphylococcus aureus,Mueller-Hinton,37.5,7.28,16.0,1.6934,Synthetic – Demonstration Data
+61,Staphylococcus aureus,Mueller-Hinton,37.5,7.28,18.0,1.7309,Synthetic – Demonstration Data
+61,Staphylococcus aureus,Mueller-Hinton,37.5,7.28,20.0,1.7204,Synthetic – Demonstration Data
+61,Staphylococcus aureus,Mueller-Hinton,37.5,7.28,22.0,1.7329,Synthetic – Demonstration Data
+61,Staphylococcus aureus,Mueller-Hinton,37.5,7.28,24.0,1.7519,Synthetic – Demonstration Data
+62,Pseudomonas aeruginosa,Nutrient Agar,36.2,7.4,0.0,0.0528,Synthetic – Demonstration Data
+62,Pseudomonas aeruginosa,Nutrient Agar,36.2,7.4,2.0,0.0877,Synthetic – Demonstration Data
+62,Pseudomonas aeruginosa,Nutrient Agar,36.2,7.4,4.0,0.158,Synthetic – Demonstration Data
+62,Pseudomonas aeruginosa,Nutrient Agar,36.2,7.4,6.0,0.2948,Synthetic – Demonstration Data
+62,Pseudomonas aeruginosa,Nutrient Agar,36.2,7.4,8.0,0.5428,Synthetic – Demonstration Data
+62,Pseudomonas aeruginosa,Nutrient Agar,36.2,7.4,10.0,0.8775,Synthetic – Demonstration Data
+62,Pseudomonas aeruginosa,Nutrient Agar,36.2,7.4,12.0,1.225,Synthetic – Demonstration Data
+62,Pseudomonas aeruginosa,Nutrient Agar,36.2,7.4,14.0,1.4459,Synthetic – Demonstration Data
+62,Pseudomonas aeruginosa,Nutrient Agar,36.2,7.4,16.0,1.6217,Synthetic – Demonstration Data
+62,Pseudomonas aeruginosa,Nutrient Agar,36.2,7.4,18.0,1.6715,Synthetic – Demonstration Data
+62,Pseudomonas aeruginosa,Nutrient Agar,36.2,7.4,20.0,1.7295,Synthetic – Demonstration Data
+62,Pseudomonas aeruginosa,Nutrient Agar,36.2,7.4,22.0,1.7538,Synthetic – Demonstration Data
+62,Pseudomonas aeruginosa,Nutrient Agar,36.2,7.4,24.0,1.8045,Synthetic – Demonstration Data
+63,Klebsiella pneumoniae,LB Broth,34.9,7.37,0.0,0.0442,Synthetic – Demonstration Data
+63,Klebsiella pneumoniae,LB Broth,34.9,7.37,2.0,0.106,Synthetic – Demonstration Data
+63,Klebsiella pneumoniae,LB Broth,34.9,7.37,4.0,0.2164,Synthetic – Demonstration Data
+63,Klebsiella pneumoniae,LB Broth,34.9,7.37,6.0,0.4779,Synthetic – Demonstration Data
+63,Klebsiella pneumoniae,LB Broth,34.9,7.37,8.0,0.8005,Synthetic – Demonstration Data
+63,Klebsiella pneumoniae,LB Broth,34.9,7.37,10.0,1.2253,Synthetic – Demonstration Data
+63,Klebsiella pneumoniae,LB Broth,34.9,7.37,12.0,1.5019,Synthetic – Demonstration Data
+63,Klebsiella pneumoniae,LB Broth,34.9,7.37,14.0,1.6929,Synthetic – Demonstration Data
+63,Klebsiella pneumoniae,LB Broth,34.9,7.37,16.0,1.7631,Synthetic – Demonstration Data
+63,Klebsiella pneumoniae,LB Broth,34.9,7.37,18.0,1.8302,Synthetic – Demonstration Data
+63,Klebsiella pneumoniae,LB Broth,34.9,7.37,20.0,1.865,Synthetic – Demonstration Data
+63,Klebsiella pneumoniae,LB Broth,34.9,7.37,22.0,1.8447,Synthetic – Demonstration Data
+63,Klebsiella pneumoniae,LB Broth,34.9,7.37,24.0,1.8456,Synthetic – Demonstration Data
+64,Bacillus subtilis,Mueller-Hinton,33.3,6.94,0.0,0.0395,Synthetic – Demonstration Data
+64,Bacillus subtilis,Mueller-Hinton,33.3,6.94,2.0,0.102,Synthetic – Demonstration Data
+64,Bacillus subtilis,Mueller-Hinton,33.3,6.94,4.0,0.2177,Synthetic – Demonstration Data
+64,Bacillus subtilis,Mueller-Hinton,33.3,6.94,6.0,0.3229,Synthetic – Demonstration Data
+64,Bacillus subtilis,Mueller-Hinton,33.3,6.94,8.0,0.6185,Synthetic – Demonstration Data
+64,Bacillus subtilis,Mueller-Hinton,33.3,6.94,10.0,0.9047,Synthetic – Demonstration Data
+64,Bacillus subtilis,Mueller-Hinton,33.3,6.94,12.0,1.1638,Synthetic – Demonstration Data
+64,Bacillus subtilis,Mueller-Hinton,33.3,6.94,14.0,1.3485,Synthetic – Demonstration Data
+64,Bacillus subtilis,Mueller-Hinton,33.3,6.94,16.0,1.436,Synthetic – Demonstration Data
+64,Bacillus subtilis,Mueller-Hinton,33.3,6.94,18.0,1.4826,Synthetic – Demonstration Data
+64,Bacillus subtilis,Mueller-Hinton,33.3,6.94,20.0,1.4943,Synthetic – Demonstration Data
+64,Bacillus subtilis,Mueller-Hinton,33.3,6.94,22.0,1.4859,Synthetic – Demonstration Data
+64,Bacillus subtilis,Mueller-Hinton,33.3,6.94,24.0,1.4875,Synthetic – Demonstration Data
+65,Salmonella enterica,Nutrient Agar,38.0,7.13,0.0,0.0544,Synthetic – Demonstration Data
+65,Salmonella enterica,Nutrient Agar,38.0,7.13,2.0,0.0962,Synthetic – Demonstration Data
+65,Salmonella enterica,Nutrient Agar,38.0,7.13,4.0,0.1947,Synthetic – Demonstration Data
+65,Salmonella enterica,Nutrient Agar,38.0,7.13,6.0,0.4413,Synthetic – Demonstration Data
+65,Salmonella enterica,Nutrient Agar,38.0,7.13,8.0,0.7618,Synthetic – Demonstration Data
+65,Salmonella enterica,Nutrient Agar,38.0,7.13,10.0,1.0743,Synthetic – Demonstration Data
+65,Salmonella enterica,Nutrient Agar,38.0,7.13,12.0,1.3299,Synthetic – Demonstration Data
+65,Salmonella enterica,Nutrient Agar,38.0,7.13,14.0,1.4747,Synthetic – Demonstration Data
+65,Salmonella enterica,Nutrient Agar,38.0,7.13,16.0,1.5401,Synthetic – Demonstration Data
+65,Salmonella enterica,Nutrient Agar,38.0,7.13,18.0,1.5608,Synthetic – Demonstration Data
+65,Salmonella enterica,Nutrient Agar,38.0,7.13,20.0,1.5733,Synthetic – Demonstration Data
+65,Salmonella enterica,Nutrient Agar,38.0,7.13,22.0,1.5772,Synthetic – Demonstration Data
+65,Salmonella enterica,Nutrient Agar,38.0,7.13,24.0,1.5504,Synthetic – Demonstration Data
+66,Enterococcus faecalis,LB Broth,38.1,7.06,0.0,0.0616,Synthetic – Demonstration Data
+66,Enterococcus faecalis,LB Broth,38.1,7.06,2.0,0.1284,Synthetic – Demonstration Data
+66,Enterococcus faecalis,LB Broth,38.1,7.06,4.0,0.2081,Synthetic – Demonstration Data
+66,Enterococcus faecalis,LB Broth,38.1,7.06,6.0,0.3911,Synthetic – Demonstration Data
+66,Enterococcus faecalis,LB Broth,38.1,7.06,8.0,0.6958,Synthetic – Demonstration Data
+66,Enterococcus faecalis,LB Broth,38.1,7.06,10.0,1.0144,Synthetic – Demonstration Data
+66,Enterococcus faecalis,LB Broth,38.1,7.06,12.0,1.2622,Synthetic – Demonstration Data
+66,Enterococcus faecalis,LB Broth,38.1,7.06,14.0,1.4339,Synthetic – Demonstration Data
+66,Enterococcus faecalis,LB Broth,38.1,7.06,16.0,1.4868,Synthetic – Demonstration Data
+66,Enterococcus faecalis,LB Broth,38.1,7.06,18.0,1.5377,Synthetic – Demonstration Data
+66,Enterococcus faecalis,LB Broth,38.1,7.06,20.0,1.531,Synthetic – Demonstration Data
+66,Enterococcus faecalis,LB Broth,38.1,7.06,22.0,1.5647,Synthetic – Demonstration Data
+66,Enterococcus faecalis,LB Broth,38.1,7.06,24.0,1.5601,Synthetic – Demonstration Data
+67,Streptococcus pneumoniae,Mueller-Hinton,35.9,7.24,0.0,0.0705,Synthetic – Demonstration Data
+67,Streptococcus pneumoniae,Mueller-Hinton,35.9,7.24,2.0,0.0805,Synthetic – Demonstration Data
+67,Streptococcus pneumoniae,Mueller-Hinton,35.9,7.24,4.0,0.1647,Synthetic – Demonstration Data
+67,Streptococcus pneumoniae,Mueller-Hinton,35.9,7.24,6.0,0.2879,Synthetic – Demonstration Data
+67,Streptococcus pneumoniae,Mueller-Hinton,35.9,7.24,8.0,0.5466,Synthetic – Demonstration Data
+67,Streptococcus pneumoniae,Mueller-Hinton,35.9,7.24,10.0,0.8369,Synthetic – Demonstration Data
+67,Streptococcus pneumoniae,Mueller-Hinton,35.9,7.24,12.0,1.0745,Synthetic – Demonstration Data
+67,Streptococcus pneumoniae,Mueller-Hinton,35.9,7.24,14.0,1.2779,Synthetic – Demonstration Data
+67,Streptococcus pneumoniae,Mueller-Hinton,35.9,7.24,16.0,1.3438,Synthetic – Demonstration Data
+67,Streptococcus pneumoniae,Mueller-Hinton,35.9,7.24,18.0,1.4175,Synthetic – Demonstration Data
+67,Streptococcus pneumoniae,Mueller-Hinton,35.9,7.24,20.0,1.4182,Synthetic – Demonstration Data
+67,Streptococcus pneumoniae,Mueller-Hinton,35.9,7.24,22.0,1.4283,Synthetic – Demonstration Data
+67,Streptococcus pneumoniae,Mueller-Hinton,35.9,7.24,24.0,1.4309,Synthetic – Demonstration Data
+68,Acinetobacter baumannii,Nutrient Agar,37.0,7.43,0.0,0.0202,Synthetic – Demonstration Data
+68,Acinetobacter baumannii,Nutrient Agar,37.0,7.43,2.0,0.0581,Synthetic – Demonstration Data
+68,Acinetobacter baumannii,Nutrient Agar,37.0,7.43,4.0,0.1215,Synthetic – Demonstration Data
+68,Acinetobacter baumannii,Nutrient Agar,37.0,7.43,6.0,0.207,Synthetic – Demonstration Data
+68,Acinetobacter baumannii,Nutrient Agar,37.0,7.43,8.0,0.3328,Synthetic – Demonstration Data
+68,Acinetobacter baumannii,Nutrient Agar,37.0,7.43,10.0,0.5502,Synthetic – Demonstration Data
+68,Acinetobacter baumannii,Nutrient Agar,37.0,7.43,12.0,0.7642,Synthetic – Demonstration Data
+68,Acinetobacter baumannii,Nutrient Agar,37.0,7.43,14.0,0.9402,Synthetic – Demonstration Data
+68,Acinetobacter baumannii,Nutrient Agar,37.0,7.43,16.0,1.0943,Synthetic – Demonstration Data
+68,Acinetobacter baumannii,Nutrient Agar,37.0,7.43,18.0,1.1703,Synthetic – Demonstration Data
+68,Acinetobacter baumannii,Nutrient Agar,37.0,7.43,20.0,1.2059,Synthetic – Demonstration Data
+68,Acinetobacter baumannii,Nutrient Agar,37.0,7.43,22.0,1.256,Synthetic – Demonstration Data
+68,Acinetobacter baumannii,Nutrient Agar,37.0,7.43,24.0,1.2598,Synthetic – Demonstration Data
+69,Proteus mirabilis,LB Broth,37.0,7.57,0.0,0.0115,Synthetic – Demonstration Data
+69,Proteus mirabilis,LB Broth,37.0,7.57,2.0,0.0708,Synthetic – Demonstration Data
+69,Proteus mirabilis,LB Broth,37.0,7.57,4.0,0.1703,Synthetic – Demonstration Data
+69,Proteus mirabilis,LB Broth,37.0,7.57,6.0,0.3381,Synthetic – Demonstration Data
+69,Proteus mirabilis,LB Broth,37.0,7.57,8.0,0.6463,Synthetic – Demonstration Data
+69,Proteus mirabilis,LB Broth,37.0,7.57,10.0,0.9875,Synthetic – Demonstration Data
+69,Proteus mirabilis,LB Broth,37.0,7.57,12.0,1.3155,Synthetic – Demonstration Data
+69,Proteus mirabilis,LB Broth,37.0,7.57,14.0,1.4616,Synthetic – Demonstration Data
+69,Proteus mirabilis,LB Broth,37.0,7.57,16.0,1.4991,Synthetic – Demonstration Data
+69,Proteus mirabilis,LB Broth,37.0,7.57,18.0,1.5345,Synthetic – Demonstration Data
+69,Proteus mirabilis,LB Broth,37.0,7.57,20.0,1.535,Synthetic – Demonstration Data
+69,Proteus mirabilis,LB Broth,37.0,7.57,22.0,1.5275,Synthetic – Demonstration Data
+69,Proteus mirabilis,LB Broth,37.0,7.57,24.0,1.5623,Synthetic – Demonstration Data
+70,Listeria monocytogenes,Mueller-Hinton,33.5,6.98,0.0,0.0389,Synthetic – Demonstration Data
+70,Listeria monocytogenes,Mueller-Hinton,33.5,6.98,2.0,0.0781,Synthetic – Demonstration Data
+70,Listeria monocytogenes,Mueller-Hinton,33.5,6.98,4.0,0.145,Synthetic – Demonstration Data
+70,Listeria monocytogenes,Mueller-Hinton,33.5,6.98,6.0,0.228,Synthetic – Demonstration Data
+70,Listeria monocytogenes,Mueller-Hinton,33.5,6.98,8.0,0.4413,Synthetic – Demonstration Data
+70,Listeria monocytogenes,Mueller-Hinton,33.5,6.98,10.0,0.6311,Synthetic – Demonstration Data
+70,Listeria monocytogenes,Mueller-Hinton,33.5,6.98,12.0,0.8761,Synthetic – Demonstration Data
+70,Listeria monocytogenes,Mueller-Hinton,33.5,6.98,14.0,1.0379,Synthetic – Demonstration Data
+70,Listeria monocytogenes,Mueller-Hinton,33.5,6.98,16.0,1.1268,Synthetic – Demonstration Data
+70,Listeria monocytogenes,Mueller-Hinton,33.5,6.98,18.0,1.2114,Synthetic – Demonstration Data
+70,Listeria monocytogenes,Mueller-Hinton,33.5,6.98,20.0,1.2587,Synthetic – Demonstration Data
+70,Listeria monocytogenes,Mueller-Hinton,33.5,6.98,22.0,1.2811,Synthetic – Demonstration Data
+70,Listeria monocytogenes,Mueller-Hinton,33.5,6.98,24.0,1.2766,Synthetic – Demonstration Data
+71,Candida albicans,Nutrient Agar,32.3,6.75,0.0,0.0786,Synthetic – Demonstration Data
+71,Candida albicans,Nutrient Agar,32.3,6.75,2.0,0.108,Synthetic – Demonstration Data
+71,Candida albicans,Nutrient Agar,32.3,6.75,4.0,0.0976,Synthetic – Demonstration Data
+71,Candida albicans,Nutrient Agar,32.3,6.75,6.0,0.1769,Synthetic – Demonstration Data
+71,Candida albicans,Nutrient Agar,32.3,6.75,8.0,0.332,Synthetic – Demonstration Data
+71,Candida albicans,Nutrient Agar,32.3,6.75,10.0,0.4443,Synthetic – Demonstration Data
+71,Candida albicans,Nutrient Agar,32.3,6.75,12.0,0.6446,Synthetic – Demonstration Data
+71,Candida albicans,Nutrient Agar,32.3,6.75,14.0,0.8968,Synthetic – Demonstration Data
+71,Candida albicans,Nutrient Agar,32.3,6.75,16.0,1.1538,Synthetic – Demonstration Data
+71,Candida albicans,Nutrient Agar,32.3,6.75,18.0,1.3585,Synthetic – Demonstration Data
+71,Candida albicans,Nutrient Agar,32.3,6.75,20.0,1.5177,Synthetic – Demonstration Data
+71,Candida albicans,Nutrient Agar,32.3,6.75,22.0,1.6387,Synthetic – Demonstration Data
+71,Candida albicans,Nutrient Agar,32.3,6.75,24.0,1.7194,Synthetic – Demonstration Data
+72,Escherichia coli,LB Broth,35.7,7.57,0.0,0.0356,Synthetic – Demonstration Data
+72,Escherichia coli,LB Broth,35.7,7.57,2.0,0.1012,Synthetic – Demonstration Data
+72,Escherichia coli,LB Broth,35.7,7.57,4.0,0.223,Synthetic – Demonstration Data
+72,Escherichia coli,LB Broth,35.7,7.57,6.0,0.4413,Synthetic – Demonstration Data
+72,Escherichia coli,LB Broth,35.7,7.57,8.0,0.8519,Synthetic – Demonstration Data
+72,Escherichia coli,LB Broth,35.7,7.57,10.0,1.2692,Synthetic – Demonstration Data
+72,Escherichia coli,LB Broth,35.7,7.57,12.0,1.5862,Synthetic – Demonstration Data
+72,Escherichia coli,LB Broth,35.7,7.57,14.0,1.7916,Synthetic – Demonstration Data
+72,Escherichia coli,LB Broth,35.7,7.57,16.0,1.9268,Synthetic – Demonstration Data
+72,Escherichia coli,LB Broth,35.7,7.57,18.0,1.9418,Synthetic – Demonstration Data
+72,Escherichia coli,LB Broth,35.7,7.57,20.0,1.9827,Synthetic – Demonstration Data
+72,Escherichia coli,LB Broth,35.7,7.57,22.0,1.9739,Synthetic – Demonstration Data
+72,Escherichia coli,LB Broth,35.7,7.57,24.0,1.9834,Synthetic – Demonstration Data
+73,Staphylococcus aureus,Mueller-Hinton,35.6,7.33,0.0,0.0472,Synthetic – Demonstration Data
+73,Staphylococcus aureus,Mueller-Hinton,35.6,7.33,2.0,0.099,Synthetic – Demonstration Data
+73,Staphylococcus aureus,Mueller-Hinton,35.6,7.33,4.0,0.1942,Synthetic – Demonstration Data
+73,Staphylococcus aureus,Mueller-Hinton,35.6,7.33,6.0,0.4101,Synthetic – Demonstration Data
+73,Staphylococcus aureus,Mueller-Hinton,35.6,7.33,8.0,0.7603,Synthetic – Demonstration Data
+73,Staphylococcus aureus,Mueller-Hinton,35.6,7.33,10.0,1.1697,Synthetic – Demonstration Data
+73,Staphylococcus aureus,Mueller-Hinton,35.6,7.33,12.0,1.4668,Synthetic – Demonstration Data
+73,Staphylococcus aureus,Mueller-Hinton,35.6,7.33,14.0,1.6119,Synthetic – Demonstration Data
+73,Staphylococcus aureus,Mueller-Hinton,35.6,7.33,16.0,1.7047,Synthetic – Demonstration Data
+73,Staphylococcus aureus,Mueller-Hinton,35.6,7.33,18.0,1.7484,Synthetic – Demonstration Data
+73,Staphylococcus aureus,Mueller-Hinton,35.6,7.33,20.0,1.7633,Synthetic – Demonstration Data
+73,Staphylococcus aureus,Mueller-Hinton,35.6,7.33,22.0,1.7859,Synthetic – Demonstration Data
+73,Staphylococcus aureus,Mueller-Hinton,35.6,7.33,24.0,1.7833,Synthetic – Demonstration Data
+74,Pseudomonas aeruginosa,Nutrient Agar,35.5,7.62,0.0,0.0464,Synthetic – Demonstration Data
+74,Pseudomonas aeruginosa,Nutrient Agar,35.5,7.62,2.0,0.0811,Synthetic – Demonstration Data
+74,Pseudomonas aeruginosa,Nutrient Agar,35.5,7.62,4.0,0.1363,Synthetic – Demonstration Data
+74,Pseudomonas aeruginosa,Nutrient Agar,35.5,7.62,6.0,0.3049,Synthetic – Demonstration Data
+74,Pseudomonas aeruginosa,Nutrient Agar,35.5,7.62,8.0,0.4936,Synthetic – Demonstration Data
+74,Pseudomonas aeruginosa,Nutrient Agar,35.5,7.62,10.0,0.814,Synthetic – Demonstration Data
+74,Pseudomonas aeruginosa,Nutrient Agar,35.5,7.62,12.0,1.1068,Synthetic – Demonstration Data
+74,Pseudomonas aeruginosa,Nutrient Agar,35.5,7.62,14.0,1.2968,Synthetic – Demonstration Data
+74,Pseudomonas aeruginosa,Nutrient Agar,35.5,7.62,16.0,1.4733,Synthetic – Demonstration Data
+74,Pseudomonas aeruginosa,Nutrient Agar,35.5,7.62,18.0,1.5475,Synthetic – Demonstration Data
+74,Pseudomonas aeruginosa,Nutrient Agar,35.5,7.62,20.0,1.5999,Synthetic – Demonstration Data
+74,Pseudomonas aeruginosa,Nutrient Agar,35.5,7.62,22.0,1.6515,Synthetic – Demonstration Data
+74,Pseudomonas aeruginosa,Nutrient Agar,35.5,7.62,24.0,1.6504,Synthetic – Demonstration Data
+75,Klebsiella pneumoniae,LB Broth,39.6,6.88,0.0,0.0548,Synthetic – Demonstration Data
+75,Klebsiella pneumoniae,LB Broth,39.6,6.88,2.0,0.0922,Synthetic – Demonstration Data
+75,Klebsiella pneumoniae,LB Broth,39.6,6.88,4.0,0.2365,Synthetic – Demonstration Data
+75,Klebsiella pneumoniae,LB Broth,39.6,6.88,6.0,0.5074,Synthetic – Demonstration Data
+75,Klebsiella pneumoniae,LB Broth,39.6,6.88,8.0,0.9084,Synthetic – Demonstration Data
+75,Klebsiella pneumoniae,LB Broth,39.6,6.88,10.0,1.365,Synthetic – Demonstration Data
+75,Klebsiella pneumoniae,LB Broth,39.6,6.88,12.0,1.6657,Synthetic – Demonstration Data
+75,Klebsiella pneumoniae,LB Broth,39.6,6.88,14.0,1.8221,Synthetic – Demonstration Data
+75,Klebsiella pneumoniae,LB Broth,39.6,6.88,16.0,1.9091,Synthetic – Demonstration Data
+75,Klebsiella pneumoniae,LB Broth,39.6,6.88,18.0,1.9364,Synthetic – Demonstration Data
+75,Klebsiella pneumoniae,LB Broth,39.6,6.88,20.0,1.9151,Synthetic – Demonstration Data
+75,Klebsiella pneumoniae,LB Broth,39.6,6.88,22.0,1.9331,Synthetic – Demonstration Data
+75,Klebsiella pneumoniae,LB Broth,39.6,6.88,24.0,1.9169,Synthetic – Demonstration Data
+76,Bacillus subtilis,Mueller-Hinton,35.0,6.85,0.0,0.0379,Synthetic – Demonstration Data
+76,Bacillus subtilis,Mueller-Hinton,35.0,6.85,2.0,0.1168,Synthetic – Demonstration Data
+76,Bacillus subtilis,Mueller-Hinton,35.0,6.85,4.0,0.1699,Synthetic – Demonstration Data
+76,Bacillus subtilis,Mueller-Hinton,35.0,6.85,6.0,0.388,Synthetic – Demonstration Data
+76,Bacillus subtilis,Mueller-Hinton,35.0,6.85,8.0,0.7693,Synthetic – Demonstration Data
+76,Bacillus subtilis,Mueller-Hinton,35.0,6.85,10.0,1.1304,Synthetic – Demonstration Data
+76,Bacillus subtilis,Mueller-Hinton,35.0,6.85,12.0,1.4355,Synthetic – Demonstration Data
+76,Bacillus subtilis,Mueller-Hinton,35.0,6.85,14.0,1.5906,Synthetic – Demonstration Data
+76,Bacillus subtilis,Mueller-Hinton,35.0,6.85,16.0,1.7071,Synthetic – Demonstration Data
+76,Bacillus subtilis,Mueller-Hinton,35.0,6.85,18.0,1.7865,Synthetic – Demonstration Data
+76,Bacillus subtilis,Mueller-Hinton,35.0,6.85,20.0,1.7842,Synthetic – Demonstration Data
+76,Bacillus subtilis,Mueller-Hinton,35.0,6.85,22.0,1.7806,Synthetic – Demonstration Data
+76,Bacillus subtilis,Mueller-Hinton,35.0,6.85,24.0,1.7732,Synthetic – Demonstration Data
+77,Salmonella enterica,Nutrient Agar,36.4,6.67,0.0,0.0159,Synthetic – Demonstration Data
+77,Salmonella enterica,Nutrient Agar,36.4,6.67,2.0,0.0792,Synthetic – Demonstration Data
+77,Salmonella enterica,Nutrient Agar,36.4,6.67,4.0,0.1611,Synthetic – Demonstration Data
+77,Salmonella enterica,Nutrient Agar,36.4,6.67,6.0,0.3259,Synthetic – Demonstration Data
+77,Salmonella enterica,Nutrient Agar,36.4,6.67,8.0,0.5908,Synthetic – Demonstration Data
+77,Salmonella enterica,Nutrient Agar,36.4,6.67,10.0,0.8543,Synthetic – Demonstration Data
+77,Salmonella enterica,Nutrient Agar,36.4,6.67,12.0,1.1865,Synthetic – Demonstration Data
+77,Salmonella enterica,Nutrient Agar,36.4,6.67,14.0,1.3964,Synthetic – Demonstration Data
+77,Salmonella enterica,Nutrient Agar,36.4,6.67,16.0,1.5037,Synthetic – Demonstration Data
+77,Salmonella enterica,Nutrient Agar,36.4,6.67,18.0,1.5309,Synthetic – Demonstration Data
+77,Salmonella enterica,Nutrient Agar,36.4,6.67,20.0,1.5915,Synthetic – Demonstration Data
+77,Salmonella enterica,Nutrient Agar,36.4,6.67,22.0,1.6481,Synthetic – Demonstration Data
+77,Salmonella enterica,Nutrient Agar,36.4,6.67,24.0,1.5838,Synthetic – Demonstration Data
+78,Enterococcus faecalis,LB Broth,36.5,7.1,0.0,0.0439,Synthetic – Demonstration Data
+78,Enterococcus faecalis,LB Broth,36.5,7.1,2.0,0.0936,Synthetic – Demonstration Data
+78,Enterococcus faecalis,LB Broth,36.5,7.1,4.0,0.2165,Synthetic – Demonstration Data
+78,Enterococcus faecalis,LB Broth,36.5,7.1,6.0,0.3717,Synthetic – Demonstration Data
+78,Enterococcus faecalis,LB Broth,36.5,7.1,8.0,0.6847,Synthetic – Demonstration Data
+78,Enterococcus faecalis,LB Broth,36.5,7.1,10.0,1.0064,Synthetic – Demonstration Data
+78,Enterococcus faecalis,LB Broth,36.5,7.1,12.0,1.3519,Synthetic – Demonstration Data
+78,Enterococcus faecalis,LB Broth,36.5,7.1,14.0,1.503,Synthetic – Demonstration Data
+78,Enterococcus faecalis,LB Broth,36.5,7.1,16.0,1.6029,Synthetic – Demonstration Data
+78,Enterococcus faecalis,LB Broth,36.5,7.1,18.0,1.6575,Synthetic – Demonstration Data
+78,Enterococcus faecalis,LB Broth,36.5,7.1,20.0,1.6497,Synthetic – Demonstration Data
+78,Enterococcus faecalis,LB Broth,36.5,7.1,22.0,1.6906,Synthetic – Demonstration Data
+78,Enterococcus faecalis,LB Broth,36.5,7.1,24.0,1.7076,Synthetic – Demonstration Data
+79,Streptococcus pneumoniae,Mueller-Hinton,37.4,6.9,0.0,0.01,Synthetic – Demonstration Data
+79,Streptococcus pneumoniae,Mueller-Hinton,37.4,6.9,2.0,0.0674,Synthetic – Demonstration Data
+79,Streptococcus pneumoniae,Mueller-Hinton,37.4,6.9,4.0,0.1828,Synthetic – Demonstration Data
+79,Streptococcus pneumoniae,Mueller-Hinton,37.4,6.9,6.0,0.3097,Synthetic – Demonstration Data
+79,Streptococcus pneumoniae,Mueller-Hinton,37.4,6.9,8.0,0.5183,Synthetic – Demonstration Data
+79,Streptococcus pneumoniae,Mueller-Hinton,37.4,6.9,10.0,0.7961,Synthetic – Demonstration Data
+79,Streptococcus pneumoniae,Mueller-Hinton,37.4,6.9,12.0,1.0129,Synthetic – Demonstration Data
+79,Streptococcus pneumoniae,Mueller-Hinton,37.4,6.9,14.0,1.2005,Synthetic – Demonstration Data
+79,Streptococcus pneumoniae,Mueller-Hinton,37.4,6.9,16.0,1.3544,Synthetic – Demonstration Data
+79,Streptococcus pneumoniae,Mueller-Hinton,37.4,6.9,18.0,1.3677,Synthetic – Demonstration Data
+79,Streptococcus pneumoniae,Mueller-Hinton,37.4,6.9,20.0,1.3919,Synthetic – Demonstration Data
+79,Streptococcus pneumoniae,Mueller-Hinton,37.4,6.9,22.0,1.4315,Synthetic – Demonstration Data
+79,Streptococcus pneumoniae,Mueller-Hinton,37.4,6.9,24.0,1.4405,Synthetic – Demonstration Data
+80,Acinetobacter baumannii,Nutrient Agar,36.2,6.74,0.0,0.0285,Synthetic – Demonstration Data
+80,Acinetobacter baumannii,Nutrient Agar,36.2,6.74,2.0,0.0982,Synthetic – Demonstration Data
+80,Acinetobacter baumannii,Nutrient Agar,36.2,6.74,4.0,0.1545,Synthetic – Demonstration Data
+80,Acinetobacter baumannii,Nutrient Agar,36.2,6.74,6.0,0.2823,Synthetic – Demonstration Data
+80,Acinetobacter baumannii,Nutrient Agar,36.2,6.74,8.0,0.4993,Synthetic – Demonstration Data
+80,Acinetobacter baumannii,Nutrient Agar,36.2,6.74,10.0,0.7296,Synthetic – Demonstration Data
+80,Acinetobacter baumannii,Nutrient Agar,36.2,6.74,12.0,1.0342,Synthetic – Demonstration Data
+80,Acinetobacter baumannii,Nutrient Agar,36.2,6.74,14.0,1.2899,Synthetic – Demonstration Data
+80,Acinetobacter baumannii,Nutrient Agar,36.2,6.74,16.0,1.419,Synthetic – Demonstration Data
+80,Acinetobacter baumannii,Nutrient Agar,36.2,6.74,18.0,1.496,Synthetic – Demonstration Data
+80,Acinetobacter baumannii,Nutrient Agar,36.2,6.74,20.0,1.5441,Synthetic – Demonstration Data
+80,Acinetobacter baumannii,Nutrient Agar,36.2,6.74,22.0,1.5721,Synthetic – Demonstration Data
+80,Acinetobacter baumannii,Nutrient Agar,36.2,6.74,24.0,1.5883,Synthetic – Demonstration Data
+81,Proteus mirabilis,LB Broth,36.4,7.43,0.0,0.0375,Synthetic – Demonstration Data
+81,Proteus mirabilis,LB Broth,36.4,7.43,2.0,0.1124,Synthetic – Demonstration Data
+81,Proteus mirabilis,LB Broth,36.4,7.43,4.0,0.2188,Synthetic – Demonstration Data
+81,Proteus mirabilis,LB Broth,36.4,7.43,6.0,0.5112,Synthetic – Demonstration Data
+81,Proteus mirabilis,LB Broth,36.4,7.43,8.0,0.8603,Synthetic – Demonstration Data
+81,Proteus mirabilis,LB Broth,36.4,7.43,10.0,1.1975,Synthetic – Demonstration Data
+81,Proteus mirabilis,LB Broth,36.4,7.43,12.0,1.3858,Synthetic – Demonstration Data
+81,Proteus mirabilis,LB Broth,36.4,7.43,14.0,1.5501,Synthetic – Demonstration Data
+81,Proteus mirabilis,LB Broth,36.4,7.43,16.0,1.5979,Synthetic – Demonstration Data
+81,Proteus mirabilis,LB Broth,36.4,7.43,18.0,1.5852,Synthetic – Demonstration Data
+81,Proteus mirabilis,LB Broth,36.4,7.43,20.0,1.6233,Synthetic – Demonstration Data
+81,Proteus mirabilis,LB Broth,36.4,7.43,22.0,1.6342,Synthetic – Demonstration Data
+81,Proteus mirabilis,LB Broth,36.4,7.43,24.0,1.6392,Synthetic – Demonstration Data
+82,Listeria monocytogenes,Mueller-Hinton,35.3,7.07,0.0,0.01,Synthetic – Demonstration Data
+82,Listeria monocytogenes,Mueller-Hinton,35.3,7.07,2.0,0.0872,Synthetic – Demonstration Data
+82,Listeria monocytogenes,Mueller-Hinton,35.3,7.07,4.0,0.1784,Synthetic – Demonstration Data
+82,Listeria monocytogenes,Mueller-Hinton,35.3,7.07,6.0,0.3025,Synthetic – Demonstration Data
+82,Listeria monocytogenes,Mueller-Hinton,35.3,7.07,8.0,0.5624,Synthetic – Demonstration Data
+82,Listeria monocytogenes,Mueller-Hinton,35.3,7.07,10.0,0.8542,Synthetic – Demonstration Data
+82,Listeria monocytogenes,Mueller-Hinton,35.3,7.07,12.0,1.0636,Synthetic – Demonstration Data
+82,Listeria monocytogenes,Mueller-Hinton,35.3,7.07,14.0,1.2732,Synthetic – Demonstration Data
+82,Listeria monocytogenes,Mueller-Hinton,35.3,7.07,16.0,1.3633,Synthetic – Demonstration Data
+82,Listeria monocytogenes,Mueller-Hinton,35.3,7.07,18.0,1.4291,Synthetic – Demonstration Data
+82,Listeria monocytogenes,Mueller-Hinton,35.3,7.07,20.0,1.4994,Synthetic – Demonstration Data
+82,Listeria monocytogenes,Mueller-Hinton,35.3,7.07,22.0,1.4786,Synthetic – Demonstration Data
+82,Listeria monocytogenes,Mueller-Hinton,35.3,7.07,24.0,1.5044,Synthetic – Demonstration Data
+83,Candida albicans,Nutrient Agar,27.2,6.97,0.0,0.0494,Synthetic – Demonstration Data
+83,Candida albicans,Nutrient Agar,27.2,6.97,2.0,0.0365,Synthetic – Demonstration Data
+83,Candida albicans,Nutrient Agar,27.2,6.97,4.0,0.1186,Synthetic – Demonstration Data
+83,Candida albicans,Nutrient Agar,27.2,6.97,6.0,0.1457,Synthetic – Demonstration Data
+83,Candida albicans,Nutrient Agar,27.2,6.97,8.0,0.2283,Synthetic – Demonstration Data
+83,Candida albicans,Nutrient Agar,27.2,6.97,10.0,0.338,Synthetic – Demonstration Data
+83,Candida albicans,Nutrient Agar,27.2,6.97,12.0,0.4916,Synthetic – Demonstration Data
+83,Candida albicans,Nutrient Agar,27.2,6.97,14.0,0.7089,Synthetic – Demonstration Data
+83,Candida albicans,Nutrient Agar,27.2,6.97,16.0,0.9229,Synthetic – Demonstration Data
+83,Candida albicans,Nutrient Agar,27.2,6.97,18.0,1.1577,Synthetic – Demonstration Data
+83,Candida albicans,Nutrient Agar,27.2,6.97,20.0,1.3556,Synthetic – Demonstration Data
+83,Candida albicans,Nutrient Agar,27.2,6.97,22.0,1.5398,Synthetic – Demonstration Data
+83,Candida albicans,Nutrient Agar,27.2,6.97,24.0,1.6569,Synthetic – Demonstration Data
+84,Escherichia coli,LB Broth,40.3,6.61,0.0,0.0315,Synthetic – Demonstration Data
+84,Escherichia coli,LB Broth,40.3,6.61,2.0,0.1487,Synthetic – Demonstration Data
+84,Escherichia coli,LB Broth,40.3,6.61,4.0,0.26,Synthetic – Demonstration Data
+84,Escherichia coli,LB Broth,40.3,6.61,6.0,0.5154,Synthetic – Demonstration Data
+84,Escherichia coli,LB Broth,40.3,6.61,8.0,0.8922,Synthetic – Demonstration Data
+84,Escherichia coli,LB Broth,40.3,6.61,10.0,1.3283,Synthetic – Demonstration Data
+84,Escherichia coli,LB Broth,40.3,6.61,12.0,1.6752,Synthetic – Demonstration Data
+84,Escherichia coli,LB Broth,40.3,6.61,14.0,1.8909,Synthetic – Demonstration Data
+84,Escherichia coli,LB Broth,40.3,6.61,16.0,2.0104,Synthetic – Demonstration Data
+84,Escherichia coli,LB Broth,40.3,6.61,18.0,2.0341,Synthetic – Demonstration Data
+84,Escherichia coli,LB Broth,40.3,6.61,20.0,2.0342,Synthetic – Demonstration Data
+84,Escherichia coli,LB Broth,40.3,6.61,22.0,2.0738,Synthetic – Demonstration Data
+84,Escherichia coli,LB Broth,40.3,6.61,24.0,2.079,Synthetic – Demonstration Data
+85,Staphylococcus aureus,Mueller-Hinton,38.0,7.39,0.0,0.0197,Synthetic – Demonstration Data
+85,Staphylococcus aureus,Mueller-Hinton,38.0,7.39,2.0,0.0549,Synthetic – Demonstration Data
+85,Staphylococcus aureus,Mueller-Hinton,38.0,7.39,4.0,0.1973,Synthetic – Demonstration Data
+85,Staphylococcus aureus,Mueller-Hinton,38.0,7.39,6.0,0.4047,Synthetic – Demonstration Data
+85,Staphylococcus aureus,Mueller-Hinton,38.0,7.39,8.0,0.7299,Synthetic – Demonstration Data
+85,Staphylococcus aureus,Mueller-Hinton,38.0,7.39,10.0,1.0516,Synthetic – Demonstration Data
+85,Staphylococcus aureus,Mueller-Hinton,38.0,7.39,12.0,1.3626,Synthetic – Demonstration Data
+85,Staphylococcus aureus,Mueller-Hinton,38.0,7.39,14.0,1.5647,Synthetic – Demonstration Data
+85,Staphylococcus aureus,Mueller-Hinton,38.0,7.39,16.0,1.6085,Synthetic – Demonstration Data
+85,Staphylococcus aureus,Mueller-Hinton,38.0,7.39,18.0,1.66,Synthetic – Demonstration Data
+85,Staphylococcus aureus,Mueller-Hinton,38.0,7.39,20.0,1.6423,Synthetic – Demonstration Data
+85,Staphylococcus aureus,Mueller-Hinton,38.0,7.39,22.0,1.6989,Synthetic – Demonstration Data
+85,Staphylococcus aureus,Mueller-Hinton,38.0,7.39,24.0,1.6728,Synthetic – Demonstration Data
+86,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.78,0.0,0.0278,Synthetic – Demonstration Data
+86,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.78,2.0,0.069,Synthetic – Demonstration Data
+86,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.78,4.0,0.152,Synthetic – Demonstration Data
+86,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.78,6.0,0.2615,Synthetic – Demonstration Data
+86,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.78,8.0,0.4512,Synthetic – Demonstration Data
+86,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.78,10.0,0.757,Synthetic – Demonstration Data
+86,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.78,12.0,1.0405,Synthetic – Demonstration Data
+86,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.78,14.0,1.3696,Synthetic – Demonstration Data
+86,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.78,16.0,1.5424,Synthetic – Demonstration Data
+86,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.78,18.0,1.7081,Synthetic – Demonstration Data
+86,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.78,20.0,1.7598,Synthetic – Demonstration Data
+86,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.78,22.0,1.8125,Synthetic – Demonstration Data
+86,Pseudomonas aeruginosa,Nutrient Agar,37.4,7.78,24.0,1.8039,Synthetic – Demonstration Data
+87,Klebsiella pneumoniae,LB Broth,35.7,7.11,0.0,0.017,Synthetic – Demonstration Data
+87,Klebsiella pneumoniae,LB Broth,35.7,7.11,2.0,0.0807,Synthetic – Demonstration Data
+87,Klebsiella pneumoniae,LB Broth,35.7,7.11,4.0,0.2352,Synthetic – Demonstration Data
+87,Klebsiella pneumoniae,LB Broth,35.7,7.11,6.0,0.5425,Synthetic – Demonstration Data
+87,Klebsiella pneumoniae,LB Broth,35.7,7.11,8.0,1.0333,Synthetic – Demonstration Data
+87,Klebsiella pneumoniae,LB Broth,35.7,7.11,10.0,1.4802,Synthetic – Demonstration Data
+87,Klebsiella pneumoniae,LB Broth,35.7,7.11,12.0,1.724,Synthetic – Demonstration Data
+87,Klebsiella pneumoniae,LB Broth,35.7,7.11,14.0,1.807,Synthetic – Demonstration Data
+87,Klebsiella pneumoniae,LB Broth,35.7,7.11,16.0,1.8943,Synthetic – Demonstration Data
+87,Klebsiella pneumoniae,LB Broth,35.7,7.11,18.0,1.914,Synthetic – Demonstration Data
+87,Klebsiella pneumoniae,LB Broth,35.7,7.11,20.0,1.9618,Synthetic – Demonstration Data
+87,Klebsiella pneumoniae,LB Broth,35.7,7.11,22.0,1.9005,Synthetic – Demonstration Data
+87,Klebsiella pneumoniae,LB Broth,35.7,7.11,24.0,1.9207,Synthetic – Demonstration Data
+88,Bacillus subtilis,Mueller-Hinton,37.6,7.11,0.0,0.0465,Synthetic – Demonstration Data
+88,Bacillus subtilis,Mueller-Hinton,37.6,7.11,2.0,0.0998,Synthetic – Demonstration Data
+88,Bacillus subtilis,Mueller-Hinton,37.6,7.11,4.0,0.1616,Synthetic – Demonstration Data
+88,Bacillus subtilis,Mueller-Hinton,37.6,7.11,6.0,0.3572,Synthetic – Demonstration Data
+88,Bacillus subtilis,Mueller-Hinton,37.6,7.11,8.0,0.5758,Synthetic – Demonstration Data
+88,Bacillus subtilis,Mueller-Hinton,37.6,7.11,10.0,0.9282,Synthetic – Demonstration Data
+88,Bacillus subtilis,Mueller-Hinton,37.6,7.11,12.0,1.2272,Synthetic – Demonstration Data
+88,Bacillus subtilis,Mueller-Hinton,37.6,7.11,14.0,1.4297,Synthetic – Demonstration Data
+88,Bacillus subtilis,Mueller-Hinton,37.6,7.11,16.0,1.568,Synthetic – Demonstration Data
+88,Bacillus subtilis,Mueller-Hinton,37.6,7.11,18.0,1.6239,Synthetic – Demonstration Data
+88,Bacillus subtilis,Mueller-Hinton,37.6,7.11,20.0,1.6484,Synthetic – Demonstration Data
+88,Bacillus subtilis,Mueller-Hinton,37.6,7.11,22.0,1.6767,Synthetic – Demonstration Data
+88,Bacillus subtilis,Mueller-Hinton,37.6,7.11,24.0,1.6704,Synthetic – Demonstration Data
+89,Salmonella enterica,Nutrient Agar,37.5,6.91,0.0,0.0239,Synthetic – Demonstration Data
+89,Salmonella enterica,Nutrient Agar,37.5,6.91,2.0,0.0648,Synthetic – Demonstration Data
+89,Salmonella enterica,Nutrient Agar,37.5,6.91,4.0,0.1885,Synthetic – Demonstration Data
+89,Salmonella enterica,Nutrient Agar,37.5,6.91,6.0,0.3406,Synthetic – Demonstration Data
+89,Salmonella enterica,Nutrient Agar,37.5,6.91,8.0,0.6057,Synthetic – Demonstration Data
+89,Salmonella enterica,Nutrient Agar,37.5,6.91,10.0,0.9593,Synthetic – Demonstration Data
+89,Salmonella enterica,Nutrient Agar,37.5,6.91,12.0,1.2195,Synthetic – Demonstration Data
+89,Salmonella enterica,Nutrient Agar,37.5,6.91,14.0,1.4633,Synthetic – Demonstration Data
+89,Salmonella enterica,Nutrient Agar,37.5,6.91,16.0,1.6131,Synthetic – Demonstration Data
+89,Salmonella enterica,Nutrient Agar,37.5,6.91,18.0,1.6346,Synthetic – Demonstration Data
+89,Salmonella enterica,Nutrient Agar,37.5,6.91,20.0,1.6588,Synthetic – Demonstration Data
+89,Salmonella enterica,Nutrient Agar,37.5,6.91,22.0,1.6787,Synthetic – Demonstration Data
+89,Salmonella enterica,Nutrient Agar,37.5,6.91,24.0,1.6899,Synthetic – Demonstration Data
+90,Enterococcus faecalis,LB Broth,34.0,6.98,0.0,0.06,Synthetic – Demonstration Data
+90,Enterococcus faecalis,LB Broth,34.0,6.98,2.0,0.0682,Synthetic – Demonstration Data
+90,Enterococcus faecalis,LB Broth,34.0,6.98,4.0,0.1116,Synthetic – Demonstration Data
+90,Enterococcus faecalis,LB Broth,34.0,6.98,6.0,0.2547,Synthetic – Demonstration Data
+90,Enterococcus faecalis,LB Broth,34.0,6.98,8.0,0.4384,Synthetic – Demonstration Data
+90,Enterococcus faecalis,LB Broth,34.0,6.98,10.0,0.7638,Synthetic – Demonstration Data
+90,Enterococcus faecalis,LB Broth,34.0,6.98,12.0,1.058,Synthetic – Demonstration Data
+90,Enterococcus faecalis,LB Broth,34.0,6.98,14.0,1.293,Synthetic – Demonstration Data
+90,Enterococcus faecalis,LB Broth,34.0,6.98,16.0,1.4783,Synthetic – Demonstration Data
+90,Enterococcus faecalis,LB Broth,34.0,6.98,18.0,1.5712,Synthetic – Demonstration Data
+90,Enterococcus faecalis,LB Broth,34.0,6.98,20.0,1.5944,Synthetic – Demonstration Data
+90,Enterococcus faecalis,LB Broth,34.0,6.98,22.0,1.5832,Synthetic – Demonstration Data
+90,Enterococcus faecalis,LB Broth,34.0,6.98,24.0,1.6446,Synthetic – Demonstration Data
+91,Streptococcus pneumoniae,Mueller-Hinton,37.8,7.38,0.0,0.0703,Synthetic – Demonstration Data
+91,Streptococcus pneumoniae,Mueller-Hinton,37.8,7.38,2.0,0.0562,Synthetic – Demonstration Data
+91,Streptococcus pneumoniae,Mueller-Hinton,37.8,7.38,4.0,0.1666,Synthetic – Demonstration Data
+91,Streptococcus pneumoniae,Mueller-Hinton,37.8,7.38,6.0,0.2709,Synthetic – Demonstration Data
+91,Streptococcus pneumoniae,Mueller-Hinton,37.8,7.38,8.0,0.5198,Synthetic – Demonstration Data
+91,Streptococcus pneumoniae,Mueller-Hinton,37.8,7.38,10.0,0.8577,Synthetic – Demonstration Data
+91,Streptococcus pneumoniae,Mueller-Hinton,37.8,7.38,12.0,1.1,Synthetic – Demonstration Data
+91,Streptococcus pneumoniae,Mueller-Hinton,37.8,7.38,14.0,1.3143,Synthetic – Demonstration Data
+91,Streptococcus pneumoniae,Mueller-Hinton,37.8,7.38,16.0,1.4161,Synthetic – Demonstration Data
+91,Streptococcus pneumoniae,Mueller-Hinton,37.8,7.38,18.0,1.4677,Synthetic – Demonstration Data
+91,Streptococcus pneumoniae,Mueller-Hinton,37.8,7.38,20.0,1.5219,Synthetic – Demonstration Data
+91,Streptococcus pneumoniae,Mueller-Hinton,37.8,7.38,22.0,1.506,Synthetic – Demonstration Data
+91,Streptococcus pneumoniae,Mueller-Hinton,37.8,7.38,24.0,1.4842,Synthetic – Demonstration Data
+92,Acinetobacter baumannii,Nutrient Agar,35.8,7.14,0.0,0.0191,Synthetic – Demonstration Data
+92,Acinetobacter baumannii,Nutrient Agar,35.8,7.14,2.0,0.054,Synthetic – Demonstration Data
+92,Acinetobacter baumannii,Nutrient Agar,35.8,7.14,4.0,0.12,Synthetic – Demonstration Data
+92,Acinetobacter baumannii,Nutrient Agar,35.8,7.14,6.0,0.2133,Synthetic – Demonstration Data
+92,Acinetobacter baumannii,Nutrient Agar,35.8,7.14,8.0,0.406,Synthetic – Demonstration Data
+92,Acinetobacter baumannii,Nutrient Agar,35.8,7.14,10.0,0.6461,Synthetic – Demonstration Data
+92,Acinetobacter baumannii,Nutrient Agar,35.8,7.14,12.0,0.9327,Synthetic – Demonstration Data
+92,Acinetobacter baumannii,Nutrient Agar,35.8,7.14,14.0,1.1516,Synthetic – Demonstration Data
+92,Acinetobacter baumannii,Nutrient Agar,35.8,7.14,16.0,1.2832,Synthetic – Demonstration Data
+92,Acinetobacter baumannii,Nutrient Agar,35.8,7.14,18.0,1.3663,Synthetic – Demonstration Data
+92,Acinetobacter baumannii,Nutrient Agar,35.8,7.14,20.0,1.4231,Synthetic – Demonstration Data
+92,Acinetobacter baumannii,Nutrient Agar,35.8,7.14,22.0,1.43,Synthetic – Demonstration Data
+92,Acinetobacter baumannii,Nutrient Agar,35.8,7.14,24.0,1.4362,Synthetic – Demonstration Data
+93,Proteus mirabilis,LB Broth,35.6,7.04,0.0,0.0539,Synthetic – Demonstration Data
+93,Proteus mirabilis,LB Broth,35.6,7.04,2.0,0.0684,Synthetic – Demonstration Data
+93,Proteus mirabilis,LB Broth,35.6,7.04,4.0,0.2207,Synthetic – Demonstration Data
+93,Proteus mirabilis,LB Broth,35.6,7.04,6.0,0.451,Synthetic – Demonstration Data
+93,Proteus mirabilis,LB Broth,35.6,7.04,8.0,0.8087,Synthetic – Demonstration Data
+93,Proteus mirabilis,LB Broth,35.6,7.04,10.0,1.1634,Synthetic – Demonstration Data
+93,Proteus mirabilis,LB Broth,35.6,7.04,12.0,1.3977,Synthetic – Demonstration Data
+93,Proteus mirabilis,LB Broth,35.6,7.04,14.0,1.5435,Synthetic – Demonstration Data
+93,Proteus mirabilis,LB Broth,35.6,7.04,16.0,1.633,Synthetic – Demonstration Data
+93,Proteus mirabilis,LB Broth,35.6,7.04,18.0,1.6796,Synthetic – Demonstration Data
+93,Proteus mirabilis,LB Broth,35.6,7.04,20.0,1.6331,Synthetic – Demonstration Data
+93,Proteus mirabilis,LB Broth,35.6,7.04,22.0,1.684,Synthetic – Demonstration Data
+93,Proteus mirabilis,LB Broth,35.6,7.04,24.0,1.7012,Synthetic – Demonstration Data
+94,Listeria monocytogenes,Mueller-Hinton,34.8,7.14,0.0,0.0102,Synthetic – Demonstration Data
+94,Listeria monocytogenes,Mueller-Hinton,34.8,7.14,2.0,0.0362,Synthetic – Demonstration Data
+94,Listeria monocytogenes,Mueller-Hinton,34.8,7.14,4.0,0.1687,Synthetic – Demonstration Data
+94,Listeria monocytogenes,Mueller-Hinton,34.8,7.14,6.0,0.2606,Synthetic – Demonstration Data
+94,Listeria monocytogenes,Mueller-Hinton,34.8,7.14,8.0,0.4612,Synthetic – Demonstration Data
+94,Listeria monocytogenes,Mueller-Hinton,34.8,7.14,10.0,0.6804,Synthetic – Demonstration Data
+94,Listeria monocytogenes,Mueller-Hinton,34.8,7.14,12.0,0.9088,Synthetic – Demonstration Data
+94,Listeria monocytogenes,Mueller-Hinton,34.8,7.14,14.0,1.1065,Synthetic – Demonstration Data
+94,Listeria monocytogenes,Mueller-Hinton,34.8,7.14,16.0,1.2083,Synthetic – Demonstration Data
+94,Listeria monocytogenes,Mueller-Hinton,34.8,7.14,18.0,1.2913,Synthetic – Demonstration Data
+94,Listeria monocytogenes,Mueller-Hinton,34.8,7.14,20.0,1.3258,Synthetic – Demonstration Data
+94,Listeria monocytogenes,Mueller-Hinton,34.8,7.14,22.0,1.3402,Synthetic – Demonstration Data
+94,Listeria monocytogenes,Mueller-Hinton,34.8,7.14,24.0,1.3471,Synthetic – Demonstration Data
+95,Candida albicans,Nutrient Agar,32.4,6.23,0.0,0.0684,Synthetic – Demonstration Data
+95,Candida albicans,Nutrient Agar,32.4,6.23,2.0,0.0498,Synthetic – Demonstration Data
+95,Candida albicans,Nutrient Agar,32.4,6.23,4.0,0.1177,Synthetic – Demonstration Data
+95,Candida albicans,Nutrient Agar,32.4,6.23,6.0,0.2227,Synthetic – Demonstration Data
+95,Candida albicans,Nutrient Agar,32.4,6.23,8.0,0.3198,Synthetic – Demonstration Data
+95,Candida albicans,Nutrient Agar,32.4,6.23,10.0,0.4727,Synthetic – Demonstration Data
+95,Candida albicans,Nutrient Agar,32.4,6.23,12.0,0.6699,Synthetic – Demonstration Data
+95,Candida albicans,Nutrient Agar,32.4,6.23,14.0,0.9035,Synthetic – Demonstration Data
+95,Candida albicans,Nutrient Agar,32.4,6.23,16.0,1.1563,Synthetic – Demonstration Data
+95,Candida albicans,Nutrient Agar,32.4,6.23,18.0,1.3616,Synthetic – Demonstration Data
+95,Candida albicans,Nutrient Agar,32.4,6.23,20.0,1.5365,Synthetic – Demonstration Data
+95,Candida albicans,Nutrient Agar,32.4,6.23,22.0,1.6626,Synthetic – Demonstration Data
+95,Candida albicans,Nutrient Agar,32.4,6.23,24.0,1.7327,Synthetic – Demonstration Data
+96,Escherichia coli,LB Broth,37.8,7.73,0.0,0.0279,Synthetic – Demonstration Data
+96,Escherichia coli,LB Broth,37.8,7.73,2.0,0.1044,Synthetic – Demonstration Data
+96,Escherichia coli,LB Broth,37.8,7.73,4.0,0.2055,Synthetic – Demonstration Data
+96,Escherichia coli,LB Broth,37.8,7.73,6.0,0.4271,Synthetic – Demonstration Data
+96,Escherichia coli,LB Broth,37.8,7.73,8.0,0.7561,Synthetic – Demonstration Data
+96,Escherichia coli,LB Broth,37.8,7.73,10.0,1.1067,Synthetic – Demonstration Data
+96,Escherichia coli,LB Broth,37.8,7.73,12.0,1.4258,Synthetic – Demonstration Data
+96,Escherichia coli,LB Broth,37.8,7.73,14.0,1.5505,Synthetic – Demonstration Data
+96,Escherichia coli,LB Broth,37.8,7.73,16.0,1.7179,Synthetic – Demonstration Data
+96,Escherichia coli,LB Broth,37.8,7.73,18.0,1.7411,Synthetic – Demonstration Data
+96,Escherichia coli,LB Broth,37.8,7.73,20.0,1.7739,Synthetic – Demonstration Data
+96,Escherichia coli,LB Broth,37.8,7.73,22.0,1.7413,Synthetic – Demonstration Data
+96,Escherichia coli,LB Broth,37.8,7.73,24.0,1.7521,Synthetic – Demonstration Data
+97,Staphylococcus aureus,Mueller-Hinton,37.2,7.2,0.0,0.0136,Synthetic – Demonstration Data
+97,Staphylococcus aureus,Mueller-Hinton,37.2,7.2,2.0,0.1348,Synthetic – Demonstration Data
+97,Staphylococcus aureus,Mueller-Hinton,37.2,7.2,4.0,0.2836,Synthetic – Demonstration Data
+97,Staphylococcus aureus,Mueller-Hinton,37.2,7.2,6.0,0.594,Synthetic – Demonstration Data
+97,Staphylococcus aureus,Mueller-Hinton,37.2,7.2,8.0,0.9883,Synthetic – Demonstration Data
+97,Staphylococcus aureus,Mueller-Hinton,37.2,7.2,10.0,1.3783,Synthetic – Demonstration Data
+97,Staphylococcus aureus,Mueller-Hinton,37.2,7.2,12.0,1.5294,Synthetic – Demonstration Data
+97,Staphylococcus aureus,Mueller-Hinton,37.2,7.2,14.0,1.6764,Synthetic – Demonstration Data
+97,Staphylococcus aureus,Mueller-Hinton,37.2,7.2,16.0,1.6747,Synthetic – Demonstration Data
+97,Staphylococcus aureus,Mueller-Hinton,37.2,7.2,18.0,1.7166,Synthetic – Demonstration Data
+97,Staphylococcus aureus,Mueller-Hinton,37.2,7.2,20.0,1.7188,Synthetic – Demonstration Data
+97,Staphylococcus aureus,Mueller-Hinton,37.2,7.2,22.0,1.744,Synthetic – Demonstration Data
+97,Staphylococcus aureus,Mueller-Hinton,37.2,7.2,24.0,1.7204,Synthetic – Demonstration Data
+98,Pseudomonas aeruginosa,Nutrient Agar,36.0,7.07,0.0,0.0357,Synthetic – Demonstration Data
+98,Pseudomonas aeruginosa,Nutrient Agar,36.0,7.07,2.0,0.0875,Synthetic – Demonstration Data
+98,Pseudomonas aeruginosa,Nutrient Agar,36.0,7.07,4.0,0.163,Synthetic – Demonstration Data
+98,Pseudomonas aeruginosa,Nutrient Agar,36.0,7.07,6.0,0.382,Synthetic – Demonstration Data
+98,Pseudomonas aeruginosa,Nutrient Agar,36.0,7.07,8.0,0.6319,Synthetic – Demonstration Data
+98,Pseudomonas aeruginosa,Nutrient Agar,36.0,7.07,10.0,1.0311,Synthetic – Demonstration Data
+98,Pseudomonas aeruginosa,Nutrient Agar,36.0,7.07,12.0,1.3435,Synthetic – Demonstration Data
+98,Pseudomonas aeruginosa,Nutrient Agar,36.0,7.07,14.0,1.6095,Synthetic – Demonstration Data
+98,Pseudomonas aeruginosa,Nutrient Agar,36.0,7.07,16.0,1.6755,Synthetic – Demonstration Data
+98,Pseudomonas aeruginosa,Nutrient Agar,36.0,7.07,18.0,1.759,Synthetic – Demonstration Data
+98,Pseudomonas aeruginosa,Nutrient Agar,36.0,7.07,20.0,1.8245,Synthetic – Demonstration Data
+98,Pseudomonas aeruginosa,Nutrient Agar,36.0,7.07,22.0,1.8281,Synthetic – Demonstration Data
+98,Pseudomonas aeruginosa,Nutrient Agar,36.0,7.07,24.0,1.8008,Synthetic – Demonstration Data
+99,Klebsiella pneumoniae,LB Broth,37.3,7.0,0.0,0.0349,Synthetic – Demonstration Data
+99,Klebsiella pneumoniae,LB Broth,37.3,7.0,2.0,0.0747,Synthetic – Demonstration Data
+99,Klebsiella pneumoniae,LB Broth,37.3,7.0,4.0,0.2771,Synthetic – Demonstration Data
+99,Klebsiella pneumoniae,LB Broth,37.3,7.0,6.0,0.6363,Synthetic – Demonstration Data
+99,Klebsiella pneumoniae,LB Broth,37.3,7.0,8.0,1.1127,Synthetic – Demonstration Data
+99,Klebsiella pneumoniae,LB Broth,37.3,7.0,10.0,1.4893,Synthetic – Demonstration Data
+99,Klebsiella pneumoniae,LB Broth,37.3,7.0,12.0,1.7475,Synthetic – Demonstration Data
+99,Klebsiella pneumoniae,LB Broth,37.3,7.0,14.0,1.8223,Synthetic – Demonstration Data
+99,Klebsiella pneumoniae,LB Broth,37.3,7.0,16.0,1.8338,Synthetic – Demonstration Data
+99,Klebsiella pneumoniae,LB Broth,37.3,7.0,18.0,1.8527,Synthetic – Demonstration Data
+99,Klebsiella pneumoniae,LB Broth,37.3,7.0,20.0,1.8345,Synthetic – Demonstration Data
+99,Klebsiella pneumoniae,LB Broth,37.3,7.0,22.0,1.8443,Synthetic – Demonstration Data
+99,Klebsiella pneumoniae,LB Broth,37.3,7.0,24.0,1.8535,Synthetic – Demonstration Data
+100,Bacillus subtilis,Mueller-Hinton,36.8,6.84,0.0,0.0418,Synthetic – Demonstration Data
+100,Bacillus subtilis,Mueller-Hinton,36.8,6.84,2.0,0.0776,Synthetic – Demonstration Data
+100,Bacillus subtilis,Mueller-Hinton,36.8,6.84,4.0,0.1829,Synthetic – Demonstration Data
+100,Bacillus subtilis,Mueller-Hinton,36.8,6.84,6.0,0.3201,Synthetic – Demonstration Data
+100,Bacillus subtilis,Mueller-Hinton,36.8,6.84,8.0,0.5611,Synthetic – Demonstration Data
+100,Bacillus subtilis,Mueller-Hinton,36.8,6.84,10.0,0.8922,Synthetic – Demonstration Data
+100,Bacillus subtilis,Mueller-Hinton,36.8,6.84,12.0,1.2167,Synthetic – Demonstration Data
+100,Bacillus subtilis,Mueller-Hinton,36.8,6.84,14.0,1.4252,Synthetic – Demonstration Data
+100,Bacillus subtilis,Mueller-Hinton,36.8,6.84,16.0,1.5842,Synthetic – Demonstration Data
+100,Bacillus subtilis,Mueller-Hinton,36.8,6.84,18.0,1.6349,Synthetic – Demonstration Data
+100,Bacillus subtilis,Mueller-Hinton,36.8,6.84,20.0,1.718,Synthetic – Demonstration Data
+100,Bacillus subtilis,Mueller-Hinton,36.8,6.84,22.0,1.6589,Synthetic – Demonstration Data
+100,Bacillus subtilis,Mueller-Hinton,36.8,6.84,24.0,1.7007,Synthetic – Demonstration Data
+101,Salmonella enterica,Nutrient Agar,35.3,7.08,0.0,0.0326,Synthetic – Demonstration Data
+101,Salmonella enterica,Nutrient Agar,35.3,7.08,2.0,0.0983,Synthetic – Demonstration Data
+101,Salmonella enterica,Nutrient Agar,35.3,7.08,4.0,0.1327,Synthetic – Demonstration Data
+101,Salmonella enterica,Nutrient Agar,35.3,7.08,6.0,0.297,Synthetic – Demonstration Data
+101,Salmonella enterica,Nutrient Agar,35.3,7.08,8.0,0.5654,Synthetic – Demonstration Data
+101,Salmonella enterica,Nutrient Agar,35.3,7.08,10.0,0.8751,Synthetic – Demonstration Data
+101,Salmonella enterica,Nutrient Agar,35.3,7.08,12.0,1.1792,Synthetic – Demonstration Data
+101,Salmonella enterica,Nutrient Agar,35.3,7.08,14.0,1.3646,Synthetic – Demonstration Data
+101,Salmonella enterica,Nutrient Agar,35.3,7.08,16.0,1.5369,Synthetic – Demonstration Data
+101,Salmonella enterica,Nutrient Agar,35.3,7.08,18.0,1.5817,Synthetic – Demonstration Data
+101,Salmonella enterica,Nutrient Agar,35.3,7.08,20.0,1.5922,Synthetic – Demonstration Data
+101,Salmonella enterica,Nutrient Agar,35.3,7.08,22.0,1.6246,Synthetic – Demonstration Data
+101,Salmonella enterica,Nutrient Agar,35.3,7.08,24.0,1.617,Synthetic – Demonstration Data
+102,Enterococcus faecalis,LB Broth,36.2,7.55,0.0,0.0201,Synthetic – Demonstration Data
+102,Enterococcus faecalis,LB Broth,36.2,7.55,2.0,0.0935,Synthetic – Demonstration Data
+102,Enterococcus faecalis,LB Broth,36.2,7.55,4.0,0.2679,Synthetic – Demonstration Data
+102,Enterococcus faecalis,LB Broth,36.2,7.55,6.0,0.4851,Synthetic – Demonstration Data
+102,Enterococcus faecalis,LB Broth,36.2,7.55,8.0,0.7876,Synthetic – Demonstration Data
+102,Enterococcus faecalis,LB Broth,36.2,7.55,10.0,1.0807,Synthetic – Demonstration Data
+102,Enterococcus faecalis,LB Broth,36.2,7.55,12.0,1.3021,Synthetic – Demonstration Data
+102,Enterococcus faecalis,LB Broth,36.2,7.55,14.0,1.4274,Synthetic – Demonstration Data
+102,Enterococcus faecalis,LB Broth,36.2,7.55,16.0,1.4798,Synthetic – Demonstration Data
+102,Enterococcus faecalis,LB Broth,36.2,7.55,18.0,1.5005,Synthetic – Demonstration Data
+102,Enterococcus faecalis,LB Broth,36.2,7.55,20.0,1.5112,Synthetic – Demonstration Data
+102,Enterococcus faecalis,LB Broth,36.2,7.55,22.0,1.5119,Synthetic – Demonstration Data
+102,Enterococcus faecalis,LB Broth,36.2,7.55,24.0,1.4915,Synthetic – Demonstration Data
+103,Streptococcus pneumoniae,Mueller-Hinton,36.2,7.53,0.0,0.0243,Synthetic – Demonstration Data
+103,Streptococcus pneumoniae,Mueller-Hinton,36.2,7.53,2.0,0.0822,Synthetic – Demonstration Data
+103,Streptococcus pneumoniae,Mueller-Hinton,36.2,7.53,4.0,0.1522,Synthetic – Demonstration Data
+103,Streptococcus pneumoniae,Mueller-Hinton,36.2,7.53,6.0,0.3246,Synthetic – Demonstration Data
+103,Streptococcus pneumoniae,Mueller-Hinton,36.2,7.53,8.0,0.5156,Synthetic – Demonstration Data
+103,Streptococcus pneumoniae,Mueller-Hinton,36.2,7.53,10.0,0.7323,Synthetic – Demonstration Data
+103,Streptococcus pneumoniae,Mueller-Hinton,36.2,7.53,12.0,0.9971,Synthetic – Demonstration Data
+103,Streptococcus pneumoniae,Mueller-Hinton,36.2,7.53,14.0,1.1354,Synthetic – Demonstration Data
+103,Streptococcus pneumoniae,Mueller-Hinton,36.2,7.53,16.0,1.2372,Synthetic – Demonstration Data
+103,Streptococcus pneumoniae,Mueller-Hinton,36.2,7.53,18.0,1.3057,Synthetic – Demonstration Data
+103,Streptococcus pneumoniae,Mueller-Hinton,36.2,7.53,20.0,1.3175,Synthetic – Demonstration Data
+103,Streptococcus pneumoniae,Mueller-Hinton,36.2,7.53,22.0,1.3552,Synthetic – Demonstration Data
+103,Streptococcus pneumoniae,Mueller-Hinton,36.2,7.53,24.0,1.3313,Synthetic – Demonstration Data
+104,Acinetobacter baumannii,Nutrient Agar,36.1,6.84,0.0,0.0568,Synthetic – Demonstration Data
+104,Acinetobacter baumannii,Nutrient Agar,36.1,6.84,2.0,0.1214,Synthetic – Demonstration Data
+104,Acinetobacter baumannii,Nutrient Agar,36.1,6.84,4.0,0.2155,Synthetic – Demonstration Data
+104,Acinetobacter baumannii,Nutrient Agar,36.1,6.84,6.0,0.2992,Synthetic – Demonstration Data
+104,Acinetobacter baumannii,Nutrient Agar,36.1,6.84,8.0,0.5289,Synthetic – Demonstration Data
+104,Acinetobacter baumannii,Nutrient Agar,36.1,6.84,10.0,0.7554,Synthetic – Demonstration Data
+104,Acinetobacter baumannii,Nutrient Agar,36.1,6.84,12.0,0.9932,Synthetic – Demonstration Data
+104,Acinetobacter baumannii,Nutrient Agar,36.1,6.84,14.0,1.1656,Synthetic – Demonstration Data
+104,Acinetobacter baumannii,Nutrient Agar,36.1,6.84,16.0,1.2627,Synthetic – Demonstration Data
+104,Acinetobacter baumannii,Nutrient Agar,36.1,6.84,18.0,1.3207,Synthetic – Demonstration Data
+104,Acinetobacter baumannii,Nutrient Agar,36.1,6.84,20.0,1.3671,Synthetic – Demonstration Data
+104,Acinetobacter baumannii,Nutrient Agar,36.1,6.84,22.0,1.3628,Synthetic – Demonstration Data
+104,Acinetobacter baumannii,Nutrient Agar,36.1,6.84,24.0,1.4073,Synthetic – Demonstration Data
+105,Proteus mirabilis,LB Broth,35.6,7.9,0.0,0.017,Synthetic – Demonstration Data
+105,Proteus mirabilis,LB Broth,35.6,7.9,2.0,0.1124,Synthetic – Demonstration Data
+105,Proteus mirabilis,LB Broth,35.6,7.9,4.0,0.1815,Synthetic – Demonstration Data
+105,Proteus mirabilis,LB Broth,35.6,7.9,6.0,0.3097,Synthetic – Demonstration Data
+105,Proteus mirabilis,LB Broth,35.6,7.9,8.0,0.5074,Synthetic – Demonstration Data
+105,Proteus mirabilis,LB Broth,35.6,7.9,10.0,0.8345,Synthetic – Demonstration Data
+105,Proteus mirabilis,LB Broth,35.6,7.9,12.0,1.1198,Synthetic – Demonstration Data
+105,Proteus mirabilis,LB Broth,35.6,7.9,14.0,1.4157,Synthetic – Demonstration Data
+105,Proteus mirabilis,LB Broth,35.6,7.9,16.0,1.5678,Synthetic – Demonstration Data
+105,Proteus mirabilis,LB Broth,35.6,7.9,18.0,1.6485,Synthetic – Demonstration Data
+105,Proteus mirabilis,LB Broth,35.6,7.9,20.0,1.6522,Synthetic – Demonstration Data
+105,Proteus mirabilis,LB Broth,35.6,7.9,22.0,1.7032,Synthetic – Demonstration Data
+105,Proteus mirabilis,LB Broth,35.6,7.9,24.0,1.7455,Synthetic – Demonstration Data
+106,Listeria monocytogenes,Mueller-Hinton,36.8,7.28,0.0,0.0598,Synthetic – Demonstration Data
+106,Listeria monocytogenes,Mueller-Hinton,36.8,7.28,2.0,0.0466,Synthetic – Demonstration Data
+106,Listeria monocytogenes,Mueller-Hinton,36.8,7.28,4.0,0.1375,Synthetic – Demonstration Data
+106,Listeria monocytogenes,Mueller-Hinton,36.8,7.28,6.0,0.243,Synthetic – Demonstration Data
+106,Listeria monocytogenes,Mueller-Hinton,36.8,7.28,8.0,0.3818,Synthetic – Demonstration Data
+106,Listeria monocytogenes,Mueller-Hinton,36.8,7.28,10.0,0.545,Synthetic – Demonstration Data
+106,Listeria monocytogenes,Mueller-Hinton,36.8,7.28,12.0,0.7761,Synthetic – Demonstration Data
+106,Listeria monocytogenes,Mueller-Hinton,36.8,7.28,14.0,0.9544,Synthetic – Demonstration Data
+106,Listeria monocytogenes,Mueller-Hinton,36.8,7.28,16.0,1.089,Synthetic – Demonstration Data
+106,Listeria monocytogenes,Mueller-Hinton,36.8,7.28,18.0,1.1665,Synthetic – Demonstration Data
+106,Listeria monocytogenes,Mueller-Hinton,36.8,7.28,20.0,1.219,Synthetic – Demonstration Data
+106,Listeria monocytogenes,Mueller-Hinton,36.8,7.28,22.0,1.2546,Synthetic – Demonstration Data
+106,Listeria monocytogenes,Mueller-Hinton,36.8,7.28,24.0,1.2788,Synthetic – Demonstration Data
+107,Candida albicans,Nutrient Agar,29.5,6.4,0.0,0.039,Synthetic – Demonstration Data
+107,Candida albicans,Nutrient Agar,29.5,6.4,2.0,0.0545,Synthetic – Demonstration Data
+107,Candida albicans,Nutrient Agar,29.5,6.4,4.0,0.0974,Synthetic – Demonstration Data
+107,Candida albicans,Nutrient Agar,29.5,6.4,6.0,0.186,Synthetic – Demonstration Data
+107,Candida albicans,Nutrient Agar,29.5,6.4,8.0,0.2505,Synthetic – Demonstration Data
+107,Candida albicans,Nutrient Agar,29.5,6.4,10.0,0.4265,Synthetic – Demonstration Data
+107,Candida albicans,Nutrient Agar,29.5,6.4,12.0,0.7051,Synthetic – Demonstration Data
+107,Candida albicans,Nutrient Agar,29.5,6.4,14.0,0.9773,Synthetic – Demonstration Data
+107,Candida albicans,Nutrient Agar,29.5,6.4,16.0,1.2531,Synthetic – Demonstration Data
+107,Candida albicans,Nutrient Agar,29.5,6.4,18.0,1.4685,Synthetic – Demonstration Data
+107,Candida albicans,Nutrient Agar,29.5,6.4,20.0,1.6526,Synthetic – Demonstration Data
+107,Candida albicans,Nutrient Agar,29.5,6.4,22.0,1.7642,Synthetic – Demonstration Data
+107,Candida albicans,Nutrient Agar,29.5,6.4,24.0,1.821,Synthetic – Demonstration Data
+108,Escherichia coli,LB Broth,36.6,6.47,0.0,0.0577,Synthetic – Demonstration Data
+108,Escherichia coli,LB Broth,36.6,6.47,2.0,0.0977,Synthetic – Demonstration Data
+108,Escherichia coli,LB Broth,36.6,6.47,4.0,0.2783,Synthetic – Demonstration Data
+108,Escherichia coli,LB Broth,36.6,6.47,6.0,0.5788,Synthetic – Demonstration Data
+108,Escherichia coli,LB Broth,36.6,6.47,8.0,1.0304,Synthetic – Demonstration Data
+108,Escherichia coli,LB Broth,36.6,6.47,10.0,1.428,Synthetic – Demonstration Data
+108,Escherichia coli,LB Broth,36.6,6.47,12.0,1.7412,Synthetic – Demonstration Data
+108,Escherichia coli,LB Broth,36.6,6.47,14.0,1.9145,Synthetic – Demonstration Data
+108,Escherichia coli,LB Broth,36.6,6.47,16.0,1.971,Synthetic – Demonstration Data
+108,Escherichia coli,LB Broth,36.6,6.47,18.0,1.9783,Synthetic – Demonstration Data
+108,Escherichia coli,LB Broth,36.6,6.47,20.0,2.0173,Synthetic – Demonstration Data
+108,Escherichia coli,LB Broth,36.6,6.47,22.0,2.0247,Synthetic – Demonstration Data
+108,Escherichia coli,LB Broth,36.6,6.47,24.0,2.0177,Synthetic – Demonstration Data
+109,Staphylococcus aureus,Mueller-Hinton,37.3,7.14,0.0,0.0249,Synthetic – Demonstration Data
+109,Staphylococcus aureus,Mueller-Hinton,37.3,7.14,2.0,0.0908,Synthetic – Demonstration Data
+109,Staphylococcus aureus,Mueller-Hinton,37.3,7.14,4.0,0.2365,Synthetic – Demonstration Data
+109,Staphylococcus aureus,Mueller-Hinton,37.3,7.14,6.0,0.4584,Synthetic – Demonstration Data
+109,Staphylococcus aureus,Mueller-Hinton,37.3,7.14,8.0,0.8675,Synthetic – Demonstration Data
+109,Staphylococcus aureus,Mueller-Hinton,37.3,7.14,10.0,1.269,Synthetic – Demonstration Data
+109,Staphylococcus aureus,Mueller-Hinton,37.3,7.14,12.0,1.5864,Synthetic – Demonstration Data
+109,Staphylococcus aureus,Mueller-Hinton,37.3,7.14,14.0,1.7064,Synthetic – Demonstration Data
+109,Staphylococcus aureus,Mueller-Hinton,37.3,7.14,16.0,1.7798,Synthetic – Demonstration Data
+109,Staphylococcus aureus,Mueller-Hinton,37.3,7.14,18.0,1.8226,Synthetic – Demonstration Data
+109,Staphylococcus aureus,Mueller-Hinton,37.3,7.14,20.0,1.8084,Synthetic – Demonstration Data
+109,Staphylococcus aureus,Mueller-Hinton,37.3,7.14,22.0,1.8276,Synthetic – Demonstration Data
+109,Staphylococcus aureus,Mueller-Hinton,37.3,7.14,24.0,1.8194,Synthetic – Demonstration Data
+110,Pseudomonas aeruginosa,Nutrient Agar,38.0,7.32,0.0,0.0579,Synthetic – Demonstration Data
+110,Pseudomonas aeruginosa,Nutrient Agar,38.0,7.32,2.0,0.0915,Synthetic – Demonstration Data
+110,Pseudomonas aeruginosa,Nutrient Agar,38.0,7.32,4.0,0.151,Synthetic – Demonstration Data
+110,Pseudomonas aeruginosa,Nutrient Agar,38.0,7.32,6.0,0.3575,Synthetic – Demonstration Data
+110,Pseudomonas aeruginosa,Nutrient Agar,38.0,7.32,8.0,0.5912,Synthetic – Demonstration Data
+110,Pseudomonas aeruginosa,Nutrient Agar,38.0,7.32,10.0,0.9591,Synthetic – Demonstration Data
+110,Pseudomonas aeruginosa,Nutrient Agar,38.0,7.32,12.0,1.2445,Synthetic – Demonstration Data
+110,Pseudomonas aeruginosa,Nutrient Agar,38.0,7.32,14.0,1.433,Synthetic – Demonstration Data
+110,Pseudomonas aeruginosa,Nutrient Agar,38.0,7.32,16.0,1.545,Synthetic – Demonstration Data
+110,Pseudomonas aeruginosa,Nutrient Agar,38.0,7.32,18.0,1.5962,Synthetic – Demonstration Data
+110,Pseudomonas aeruginosa,Nutrient Agar,38.0,7.32,20.0,1.6397,Synthetic – Demonstration Data
+110,Pseudomonas aeruginosa,Nutrient Agar,38.0,7.32,22.0,1.6336,Synthetic – Demonstration Data
+110,Pseudomonas aeruginosa,Nutrient Agar,38.0,7.32,24.0,1.6503,Synthetic – Demonstration Data
+111,Klebsiella pneumoniae,LB Broth,38.3,6.86,0.0,0.0149,Synthetic – Demonstration Data
+111,Klebsiella pneumoniae,LB Broth,38.3,6.86,2.0,0.0555,Synthetic – Demonstration Data
+111,Klebsiella pneumoniae,LB Broth,38.3,6.86,4.0,0.2321,Synthetic – Demonstration Data
+111,Klebsiella pneumoniae,LB Broth,38.3,6.86,6.0,0.5194,Synthetic – Demonstration Data
+111,Klebsiella pneumoniae,LB Broth,38.3,6.86,8.0,0.9202,Synthetic – Demonstration Data
+111,Klebsiella pneumoniae,LB Broth,38.3,6.86,10.0,1.2713,Synthetic – Demonstration Data
+111,Klebsiella pneumoniae,LB Broth,38.3,6.86,12.0,1.5785,Synthetic – Demonstration Data
+111,Klebsiella pneumoniae,LB Broth,38.3,6.86,14.0,1.7196,Synthetic – Demonstration Data
+111,Klebsiella pneumoniae,LB Broth,38.3,6.86,16.0,1.7392,Synthetic – Demonstration Data
+111,Klebsiella pneumoniae,LB Broth,38.3,6.86,18.0,1.7701,Synthetic – Demonstration Data
+111,Klebsiella pneumoniae,LB Broth,38.3,6.86,20.0,1.74,Synthetic – Demonstration Data
+111,Klebsiella pneumoniae,LB Broth,38.3,6.86,22.0,1.7839,Synthetic – Demonstration Data
+111,Klebsiella pneumoniae,LB Broth,38.3,6.86,24.0,1.7611,Synthetic – Demonstration Data
+112,Bacillus subtilis,Mueller-Hinton,35.3,6.61,0.0,0.031,Synthetic – Demonstration Data
+112,Bacillus subtilis,Mueller-Hinton,35.3,6.61,2.0,0.0744,Synthetic – Demonstration Data
+112,Bacillus subtilis,Mueller-Hinton,35.3,6.61,4.0,0.1542,Synthetic – Demonstration Data
+112,Bacillus subtilis,Mueller-Hinton,35.3,6.61,6.0,0.3644,Synthetic – Demonstration Data
+112,Bacillus subtilis,Mueller-Hinton,35.3,6.61,8.0,0.6276,Synthetic – Demonstration Data
+112,Bacillus subtilis,Mueller-Hinton,35.3,6.61,10.0,0.9328,Synthetic – Demonstration Data
+112,Bacillus subtilis,Mueller-Hinton,35.3,6.61,12.0,1.2612,Synthetic – Demonstration Data
+112,Bacillus subtilis,Mueller-Hinton,35.3,6.61,14.0,1.4496,Synthetic – Demonstration Data
+112,Bacillus subtilis,Mueller-Hinton,35.3,6.61,16.0,1.5571,Synthetic – Demonstration Data
+112,Bacillus subtilis,Mueller-Hinton,35.3,6.61,18.0,1.6281,Synthetic – Demonstration Data
+112,Bacillus subtilis,Mueller-Hinton,35.3,6.61,20.0,1.6874,Synthetic – Demonstration Data
+112,Bacillus subtilis,Mueller-Hinton,35.3,6.61,22.0,1.6932,Synthetic – Demonstration Data
+112,Bacillus subtilis,Mueller-Hinton,35.3,6.61,24.0,1.6867,Synthetic – Demonstration Data
+113,Salmonella enterica,Nutrient Agar,37.9,6.91,0.0,0.0323,Synthetic – Demonstration Data
+113,Salmonella enterica,Nutrient Agar,37.9,6.91,2.0,0.0971,Synthetic – Demonstration Data
+113,Salmonella enterica,Nutrient Agar,37.9,6.91,4.0,0.1745,Synthetic – Demonstration Data
+113,Salmonella enterica,Nutrient Agar,37.9,6.91,6.0,0.3807,Synthetic – Demonstration Data
+113,Salmonella enterica,Nutrient Agar,37.9,6.91,8.0,0.6615,Synthetic – Demonstration Data
+113,Salmonella enterica,Nutrient Agar,37.9,6.91,10.0,0.9252,Synthetic – Demonstration Data
+113,Salmonella enterica,Nutrient Agar,37.9,6.91,12.0,1.2774,Synthetic – Demonstration Data
+113,Salmonella enterica,Nutrient Agar,37.9,6.91,14.0,1.3821,Synthetic – Demonstration Data
+113,Salmonella enterica,Nutrient Agar,37.9,6.91,16.0,1.5238,Synthetic – Demonstration Data
+113,Salmonella enterica,Nutrient Agar,37.9,6.91,18.0,1.601,Synthetic – Demonstration Data
+113,Salmonella enterica,Nutrient Agar,37.9,6.91,20.0,1.5989,Synthetic – Demonstration Data
+113,Salmonella enterica,Nutrient Agar,37.9,6.91,22.0,1.5882,Synthetic – Demonstration Data
+113,Salmonella enterica,Nutrient Agar,37.9,6.91,24.0,1.5994,Synthetic – Demonstration Data
+114,Enterococcus faecalis,LB Broth,38.5,6.92,0.0,0.0183,Synthetic – Demonstration Data
+114,Enterococcus faecalis,LB Broth,38.5,6.92,2.0,0.0725,Synthetic – Demonstration Data
+114,Enterococcus faecalis,LB Broth,38.5,6.92,4.0,0.1503,Synthetic – Demonstration Data
+114,Enterococcus faecalis,LB Broth,38.5,6.92,6.0,0.3407,Synthetic – Demonstration Data
+114,Enterococcus faecalis,LB Broth,38.5,6.92,8.0,0.5862,Synthetic – Demonstration Data
+114,Enterococcus faecalis,LB Broth,38.5,6.92,10.0,0.8586,Synthetic – Demonstration Data
+114,Enterococcus faecalis,LB Broth,38.5,6.92,12.0,1.1908,Synthetic – Demonstration Data
+114,Enterococcus faecalis,LB Broth,38.5,6.92,14.0,1.4138,Synthetic – Demonstration Data
+114,Enterococcus faecalis,LB Broth,38.5,6.92,16.0,1.594,Synthetic – Demonstration Data
+114,Enterococcus faecalis,LB Broth,38.5,6.92,18.0,1.6224,Synthetic – Demonstration Data
+114,Enterococcus faecalis,LB Broth,38.5,6.92,20.0,1.7136,Synthetic – Demonstration Data
+114,Enterococcus faecalis,LB Broth,38.5,6.92,22.0,1.7024,Synthetic – Demonstration Data
+114,Enterococcus faecalis,LB Broth,38.5,6.92,24.0,1.6908,Synthetic – Demonstration Data
+115,Streptococcus pneumoniae,Mueller-Hinton,36.0,7.1,0.0,0.0184,Synthetic – Demonstration Data
+115,Streptococcus pneumoniae,Mueller-Hinton,36.0,7.1,2.0,0.0439,Synthetic – Demonstration Data
+115,Streptococcus pneumoniae,Mueller-Hinton,36.0,7.1,4.0,0.1583,Synthetic – Demonstration Data
+115,Streptococcus pneumoniae,Mueller-Hinton,36.0,7.1,6.0,0.2759,Synthetic – Demonstration Data
+115,Streptococcus pneumoniae,Mueller-Hinton,36.0,7.1,8.0,0.508,Synthetic – Demonstration Data
+115,Streptococcus pneumoniae,Mueller-Hinton,36.0,7.1,10.0,0.7571,Synthetic – Demonstration Data
+115,Streptococcus pneumoniae,Mueller-Hinton,36.0,7.1,12.0,0.9856,Synthetic – Demonstration Data
+115,Streptococcus pneumoniae,Mueller-Hinton,36.0,7.1,14.0,1.1987,Synthetic – Demonstration Data
+115,Streptococcus pneumoniae,Mueller-Hinton,36.0,7.1,16.0,1.2592,Synthetic – Demonstration Data
+115,Streptococcus pneumoniae,Mueller-Hinton,36.0,7.1,18.0,1.3133,Synthetic – Demonstration Data
+115,Streptococcus pneumoniae,Mueller-Hinton,36.0,7.1,20.0,1.3022,Synthetic – Demonstration Data
+115,Streptococcus pneumoniae,Mueller-Hinton,36.0,7.1,22.0,1.3347,Synthetic – Demonstration Data
+115,Streptococcus pneumoniae,Mueller-Hinton,36.0,7.1,24.0,1.3562,Synthetic – Demonstration Data
+116,Acinetobacter baumannii,Nutrient Agar,35.5,7.23,0.0,0.028,Synthetic – Demonstration Data
+116,Acinetobacter baumannii,Nutrient Agar,35.5,7.23,2.0,0.0776,Synthetic – Demonstration Data
+116,Acinetobacter baumannii,Nutrient Agar,35.5,7.23,4.0,0.1291,Synthetic – Demonstration Data
+116,Acinetobacter baumannii,Nutrient Agar,35.5,7.23,6.0,0.2488,Synthetic – Demonstration Data
+116,Acinetobacter baumannii,Nutrient Agar,35.5,7.23,8.0,0.4213,Synthetic – Demonstration Data
+116,Acinetobacter baumannii,Nutrient Agar,35.5,7.23,10.0,0.6324,Synthetic – Demonstration Data
+116,Acinetobacter baumannii,Nutrient Agar,35.5,7.23,12.0,0.8811,Synthetic – Demonstration Data
+116,Acinetobacter baumannii,Nutrient Agar,35.5,7.23,14.0,1.0639,Synthetic – Demonstration Data
+116,Acinetobacter baumannii,Nutrient Agar,35.5,7.23,16.0,1.1862,Synthetic – Demonstration Data
+116,Acinetobacter baumannii,Nutrient Agar,35.5,7.23,18.0,1.257,Synthetic – Demonstration Data
+116,Acinetobacter baumannii,Nutrient Agar,35.5,7.23,20.0,1.3216,Synthetic – Demonstration Data
+116,Acinetobacter baumannii,Nutrient Agar,35.5,7.23,22.0,1.3256,Synthetic – Demonstration Data
+116,Acinetobacter baumannii,Nutrient Agar,35.5,7.23,24.0,1.3359,Synthetic – Demonstration Data
+117,Proteus mirabilis,LB Broth,37.2,7.62,0.0,0.01,Synthetic – Demonstration Data
+117,Proteus mirabilis,LB Broth,37.2,7.62,2.0,0.1039,Synthetic – Demonstration Data
+117,Proteus mirabilis,LB Broth,37.2,7.62,4.0,0.2468,Synthetic – Demonstration Data
+117,Proteus mirabilis,LB Broth,37.2,7.62,6.0,0.4468,Synthetic – Demonstration Data
+117,Proteus mirabilis,LB Broth,37.2,7.62,8.0,0.7649,Synthetic – Demonstration Data
+117,Proteus mirabilis,LB Broth,37.2,7.62,10.0,1.0988,Synthetic – Demonstration Data
+117,Proteus mirabilis,LB Broth,37.2,7.62,12.0,1.3742,Synthetic – Demonstration Data
+117,Proteus mirabilis,LB Broth,37.2,7.62,14.0,1.5235,Synthetic – Demonstration Data
+117,Proteus mirabilis,LB Broth,37.2,7.62,16.0,1.5902,Synthetic – Demonstration Data
+117,Proteus mirabilis,LB Broth,37.2,7.62,18.0,1.6338,Synthetic – Demonstration Data
+117,Proteus mirabilis,LB Broth,37.2,7.62,20.0,1.6577,Synthetic – Demonstration Data
+117,Proteus mirabilis,LB Broth,37.2,7.62,22.0,1.6468,Synthetic – Demonstration Data
+117,Proteus mirabilis,LB Broth,37.2,7.62,24.0,1.6488,Synthetic – Demonstration Data
+118,Listeria monocytogenes,Mueller-Hinton,33.0,7.1,0.0,0.0585,Synthetic – Demonstration Data
+118,Listeria monocytogenes,Mueller-Hinton,33.0,7.1,2.0,0.0803,Synthetic – Demonstration Data
+118,Listeria monocytogenes,Mueller-Hinton,33.0,7.1,4.0,0.1541,Synthetic – Demonstration Data
+118,Listeria monocytogenes,Mueller-Hinton,33.0,7.1,6.0,0.2685,Synthetic – Demonstration Data
+118,Listeria monocytogenes,Mueller-Hinton,33.0,7.1,8.0,0.4378,Synthetic – Demonstration Data
+118,Listeria monocytogenes,Mueller-Hinton,33.0,7.1,10.0,0.6574,Synthetic – Demonstration Data
+118,Listeria monocytogenes,Mueller-Hinton,33.0,7.1,12.0,0.9454,Synthetic – Demonstration Data
+118,Listeria monocytogenes,Mueller-Hinton,33.0,7.1,14.0,1.0988,Synthetic – Demonstration Data
+118,Listeria monocytogenes,Mueller-Hinton,33.0,7.1,16.0,1.2362,Synthetic – Demonstration Data
+118,Listeria monocytogenes,Mueller-Hinton,33.0,7.1,18.0,1.3426,Synthetic – Demonstration Data
+118,Listeria monocytogenes,Mueller-Hinton,33.0,7.1,20.0,1.3882,Synthetic – Demonstration Data
+118,Listeria monocytogenes,Mueller-Hinton,33.0,7.1,22.0,1.3846,Synthetic – Demonstration Data
+118,Listeria monocytogenes,Mueller-Hinton,33.0,7.1,24.0,1.4439,Synthetic – Demonstration Data
+119,Candida albicans,Nutrient Agar,29.9,6.22,0.0,0.0204,Synthetic – Demonstration Data
+119,Candida albicans,Nutrient Agar,29.9,6.22,2.0,0.1069,Synthetic – Demonstration Data
+119,Candida albicans,Nutrient Agar,29.9,6.22,4.0,0.1405,Synthetic – Demonstration Data
+119,Candida albicans,Nutrient Agar,29.9,6.22,6.0,0.2164,Synthetic – Demonstration Data
+119,Candida albicans,Nutrient Agar,29.9,6.22,8.0,0.382,Synthetic – Demonstration Data
+119,Candida albicans,Nutrient Agar,29.9,6.22,10.0,0.5527,Synthetic – Demonstration Data
+119,Candida albicans,Nutrient Agar,29.9,6.22,12.0,0.8018,Synthetic – Demonstration Data
+119,Candida albicans,Nutrient Agar,29.9,6.22,14.0,1.0723,Synthetic – Demonstration Data
+119,Candida albicans,Nutrient Agar,29.9,6.22,16.0,1.3639,Synthetic – Demonstration Data
+119,Candida albicans,Nutrient Agar,29.9,6.22,18.0,1.5835,Synthetic – Demonstration Data
+119,Candida albicans,Nutrient Agar,29.9,6.22,20.0,1.7359,Synthetic – Demonstration Data
+119,Candida albicans,Nutrient Agar,29.9,6.22,22.0,1.8279,Synthetic – Demonstration Data
+119,Candida albicans,Nutrient Agar,29.9,6.22,24.0,1.9107,Synthetic – Demonstration Data
+120,Escherichia coli,LB Broth,36.9,6.67,0.0,0.01,Synthetic – Demonstration Data
+120,Escherichia coli,LB Broth,36.9,6.67,2.0,0.1181,Synthetic – Demonstration Data
+120,Escherichia coli,LB Broth,36.9,6.67,4.0,0.2774,Synthetic – Demonstration Data
+120,Escherichia coli,LB Broth,36.9,6.67,6.0,0.6438,Synthetic – Demonstration Data
+120,Escherichia coli,LB Broth,36.9,6.67,8.0,1.0604,Synthetic – Demonstration Data
+120,Escherichia coli,LB Broth,36.9,6.67,10.0,1.4569,Synthetic – Demonstration Data
+120,Escherichia coli,LB Broth,36.9,6.67,12.0,1.6467,Synthetic – Demonstration Data
+120,Escherichia coli,LB Broth,36.9,6.67,14.0,1.7464,Synthetic – Demonstration Data
+120,Escherichia coli,LB Broth,36.9,6.67,16.0,1.7926,Synthetic – Demonstration Data
+120,Escherichia coli,LB Broth,36.9,6.67,18.0,1.7839,Synthetic – Demonstration Data
+120,Escherichia coli,LB Broth,36.9,6.67,20.0,1.8149,Synthetic – Demonstration Data
+120,Escherichia coli,LB Broth,36.9,6.67,22.0,1.7807,Synthetic – Demonstration Data
+120,Escherichia coli,LB Broth,36.9,6.67,24.0,1.8045,Synthetic – Demonstration Data
+121,Staphylococcus aureus,Mueller-Hinton,38.4,7.37,0.0,0.0114,Synthetic – Demonstration Data
+121,Staphylococcus aureus,Mueller-Hinton,38.4,7.37,2.0,0.0679,Synthetic – Demonstration Data
+121,Staphylococcus aureus,Mueller-Hinton,38.4,7.37,4.0,0.2079,Synthetic – Demonstration Data
+121,Staphylococcus aureus,Mueller-Hinton,38.4,7.37,6.0,0.4238,Synthetic – Demonstration Data
+121,Staphylococcus aureus,Mueller-Hinton,38.4,7.37,8.0,0.7676,Synthetic – Demonstration Data
+121,Staphylococcus aureus,Mueller-Hinton,38.4,7.37,10.0,1.1528,Synthetic – Demonstration Data
+121,Staphylococcus aureus,Mueller-Hinton,38.4,7.37,12.0,1.5145,Synthetic – Demonstration Data
+121,Staphylococcus aureus,Mueller-Hinton,38.4,7.37,14.0,1.6729,Synthetic – Demonstration Data
+121,Staphylococcus aureus,Mueller-Hinton,38.4,7.37,16.0,1.811,Synthetic – Demonstration Data
+121,Staphylococcus aureus,Mueller-Hinton,38.4,7.37,18.0,1.8837,Synthetic – Demonstration Data
+121,Staphylococcus aureus,Mueller-Hinton,38.4,7.37,20.0,1.8568,Synthetic – Demonstration Data
+121,Staphylococcus aureus,Mueller-Hinton,38.4,7.37,22.0,1.8682,Synthetic – Demonstration Data
+121,Staphylococcus aureus,Mueller-Hinton,38.4,7.37,24.0,1.8519,Synthetic – Demonstration Data
+122,Pseudomonas aeruginosa,Nutrient Agar,34.3,7.05,0.0,0.0638,Synthetic – Demonstration Data
+122,Pseudomonas aeruginosa,Nutrient Agar,34.3,7.05,2.0,0.0716,Synthetic – Demonstration Data
+122,Pseudomonas aeruginosa,Nutrient Agar,34.3,7.05,4.0,0.1396,Synthetic – Demonstration Data
+122,Pseudomonas aeruginosa,Nutrient Agar,34.3,7.05,6.0,0.248,Synthetic – Demonstration Data
+122,Pseudomonas aeruginosa,Nutrient Agar,34.3,7.05,8.0,0.4479,Synthetic – Demonstration Data
+122,Pseudomonas aeruginosa,Nutrient Agar,34.3,7.05,10.0,0.7381,Synthetic – Demonstration Data
+122,Pseudomonas aeruginosa,Nutrient Agar,34.3,7.05,12.0,1.0112,Synthetic – Demonstration Data
+122,Pseudomonas aeruginosa,Nutrient Agar,34.3,7.05,14.0,1.2652,Synthetic – Demonstration Data
+122,Pseudomonas aeruginosa,Nutrient Agar,34.3,7.05,16.0,1.4167,Synthetic – Demonstration Data
+122,Pseudomonas aeruginosa,Nutrient Agar,34.3,7.05,18.0,1.5097,Synthetic – Demonstration Data
+122,Pseudomonas aeruginosa,Nutrient Agar,34.3,7.05,20.0,1.5412,Synthetic – Demonstration Data
+122,Pseudomonas aeruginosa,Nutrient Agar,34.3,7.05,22.0,1.5565,Synthetic – Demonstration Data
+122,Pseudomonas aeruginosa,Nutrient Agar,34.3,7.05,24.0,1.6,Synthetic – Demonstration Data
+123,Klebsiella pneumoniae,LB Broth,37.1,6.68,0.0,0.01,Synthetic – Demonstration Data
+123,Klebsiella pneumoniae,LB Broth,37.1,6.68,2.0,0.0862,Synthetic – Demonstration Data
+123,Klebsiella pneumoniae,LB Broth,37.1,6.68,4.0,0.2558,Synthetic – Demonstration Data
+123,Klebsiella pneumoniae,LB Broth,37.1,6.68,6.0,0.5441,Synthetic – Demonstration Data
+123,Klebsiella pneumoniae,LB Broth,37.1,6.68,8.0,0.9376,Synthetic – Demonstration Data
+123,Klebsiella pneumoniae,LB Broth,37.1,6.68,10.0,1.3657,Synthetic – Demonstration Data
+123,Klebsiella pneumoniae,LB Broth,37.1,6.68,12.0,1.6404,Synthetic – Demonstration Data
+123,Klebsiella pneumoniae,LB Broth,37.1,6.68,14.0,1.7617,Synthetic – Demonstration Data
+123,Klebsiella pneumoniae,LB Broth,37.1,6.68,16.0,1.7988,Synthetic – Demonstration Data
+123,Klebsiella pneumoniae,LB Broth,37.1,6.68,18.0,1.813,Synthetic – Demonstration Data
+123,Klebsiella pneumoniae,LB Broth,37.1,6.68,20.0,1.8181,Synthetic – Demonstration Data
+123,Klebsiella pneumoniae,LB Broth,37.1,6.68,22.0,1.8409,Synthetic – Demonstration Data
+123,Klebsiella pneumoniae,LB Broth,37.1,6.68,24.0,1.8371,Synthetic – Demonstration Data
+124,Bacillus subtilis,Mueller-Hinton,35.9,7.03,0.0,0.0546,Synthetic – Demonstration Data
+124,Bacillus subtilis,Mueller-Hinton,35.9,7.03,2.0,0.1082,Synthetic – Demonstration Data
+124,Bacillus subtilis,Mueller-Hinton,35.9,7.03,4.0,0.1891,Synthetic – Demonstration Data
+124,Bacillus subtilis,Mueller-Hinton,35.9,7.03,6.0,0.3813,Synthetic – Demonstration Data
+124,Bacillus subtilis,Mueller-Hinton,35.9,7.03,8.0,0.7635,Synthetic – Demonstration Data
+124,Bacillus subtilis,Mueller-Hinton,35.9,7.03,10.0,1.1019,Synthetic – Demonstration Data
+124,Bacillus subtilis,Mueller-Hinton,35.9,7.03,12.0,1.3549,Synthetic – Demonstration Data
+124,Bacillus subtilis,Mueller-Hinton,35.9,7.03,14.0,1.5465,Synthetic – Demonstration Data
+124,Bacillus subtilis,Mueller-Hinton,35.9,7.03,16.0,1.6607,Synthetic – Demonstration Data
+124,Bacillus subtilis,Mueller-Hinton,35.9,7.03,18.0,1.6818,Synthetic – Demonstration Data
+124,Bacillus subtilis,Mueller-Hinton,35.9,7.03,20.0,1.6952,Synthetic – Demonstration Data
+124,Bacillus subtilis,Mueller-Hinton,35.9,7.03,22.0,1.7372,Synthetic – Demonstration Data
+124,Bacillus subtilis,Mueller-Hinton,35.9,7.03,24.0,1.6963,Synthetic – Demonstration Data
+125,Salmonella enterica,Nutrient Agar,35.8,7.25,0.0,0.0589,Synthetic – Demonstration Data
+125,Salmonella enterica,Nutrient Agar,35.8,7.25,2.0,0.1021,Synthetic – Demonstration Data
+125,Salmonella enterica,Nutrient Agar,35.8,7.25,4.0,0.2271,Synthetic – Demonstration Data
+125,Salmonella enterica,Nutrient Agar,35.8,7.25,6.0,0.4377,Synthetic – Demonstration Data
+125,Salmonella enterica,Nutrient Agar,35.8,7.25,8.0,0.7735,Synthetic – Demonstration Data
+125,Salmonella enterica,Nutrient Agar,35.8,7.25,10.0,1.1225,Synthetic – Demonstration Data
+125,Salmonella enterica,Nutrient Agar,35.8,7.25,12.0,1.3833,Synthetic – Demonstration Data
+125,Salmonella enterica,Nutrient Agar,35.8,7.25,14.0,1.5401,Synthetic – Demonstration Data
+125,Salmonella enterica,Nutrient Agar,35.8,7.25,16.0,1.607,Synthetic – Demonstration Data
+125,Salmonella enterica,Nutrient Agar,35.8,7.25,18.0,1.6292,Synthetic – Demonstration Data
+125,Salmonella enterica,Nutrient Agar,35.8,7.25,20.0,1.6273,Synthetic – Demonstration Data
+125,Salmonella enterica,Nutrient Agar,35.8,7.25,22.0,1.6488,Synthetic – Demonstration Data
+125,Salmonella enterica,Nutrient Agar,35.8,7.25,24.0,1.6494,Synthetic – Demonstration Data
+126,Enterococcus faecalis,LB Broth,37.3,7.95,0.0,0.0613,Synthetic – Demonstration Data
+126,Enterococcus faecalis,LB Broth,37.3,7.95,2.0,0.0908,Synthetic – Demonstration Data
+126,Enterococcus faecalis,LB Broth,37.3,7.95,4.0,0.2241,Synthetic – Demonstration Data
+126,Enterococcus faecalis,LB Broth,37.3,7.95,6.0,0.3427,Synthetic – Demonstration Data
+126,Enterococcus faecalis,LB Broth,37.3,7.95,8.0,0.6104,Synthetic – Demonstration Data
+126,Enterococcus faecalis,LB Broth,37.3,7.95,10.0,0.8946,Synthetic – Demonstration Data
+126,Enterococcus faecalis,LB Broth,37.3,7.95,12.0,1.1754,Synthetic – Demonstration Data
+126,Enterococcus faecalis,LB Broth,37.3,7.95,14.0,1.3749,Synthetic – Demonstration Data
+126,Enterococcus faecalis,LB Broth,37.3,7.95,16.0,1.494,Synthetic – Demonstration Data
+126,Enterococcus faecalis,LB Broth,37.3,7.95,18.0,1.5401,Synthetic – Demonstration Data
+126,Enterococcus faecalis,LB Broth,37.3,7.95,20.0,1.584,Synthetic – Demonstration Data
+126,Enterococcus faecalis,LB Broth,37.3,7.95,22.0,1.5723,Synthetic – Demonstration Data
+126,Enterococcus faecalis,LB Broth,37.3,7.95,24.0,1.5739,Synthetic – Demonstration Data
+127,Streptococcus pneumoniae,Mueller-Hinton,41.1,7.4,0.0,0.0196,Synthetic – Demonstration Data
+127,Streptococcus pneumoniae,Mueller-Hinton,41.1,7.4,2.0,0.0871,Synthetic – Demonstration Data
+127,Streptococcus pneumoniae,Mueller-Hinton,41.1,7.4,4.0,0.1255,Synthetic – Demonstration Data
+127,Streptococcus pneumoniae,Mueller-Hinton,41.1,7.4,6.0,0.2407,Synthetic – Demonstration Data
+127,Streptococcus pneumoniae,Mueller-Hinton,41.1,7.4,8.0,0.4021,Synthetic – Demonstration Data
+127,Streptococcus pneumoniae,Mueller-Hinton,41.1,7.4,10.0,0.6342,Synthetic – Demonstration Data
+127,Streptococcus pneumoniae,Mueller-Hinton,41.1,7.4,12.0,0.84,Synthetic – Demonstration Data
+127,Streptococcus pneumoniae,Mueller-Hinton,41.1,7.4,14.0,1.0381,Synthetic – Demonstration Data
+127,Streptococcus pneumoniae,Mueller-Hinton,41.1,7.4,16.0,1.2057,Synthetic – Demonstration Data
+127,Streptococcus pneumoniae,Mueller-Hinton,41.1,7.4,18.0,1.3018,Synthetic – Demonstration Data
+127,Streptococcus pneumoniae,Mueller-Hinton,41.1,7.4,20.0,1.3475,Synthetic – Demonstration Data
+127,Streptococcus pneumoniae,Mueller-Hinton,41.1,7.4,22.0,1.3541,Synthetic – Demonstration Data
+127,Streptococcus pneumoniae,Mueller-Hinton,41.1,7.4,24.0,1.3951,Synthetic – Demonstration Data
+128,Acinetobacter baumannii,Nutrient Agar,35.9,6.87,0.0,0.0579,Synthetic – Demonstration Data
+128,Acinetobacter baumannii,Nutrient Agar,35.9,6.87,2.0,0.1035,Synthetic – Demonstration Data
+128,Acinetobacter baumannii,Nutrient Agar,35.9,6.87,4.0,0.2008,Synthetic – Demonstration Data
+128,Acinetobacter baumannii,Nutrient Agar,35.9,6.87,6.0,0.3739,Synthetic – Demonstration Data
+128,Acinetobacter baumannii,Nutrient Agar,35.9,6.87,8.0,0.5026,Synthetic – Demonstration Data
+128,Acinetobacter baumannii,Nutrient Agar,35.9,6.87,10.0,0.7654,Synthetic – Demonstration Data
+128,Acinetobacter baumannii,Nutrient Agar,35.9,6.87,12.0,0.9909,Synthetic – Demonstration Data
+128,Acinetobacter baumannii,Nutrient Agar,35.9,6.87,14.0,1.1484,Synthetic – Demonstration Data
+128,Acinetobacter baumannii,Nutrient Agar,35.9,6.87,16.0,1.2431,Synthetic – Demonstration Data
+128,Acinetobacter baumannii,Nutrient Agar,35.9,6.87,18.0,1.3113,Synthetic – Demonstration Data
+128,Acinetobacter baumannii,Nutrient Agar,35.9,6.87,20.0,1.3227,Synthetic – Demonstration Data
+128,Acinetobacter baumannii,Nutrient Agar,35.9,6.87,22.0,1.3647,Synthetic – Demonstration Data
+128,Acinetobacter baumannii,Nutrient Agar,35.9,6.87,24.0,1.3664,Synthetic – Demonstration Data
+129,Proteus mirabilis,LB Broth,37.7,7.33,0.0,0.0763,Synthetic – Demonstration Data
+129,Proteus mirabilis,LB Broth,37.7,7.33,2.0,0.0985,Synthetic – Demonstration Data
+129,Proteus mirabilis,LB Broth,37.7,7.33,4.0,0.1895,Synthetic – Demonstration Data
+129,Proteus mirabilis,LB Broth,37.7,7.33,6.0,0.4611,Synthetic – Demonstration Data
+129,Proteus mirabilis,LB Broth,37.7,7.33,8.0,0.8396,Synthetic – Demonstration Data
+129,Proteus mirabilis,LB Broth,37.7,7.33,10.0,1.2815,Synthetic – Demonstration Data
+129,Proteus mirabilis,LB Broth,37.7,7.33,12.0,1.5688,Synthetic – Demonstration Data
+129,Proteus mirabilis,LB Broth,37.7,7.33,14.0,1.7153,Synthetic – Demonstration Data
+129,Proteus mirabilis,LB Broth,37.7,7.33,16.0,1.8281,Synthetic – Demonstration Data
+129,Proteus mirabilis,LB Broth,37.7,7.33,18.0,1.8301,Synthetic – Demonstration Data
+129,Proteus mirabilis,LB Broth,37.7,7.33,20.0,1.8445,Synthetic – Demonstration Data
+129,Proteus mirabilis,LB Broth,37.7,7.33,22.0,1.8192,Synthetic – Demonstration Data
+129,Proteus mirabilis,LB Broth,37.7,7.33,24.0,1.8197,Synthetic – Demonstration Data
+130,Listeria monocytogenes,Mueller-Hinton,35.1,7.04,0.0,0.0394,Synthetic – Demonstration Data
+130,Listeria monocytogenes,Mueller-Hinton,35.1,7.04,2.0,0.0759,Synthetic – Demonstration Data
+130,Listeria monocytogenes,Mueller-Hinton,35.1,7.04,4.0,0.1428,Synthetic – Demonstration Data
+130,Listeria monocytogenes,Mueller-Hinton,35.1,7.04,6.0,0.2823,Synthetic – Demonstration Data
+130,Listeria monocytogenes,Mueller-Hinton,35.1,7.04,8.0,0.4877,Synthetic – Demonstration Data
+130,Listeria monocytogenes,Mueller-Hinton,35.1,7.04,10.0,0.7265,Synthetic – Demonstration Data
+130,Listeria monocytogenes,Mueller-Hinton,35.1,7.04,12.0,0.9472,Synthetic – Demonstration Data
+130,Listeria monocytogenes,Mueller-Hinton,35.1,7.04,14.0,1.106,Synthetic – Demonstration Data
+130,Listeria monocytogenes,Mueller-Hinton,35.1,7.04,16.0,1.1707,Synthetic – Demonstration Data
+130,Listeria monocytogenes,Mueller-Hinton,35.1,7.04,18.0,1.2154,Synthetic – Demonstration Data
+130,Listeria monocytogenes,Mueller-Hinton,35.1,7.04,20.0,1.2555,Synthetic – Demonstration Data
+130,Listeria monocytogenes,Mueller-Hinton,35.1,7.04,22.0,1.2703,Synthetic – Demonstration Data
+130,Listeria monocytogenes,Mueller-Hinton,35.1,7.04,24.0,1.2571,Synthetic – Demonstration Data
+131,Candida albicans,Nutrient Agar,31.2,6.74,0.0,0.0333,Synthetic – Demonstration Data
+131,Candida albicans,Nutrient Agar,31.2,6.74,2.0,0.0837,Synthetic – Demonstration Data
+131,Candida albicans,Nutrient Agar,31.2,6.74,4.0,0.1407,Synthetic – Demonstration Data
+131,Candida albicans,Nutrient Agar,31.2,6.74,6.0,0.2303,Synthetic – Demonstration Data
+131,Candida albicans,Nutrient Agar,31.2,6.74,8.0,0.3597,Synthetic – Demonstration Data
+131,Candida albicans,Nutrient Agar,31.2,6.74,10.0,0.541,Synthetic – Demonstration Data
+131,Candida albicans,Nutrient Agar,31.2,6.74,12.0,0.8178,Synthetic – Demonstration Data
+131,Candida albicans,Nutrient Agar,31.2,6.74,14.0,1.0774,Synthetic – Demonstration Data
+131,Candida albicans,Nutrient Agar,31.2,6.74,16.0,1.3556,Synthetic – Demonstration Data
+131,Candida albicans,Nutrient Agar,31.2,6.74,18.0,1.5577,Synthetic – Demonstration Data
+131,Candida albicans,Nutrient Agar,31.2,6.74,20.0,1.7129,Synthetic – Demonstration Data
+131,Candida albicans,Nutrient Agar,31.2,6.74,22.0,1.8453,Synthetic – Demonstration Data
+131,Candida albicans,Nutrient Agar,31.2,6.74,24.0,1.9127,Synthetic – Demonstration Data
+132,Escherichia coli,LB Broth,37.9,7.55,0.0,0.023,Synthetic – Demonstration Data
+132,Escherichia coli,LB Broth,37.9,7.55,2.0,0.0789,Synthetic – Demonstration Data
+132,Escherichia coli,LB Broth,37.9,7.55,4.0,0.2638,Synthetic – Demonstration Data
+132,Escherichia coli,LB Broth,37.9,7.55,6.0,0.4796,Synthetic – Demonstration Data
+132,Escherichia coli,LB Broth,37.9,7.55,8.0,0.8781,Synthetic – Demonstration Data
+132,Escherichia coli,LB Broth,37.9,7.55,10.0,1.3285,Synthetic – Demonstration Data
+132,Escherichia coli,LB Broth,37.9,7.55,12.0,1.6478,Synthetic – Demonstration Data
+132,Escherichia coli,LB Broth,37.9,7.55,14.0,1.8104,Synthetic – Demonstration Data
+132,Escherichia coli,LB Broth,37.9,7.55,16.0,1.9038,Synthetic – Demonstration Data
+132,Escherichia coli,LB Broth,37.9,7.55,18.0,1.9669,Synthetic – Demonstration Data
+132,Escherichia coli,LB Broth,37.9,7.55,20.0,1.9449,Synthetic – Demonstration Data
+132,Escherichia coli,LB Broth,37.9,7.55,22.0,1.9403,Synthetic – Demonstration Data
+132,Escherichia coli,LB Broth,37.9,7.55,24.0,1.9848,Synthetic – Demonstration Data
+133,Staphylococcus aureus,Mueller-Hinton,37.7,7.04,0.0,0.0353,Synthetic – Demonstration Data
+133,Staphylococcus aureus,Mueller-Hinton,37.7,7.04,2.0,0.1089,Synthetic – Demonstration Data
+133,Staphylococcus aureus,Mueller-Hinton,37.7,7.04,4.0,0.1848,Synthetic – Demonstration Data
+133,Staphylococcus aureus,Mueller-Hinton,37.7,7.04,6.0,0.4254,Synthetic – Demonstration Data
+133,Staphylococcus aureus,Mueller-Hinton,37.7,7.04,8.0,0.7712,Synthetic – Demonstration Data
+133,Staphylococcus aureus,Mueller-Hinton,37.7,7.04,10.0,1.057,Synthetic – Demonstration Data
+133,Staphylococcus aureus,Mueller-Hinton,37.7,7.04,12.0,1.3581,Synthetic – Demonstration Data
+133,Staphylococcus aureus,Mueller-Hinton,37.7,7.04,14.0,1.4456,Synthetic – Demonstration Data
+133,Staphylococcus aureus,Mueller-Hinton,37.7,7.04,16.0,1.5307,Synthetic – Demonstration Data
+133,Staphylococcus aureus,Mueller-Hinton,37.7,7.04,18.0,1.5534,Synthetic – Demonstration Data
+133,Staphylococcus aureus,Mueller-Hinton,37.7,7.04,20.0,1.5784,Synthetic – Demonstration Data
+133,Staphylococcus aureus,Mueller-Hinton,37.7,7.04,22.0,1.5728,Synthetic – Demonstration Data
+133,Staphylococcus aureus,Mueller-Hinton,37.7,7.04,24.0,1.5217,Synthetic – Demonstration Data
+134,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.23,0.0,0.0566,Synthetic – Demonstration Data
+134,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.23,2.0,0.1037,Synthetic – Demonstration Data
+134,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.23,4.0,0.1921,Synthetic – Demonstration Data
+134,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.23,6.0,0.3529,Synthetic – Demonstration Data
+134,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.23,8.0,0.6693,Synthetic – Demonstration Data
+134,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.23,10.0,1.025,Synthetic – Demonstration Data
+134,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.23,12.0,1.2888,Synthetic – Demonstration Data
+134,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.23,14.0,1.5095,Synthetic – Demonstration Data
+134,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.23,16.0,1.6173,Synthetic – Demonstration Data
+134,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.23,18.0,1.6534,Synthetic – Demonstration Data
+134,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.23,20.0,1.6192,Synthetic – Demonstration Data
+134,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.23,22.0,1.6619,Synthetic – Demonstration Data
+134,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.23,24.0,1.7235,Synthetic – Demonstration Data
+135,Klebsiella pneumoniae,LB Broth,36.2,6.5,0.0,0.06,Synthetic – Demonstration Data
+135,Klebsiella pneumoniae,LB Broth,36.2,6.5,2.0,0.0989,Synthetic – Demonstration Data
+135,Klebsiella pneumoniae,LB Broth,36.2,6.5,4.0,0.2205,Synthetic – Demonstration Data
+135,Klebsiella pneumoniae,LB Broth,36.2,6.5,6.0,0.4505,Synthetic – Demonstration Data
+135,Klebsiella pneumoniae,LB Broth,36.2,6.5,8.0,0.8232,Synthetic – Demonstration Data
+135,Klebsiella pneumoniae,LB Broth,36.2,6.5,10.0,1.2735,Synthetic – Demonstration Data
+135,Klebsiella pneumoniae,LB Broth,36.2,6.5,12.0,1.5888,Synthetic – Demonstration Data
+135,Klebsiella pneumoniae,LB Broth,36.2,6.5,14.0,1.745,Synthetic – Demonstration Data
+135,Klebsiella pneumoniae,LB Broth,36.2,6.5,16.0,1.8813,Synthetic – Demonstration Data
+135,Klebsiella pneumoniae,LB Broth,36.2,6.5,18.0,1.9386,Synthetic – Demonstration Data
+135,Klebsiella pneumoniae,LB Broth,36.2,6.5,20.0,1.9588,Synthetic – Demonstration Data
+135,Klebsiella pneumoniae,LB Broth,36.2,6.5,22.0,1.9376,Synthetic – Demonstration Data
+135,Klebsiella pneumoniae,LB Broth,36.2,6.5,24.0,1.9696,Synthetic – Demonstration Data
+136,Bacillus subtilis,Mueller-Hinton,36.4,7.64,0.0,0.032,Synthetic – Demonstration Data
+136,Bacillus subtilis,Mueller-Hinton,36.4,7.64,2.0,0.0627,Synthetic – Demonstration Data
+136,Bacillus subtilis,Mueller-Hinton,36.4,7.64,4.0,0.1177,Synthetic – Demonstration Data
+136,Bacillus subtilis,Mueller-Hinton,36.4,7.64,6.0,0.1919,Synthetic – Demonstration Data
+136,Bacillus subtilis,Mueller-Hinton,36.4,7.64,8.0,0.404,Synthetic – Demonstration Data
+136,Bacillus subtilis,Mueller-Hinton,36.4,7.64,10.0,0.6511,Synthetic – Demonstration Data
+136,Bacillus subtilis,Mueller-Hinton,36.4,7.64,12.0,0.8984,Synthetic – Demonstration Data
+136,Bacillus subtilis,Mueller-Hinton,36.4,7.64,14.0,1.1818,Synthetic – Demonstration Data
+136,Bacillus subtilis,Mueller-Hinton,36.4,7.64,16.0,1.3268,Synthetic – Demonstration Data
+136,Bacillus subtilis,Mueller-Hinton,36.4,7.64,18.0,1.4656,Synthetic – Demonstration Data
+136,Bacillus subtilis,Mueller-Hinton,36.4,7.64,20.0,1.5146,Synthetic – Demonstration Data
+136,Bacillus subtilis,Mueller-Hinton,36.4,7.64,22.0,1.5619,Synthetic – Demonstration Data
+136,Bacillus subtilis,Mueller-Hinton,36.4,7.64,24.0,1.5718,Synthetic – Demonstration Data
+137,Salmonella enterica,Nutrient Agar,39.1,7.21,0.0,0.0366,Synthetic – Demonstration Data
+137,Salmonella enterica,Nutrient Agar,39.1,7.21,2.0,0.1024,Synthetic – Demonstration Data
+137,Salmonella enterica,Nutrient Agar,39.1,7.21,4.0,0.2476,Synthetic – Demonstration Data
+137,Salmonella enterica,Nutrient Agar,39.1,7.21,6.0,0.4123,Synthetic – Demonstration Data
+137,Salmonella enterica,Nutrient Agar,39.1,7.21,8.0,0.7396,Synthetic – Demonstration Data
+137,Salmonella enterica,Nutrient Agar,39.1,7.21,10.0,1.101,Synthetic – Demonstration Data
+137,Salmonella enterica,Nutrient Agar,39.1,7.21,12.0,1.3708,Synthetic – Demonstration Data
+137,Salmonella enterica,Nutrient Agar,39.1,7.21,14.0,1.5127,Synthetic – Demonstration Data
+137,Salmonella enterica,Nutrient Agar,39.1,7.21,16.0,1.551,Synthetic – Demonstration Data
+137,Salmonella enterica,Nutrient Agar,39.1,7.21,18.0,1.6406,Synthetic – Demonstration Data
+137,Salmonella enterica,Nutrient Agar,39.1,7.21,20.0,1.6078,Synthetic – Demonstration Data
+137,Salmonella enterica,Nutrient Agar,39.1,7.21,22.0,1.6813,Synthetic – Demonstration Data
+137,Salmonella enterica,Nutrient Agar,39.1,7.21,24.0,1.661,Synthetic – Demonstration Data
+138,Enterococcus faecalis,LB Broth,38.5,7.17,0.0,0.0407,Synthetic – Demonstration Data
+138,Enterococcus faecalis,LB Broth,38.5,7.17,2.0,0.0833,Synthetic – Demonstration Data
+138,Enterococcus faecalis,LB Broth,38.5,7.17,4.0,0.1988,Synthetic – Demonstration Data
+138,Enterococcus faecalis,LB Broth,38.5,7.17,6.0,0.439,Synthetic – Demonstration Data
+138,Enterococcus faecalis,LB Broth,38.5,7.17,8.0,0.6865,Synthetic – Demonstration Data
+138,Enterococcus faecalis,LB Broth,38.5,7.17,10.0,0.9974,Synthetic – Demonstration Data
+138,Enterococcus faecalis,LB Broth,38.5,7.17,12.0,1.2347,Synthetic – Demonstration Data
+138,Enterococcus faecalis,LB Broth,38.5,7.17,14.0,1.3915,Synthetic – Demonstration Data
+138,Enterococcus faecalis,LB Broth,38.5,7.17,16.0,1.4356,Synthetic – Demonstration Data
+138,Enterococcus faecalis,LB Broth,38.5,7.17,18.0,1.4367,Synthetic – Demonstration Data
+138,Enterococcus faecalis,LB Broth,38.5,7.17,20.0,1.4857,Synthetic – Demonstration Data
+138,Enterococcus faecalis,LB Broth,38.5,7.17,22.0,1.5106,Synthetic – Demonstration Data
+138,Enterococcus faecalis,LB Broth,38.5,7.17,24.0,1.4814,Synthetic – Demonstration Data
+139,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.13,0.0,0.0555,Synthetic – Demonstration Data
+139,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.13,2.0,0.1038,Synthetic – Demonstration Data
+139,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.13,4.0,0.1886,Synthetic – Demonstration Data
+139,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.13,6.0,0.3655,Synthetic – Demonstration Data
+139,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.13,8.0,0.5993,Synthetic – Demonstration Data
+139,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.13,10.0,0.8825,Synthetic – Demonstration Data
+139,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.13,12.0,1.1874,Synthetic – Demonstration Data
+139,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.13,14.0,1.3681,Synthetic – Demonstration Data
+139,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.13,16.0,1.4842,Synthetic – Demonstration Data
+139,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.13,18.0,1.5415,Synthetic – Demonstration Data
+139,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.13,20.0,1.566,Synthetic – Demonstration Data
+139,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.13,22.0,1.5312,Synthetic – Demonstration Data
+139,Streptococcus pneumoniae,Mueller-Hinton,36.7,7.13,24.0,1.5481,Synthetic – Demonstration Data
+140,Acinetobacter baumannii,Nutrient Agar,37.7,7.63,0.0,0.0386,Synthetic – Demonstration Data
+140,Acinetobacter baumannii,Nutrient Agar,37.7,7.63,2.0,0.0658,Synthetic – Demonstration Data
+140,Acinetobacter baumannii,Nutrient Agar,37.7,7.63,4.0,0.158,Synthetic – Demonstration Data
+140,Acinetobacter baumannii,Nutrient Agar,37.7,7.63,6.0,0.2253,Synthetic – Demonstration Data
+140,Acinetobacter baumannii,Nutrient Agar,37.7,7.63,8.0,0.3932,Synthetic – Demonstration Data
+140,Acinetobacter baumannii,Nutrient Agar,37.7,7.63,10.0,0.5989,Synthetic – Demonstration Data
+140,Acinetobacter baumannii,Nutrient Agar,37.7,7.63,12.0,0.8617,Synthetic – Demonstration Data
+140,Acinetobacter baumannii,Nutrient Agar,37.7,7.63,14.0,1.0484,Synthetic – Demonstration Data
+140,Acinetobacter baumannii,Nutrient Agar,37.7,7.63,16.0,1.1896,Synthetic – Demonstration Data
+140,Acinetobacter baumannii,Nutrient Agar,37.7,7.63,18.0,1.3679,Synthetic – Demonstration Data
+140,Acinetobacter baumannii,Nutrient Agar,37.7,7.63,20.0,1.4258,Synthetic – Demonstration Data
+140,Acinetobacter baumannii,Nutrient Agar,37.7,7.63,22.0,1.4865,Synthetic – Demonstration Data
+140,Acinetobacter baumannii,Nutrient Agar,37.7,7.63,24.0,1.5113,Synthetic – Demonstration Data
+141,Proteus mirabilis,LB Broth,36.6,7.4,0.0,0.0497,Synthetic – Demonstration Data
+141,Proteus mirabilis,LB Broth,36.6,7.4,2.0,0.0802,Synthetic – Demonstration Data
+141,Proteus mirabilis,LB Broth,36.6,7.4,4.0,0.1835,Synthetic – Demonstration Data
+141,Proteus mirabilis,LB Broth,36.6,7.4,6.0,0.4601,Synthetic – Demonstration Data
+141,Proteus mirabilis,LB Broth,36.6,7.4,8.0,0.8198,Synthetic – Demonstration Data
+141,Proteus mirabilis,LB Broth,36.6,7.4,10.0,1.1595,Synthetic – Demonstration Data
+141,Proteus mirabilis,LB Broth,36.6,7.4,12.0,1.3775,Synthetic – Demonstration Data
+141,Proteus mirabilis,LB Broth,36.6,7.4,14.0,1.5588,Synthetic – Demonstration Data
+141,Proteus mirabilis,LB Broth,36.6,7.4,16.0,1.5763,Synthetic – Demonstration Data
+141,Proteus mirabilis,LB Broth,36.6,7.4,18.0,1.6368,Synthetic – Demonstration Data
+141,Proteus mirabilis,LB Broth,36.6,7.4,20.0,1.6255,Synthetic – Demonstration Data
+141,Proteus mirabilis,LB Broth,36.6,7.4,22.0,1.6246,Synthetic – Demonstration Data
+141,Proteus mirabilis,LB Broth,36.6,7.4,24.0,1.6392,Synthetic – Demonstration Data
+142,Listeria monocytogenes,Mueller-Hinton,34.7,6.84,0.0,0.0554,Synthetic – Demonstration Data
+142,Listeria monocytogenes,Mueller-Hinton,34.7,6.84,2.0,0.0799,Synthetic – Demonstration Data
+142,Listeria monocytogenes,Mueller-Hinton,34.7,6.84,4.0,0.132,Synthetic – Demonstration Data
+142,Listeria monocytogenes,Mueller-Hinton,34.7,6.84,6.0,0.2511,Synthetic – Demonstration Data
+142,Listeria monocytogenes,Mueller-Hinton,34.7,6.84,8.0,0.4259,Synthetic – Demonstration Data
+142,Listeria monocytogenes,Mueller-Hinton,34.7,6.84,10.0,0.7039,Synthetic – Demonstration Data
+142,Listeria monocytogenes,Mueller-Hinton,34.7,6.84,12.0,0.9404,Synthetic – Demonstration Data
+142,Listeria monocytogenes,Mueller-Hinton,34.7,6.84,14.0,1.1043,Synthetic – Demonstration Data
+142,Listeria monocytogenes,Mueller-Hinton,34.7,6.84,16.0,1.2703,Synthetic – Demonstration Data
+142,Listeria monocytogenes,Mueller-Hinton,34.7,6.84,18.0,1.341,Synthetic – Demonstration Data
+142,Listeria monocytogenes,Mueller-Hinton,34.7,6.84,20.0,1.427,Synthetic – Demonstration Data
+142,Listeria monocytogenes,Mueller-Hinton,34.7,6.84,22.0,1.3894,Synthetic – Demonstration Data
+142,Listeria monocytogenes,Mueller-Hinton,34.7,6.84,24.0,1.4048,Synthetic – Demonstration Data
+143,Candida albicans,Nutrient Agar,31.7,6.84,0.0,0.0479,Synthetic – Demonstration Data
+143,Candida albicans,Nutrient Agar,31.7,6.84,2.0,0.0193,Synthetic – Demonstration Data
+143,Candida albicans,Nutrient Agar,31.7,6.84,4.0,0.0671,Synthetic – Demonstration Data
+143,Candida albicans,Nutrient Agar,31.7,6.84,6.0,0.1581,Synthetic – Demonstration Data
+143,Candida albicans,Nutrient Agar,31.7,6.84,8.0,0.2867,Synthetic – Demonstration Data
+143,Candida albicans,Nutrient Agar,31.7,6.84,10.0,0.3892,Synthetic – Demonstration Data
+143,Candida albicans,Nutrient Agar,31.7,6.84,12.0,0.5833,Synthetic – Demonstration Data
+143,Candida albicans,Nutrient Agar,31.7,6.84,14.0,0.8238,Synthetic – Demonstration Data
+143,Candida albicans,Nutrient Agar,31.7,6.84,16.0,1.0768,Synthetic – Demonstration Data
+143,Candida albicans,Nutrient Agar,31.7,6.84,18.0,1.2475,Synthetic – Demonstration Data
+143,Candida albicans,Nutrient Agar,31.7,6.84,20.0,1.4377,Synthetic – Demonstration Data
+143,Candida albicans,Nutrient Agar,31.7,6.84,22.0,1.6046,Synthetic – Demonstration Data
+143,Candida albicans,Nutrient Agar,31.7,6.84,24.0,1.6364,Synthetic – Demonstration Data
+144,Escherichia coli,LB Broth,38.5,6.75,0.0,0.0215,Synthetic – Demonstration Data
+144,Escherichia coli,LB Broth,38.5,6.75,2.0,0.0838,Synthetic – Demonstration Data
+144,Escherichia coli,LB Broth,38.5,6.75,4.0,0.2572,Synthetic – Demonstration Data
+144,Escherichia coli,LB Broth,38.5,6.75,6.0,0.5771,Synthetic – Demonstration Data
+144,Escherichia coli,LB Broth,38.5,6.75,8.0,1.014,Synthetic – Demonstration Data
+144,Escherichia coli,LB Broth,38.5,6.75,10.0,1.4578,Synthetic – Demonstration Data
+144,Escherichia coli,LB Broth,38.5,6.75,12.0,1.7445,Synthetic – Demonstration Data
+144,Escherichia coli,LB Broth,38.5,6.75,14.0,1.8482,Synthetic – Demonstration Data
+144,Escherichia coli,LB Broth,38.5,6.75,16.0,1.9328,Synthetic – Demonstration Data
+144,Escherichia coli,LB Broth,38.5,6.75,18.0,1.9549,Synthetic – Demonstration Data
+144,Escherichia coli,LB Broth,38.5,6.75,20.0,1.9947,Synthetic – Demonstration Data
+144,Escherichia coli,LB Broth,38.5,6.75,22.0,1.944,Synthetic – Demonstration Data
+144,Escherichia coli,LB Broth,38.5,6.75,24.0,1.9436,Synthetic – Demonstration Data
+145,Staphylococcus aureus,Mueller-Hinton,38.2,7.4,0.0,0.0477,Synthetic – Demonstration Data
+145,Staphylococcus aureus,Mueller-Hinton,38.2,7.4,2.0,0.0745,Synthetic – Demonstration Data
+145,Staphylococcus aureus,Mueller-Hinton,38.2,7.4,4.0,0.1944,Synthetic – Demonstration Data
+145,Staphylococcus aureus,Mueller-Hinton,38.2,7.4,6.0,0.4194,Synthetic – Demonstration Data
+145,Staphylococcus aureus,Mueller-Hinton,38.2,7.4,8.0,0.7641,Synthetic – Demonstration Data
+145,Staphylococcus aureus,Mueller-Hinton,38.2,7.4,10.0,1.0916,Synthetic – Demonstration Data
+145,Staphylococcus aureus,Mueller-Hinton,38.2,7.4,12.0,1.3388,Synthetic – Demonstration Data
+145,Staphylococcus aureus,Mueller-Hinton,38.2,7.4,14.0,1.4909,Synthetic – Demonstration Data
+145,Staphylococcus aureus,Mueller-Hinton,38.2,7.4,16.0,1.5762,Synthetic – Demonstration Data
+145,Staphylococcus aureus,Mueller-Hinton,38.2,7.4,18.0,1.6075,Synthetic – Demonstration Data
+145,Staphylococcus aureus,Mueller-Hinton,38.2,7.4,20.0,1.642,Synthetic – Demonstration Data
+145,Staphylococcus aureus,Mueller-Hinton,38.2,7.4,22.0,1.6291,Synthetic – Demonstration Data
+145,Staphylococcus aureus,Mueller-Hinton,38.2,7.4,24.0,1.6402,Synthetic – Demonstration Data
+146,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.09,0.0,0.0436,Synthetic – Demonstration Data
+146,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.09,2.0,0.0847,Synthetic – Demonstration Data
+146,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.09,4.0,0.1856,Synthetic – Demonstration Data
+146,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.09,6.0,0.3846,Synthetic – Demonstration Data
+146,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.09,8.0,0.679,Synthetic – Demonstration Data
+146,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.09,10.0,1.0068,Synthetic – Demonstration Data
+146,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.09,12.0,1.3471,Synthetic – Demonstration Data
+146,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.09,14.0,1.5346,Synthetic – Demonstration Data
+146,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.09,16.0,1.7035,Synthetic – Demonstration Data
+146,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.09,18.0,1.7788,Synthetic – Demonstration Data
+146,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.09,20.0,1.7913,Synthetic – Demonstration Data
+146,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.09,22.0,1.8436,Synthetic – Demonstration Data
+146,Pseudomonas aeruginosa,Nutrient Agar,35.8,7.09,24.0,1.8017,Synthetic – Demonstration Data
+147,Klebsiella pneumoniae,LB Broth,37.3,6.99,0.0,0.0414,Synthetic – Demonstration Data
+147,Klebsiella pneumoniae,LB Broth,37.3,6.99,2.0,0.1262,Synthetic – Demonstration Data
+147,Klebsiella pneumoniae,LB Broth,37.3,6.99,4.0,0.3158,Synthetic – Demonstration Data
+147,Klebsiella pneumoniae,LB Broth,37.3,6.99,6.0,0.6524,Synthetic – Demonstration Data
+147,Klebsiella pneumoniae,LB Broth,37.3,6.99,8.0,1.1468,Synthetic – Demonstration Data
+147,Klebsiella pneumoniae,LB Broth,37.3,6.99,10.0,1.4986,Synthetic – Demonstration Data
+147,Klebsiella pneumoniae,LB Broth,37.3,6.99,12.0,1.7199,Synthetic – Demonstration Data
+147,Klebsiella pneumoniae,LB Broth,37.3,6.99,14.0,1.771,Synthetic – Demonstration Data
+147,Klebsiella pneumoniae,LB Broth,37.3,6.99,16.0,1.8328,Synthetic – Demonstration Data
+147,Klebsiella pneumoniae,LB Broth,37.3,6.99,18.0,1.8629,Synthetic – Demonstration Data
+147,Klebsiella pneumoniae,LB Broth,37.3,6.99,20.0,1.8243,Synthetic – Demonstration Data
+147,Klebsiella pneumoniae,LB Broth,37.3,6.99,22.0,1.7882,Synthetic – Demonstration Data
+147,Klebsiella pneumoniae,LB Broth,37.3,6.99,24.0,1.8182,Synthetic – Demonstration Data
+148,Bacillus subtilis,Mueller-Hinton,36.8,7.14,0.0,0.0538,Synthetic – Demonstration Data
+148,Bacillus subtilis,Mueller-Hinton,36.8,7.14,2.0,0.1186,Synthetic – Demonstration Data
+148,Bacillus subtilis,Mueller-Hinton,36.8,7.14,4.0,0.2168,Synthetic – Demonstration Data
+148,Bacillus subtilis,Mueller-Hinton,36.8,7.14,6.0,0.4149,Synthetic – Demonstration Data
+148,Bacillus subtilis,Mueller-Hinton,36.8,7.14,8.0,0.6764,Synthetic – Demonstration Data
+148,Bacillus subtilis,Mueller-Hinton,36.8,7.14,10.0,1.0145,Synthetic – Demonstration Data
+148,Bacillus subtilis,Mueller-Hinton,36.8,7.14,12.0,1.2758,Synthetic – Demonstration Data
+148,Bacillus subtilis,Mueller-Hinton,36.8,7.14,14.0,1.4584,Synthetic – Demonstration Data
+148,Bacillus subtilis,Mueller-Hinton,36.8,7.14,16.0,1.604,Synthetic – Demonstration Data
+148,Bacillus subtilis,Mueller-Hinton,36.8,7.14,18.0,1.6291,Synthetic – Demonstration Data
+148,Bacillus subtilis,Mueller-Hinton,36.8,7.14,20.0,1.6643,Synthetic – Demonstration Data
+148,Bacillus subtilis,Mueller-Hinton,36.8,7.14,22.0,1.6633,Synthetic – Demonstration Data
+148,Bacillus subtilis,Mueller-Hinton,36.8,7.14,24.0,1.6557,Synthetic – Demonstration Data
+149,Salmonella enterica,Nutrient Agar,37.0,7.56,0.0,0.0276,Synthetic – Demonstration Data
+149,Salmonella enterica,Nutrient Agar,37.0,7.56,2.0,0.102,Synthetic – Demonstration Data
+149,Salmonella enterica,Nutrient Agar,37.0,7.56,4.0,0.1475,Synthetic – Demonstration Data
+149,Salmonella enterica,Nutrient Agar,37.0,7.56,6.0,0.2765,Synthetic – Demonstration Data
+149,Salmonella enterica,Nutrient Agar,37.0,7.56,8.0,0.603,Synthetic – Demonstration Data
+149,Salmonella enterica,Nutrient Agar,37.0,7.56,10.0,0.9146,Synthetic – Demonstration Data
+149,Salmonella enterica,Nutrient Agar,37.0,7.56,12.0,1.2132,Synthetic – Demonstration Data
+149,Salmonella enterica,Nutrient Agar,37.0,7.56,14.0,1.4252,Synthetic – Demonstration Data
+149,Salmonella enterica,Nutrient Agar,37.0,7.56,16.0,1.5735,Synthetic – Demonstration Data
+149,Salmonella enterica,Nutrient Agar,37.0,7.56,18.0,1.6046,Synthetic – Demonstration Data
+149,Salmonella enterica,Nutrient Agar,37.0,7.56,20.0,1.6631,Synthetic – Demonstration Data
+149,Salmonella enterica,Nutrient Agar,37.0,7.56,22.0,1.6647,Synthetic – Demonstration Data
+149,Salmonella enterica,Nutrient Agar,37.0,7.56,24.0,1.665,Synthetic – Demonstration Data
+150,Enterococcus faecalis,LB Broth,37.2,7.36,0.0,0.01,Synthetic – Demonstration Data
+150,Enterococcus faecalis,LB Broth,37.2,7.36,2.0,0.1,Synthetic – Demonstration Data
+150,Enterococcus faecalis,LB Broth,37.2,7.36,4.0,0.2229,Synthetic – Demonstration Data
+150,Enterococcus faecalis,LB Broth,37.2,7.36,6.0,0.4646,Synthetic – Demonstration Data
+150,Enterococcus faecalis,LB Broth,37.2,7.36,8.0,0.8344,Synthetic – Demonstration Data
+150,Enterococcus faecalis,LB Broth,37.2,7.36,10.0,1.2037,Synthetic – Demonstration Data
+150,Enterococcus faecalis,LB Broth,37.2,7.36,12.0,1.4885,Synthetic – Demonstration Data
+150,Enterococcus faecalis,LB Broth,37.2,7.36,14.0,1.6106,Synthetic – Demonstration Data
+150,Enterococcus faecalis,LB Broth,37.2,7.36,16.0,1.663,Synthetic – Demonstration Data
+150,Enterococcus faecalis,LB Broth,37.2,7.36,18.0,1.6909,Synthetic – Demonstration Data
+150,Enterococcus faecalis,LB Broth,37.2,7.36,20.0,1.7427,Synthetic – Demonstration Data
+150,Enterococcus faecalis,LB Broth,37.2,7.36,22.0,1.6789,Synthetic – Demonstration Data
+150,Enterococcus faecalis,LB Broth,37.2,7.36,24.0,1.7206,Synthetic – Demonstration Data

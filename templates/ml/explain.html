@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block title %}Model Explainability & Feature Importance — BioSense ML{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-lg-4 py-4">
+    <!-- Header -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <h1 class="h3 fw-bold mb-0">Model Interpretability & Feature Importance</h1>
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle font-monospace px-3 py-1">XAI / PERMUTATION IMPORTANCE</span>
+            </div>
+            <p class="text-muted small mb-0">
+                Inspect which biological and environmental variables contribute most to model predictions.
+            </p>
+        </div>
+        <div class="d-flex gap-2">
+            <a href="{{ url_for('ml.index') }}" class="btn btn-outline-teal btn-sm rounded-pill px-3">
+                <i class="bi bi-shield-check me-1"></i>Classification Lab
+            </a>
+            <a href="{{ url_for('ml.compare') }}" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                <i class="bi bi-columns-gap me-1"></i>Model Comparison
+            </a>
+        </div>
+    </div>
+
+    <!-- Mandatory Explainability Notice (Spec Section 18) -->
+    <div class="alert alert-info border-info shadow-sm mb-4">
+        <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-lightbulb-fill fs-3 text-info"></i>
+            <div>
+                <strong class="d-block text-uppercase font-monospace" style="font-size: 0.75rem;">Scientific Interpretability Caveat</strong>
+                <span class="small">{{ explain_notice }}</span>
+            </div>
+        </div>
+    </div>
+
+    {% if data.success %}
+        <div class="row g-4 mb-4">
+            <!-- Plotly Horizontal Feature Importance Bar -->
+            <div class="col-lg-7">
+                <div class="bio-card p-4 h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold mb-0">Normalized Relative Feature Importance (%)</h5>
+                        <span class="badge bg-secondary-subtle text-muted font-monospace">{{ data.model_name }}</span>
+                    </div>
+                    <div id="featImpDiv" style="min-height: 380px; width: 100%;"></div>
+                </div>
+            </div>
+
+            <!-- Feature Importance Table -->
+            <div class="col-lg-5">
+                <div class="bio-card p-4 h-100">
+                    <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                        <i class="bi bi-list-ol text-teal"></i>Predictor Importance Breakdown
+                    </h5>
+                    <p class="small text-muted mb-3">
+                        Percentage of total Gini impurity reduction attributed to each parent biological factor:
+                    </p>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0 font-monospace small">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Biological Predictor</th>
+                                    <th>Relative Weight</th>
+                                    <th>Share</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in data.importances %}
+                                    <tr>
+                                        <td class="fw-bold text-muted">#{{ loop.index }}</td>
+                                        <td class="fw-bold text-body font-sans">{{ item.feature|capitalize }}</td>
+                                        <td class="text-teal fw-semibold">{{ item.importance }}%</td>
+                                        <td style="min-width: 100px;">
+                                            <div class="progress" style="height: 6px;">
+                                                <div class="progress-bar bg-teal" style="width: {{ item.importance }}%"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="bio-card p-5 text-center text-muted">
+            <i class="bi bi-exclamation-triangle display-4 text-warning mb-3 d-block"></i>
+            <h5>Trained Model Required for Explainability</h5>
+            <p class="small mb-4">{{ data.error }}</p>
+            <a href="{{ url_for('ml.index') }}" class="btn btn-teal rounded-pill px-4">
+                <i class="bi bi-play-circle me-1"></i>Train Random Forest in ML Lab
+            </a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+{% if data.success %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const importances = {{ data.importances|tojson }};
+    const isDark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+    const fontColor = isDark ? '#94a3b8' : '#475569';
+    const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+
+    // Invert for horizontal bar layout (highest at top)
+    const reversed = [...importances].reverse();
+
+    const trace = {
+        x: reversed.map(d => d.importance),
+        y: reversed.map(d => d.feature.toUpperCase()),
+        type: 'bar',
+        orientation: 'h',
+        marker: { color: '#0d9488' }
+    };
+
+    const layout = {
+        paper_bgcolor: 'transparent',
+        plot_bgcolor: 'transparent',
+        font: { family: 'Inter', color: fontColor },
+        margin: { l: 120, r: 20, t: 20, b: 50 },
+        xaxis: { title: 'Relative Importance (%)', gridcolor: gridColor },
+        yaxis: { gridcolor: gridColor }
+    };
+
+    Plotly.newPlot('featImpDiv', [trace], layout, { responsive: true, displayModeBar: false });
+});
+</script>
+{% endif %}
+{% endblock %}

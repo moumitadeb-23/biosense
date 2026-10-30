@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% block title %}Model Comparison Matrix — BioSense ML{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-lg-4 py-4">
+    <!-- Header -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <h1 class="h3 fw-bold mb-0">Dynamic Machine Learning Comparison Matrix</h1>
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle font-monospace px-3 py-1">NON-HARDCODED TELEMETRY</span>
+            </div>
+            <p class="text-muted small mb-0">
+                Comparative performance benchmarking computed dynamically across classification and regression pipelines.
+            </p>
+        </div>
+        <div class="d-flex gap-2">
+            <a href="{{ url_for('ml.index') }}" class="btn btn-teal btn-sm rounded-pill px-3 shadow-sm">
+                <i class="bi bi-play-circle me-1"></i>Train New Pipelines
+            </a>
+            <a href="{{ url_for('ml.explain') }}" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                <i class="bi bi-lightbulb me-1"></i>Explainability
+            </a>
+        </div>
+    </div>
+
+    <!-- Mandatory Educational Notice -->
+    <div class="alert alert-warning border-warning shadow-sm mb-4">
+        <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-shield-lock-fill fs-4 text-warning"></i>
+            <div>
+                <strong class="d-block text-uppercase font-monospace" style="font-size: 0.75rem;">Educational Model Governance Notice</strong>
+                <span class="small">{{ ml_notice }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Classification Model Comparison Card -->
+    <div class="bio-card p-4 mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <h5 class="fw-bold mb-1">AST Susceptibility Classification Architectures</h5>
+                <p class="small text-muted mb-0">Compares rule-reproduction baselines against genuine predictive models.</p>
+            </div>
+            <span class="badge bg-secondary-subtle text-muted font-monospace">Target: S / I / R</span>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0 font-monospace" style="font-size: 0.85rem;">
+                <thead>
+                    <tr>
+                        <th>Model Name</th>
+                        <th>Architecture / Algorithm</th>
+                        <th>Variant</th>
+                        <th>Accuracy</th>
+                        <th>Precision (Macro)</th>
+                        <th>Recall (Macro)</th>
+                        <th>Macro F1-Score</th>
+                        <th>Trained On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% set ns = namespace(found=false) %}
+                    {% for m in models %}
+                        {% if 'classification' in m.model_type %}
+                            {% set ns.found = true %}
+                            {% set metrics = m.metrics_json|from_json if m.metrics_json else {} %}
+                            <tr>
+                                <td class="fw-bold font-sans">{{ m.name }}</td>
+                                <td>{{ m.algorithm }}</td>
+                                <td>
+                                    {% if 'no_zone' in m.model_type %}
+                                        <span class="badge bg-teal-subtle text-teal">Predictive (No Zone)</span>
+                                    {% else %}
+                                        <span class="badge bg-warning-subtle text-warning">Baseline (With Zone)</span>
+                                    {% endif %}
+                                </td>
+                                <td class="text-teal fw-semibold">{{ metrics.get('accuracy', '—') }}</td>
+                                <td>{{ metrics.get('precision_macro', '—') }}</td>
+                                <td>{{ metrics.get('recall_macro', '—') }}</td>
+                                <td class="text-emerald fw-bold">{{ metrics.get('f1_macro', '—') }}</td>
+                                <td class="small text-muted">{{ m.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    {% if not ns.found %}
+                        <tr>
+                            <td colspan="8" class="text-center py-4 text-muted">
+                                No classification models trained yet. Visit the <a href="{{ url_for('ml.index') }}" class="text-teal">Classification Lab</a> to train estimators.
+                            </td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Regression Model Comparison Card -->
+    <div class="bio-card p-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <h5 class="fw-bold mb-1">Microbial Growth Kinetics Regression Architectures</h5>
+                <p class="small text-muted mb-0">Continuous optical density (OD600) prediction performance metrics.</p>
+            </div>
+            <span class="badge bg-secondary-subtle text-muted font-monospace">Target: OD600</span>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0 font-monospace" style="font-size: 0.85rem;">
+                <thead>
+                    <tr>
+                        <th>Model Name</th>
+                        <th>Algorithm</th>
+                        <th>MAE (Mean Absolute Error)</th>
+                        <th>MSE (Mean Squared Error)</th>
+                        <th>RMSE</th>
+                        <th>R² Score</th>
+                        <th>Trained On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% set r_ns = namespace(found=false) %}
+                    {% for m in models %}
+                        {% if m.model_type == 'regression' %}
+                            {% set r_ns.found = true %}
+                            {% set metrics = m.metrics_json|from_json if m.metrics_json else {} %}
+                            <tr>
+                                <td class="fw-bold font-sans">{{ m.name }}</td>
+                                <td>{{ m.algorithm }}</td>
+                                <td class="text-teal fw-semibold">{{ metrics.get('mae', '—') }}</td>
+                                <td>{{ metrics.get('mse', '—') }}</td>
+                                <td>{{ metrics.get('rmse', '—') }}</td>
+                                <td class="text-emerald fw-bold">{{ metrics.get('r2_score', '—') }}</td>
+                                <td class="small text-muted">{{ m.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    {% if not r_ns.found %}
+                        <tr>
+                            <td colspan="7" class="text-center py-4 text-muted">
+                                No regression models trained yet. Visit the <a href="{{ url_for('ml.regression') }}" class="text-teal">Regression Lab</a> to fit regressors.
+                            </td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

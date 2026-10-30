@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+{% block title %}AST Classification Lab — BioSense ML{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-lg-4 py-4">
+    <!-- Header -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <h1 class="h3 fw-bold mb-0">Machine Learning Laboratory — AST Classification</h1>
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle font-monospace px-3 py-1">SKLEARN PIPELINES</span>
+            </div>
+            <p class="text-muted small mb-0">
+                Train, evaluate, and compare Logistic Regression, Decision Trees, and Random Forests for multi-class S/I/R prediction.
+            </p>
+        </div>
+        <div class="d-flex flex-wrap gap-2">
+            <a href="{{ url_for('learn.index') }}" class="btn btn-outline-info btn-sm rounded-pill px-3">
+                <i class="bi bi-mortarboard me-1"></i>Target Leakage Guide
+            </a>
+            <a href="{{ url_for('ml.regression') }}" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                <i class="bi bi-graph-up me-1"></i>Regression Suite
+            </a>
+            <a href="{{ url_for('ml.compare') }}" class="btn btn-outline-teal btn-sm rounded-pill px-3">
+                <i class="bi bi-columns-gap me-1"></i>Model Comparison
+            </a>
+            <a href="{{ url_for('ml.explain') }}" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                <i class="bi bi-lightbulb me-1"></i>Explainability
+            </a>
+            <a href="{{ url_for('ml.anomaly') }}" class="btn btn-outline-warning btn-sm rounded-pill px-3">
+                <i class="bi bi-exclamation-triangle me-1"></i>Anomaly Screening
+            </a>
+        </div>
+    </div>
+
+    <!-- Mandatory Educational Notice (Spec Section 16 & 20) -->
+    <div class="alert alert-warning border-warning shadow-sm mb-4">
+        <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-shield-lock-fill fs-4 text-warning"></i>
+            <div>
+                <strong class="d-block text-uppercase font-monospace" style="font-size: 0.75rem;">Educational Model Governance Notice</strong>
+                <span class="small">{{ ml_notice }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <!-- Variant Selection & Training Trigger -->
+        <div class="col-lg-5">
+            <div class="bio-card p-4 h-100">
+                <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-gear-wide-connected text-teal"></i>Train Classification Pipelines
+                </h5>
+                <p class="small text-muted mb-3">
+                    Select training variant to explore the educational concept of <strong>Target Leakage</strong>:
+                </p>
+
+                <div class="p-3 rounded bg-body border mb-3">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="variantRadio" id="varNoZone" value="false" checked>
+                        <label class="form-check-label fw-bold small text-teal" for="varNoZone">
+                            Variant B: Genuine Predictive Model (No Zone Diameter)
+                        </label>
+                        <div class="small text-muted" style="font-size: 0.72rem;">
+                            Uses only pre-test features (Organism, Antibiotic, Class, Concentration). True machine learning prediction without leakage.
+                        </div>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="variantRadio" id="varZone" value="true">
+                        <label class="form-check-label fw-bold small text-warning" for="varZone">
+                            Variant A: Rule-Reproduction Baseline (With Zone Diameter)
+                        </label>
+                        <div class="small text-muted" style="font-size: 0.72rem;">
+                            Includes zone diameter. Demonstrates target leakage as zone diameter directly encodes the clinical breakpoint classification rule.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="small text-muted mb-3 font-monospace" style="font-size: 0.75rem;">
+                    Pipeline Preprocessing: <code>SimpleImputer</code> + <code>OneHotEncoder</code> (cat) + <code>StandardScaler</code> (num) via <code>ColumnTransformer</code>. Stratified 80/20 split (seed=42).
+                </div>
+
+                <button type="button" id="trainClassBtn" class="btn btn-teal w-100 py-2 rounded-pill fw-semibold shadow-sm">
+                    <i class="bi bi-play-circle me-1"></i>Train Pipelines & Compute Metrics
+                </button>
+            </div>
+        </div>
+
+        <!-- Real-Time Interactive Inference Predictor -->
+        <div class="col-lg-7">
+            <div class="bio-card p-4 h-100">
+                <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-cpu text-teal"></i>Live Inference Predictor
+                </h5>
+                <p class="small text-muted mb-3">Input experimental conditions to predict S/I/R category and probability distribution.</p>
+
+                <form id="predictForm" class="row g-2 align-items-end">
+                    <div class="col-md-6">
+                        <label class="form-label small fw-semibold" style="font-size: 0.72rem;">Organism</label>
+                        <select class="form-select form-select-sm" id="predOrg">
+                            {% for org in organisms %}
+                                <option value="{{ org.scientific_name }}">{{ org.scientific_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label small fw-semibold" style="font-size: 0.72rem;">Antibiotic</label>
+                        <select class="form-select form-select-sm" id="predAb">
+                            {% for ab in antibiotics %}
+                                <option value="{{ ab.name }}" data-class="{{ ab.antibiotic_class }}">{{ ab.name }} ({{ ab.antibiotic_class }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6 mt-2">
+                        <label class="form-label small fw-semibold" style="font-size: 0.72rem;">Potency / Concentration (&mu;g)</label>
+                        <input type="number" class="form-control form-control-sm" id="predConc" value="10" min="1" max="100">
+                    </div>
+                    <div class="col-md-6 mt-2">
+                        <label class="form-label small fw-semibold" style="font-size: 0.72rem;">Zone Diameter (mm) - Optional</label>
+                        <input type="number" class="form-control form-control-sm" id="predZone" placeholder="Leave blank for No-Zone variant" min="0" max="50" step="0.5">
+                    </div>
+                    <div class="col-12 mt-3">
+                        <button type="button" id="predictBtn" class="btn btn-outline-teal btn-sm w-100 rounded-pill fw-semibold">
+                            <i class="bi bi-lightning me-1"></i>Run Model Inference
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Prediction Result Box -->
+                <div id="predResultBox" class="mt-3 p-3 rounded bg-body border d-none">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="small fw-semibold">Inferred Classification:</span>
+                        <span class="badge font-monospace fs-6" id="predBadge">—</span>
+                    </div>
+                    <div class="small text-muted mb-2 font-monospace" id="probBreakdown"></div>
+                    <div class="small text-muted" style="font-size: 0.7rem;">Inference logged to research registry. Intended solely for academic evaluation.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Metrics Evaluation Table Container -->
+    <div class="bio-card p-4 mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">Dynamic Evaluation Metrics (Stratified Test Split)</h5>
+            <span class="badge bg-secondary-subtle text-muted font-monospace" id="trainStatusBadge">Ready to Train</span>
+        </div>
+
+        <div id="metricsContainer">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0 font-monospace" style="font-size: 0.85rem;">
+                    <thead>
+                        <tr>
+                            <th>Model Architecture</th>
+                            <th>Accuracy</th>
+                            <th>Precision (Macro)</th>
+                            <th>Recall (Macro)</th>
+                            <th>Macro F1-Score</th>
+                            <th>Confusion Matrix [S, I, R]</th>
+                        </tr>
+                    </thead>
+                    <tbody id="metricsTbody">
+                        {% for m in models %}
+                            {% set metrics = m.metrics_json|from_json if m.metrics_json else {} %}
+                            <tr>
+                                <td class="fw-bold font-sans">{{ m.name }}</td>
+                                <td class="text-teal fw-semibold">{{ metrics.get('accuracy', '—') }}</td>
+                                <td>{{ metrics.get('precision_macro', '—') }}</td>
+                                <td>{{ metrics.get('recall_macro', '—') }}</td>
+                                <td class="text-emerald fw-semibold">{{ metrics.get('f1_macro', '—') }}</td>
+                                <td class="small">{{ metrics.get('confusion_matrix', '—') }}</td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="6" class="text-center py-4 text-muted">
+                                    Click <strong>"Train Pipelines"</strong> above to fit estimators and compute dynamic performance metrics.
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Train Classifiers
+    const trainBtn = document.getElementById('trainClassBtn');
+    trainBtn.addEventListener('click', () => {
+        const withZone = document.getElementById('varZone').checked;
+        trainBtn.disabled = true;
+        trainBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span>Fitting Pipelines...`;
+        document.getElementById('trainStatusBadge').textContent = 'Training in progress...';
+
+        fetch('{{ url_for("ml.train_classification") }}', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ with_zone: withZone })
+        })
+        .then(res => res.json())
+        .then(data => {
+            trainBtn.disabled = false;
+            trainBtn.innerHTML = `<i class="bi bi-play-circle me-1"></i>Train Pipelines & Compute Metrics`;
+
+            if (!data.success) {
+                alert(data.error);
+                document.getElementById('trainStatusBadge').textContent = 'Training Failed';
+                return;
+            }
+
+            document.getElementById('trainStatusBadge').textContent = `Trained: ${data.variant_label}`;
+            const tbody = document.getElementById('metricsTbody');
+            tbody.innerHTML = '';
+
+            for (const [name, m] of Object.entries(data.models)) {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="fw-bold font-sans">${name}</td>
+                    <td class="text-teal fw-semibold">${m.accuracy}</td>
+                    <td>${m.precision_macro}</td>
+                    <td>${m.recall_macro}</td>
+                    <td class="text-emerald fw-semibold">${m.f1_macro}</td>
+                    <td class="small font-monospace">${JSON.stringify(m.confusion_matrix)}</td>
+                `;
+                tbody.appendChild(tr);
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            trainBtn.disabled = false;
+        });
+    });
+
+    // 2. Predict AST
+    const predictBtn = document.getElementById('predictBtn');
+    predictBtn.addEventListener('click', () => {
+        const org = document.getElementById('predOrg').value;
+        const abEl = document.getElementById('predAb');
+        const ab = abEl.value;
+        const abClass = abEl.selectedOptions[0].getAttribute('data-class');
+        const conc = parseFloat(document.getElementById('predConc').value);
+        const zoneVal = document.getElementById('predZone').value;
+        const zone = zoneVal ? parseFloat(zoneVal) : null;
+
+        fetch('{{ url_for("ml.predict_endpoint") }}', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                organism: org,
+                antibiotic: ab,
+                antibiotic_class: abClass,
+                concentration: conc,
+                zone_diameter_mm: zone
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (!data.success) {
+                alert(data.error);
+                return;
+            }
+            const box = document.getElementById('predResultBox');
+            box.classList.remove('d-none');
+            const badge = document.getElementById('predBadge');
+            badge.textContent = data.prediction;
+            if (data.prediction === 'S') badge.className = 'badge bg-success font-monospace fs-6';
+            else if (data.prediction === 'I') badge.className = 'badge bg-warning font-monospace fs-6';
+            else badge.className = 'badge bg-danger font-monospace fs-6';
+
+            let probStr = 'Probabilities: ';
+            for (const [cls, p] of Object.entries(data.probabilities)) {
+                probStr += `${cls}: ${p}%  ·  `;
+            }
+            document.getElementById('probBreakdown').textContent = probStr.slice(0, -5);
+        })
+        .catch(console.error);
+    });
+});
+</script>
+{% endblock %}

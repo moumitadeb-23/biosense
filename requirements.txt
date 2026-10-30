@@ -1,0 +1,23 @@
+Flask==2.3.3
+Flask-SQLAlchemy==2.5.1
+Flask-Login==0.6.3
+Flask-WTF==1.1.1
+Werkzeug==2.3.8
+SQLAlchemy==1.4.53
+python-dotenv==1.0.0
+WTForms==3.3.1
+
+# Scientific and Machine Learning Libraries
+numpy==2.2.6
+pandas==2.3.3
+scipy==1.18.0
+scikit-learn==1.9.0
+joblib==1.5.3
+
+# Visualization & Reporting
+matplotlib==3.11.0
+reportlab==5.0.0
+
+# Testing & WSGI Deployment
+pytest==8.4.2
+gunicorn==23.0.0

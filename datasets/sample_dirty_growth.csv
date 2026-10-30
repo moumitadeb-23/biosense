@@ -1,0 +1,45 @@
+experiment_id,organism,medium,temperature,ph,time_h,optical_density,data_source
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,0.0,-0.15,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,2.0,-0.15,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,4.0,-0.15,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,99.0,6.0,0.4811,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,99.0,8.0,0.8511,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,99.0,10.0,1.2113,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,-5.0,6.94,12.0,1.512,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,-5.0,6.94,14.0,1.6576,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,16.0,1.7138,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,18.0,1.7628,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,20.0,1.7635,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,22.0,1.7447,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,24.0,1.769,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,0.0,0.0268,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,2.0,0.1031,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,4.0,0.1611,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,6.0,0.3071,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,8.0,0.5484,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,10.0,0.8735,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,12.0,1.1768,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,14.0,1.4114,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,16.0,1.5571,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,18.0,1.6671,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,20.0,1.6613,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,22.0,1.6789,Synthetic – Demonstration Data
+2,Pseudomonas aeruginosa,Nutrient Agar,35.6,7.42,24.0,1.6827,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,0.0,0.021,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,2.0,0.1019,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,4.0,0.2304,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,6.0,0.4836,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,8.0,0.8582,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,10.0,1.2878,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,12.0,1.573,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,14.0,1.7231,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,16.0,1.7996,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,18.0,1.8142,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,20.0,1.8327,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,22.0,1.8257,Synthetic – Demonstration Data
+3,Klebsiella pneumoniae,LB Broth,37.9,7.28,24.0,1.8313,Synthetic – Demonstration Data
+4,Bacillus subtilis,Mueller-Hinton,35.9,6.64,0.0,0.0261,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,0.0,-0.15,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,2.0,-0.15,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,6.94,4.0,-0.15,Synthetic – Demonstration Data
+1,Staphylococcus aureus,Mueller-Hinton,37.5,99.0,6.0,0.4811,Synthetic – Demonstration Data
