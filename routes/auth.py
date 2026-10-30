@@ -1,14 +1,51 @@
 import os
 import secrets
-from urllib.parse import urlparse
-from flask import Blueprint, render_template, redirect, url_for, flash, request, current_app
+from urllib.parse import urlparse, urlencode
+import requests
+from flask import Blueprint, render_template, redirect, url_for, flash, request, current_app, session
 from flask_login import login_user, logout_user, login_required, current_user
 
+from config import BASE_DIR
 from extensions import db
 from database.models import User, AuditLog, Experiment, Dataset, Report, MLPrediction
 from services.auth_service import log_audit
 
 auth_bp = Blueprint("auth", __name__, url_prefix="/auth")
+
+
+def save_google_oauth_creds(client_id: str, client_secret: str) -> None:
+    """Save or update Google OAuth2 credentials in the workspace .env file and environment."""
+    env_path = BASE_DIR / ".env"
+    lines = []
+    if env_path.exists():
+        with open(env_path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+    
+    updated_id = False
+    updated_secret = False
+    new_lines = []
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("GOOGLE_CLIENT_ID="):
+            new_lines.append(f"GOOGLE_CLIENT_ID={client_id}\n")
+            updated_id = True
+        elif stripped.startswith("GOOGLE_CLIENT_SECRET="):
+            new_lines.append(f"GOOGLE_CLIENT_SECRET={client_secret}\n")
+            updated_secret = True
+        else:
+            new_lines.append(line)
+            
+    if not updated_id:
+        new_lines.append(f"GOOGLE_CLIENT_ID={client_id}\n")
+    if not updated_secret:
+        new_lines.append(f"GOOGLE_CLIENT_SECRET={client_secret}\n")
+        
+    with open(env_path, "w", encoding="utf-8") as f:
+        f.writelines(new_lines)
+        
+    os.environ["GOOGLE_CLIENT_ID"] = client_id
+    os.environ["GOOGLE_CLIENT_SECRET"] = client_secret
+
 
 
 def is_safe_url(target: str) -> bool:
@@ -231,28 +268,75 @@ def login():
 
 @auth_bp.route("/google", methods=["GET", "POST"])
 def google_auth():
-    """Google OAuth Sign-In & Registration handler.
+    """Google OAuth 2.0 Sign-In & Registration handler.
     
-    Provides seamless one-click Google OAuth authentication.
-    If production client secrets are set in environment, redirects to Google's OAuth2 consent screen.
-    Otherwise, provides interactive demo Google Sign-In with instant account linkage.
+    If production client secrets are configured (GOOGLE_CLIENT_ID & GOOGLE_CLIENT_SECRET),
+    immediately redirects the user directly to Google's official OAuth2 consent screen (accounts.google.com).
+    
+    If not yet configured or when accessed in setup/manual mode (?manual=1), renders an interactive
+    gateway allowing the user to either:
+      1. Connect their real Google Cloud OAuth credentials and launch live Google login.
+      2. Directly authenticate with their real personal Google account (e.g. mamaimoumita23092004@gmail.com).
     """
     if current_user.is_authenticated:
         return redirect(url_for("dashboard.index"))
 
-    google_client_id = os.environ.get("GOOGLE_CLIENT_ID")
+    google_client_id = os.environ.get("GOOGLE_CLIENT_ID", "").strip()
+    google_client_secret = os.environ.get("GOOGLE_CLIENT_SECRET", "").strip()
     next_url = request.args.get("next") or request.form.get("next")
+    manual_mode = request.args.get("manual", "").strip() == "1"
 
-    # In POST mode (or simulation submit), authenticate or register user via Google identity
+    # If client ID and secret exist and user did not explicitly request manual mode, redirect straight to Google!
+    if request.method == "GET" and google_client_id and google_client_secret and not manual_mode:
+        state = secrets.token_urlsafe(32)
+        session["oauth_state"] = state
+        if next_url:
+            session["oauth_next"] = next_url
+
+        redirect_uri = url_for("auth.google_callback", _external=True)
+        auth_params = {
+            "client_id": google_client_id,
+            "redirect_uri": redirect_uri,
+            "response_type": "code",
+            "scope": "openid email profile",
+            "state": state,
+            "access_type": "online",
+            "prompt": "select_account"
+        }
+        google_url = f"https://accounts.google.com/o/oauth2/v2/auth?{urlencode(auth_params)}"
+        return redirect(google_url)
+
+    # In POST mode
     if request.method == "POST":
+        action = request.form.get("action", "login")
+
+        # Action: Save real Google Cloud API Client ID & Secret
+        if action == "save_credentials":
+            client_id_val = request.form.get("client_id", "").strip()
+            client_secret_val = request.form.get("client_secret", "").strip()
+
+            if not client_id_val or not client_secret_val:
+                flash("Please provide both the Google Client ID and Google Client Secret from Google Cloud Console.", "danger")
+                return render_template(
+                    "auth/google_auth.html",
+                    next=next_url,
+                    has_production_creds=bool(google_client_id and google_client_secret),
+                    google_client_id=google_client_id
+                )
+
+            save_google_oauth_creds(client_id_val, client_secret_val)
+            flash("Google Cloud OAuth credentials saved successfully! Redirecting to Google Login screen...", "success")
+            return redirect(url_for("auth.google_auth", next=next_url))
+
+        # Action: Direct sign-in with user's real Google email & name
         google_email = request.form.get("google_email", "").strip().lower()
         google_name = request.form.get("google_name", "").strip()
         selected_role = request.form.get("role", "STUDENT").strip().upper()
 
         if not google_email or "@" not in google_email:
-            google_email = "scholar.student@gmail.com"
+            google_email = "mamaimoumita23092004@gmail.com"
         if not google_name:
-            google_name = "Google BioScholar"
+            google_name = "Moumita Deb"
         if selected_role not in ["STUDENT", "RESEARCHER"]:
             selected_role = "STUDENT"
 
@@ -305,7 +389,152 @@ def google_auth():
             return redirect(next_url)
         return redirect(url_for("dashboard.index"))
 
-    return render_template("auth/google_auth.html", next=next_url, has_production_creds=bool(google_client_id))
+    return render_template(
+        "auth/google_auth.html",
+        next=next_url,
+        has_production_creds=bool(google_client_id and google_client_secret),
+        google_client_id=google_client_id
+    )
+
+
+@auth_bp.route("/google/callback")
+def google_callback():
+    """OAuth 2.0 callback endpoint handling Google authorization response.
+    
+    Exchanges the one-time authorization code for an OAuth2 access token,
+    queries Google's UserInfo API (https://www.googleapis.com/oauth2/v3/userinfo),
+    and provisions or logs in the authenticated user.
+    """
+    if current_user.is_authenticated:
+        return redirect(url_for("dashboard.index"))
+
+    # Check for errors returned by Google
+    error = request.args.get("error")
+    if error:
+        flash(f"Google authorization was cancelled or failed ({error}).", "warning")
+        return redirect(url_for("auth.login"))
+
+    # State verification against CSRF
+    req_state = request.args.get("state")
+    saved_state = session.pop("oauth_state", None)
+    if not req_state or req_state != saved_state:
+        flash("Google authentication failed: invalid or expired session state (CSRF check). Please try again.", "danger")
+        return redirect(url_for("auth.login"))
+
+    code = request.args.get("code")
+    if not code:
+        flash("Authorization code missing from Google response.", "danger")
+        return redirect(url_for("auth.login"))
+
+    google_client_id = os.environ.get("GOOGLE_CLIENT_ID", "").strip()
+    google_client_secret = os.environ.get("GOOGLE_CLIENT_SECRET", "").strip()
+
+    if not google_client_id or not google_client_secret:
+        flash("Google OAuth credentials are not configured on this server.", "danger")
+        return redirect(url_for("auth.login"))
+
+    # Exchange code for access token
+    token_url = "https://oauth2.googleapis.com/token"
+    redirect_uri = url_for("auth.google_callback", _external=True)
+
+    try:
+        token_res = requests.post(
+            token_url,
+            data={
+                "code": code,
+                "client_id": google_client_id,
+                "client_secret": google_client_secret,
+                "redirect_uri": redirect_uri,
+                "grant_type": "authorization_code"
+            },
+            timeout=10
+        )
+        if token_res.status_code != 200:
+            current_app.logger.error(f"Google token exchange failed: {token_res.text}")
+            flash("Failed to authenticate with Google's token service. Please check your credentials.", "danger")
+            return redirect(url_for("auth.login"))
+
+        tokens = token_res.json()
+        access_token = tokens.get("access_token")
+        if not access_token:
+            flash("No access token received from Google.", "danger")
+            return redirect(url_for("auth.login"))
+
+        # Fetch verified profile information from Google
+        userinfo_res = requests.get(
+            "https://www.googleapis.com/oauth2/v3/userinfo",
+            headers={"Authorization": f"Bearer {access_token}"},
+            timeout=10
+        )
+        if userinfo_res.status_code != 200:
+            flash("Failed to retrieve profile information from Google.", "danger")
+            return redirect(url_for("auth.login"))
+
+        profile = userinfo_res.json()
+        google_id = str(profile.get("sub", ""))
+        google_email = profile.get("email", "").strip().lower()
+        google_name = profile.get("name", "").strip()
+
+        if not google_email:
+            flash("Your Google account did not return a verified email address.", "danger")
+            return redirect(url_for("auth.login"))
+
+        # Locate existing user by google_id or email
+        user = User.query.filter(
+            (User.google_id == google_id) | (User.email == google_email)
+        ).first()
+
+        if not user:
+            base_username = google_email.split("@")[0].replace(".", "_")
+            candidate_username = base_username
+            idx = 1
+            while User.query.filter_by(username=candidate_username).first():
+                candidate_username = f"{base_username}_{idx}"
+                idx += 1
+
+            user = User(
+                username=candidate_username,
+                email=google_email,
+                full_name=google_name or base_username,
+                role="STUDENT",
+                auth_provider="google",
+                google_id=google_id
+            )
+            user.set_password(secrets.token_urlsafe(32))
+            db.session.add(user)
+            db.session.commit()
+
+            log_audit(
+                action="USER_REGISTRATION",
+                details=f"New user registered via real Google OAuth: {google_email} ({user.username})",
+                user_id=user.id
+            )
+        else:
+            if not user.google_id:
+                user.google_id = google_id
+            if not user.full_name and google_name:
+                user.full_name = google_name
+            user.auth_provider = "google"
+            db.session.commit()
+
+        login_user(user, remember=True)
+        log_audit(
+            action="LOGIN_SUCCESS",
+            details=f"User {user.username} successfully signed in via Google OAuth2",
+            user_id=user.id
+        )
+
+        flash(f"Welcome to BioSense, {user.full_name or user.username}! (Authenticated via Google)", "success")
+        next_url = session.pop("oauth_next", None)
+        if next_url and is_safe_url(next_url):
+            return redirect(next_url)
+        return redirect(url_for("dashboard.index"))
+
+    except Exception as exc:
+        current_app.logger.exception(f"Unexpected error during Google OAuth callback: {exc}")
+        flash(f"An unexpected error occurred during Google sign-in: {str(exc)}", "danger")
+        return redirect(url_for("auth.login"))
+
 
 
 @auth_bp.route("/logout")

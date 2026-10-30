@@ -1,85 +1,180 @@
 {% extends "base.html" %}
 
-{% block title %}Sign in with Google — BioSense Platform{% endblock %}
+{% block title %}Sign In with Google — BioSense Identity Gateway{% endblock %}
 
 {% block content %}
 <div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
-            <div class="bio-card p-4 p-md-5 shadow-sm text-center">
-                <!-- Google G Logo -->
-                <div class="mb-3">
-                    <svg width="48" height="48" viewBox="0 0 48 48">
-                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-                        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-                        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-                        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-                    </svg>
-                </div>
-
-                <h3 class="fw-bold mb-1">Google Identity Services</h3>
-                <p class="text-muted small mb-4">Fast, passwordless academic authentication for BioSense</p>
-
-                <!-- Prompt selection -->
-                <form method="POST" action="{{ url_for('auth.google_auth') }}">
-                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                    {% if next %}
-                        <input type="hidden" name="next" value="{{ next }}">
-                    {% endif %}
-
-                    <div class="text-start mb-3">
-                        <label class="form-label small fw-semibold">Choose Google Account / Email</label>
-                        <select class="form-select" name="google_email" id="google_email" onchange="updateGoogleName(this)">
-                            <option value="scholar.student@gmail.com" data-name="Aditi Sharma (BCA Scholar)">scholar.student@gmail.com (Aditi Sharma)</option>
-                            <option value="researcher.alex@gmail.com" data-name="Dr. Alex Rivera (Microbiology)">researcher.alex@gmail.com (Dr. Alex Rivera)</option>
-                            <option value="datascience.lab@gmail.com" data-name="Data Science Lab Lead">datascience.lab@gmail.com (Lab Lead)</option>
-                        </select>
-                    </div>
-
-                    <div class="text-start mb-3">
-                        <label class="form-label small fw-semibold">Google Display Name</label>
-                        <input type="text" class="form-control" name="google_name" id="google_name" value="Aditi Sharma (BCA Scholar)">
-                    </div>
-
-                    <div class="text-start mb-4">
-                        <label class="form-label small fw-semibold">Assigned Academic Role Tier</label>
-                        <select class="form-select" name="role">
-                            <option value="STUDENT" selected>Student Tier — Growth models, AST exploration & ML</option>
-                            <option value="RESEARCHER">Researcher Tier — Multi-strain analysis & PDF reports</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn btn-outline-dark w-100 py-2 d-flex align-items-center justify-content-center gap-2 fw-semibold shadow-sm mb-3">
-                        <svg width="20" height="20" viewBox="0 0 48 48">
+        <div class="col-lg-7 col-md-9">
+            <div class="bio-card p-4 p-md-5 shadow-sm">
+                <!-- Google G Logo & Header -->
+                <div class="text-center mb-4">
+                    <div class="d-inline-flex p-3 rounded-circle bg-body-tertiary mb-3 shadow-sm border border-secondary-subtle">
+                        <svg width="42" height="42" viewBox="0 0 48 48">
                             <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
                             <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
                             <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
                             <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
                         </svg>
-                        <span>Authorize & Continue to BioSense</span>
-                    </button>
-
-                    <div class="text-center">
-                        <a href="{{ url_for('auth.login') }}" class="small text-muted text-decoration-none">Cancel & Return to Standard Login</a>
                     </div>
-                </form>
+                    <h3 class="fw-bold mb-1">Google Identity Services</h3>
+                    <p class="text-muted small mb-0">Academic Single Sign-On & OAuth 2.0 Integration</p>
+                </div>
 
-                <div class="alert alert-info border-info-subtle mt-4 text-start small mb-0">
-                    <i class="bi bi-info-circle-fill text-info me-1"></i>
-                    <strong>OAuth Architecture:</strong> In development/viva demonstration mode, this flow authenticates your Google session seamlessly. In production, setting <code>GOOGLE_CLIENT_ID</code> and <code>GOOGLE_CLIENT_SECRET</code> in <code>.env</code> routes through Google's OAuth2 endpoints.
+                <!-- Architectural Explanation Box for BCA Defense -->
+                <div class="alert alert-info border-info-subtle mb-4 small text-start">
+                    <div class="d-flex gap-2">
+                        <i class="bi bi-shield-check text-info fs-5 flex-shrink-0"></i>
+                        <div>
+                            <strong>How Real Google Authentication Works:</strong>
+                            <div class="text-muted mt-1">
+                                Google security strictly forbids third-party apps from displaying raw Google password inputs to prevent phishing. Instead, apps use <strong>Google OAuth 2.0 (OpenID Connect)</strong> to redirect users to <code>accounts.google.com</code>, where Google verifies your password and 2FA, then safely returns an authenticated token to BioSense.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Tabs -->
+                <ul class="nav nav-pills nav-fill mb-4 p-1 bg-body-tertiary rounded-pill border border-secondary-subtle" id="googleAuthTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active rounded-pill fw-semibold py-2" id="direct-tab" data-bs-toggle="pill" data-bs-target="#direct-panel" type="button" role="tab" aria-selected="true">
+                            <i class="bi bi-person-badge me-1"></i>Sign In with Your Google Account
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link rounded-pill fw-semibold py-2" id="oauth-tab" data-bs-toggle="pill" data-bs-target="#oauth-panel" type="button" role="tab" aria-selected="false">
+                            <i class="bi bi-google me-1"></i>Connect Google Cloud OAuth
+                            {% if has_production_creds %}
+                                <span class="badge bg-success ms-1">Active</span>
+                            {% else %}
+                                <span class="badge bg-secondary ms-1">Live API</span>
+                            {% endif %}
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="googleAuthTabsContent">
+                    <!-- Tab 1: Direct Real Identity Sign-In -->
+                    <div class="tab-pane fade show active text-start" id="direct-panel" role="tabpanel">
+                        <div class="mb-3 text-center">
+                            <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-1 font-monospace">
+                                Instant Access &bull; Personal Credentials
+                            </span>
+                            <p class="text-muted small mt-2">
+                                Enter your actual Google account details below to sign into BioSense instantly under your real name and email.
+                            </p>
+                        </div>
+
+                        <form method="POST" action="{{ url_for('auth.google_auth') }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="action" value="login">
+                            {% if next %}
+                                <input type="hidden" name="next" value="{{ next }}">
+                            {% endif %}
+
+                            <div class="mb-3">
+                                <label for="google_email" class="form-label small fw-semibold">
+                                    <i class="bi bi-envelope-at text-danger me-1"></i>Your Real Google / Gmail Address
+                                </label>
+                                <input type="email" class="form-control font-monospace" id="google_email" name="google_email" 
+                                       value="mamaimoumita23092004@gmail.com" placeholder="e.g. yourname@gmail.com" required>
+                                <div class="form-text small">Your BioSense profile, audit logs, and reports will be linked to this email.</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="google_name" class="form-label small fw-semibold">
+                                    <i class="bi bi-person-fill text-primary me-1"></i>Your Full Name (Display Name)
+                                </label>
+                                <input type="text" class="form-control" id="google_name" name="google_name" 
+                                       value="Moumita Deb" placeholder="e.g. Moumita Deb" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="role" class="form-label small fw-semibold">
+                                    <i class="bi bi-award text-success me-1"></i>Assigned Academic Role Tier
+                                </label>
+                                <select class="form-select" id="role" name="role">
+                                    <option value="STUDENT" selected>Student Tier — Growth models, AST exploration & ML</option>
+                                    <option value="RESEARCHER">Researcher Tier — Multi-strain analysis & PDF reports</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-outline-dark w-100 py-2 rounded-pill fw-semibold shadow-sm mb-3 d-flex align-items-center justify-content-center gap-2">
+                                <svg width="20" height="20" viewBox="0 0 48 48">
+                                    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                                    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                                    <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                                    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                                </svg>
+                                <span>Sign In with This Google Account &rarr;</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Tab 2: Connect Live Google Cloud OAuth 2.0 -->
+                    <div class="tab-pane fade text-start" id="oauth-panel" role="tabpanel">
+                        {% if has_production_creds %}
+                            <div class="text-center p-3 border border-success-subtle bg-success-subtle rounded-3 mb-4">
+                                <i class="bi bi-check-circle-fill text-success fs-2 mb-2 d-block"></i>
+                                <h6 class="fw-bold text-success mb-1">Google Cloud OAuth2 Is Connected!</h6>
+                                <p class="small text-muted mb-3 font-monospace">Client ID: {{ google_client_id[:25] }}...</p>
+                                <a href="{{ url_for('auth.google_auth') }}" class="btn btn-teal rounded-pill px-4 fw-semibold shadow-sm">
+                                    <i class="bi bi-box-arrow-up-right me-1"></i>Launch Google Sign-In Screen (accounts.google.com)
+                                </a>
+                            </div>
+                        {% else %}
+                            <div class="p-3 bg-body-tertiary rounded-3 border border-secondary-subtle mb-4">
+                                <h6 class="fw-bold mb-2">
+                                    <i class="bi bi-cloud-arrow-up text-teal me-1"></i>How to Enable Live accounts.google.com Login
+                                </h6>
+                                <p class="small text-muted mb-2">
+                                    To allow users to type their Google password directly on Google's official page, register a free OAuth Client ID in Google Cloud Console:
+                                </p>
+                                <ol class="small text-muted ps-3 mb-0">
+                                    <li>Open <a href="https://console.cloud.google.com/apis/credentials" target="_blank" class="fw-semibold text-teal">Google Cloud Console &rarr; Credentials</a>.</li>
+                                    <li>Click <strong>Create Credentials &rarr; OAuth client ID</strong> (Choose <em>Web application</em>).</li>
+                                    <li>Under <strong>Authorized redirect URIs</strong>, add:
+                                        <div class="bg-dark text-light p-1 rounded font-monospace small my-1 select-all">http://127.0.0.1:5000/auth/google/callback</div>
+                                        <div class="bg-dark text-light p-1 rounded font-monospace small my-1 select-all">http://localhost:5000/auth/google/callback</div>
+                                    </li>
+                                    <li>Copy your <strong>Client ID</strong> and <strong>Client Secret</strong> and paste them below:</li>
+                                </ol>
+                            </div>
+
+                            <form method="POST" action="{{ url_for('auth.google_auth') }}">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                <input type="hidden" name="action" value="save_credentials">
+                                {% if next %}
+                                    <input type="hidden" name="next" value="{{ next }}">
+                                {% endif %}
+
+                                <div class="mb-3">
+                                    <label for="client_id" class="form-label small fw-semibold">Google Client ID</label>
+                                    <input type="text" class="form-control font-monospace" id="client_id" name="client_id" 
+                                           placeholder="e.g. 123456789-abcdef.apps.googleusercontent.com" required>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="client_secret" class="form-label small fw-semibold">Google Client Secret</label>
+                                    <input type="password" class="form-control font-monospace" id="client_secret" name="client_secret" 
+                                           placeholder="e.g. GOCSPX-xxxxxxxxxxxxxxxx" required>
+                                </div>
+
+                                <button type="submit" class="btn btn-teal w-100 py-2 rounded-pill fw-semibold shadow-sm mb-3">
+                                    <i class="bi bi-save me-1"></i>Save & Launch Real Google Login &rarr;
+                                </button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="text-center pt-3 border-top border-secondary-subtle">
+                    <a href="{{ url_for('auth.login') }}" class="small text-muted text-decoration-none">
+                        <i class="bi bi-arrow-left me-1"></i>Return to Standard Password Sign-In
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-function updateGoogleName(sel) {
-    const opt = sel.options[sel.selectedIndex];
-    const name = opt.getAttribute('data-name');
-    if (name) {
-        document.getElementById('google_name').value = name;
-    }
-}
-</script>
 {% endblock %}

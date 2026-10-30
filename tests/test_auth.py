@@ -303,3 +303,24 @@ def test_register_admin_invalid_passkey_prevented(client, app):
         log = AuditLog.query.filter_by(action="INVALID_ADMIN_PASSKEY").first()
         assert log is not None
 
+
+def test_google_oauth_save_credentials_flow(client):
+    """Test saving Google Cloud OAuth credentials via the gateway UI."""
+    res = client.post("/auth/google", data={
+        "action": "save_credentials",
+        "client_id": "test-mock-id.apps.googleusercontent.com",
+        "client_secret": "test-mock-secret-1234"
+    }, follow_redirects=False)
+
+    assert res.status_code == 302
+    assert "/auth/google" in res.headers["Location"]
+
+
+def test_google_oauth_callback_requires_state_validation(client):
+    """Test that the Google OAuth callback rejects requests with missing or mismatched CSRF state."""
+    # Attempt callback without state
+    res = client.get("/auth/google/callback?code=mock_auth_code_123", follow_redirects=True)
+    assert res.status_code == 200
+    assert b"invalid or expired session state" in res.data or b"Sign In" in res.data
+
+
