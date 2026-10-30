@@ -2,12 +2,20 @@
 
 > **Turning Biological Data into Intelligent Insights.**
 
+[![Live Demo on Render](https://img.shields.io/badge/Live%20Demo-biosense--sxf6.onrender.com-00c7b7?style=for-the-badge&logo=render&logoColor=white)](https://biosense-sxf6.onrender.com)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-moumitadeb--23%2Fbiosense-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/moumitadeb-23/biosense)
+
 [![Python Version](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue.svg)](https://www.python.org/)
 [![Framework](https://img.shields.io/badge/Framework-Flask%202.3-teal.svg)](https://palletsprojects.com/p/flask/)
 [![Machine Learning](https://img.shields.io/badge/ML-Scikit--Learn%20%7C%20SciPy-orange.svg)](https://scikit-learn.org/)
 [![Reporting](https://img.shields.io/badge/PDF-ReportLab%205.0-red.svg)](https://www.reportlab.com/)
-[![Testing](https://img.shields.io/badge/Tests-Pytest%20(41%20Passed)-brightgreen.svg)](https://pytest.org/)
+[![Testing](https://img.shields.io/badge/Tests-Pytest%20(52%20Passed)-brightgreen.svg)](https://pytest.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+> 🌐 **Live Web Application**: [**https://biosense-sxf6.onrender.com**](https://biosense-sxf6.onrender.com)  
+> 📖 **Master Project Documentation & Viva Handbook (PDF)**: [Download 9-Page PDF Dossier](https://biosense-sxf6.onrender.com/learn/download-handbook)  
+> 🎓 **Academic Provenance**: 4th-Year BCA (Data Science) Final-Year Major Project (2026) &bull; **Moumita Deb**
+
 
 ---
 
@@ -358,19 +366,32 @@ tests/test_susceptibility_analytics.py ...                               [100%]
 
 ---
 
-## 9. Cloud Deployment Guide (Render)
+## 9. Cloud Deployment & Live Production (Render)
 
-BioSense is configured for cloud deployment on **Render** (or Heroku) via `Procfile` and `render.yaml`.
+BioSense is deployed live on **Render PaaS** via automated GitHub continuous integration, powered by `Procfile`, `render.yaml`, and `gunicorn`.
 
-### Step-by-Step Render Deployment
-1. Push your repository to **GitHub**.
+### 🚀 Live Cloud Instance
+* **Production Application URL**: [**https://biosense-sxf6.onrender.com**](https://biosense-sxf6.onrender.com)
+* **Status**: 🟢 Active & Deployed (Render Oregon PaaS, Python 3.11 WSGI)
+* **Documentation Handbook (PDF)**: [Direct In-App Download](https://biosense-sxf6.onrender.com/learn/download-handbook)
+
+### 🔑 Pre-Seeded Academic Demo Accounts
+| Role Tier | Username / Identifier | Password | Permissions & Access Scope |
+| :--- | :--- | :--- | :--- |
+| **System Administrator** | `admin` | `BioSense123!` | Full governance, catalog curation, security audit logs |
+| **Research Scholar** | `researcher` | `BioSense123!` | Multi-strain kinetics, ANOVA/t-test, 13-section PDF generator |
+| **BCA Student** | `student` | `BioSense123!` | Exploratory AST visualizer, ML training, Verhulst simulation |
+| **Google SSO** | *Any personal Gmail* | *Passwordless* | Click **Continue with Google** for instant session access |
+
+### Re-Deploying to Your Own Cloud Account
+1. Push your repository to **GitHub**: `https://github.com/moumitadeb-23/biosense`
 2. Log into [Render Dashboard](https://dashboard.render.com/) and click **New > Blueprint**.
-3. Select your GitHub repository. Render automatically reads `render.yaml`.
+3. Select your repository. Render automatically detects `render.yaml`.
 4. Configure required Environment Variables:
    * `FLASK_ENV`: `production`
    * `SECRET_KEY`: Set a cryptographically secure random string.
-   * `DATABASE_URL`: Defaults to `sqlite:///biosense.db` or connect to Render's Managed PostgreSQL database.
-5. Click **Apply Blueprint**. Render will build dependencies, run database seeds, and launch **Gunicorn**:
+   * `DATABASE_URL`: Defaults to `sqlite:///biosense.db`.
+5. Click **Apply Blueprint**. Render builds dependencies, runs database seeds, and launches **Gunicorn**:
    ```bash
    gunicorn "app:create_app()"
    ```
@@ -381,6 +402,8 @@ BioSense is configured for cloud deployment on **Render** (or Heroku) via `Procf
 
 A comprehensive viva examination guide with **35 technical questions and concise answers** is provided in:
 👉 **[`docs/VIVA_QA.md`](docs/VIVA_QA.md)**
+
+A formal **9-Page Master Project Documentation & Viva Defense Handbook** can also be downloaded directly from the live deployment at [**https://biosense-sxf6.onrender.com/learn/download-handbook**](https://biosense-sxf6.onrender.com/learn/download-handbook).
 
 Key viva discussion topics covered in the project:
 * **Target Leakage**: Why including `zone_diameter_mm` creates an artificial 100% accuracy model and how Variant B demonstrates genuine biological predictive modeling.
@@ -398,10 +421,11 @@ Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
 If you use BioSense in your academic coursework or research, please cite:
 ```bibtex
 @misc{biosense2026,
-  author = {BioSense Contributors},
+  author = {Moumita Deb},
   title = {BioSense: Intelligent Microbial Growth & Antibiotic Susceptibility Analytics Platform},
   year = {2026},
   publisher = {GitHub},
-  howpublished = {\url{https://github.com/yourusername/biosense}}
+  howpublished = {\url{https://github.com/moumitadeb-23/biosense}},
+  note = {Live platform: \url{https://biosense-sxf6.onrender.com}}
 }
 ```
