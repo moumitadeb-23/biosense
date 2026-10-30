@@ -4,7 +4,8 @@ Provides interactive science guides, mathematical formula sandboxes,
 35 viva examination questions and answers, interactive quizzes, and a biological glossary.
 """
 
-from flask import Blueprint, render_template, jsonify, request
+from flask import Blueprint, render_template, jsonify, request, send_file, current_app
+import os
 
 learn_bp = Blueprint("learn", __name__, url_prefix="/learn")
 
@@ -330,3 +331,20 @@ def get_viva_qa():
 def get_quiz():
     """Return interactive quiz questions."""
     return jsonify({"questions": VIVA_QUIZ})
+
+
+@learn_bp.route("/download-handbook")
+def download_handbook():
+    """Download the publication-grade 9-page Master Project Documentation & Viva Defense Handbook PDF."""
+    pdf_path = os.path.join(current_app.root_path, "static", "docs", "BioSense_Project_Documentation_and_Viva_Defense_Handbook.pdf")
+
+    if not os.path.exists(pdf_path):
+        from scripts.generate_documentation_pdf import build_handbook_pdf
+        build_handbook_pdf(pdf_path)
+
+    return send_file(
+        pdf_path,
+        mimetype="application/pdf",
+        as_attachment=True,
+        download_name="BioSense_Master_Project_Documentation_and_Viva_Defense_Handbook.pdf"
+    )

@@ -22,7 +22,7 @@
             </p>
 
             <!-- Quick Metrics Grid -->
-            <div class="row g-2 text-center text-md-start">
+            <div class="row g-2 text-center text-md-start mb-4">
                 <div class="col-6 col-md-3">
                     <div class="p-2 rounded bg-body-tertiary border">
                         <span class="small text-muted d-block font-monospace" style="font-size: 0.7rem;">GROWTH PHASES</span>
@@ -47,6 +47,17 @@
                         <span class="fw-bold text-emerald font-monospace">Step-by-Step</span>
                     </div>
                 </div>
+            </div>
+
+            <!-- Master Documentation PDF Download Callout -->
+            <div class="d-flex flex-wrap align-items-center gap-3 pt-2 border-top border-secondary-subtle">
+                <a href="{{ url_for('learn.download_handbook') }}" class="btn btn-teal rounded-pill px-4 py-2 fw-semibold shadow d-inline-flex align-items-center gap-2">
+                    <i class="bi bi-file-earmark-pdf-fill fs-5"></i>
+                    <span>Download Master Project Documentation (PDF)</span>
+                </a>
+                <span class="badge bg-body border font-monospace text-muted py-2 px-3">
+                    <i class="bi bi-check-circle-fill text-success me-1"></i>9-Page Comprehensive Defense Handbook
+                </span>
             </div>
         </div>
     </div>
