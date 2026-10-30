@@ -61,3 +61,13 @@ def test_quiz_api_endpoint(client):
     assert "answer" in first_q
     assert isinstance(first_q["answer"], int)
     assert "explanation" in first_q
+
+
+def test_download_handbook_pdf(client):
+    """Test that the master documentation and viva handbook PDF can be downloaded."""
+    res = client.get("/learn/download-handbook")
+    assert res.status_code == 200
+    assert "application/pdf" in res.headers["Content-Type"]
+    assert "BioSense_Master_Project_Documentation_and_Viva_Defense_Handbook.pdf" in res.headers.get("Content-Disposition", "")
+    assert len(res.data) > 50000  # Multi-page comprehensive handbook
+
