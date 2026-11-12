@@ -348,3 +348,20 @@ def download_handbook():
         as_attachment=True,
         download_name="BioSense_Master_Project_Documentation_and_Viva_Defense_Handbook.pdf"
     )
+
+
+@learn_bp.route("/download-source-zip")
+def download_source_zip():
+    """Download the complete zipped project package (for teammates and offline review)."""
+    zip_path = os.path.join(current_app.root_path, "static", "downloads", "BioSense_Project_Complete.zip")
+    if not os.path.exists(zip_path):
+        from scripts.create_project_zip import main as generate_zip
+        generate_zip()
+
+    return send_file(
+        zip_path,
+        mimetype="application/zip",
+        as_attachment=True,
+        download_name="BioSense_Project_Complete.zip"
+    )
+

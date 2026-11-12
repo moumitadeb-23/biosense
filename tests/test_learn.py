@@ -71,3 +71,13 @@ def test_download_handbook_pdf(client):
     assert "BioSense_Master_Project_Documentation_and_Viva_Defense_Handbook.pdf" in res.headers.get("Content-Disposition", "")
     assert len(res.data) > 50000  # Multi-page comprehensive handbook
 
+
+def test_download_source_zip(client):
+    """Test that the complete zipped project package can be downloaded."""
+    res = client.get("/learn/download-source-zip")
+    assert res.status_code == 200
+    assert "application/zip" in res.headers["Content-Type"]
+    assert "BioSense_Project_Complete.zip" in res.headers.get("Content-Disposition", "")
+    assert len(res.data) > 500000  # Should be several megabytes
+
+
